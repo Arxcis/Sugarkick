@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class movePlayer : MonoBehaviour {
-	
+	//hello Testing
 	Transform transPlayer;
 	Vector3 UP    = new Vector3(  0, 1 );    // Since unity works in 3 dimensions we have to
 	Vector3 DOWN  = new Vector3(  0,-1 );    // create a Vector3 x,y,z, even though we do not
