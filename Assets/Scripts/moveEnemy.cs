@@ -4,10 +4,13 @@ using System.Collections;
 public class moveEnemy : MonoBehaviour {
 
     public float moveSpeed = 0.1f;                                  //Movement speed modifier.
+    public int enemyRuteCalcRate = 20;                              //Number of frames between each vector update.
+    int framesCounted = 0;                                          //counts frames since last vector update.
     Transform tfEnemy;
     Animator aniEnemy;
     public Transform tfPlayer;                                      //Targets the players tansform.
     Vector3 vectorToPlayer;
+
 
     // Use this for initialization
     void Start ()
@@ -18,12 +21,17 @@ public class moveEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-    {     
-        //need to put in a line that calculates the vector to the player in a 0-1 perimeter and multiply it by movespeed
-//        vectorToPlayer = new Vector3((tfPlayer.position.x - tfEnemy.position.x), (tfPlayer.position.y - tfEnemy.position.y));
-        
+    {
 
-        tfEnemy.position += new Vector3(moveSpeed, 0);              //Moves enemy moveSpeed in x axis.
+        if (framesCounted == enemyRuteCalcRate)
+        {
+            vectorToPlayer = new Vector3(Mathf.Sin(tfPlayer.position.x - tfEnemy.position.x) * moveSpeed,
+                                         Mathf.Cos(tfPlayer.position.y - tfEnemy.position.y) * moveSpeed);
+            framesCounted = 0;
+        }
+        else framesCounted++;
+
+        tfEnemy.position += vectorToPlayer;              //Moves enemy moveSpeed in x axis.
         aniEnemy.SetFloat("Speed", Mathf.Abs(moveSpeed));           //Updates animator. So it knows when its moving.
 	}
 }
