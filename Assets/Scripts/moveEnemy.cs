@@ -25,8 +25,9 @@ public class moveEnemy : MonoBehaviour {
 
         if (framesCounted == enemyRuteCalcRate)
         {
-            vectorToPlayer = new Vector3(Mathf.Sin(tfPlayer.position.x - tfEnemy.position.x) * moveSpeed,
-                                         Mathf.Cos(tfPlayer.position.y - tfEnemy.position.y) * moveSpeed);
+            vectorToPlayer = new Vector3((tfEnemy.position.x - tfPlayer.position.x) * moveSpeed,
+                                         (tfEnemy.position.y - tfPlayer.position.y) * moveSpeed);
+            vectorToPlayer = -vectorToPlayer;
             framesCounted = 0;
         }
         else framesCounted++;

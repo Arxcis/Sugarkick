@@ -429,8 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f93f110fdb6334f8b8702504c0d828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.05
-  enemyRuteCalcRate: 40
+  moveSpeed: 0.01
+  enemyRuteCalcRate: 2
   tfPlayer: {fileID: 2068717642}
 --- !u!1 &2068717639
 GameObject:
