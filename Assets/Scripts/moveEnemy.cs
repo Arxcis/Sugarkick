@@ -24,7 +24,8 @@ public class moveEnemy : MonoBehaviour {
     {
 
         if (framesCounted == enemyRuteCalcRate)
-        {
+        {													// Calculates length between player and enemy and
+														    // and moves the player by a factor of this distance.
             vectorToPlayer = new Vector3((tfEnemy.position.x - tfPlayer.position.x) * moveSpeed,
                                          (tfEnemy.position.y - tfPlayer.position.y) * moveSpeed);
             vectorToPlayer = -vectorToPlayer;
@@ -32,7 +33,7 @@ public class moveEnemy : MonoBehaviour {
         }
         else framesCounted++;
 
-        tfEnemy.position += vectorToPlayer;              //Moves enemy moveSpeed in x axis.
+        tfEnemy.position += vectorToPlayer;                         //Moves enemy moveSpeed in x axis.
         aniEnemy.SetFloat("Speed", Mathf.Abs(moveSpeed));           //Updates animator. So it knows when its moving.
 	}
 }
