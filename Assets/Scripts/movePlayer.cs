@@ -1,9 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class movePlayer : MonoBehaviour {
-	//hello Testing
-	Transform transPlayer;
+    //hello Testing
+    
+public float playerSpeed = 0.25f;
+
+    Transform transPlayer;
 	Vector3 UP    = new Vector3(  0, 1 );    // Since unity works in 3 dimensions we have to
 	Vector3 DOWN  = new Vector3(  0,-1 );    // create a Vector3 x,y,z, even though we do not
 	Vector3 RIGHT = new Vector3(  1, 0 );    // care about the z.
@@ -19,21 +23,21 @@ public class movePlayer : MonoBehaviour {
 
 		if (Input.GetKey ("up")) {
 			print ("up");
-			transPlayer.position += UP;
+			transPlayer.position += UP * playerSpeed;
 		}
 
 		if (Input.GetKey ("down")) {
 			print ("down");
-			transPlayer.position += DOWN;
+			transPlayer.position += DOWN * playerSpeed;
 		}
 
 		if (Input.GetKey ("left")) {
 			print ("left");
-			transPlayer.position += LEFT;
+			transPlayer.position += LEFT * playerSpeed;
 		}
 		if (Input.GetKey ("right")) {
 			print ("right");
-			transPlayer.position += RIGHT;
+			transPlayer.position += RIGHT * playerSpeed;
 		}
 
 	}
