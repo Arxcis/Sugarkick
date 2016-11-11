@@ -4,30 +4,45 @@ using System.Collections;
 public class gunRotation : MonoBehaviour {
 
     Transform gunTrans;
-    private GameObject targetObj;
+
     float gunAngle;
-    float xAxis;
-    float yAxis;
+    float xAxis = 0.0F;
+	float yAxis = 0.0F;
     public float rotationSpeed = 10;
+	Vector2 direction = new Vector2(0,0);
 
     // Use this for initialization
     void Start ()
     {
         gunTrans = GetComponent<Transform>();
-        targetObj = new GameObject("Aim");
     }
-	
+
 	// Update is called once per frame
 	void Update ()
-    {
-        yAxis = Input.GetAxis("Horizontal");
-        xAxis = Input.GetAxis("Vertical");
-        targetObj.transform.localPosition = new Vector2(xAxis, yAxis);
+    {	
+				// GetAxisRawMakes sure that input is not smoothed
+				// Keyboard buttons are either 1 and 0
+				// https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
+		yAxis = Input.GetAxisRaw("Horizontal");
+		xAxis = Input.GetAxisRaw("Vertical");
+	
+		direction.x = xAxis;
+		direction.y = yAxis;
 
-        gunTrans.LookAt(targetObj.transform);
+				// We have left to
+				// Prevent gun from resetting to default position each time the 
+				// player lets of the throttle
+		gunAngle = Vector2.Angle (Vector2.right, direction);
 
-        //gunAngle = Vector2.Angle(Vector2.right, new Vector2(xAxis, yAxis));
-        //(0, 0, gunAngle * rotationSpeed);
-        //(yAxis < 0)? new Vector3(0, 0, gunAngle) : new Vector3(0, 0, -gunAngle);
+		        // Vector2.angle() only outputs positive angles
+				// Depending on the configuration of x and y axis,
+				// in two cases we have to make the gunAngle negative
+		if (xAxis <  0 && yAxis >= 0) {    gunAngle *= -1;     }
+		if (xAxis >= 0 && yAxis >= 0) {    gunAngle *= -1;     }
+
+		Debug.Log("yAxis: " + yAxis + "  xAxis: " + xAxis + "  angle: " + gunAngle + '\n');
+				// eulerAngles can be assigned a Vector3
+		gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
+
     }
 }
