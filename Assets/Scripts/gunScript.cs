@@ -6,9 +6,10 @@ public class gunScript : MonoBehaviour {
 	// Accessing player
 	GameObject player; 
 
-	// Bools
+	// Types of recoil
 	public bool setPos = false;
 	public bool addForce = false;
+	public bool setVelocity = false;
 
 	// Rotation
     Transform gunTrans;
@@ -25,11 +26,15 @@ public class gunScript : MonoBehaviour {
 	public float knowckbackPow = 1.0F;
 	float cooldown = 0.0F;
 
+	// Misc.
+	Rigidbody2D rb;
+
     // Use this for initialization
     void Start ()
     {
 		player = gameObject.transform.parent.gameObject;
         gunTrans = GetComponent<Transform>();
+		rb = player.GetComponent<Rigidbody2D> ();
     }
 
 	// Update is called once per frame
@@ -38,8 +43,8 @@ public class gunScript : MonoBehaviour {
 				// GetAxisRawMakes sure that input is not smoothed
 				// Keyboard buttons are either 1 and 0
 				// https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
-		yAxis = Input.GetAxisRaw("Horizontal");
-		xAxis = Input.GetAxisRaw("Vertical");
+		yAxis = Input.GetAxisRaw("AimAxisX");
+		xAxis = Input.GetAxisRaw("AimAxisY");
 		if (yAxis != 0 || xAxis != 0){
 			direction.x = xAxis;
 			direction.y = yAxis;
@@ -65,15 +70,19 @@ public class gunScript : MonoBehaviour {
 		}
 
 
-		if (Input.GetButton ("Fire1") && cooldown <= 0) {
+		if (Input.GetButton ("Fire") && cooldown <= 0) {
 			print ("Firing!"); 
 
-			if(setPos){
-				player.GetComponent<Transform> ().position += new Vector3 (-1 * direction.y * (knowckbackPow / 100), -1 * direction.x * (knowckbackPow / 100), 0);
+			if (setPos) {
+				player.GetComponent<Transform> ().position += new Vector3 (-1 * direction.y * (knowckbackPow / 300), -1 * direction.x * (knowckbackPow / 300), 0);
 			}
-			//if(addForce){
-			//	player.GetComponent<rigidbody2D>().addForce(new Vector2 (-1 * direction.y * (knowckbackPow / 100), -1 * direction.x * (knowckbackPow / 100));
-			//}
+			if(addForce){
+				rb.AddForce(new Vector2 (-1 * direction.y * (knowckbackPow / 1), -1 * direction.x * (knowckbackPow / 1)));
+			}
+
+			if(setVelocity){
+				rb.velocity = (new Vector2 (-1 * direction.y * (knowckbackPow / 10), -1 * direction.x * (knowckbackPow / 10)));
+			}
 
 			cooldown += (100/fireRate);
 		}
