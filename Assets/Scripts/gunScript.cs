@@ -20,14 +20,18 @@ public class gunScript : MonoBehaviour {
 	Vector2 direction = new Vector2(0,0);
 
 	// Shooting
+	public GameObject bullets;
+	//Bullet missile;
+
 	public float damage = 1.0F;
 	public float fireRate = 10.0F;
 	public float accuracy = 100.0F;
-	public float knowckbackPow = 1.0F;
+	public float knockbackPow = 1.0F;
 	float cooldown = 0.0F;
 
 	// Misc.
 	Rigidbody2D rb;
+	float diagonalCompensator = 0.0F;
 
     // Use this for initialization
     void Start ()
@@ -73,16 +77,23 @@ public class gunScript : MonoBehaviour {
 		if (Input.GetButton ("Fire") && cooldown <= 0) {
 			print ("Firing!"); 
 
+
+			diagonalCompensator =  (1/(Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y)));
+
 			if (setPos) {
-				player.GetComponent<Transform> ().position += new Vector3 (-1 * direction.y * (knowckbackPow / 300), -1 * direction.x * (knowckbackPow / 300), 0);
+				player.GetComponent<Transform> ().position += new Vector3 (-1 * direction.y * (knockbackPow / 300) * diagonalCompensator, -1 * direction.x * (knockbackPow / 300) * diagonalCompensator, 0);
 			}
 			if(addForce){
-				rb.AddForce(new Vector2 (-1 * direction.y * (knowckbackPow / 1), -1 * direction.x * (knowckbackPow / 1)));
+				rb.AddForce(new Vector2 (-1 * direction.y * (knockbackPow / 1) * diagonalCompensator, -1 * direction.x * (knockbackPow / 1) * diagonalCompensator));
 			}
 
 			if(setVelocity){
-				rb.velocity = (new Vector2 (-1 * direction.y * (knowckbackPow / 10), -1 * direction.x * (knowckbackPow / 10)));
+				rb.velocity = (new Vector2 (-1 * direction.y * (knockbackPow / 10) * diagonalCompensator, -1 * direction.x * (knockbackPow / 10) * diagonalCompensator));
 			}
+
+			Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
+			//Missile clone = (Missile)Instantiate(missilePrefab(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
+
 
 			cooldown += (100/fireRate);
 		}
