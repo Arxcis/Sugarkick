@@ -60,7 +60,7 @@ public class gunScript : MonoBehaviour {
 			if (xAxis <  0 && yAxis >= 0) {    gunAngle *= -1;     }
 			if (xAxis >= 0 && yAxis >= 0) {    gunAngle *= -1;     }
 
-			Debug.Log("yAxis: " + yAxis + "  xAxis: " + xAxis + "  angle: " + gunAngle + '\n');
+			//Debug.Log("yAxis: " + yAxis + "  xAxis: " + xAxis + "  angle: " + gunAngle + '\n');
 					// eulerAngles can be assigned a Vector3
 			gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
 		}
