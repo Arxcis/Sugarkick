@@ -3,12 +3,11 @@ using System.Collections;
 
 public class Main : MonoBehaviour {
 
-	static int mapsize;
+	public int mapsize = 40;
 
 	// Use this for initialization
 	void Start () {
-
-		mapsize = 40;
+		
 	}
 	
 	// Update is called once per frame
