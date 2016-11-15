@@ -261,48 +261,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &588220955
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014150910200, guid: 166027a6628392445b068140d011ebdc, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 166027a6628392445b068140d011ebdc, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &790971422
 Prefab:
   m_ObjectHideFlags: 0
@@ -711,13 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdc303e49a49b144988252838f3a2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setPos: 1
-  addForce: 0
   rotationSpeed: 10
-  damage: 1
-  fireRate: 40
-  accuracy: 100
-  knowckbackPow: 70
 --- !u!212 &1692330741
 SpriteRenderer:
   m_ObjectHideFlags: 0
