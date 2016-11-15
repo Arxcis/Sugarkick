@@ -3,7 +3,10 @@ using System.Collections;
 
 public class gunScript : MonoBehaviour {
 
-	//Rotation
+	// Accessing player
+	GameObject player; 
+
+	// Rotation
     Transform gunTrans;
     float gunAngle;
     float xAxis = 0.0F;
@@ -11,7 +14,7 @@ public class gunScript : MonoBehaviour {
     public float rotationSpeed = 10.0F;
 	Vector2 direction = new Vector2(0,0);
 
-	//Shooting
+	// Shooting
 	public float damage = 1.0F;
 	public float fireRate = 10.0F;
 	public float accuracy = 100.0F;
@@ -19,6 +22,7 @@ public class gunScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+		player = gameObject.transform.parent.gameObject;
         gunTrans = GetComponent<Transform>();
     }
 
@@ -48,6 +52,11 @@ public class gunScript : MonoBehaviour {
 			Debug.Log("yAxis: " + yAxis + "  xAxis: " + xAxis + "  angle: " + gunAngle + '\n');
 					// eulerAngles can be assigned a Vector3
 			gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
+		}
+
+		if (Input.GetButton ("Fire1")) {
+			print ("Firing!");
+
 		}
 
     }
