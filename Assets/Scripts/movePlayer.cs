@@ -11,14 +11,15 @@ public float playerSpeed = 0.25f;
     Animator animPlayer;
     bool isWalking = false;
     Vector3 moveDirVector = new Vector2(0, 0);
+	Rigidbody2D rb;
+	public float friction = 0;
 	
 
 	// Use this for initialization
 	void Start () {
 		transPlayer = GetComponent<Transform>();
         animPlayer = GetComponentInChildren<Animator>();
-        
-        
+		rb = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame
@@ -35,5 +36,9 @@ public float playerSpeed = 0.25f;
         animPlayer.SetBool("isPlayerWalking", isWalking);
 
         Debug.Log("yMove: " + moveDirVector.y + "  xMove: " + moveDirVector.x + '\n');
+
+		if (rb.velocity.magnitude > 0) {
+			rb.velocity = rb.velocity * (1 / friction);
+		}
     }
 }
