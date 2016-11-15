@@ -23,8 +23,8 @@ public class gunRotation : MonoBehaviour {
 				// GetAxisRawMakes sure that input is not smoothed
 				// Keyboard buttons are either 1 and 0
 				// https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
-		yAxis = Input.GetAxisRaw("Horizontal");
-		xAxis = Input.GetAxisRaw("Vertical");
+		yAxis = Input.GetAxisRaw("AimAxisY");
+		xAxis = Input.GetAxisRaw("AimAxisX");
 	
 		direction.x = xAxis;
 		direction.y = yAxis;
@@ -32,7 +32,7 @@ public class gunRotation : MonoBehaviour {
 				// We have left to
 				// Prevent gun from resetting to default position each time the 
 				// player lets of the throttle
-		gunAngle = Vector2.Angle (Vector2.right, direction);
+		gunAngle = Vector2.Angle (Vector2.right, direction );
 
 		        // Vector2.angle() only outputs positive angles
 				// Depending on the configuration of x and y axis,
@@ -42,7 +42,7 @@ public class gunRotation : MonoBehaviour {
 
 		Debug.Log("yAxis: " + yAxis + "  xAxis: " + xAxis + "  angle: " + gunAngle + '\n');
 				// eulerAngles can be assigned a Vector3
-		gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
+		gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle - 90);
 
     }
 }
