@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gunRotation : MonoBehaviour {
+public class gunScript : MonoBehaviour {
 
+	//Rotation
     Transform gunTrans;
-
     float gunAngle;
     float xAxis = 0.0F;
 	float yAxis = 0.0F;
     public float rotationSpeed = 10.0F;
 	Vector2 direction = new Vector2(0,0);
+
+	//Shooting
+	public float damage = 1.0F;
+	public float fireRate = 10.0F;
+	public float accuracy = 100.0F;
 
     // Use this for initialization
     void Start ()
