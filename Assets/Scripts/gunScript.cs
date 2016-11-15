@@ -6,6 +6,10 @@ public class gunScript : MonoBehaviour {
 	// Accessing player
 	GameObject player; 
 
+	// Bools
+	public bool setPos = false;
+	public bool addForce = false;
+
 	// Rotation
     Transform gunTrans;
     float gunAngle;
@@ -18,6 +22,8 @@ public class gunScript : MonoBehaviour {
 	public float damage = 1.0F;
 	public float fireRate = 10.0F;
 	public float accuracy = 100.0F;
+	public float knowckbackPow = 1.0F;
+	float cooldown = 0.0F;
 
     // Use this for initialization
     void Start ()
@@ -54,9 +60,22 @@ public class gunScript : MonoBehaviour {
 			gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
 		}
 
-		if (Input.GetButton ("Fire1")) {
-			print ("Firing!");
+		if (cooldown > 0) {
+			cooldown--;
+		}
 
+
+		if (Input.GetButton ("Fire1") && cooldown <= 0) {
+			print ("Firing!"); 
+
+			if(setPos){
+				player.GetComponent<Transform> ().position += new Vector3 (-1 * direction.y * (knowckbackPow / 100), -1 * direction.x * (knowckbackPow / 100), 0);
+			}
+			//if(addForce){
+			//	player.GetComponent<rigidbody2D>().addForce(new Vector2 (-1 * direction.y * (knowckbackPow / 100), -1 * direction.x * (knowckbackPow / 100));
+			//}
+
+			cooldown += (100/fireRate);
 		}
 
     }
