@@ -669,8 +669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setPos: 1
-  addForce: 1
+  setPos: 0
+  addForce: 0
+  setVelocity: 1
   rotationSpeed: 10
   damage: 1
   fireRate: 50
