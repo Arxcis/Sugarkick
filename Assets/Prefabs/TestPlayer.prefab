@@ -185,10 +185,7 @@ MonoBehaviour:
   bullets: {fileID: 0}
   damage: 1
   accuracy: 100
-<<<<<<< HEAD:Assets/Prefabs/TestPlayer.prefab
   fireRate: 10
-  knockbackPow: 1
-=======
   knockbackPow: 1
 --- !u!114 &114000012085214588
 MonoBehaviour:
@@ -216,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541e9c30179dc6a45b28ea1aad9e6fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 97c846e3c2d0571dc674ffd00066ec1af7b79eee:Assets/Prefabs/TestPlayer2.prefab
 --- !u!212 &212000011320793586
 SpriteRenderer:
   m_ObjectHideFlags: 1
