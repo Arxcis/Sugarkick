@@ -21,14 +21,14 @@ public class gunScript : MonoBehaviour {
 	Vector2 direction = new Vector2(0,0);
 
 	// Shooting
-	public GameObject bullets;
+	//public GameObject bullets; (Jone): Unity complained that bullet wasn't defined. 
 	//Bullet missile;
 
 	public float damage = 1.0F;
-	public float fireRate = 10.0F;
 	public float accuracy = 100.0F;
-	public float knockbackPow = 1.0F;
-	float cooldown = 0.0F;
+    public float fireRate = 10;
+    public float knockbackPow = 200.0F;
+    float cooldown = 0;
 
 	// Misc.
 	Rigidbody2D rb;
@@ -43,7 +43,7 @@ public class gunScript : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         // GetAxisRawMakes sure that input is not smoothed
         // Keyboard buttons are either 1 and 0
@@ -78,7 +78,7 @@ public class gunScript : MonoBehaviour {
 		}
 
 
-		if (fire != 0 && cooldown <= 0) {
+		if (fire > 0.4 && cooldown <= 0) {
 			print ("Firing!"); 
 
 
@@ -95,12 +95,13 @@ public class gunScript : MonoBehaviour {
 				rb.velocity = (new Vector2 (-1 * direction.y * (knockbackPow / 10) * diagonalCompensator, -1 * direction.x * (knockbackPow / 10) * diagonalCompensator));
 			}
 
-			Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
+			//Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
 			//Missile clone = (Missile)Instantiate(missilePrefab(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
 
 
-			cooldown += (100/fireRate);
+			cooldown = 1/(fireRate/1000); 
 		}
+        print("Fire: " + fire + "Cooldown: " + cooldown);
 
     }
 }
