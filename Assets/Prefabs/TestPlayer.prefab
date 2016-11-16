@@ -57,7 +57,7 @@ GameObject:
   - 50: {fileID: 50000010703513680}
   - 114: {fileID: 114000010131966726}
   m_Layer: 0
-  m_Name: TestPlayer2
+  m_Name: TestPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,9 +181,9 @@ MonoBehaviour:
   setVelocity: 1
   rotationSpeed: 10
   damage: 1
-  fireRate: 50
   accuracy: 100
-  knowckbackPow: 50
+  fireRate: 10
+  knockbackPow: 1
 --- !u!212 &212000011320793586
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -24,7 +24,7 @@ public float playerSpeed = 0.25f;
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         moveDirVector.x = Input.GetAxisRaw("MoveAxisX");
         moveDirVector.y = Input.GetAxisRaw("MoveAxisY");
@@ -40,8 +40,6 @@ public float playerSpeed = 0.25f;
 
         animPlayer.SetBool("isPlayerWalking", isWalking);
 
-        //Debug.Log("yMove: " + moveDirVector.y + "  xMove: " + moveDirVector.x + '\n');
-		print("Moving with a velocity of: " + rb.velocity.magnitude);
 
 		// Adds friction to the player
 		if (rb.velocity.magnitude > 0) {
