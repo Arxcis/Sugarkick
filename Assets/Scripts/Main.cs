@@ -37,8 +37,10 @@ public class Main : MonoBehaviour {
 
         Debug.Log("Angle: " + angle);
 
-        if (inputVec.x < 0 ){
+        if (inputVec.x < 0 && inputVec.y != 0 ){
         	angle -= Mathf.PI / 2;
+        } else if (inputVec.x < 0) {
+        	angle -= Mathf.PI;
         }
 
 		return new Vector2( inputVec.x * Mathf.Cos(angle), inputVec.y * Mathf.Sin(angle) );

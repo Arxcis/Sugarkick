@@ -32,8 +32,8 @@ public class moveEnemy : MonoBehaviour {
         if (framesCounted == enemyRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
                                                         // and moves the player by a factor of this distance.
-            vectorToPlayer = new Vector3(tfEnemy.position.x - tfPlayer.position.x,
-                                         tfEnemy.position.y - tfPlayer.position.y);
+            vectorToPlayer = new Vector3( tfEnemy.position.x - tfPlayer.position.x,
+                                          tfEnemy.position.y - tfPlayer.position.y );
             framesCounted = 0;
         }
         else framesCounted++;
