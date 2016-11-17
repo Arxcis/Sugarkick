@@ -31,6 +31,7 @@ public class gunScript : MonoBehaviour {
 
 	Vector2 direction = new Vector2(0,0);	    // Rotation
 	float   diagonalCompensator = 0.0F;
+	float   diagonalScale       = 0.001F;
 
 
     void Start ()
@@ -69,7 +70,7 @@ public class gunScript : MonoBehaviour {
 			print ("Firing!"); 
 
 														// (jonas) This part needs some more commenting
-			diagonalCompensator =  (1/(Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y + 0.001F)));
+			diagonalCompensator =  Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y) * diagonalScale;
 
 			recoilY = (-1 * direction.y * diagonalCompensator);
 			recoilX = (-1 * direction.x * diagonalCompensator);
