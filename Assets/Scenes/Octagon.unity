@@ -543,8 +543,7 @@ MonoBehaviour:
   spawnrate: 0.5
   enemise:
   - {fileID: 1000012012581130, guid: 6f2303e3391422f4e84c89fb323ebe0b, type: 2}
-  - {fileID: 0}
-  spawnRange: 1
+  spawnRange: 7
 --- !u!212 &1629369591
 SpriteRenderer:
   m_ObjectHideFlags: 0
