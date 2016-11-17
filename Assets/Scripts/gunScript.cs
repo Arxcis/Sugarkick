@@ -44,7 +44,7 @@ public class gunScript : MonoBehaviour {
     {              
         xAxis = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not 
         yAxis = Input.GetAxisRaw("AimAxisY");		// Keyboard buttons are either 1 and 0 smoothed
-        fire = Input.GetAxisRaw ("Fire3");			// https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
+        fire = Input.GetAxisRaw ("Fire");			// https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
 
         if (xAxis != 0 || yAxis != 0){
 			direction.x = yAxis;
