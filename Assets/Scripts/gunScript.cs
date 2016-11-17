@@ -63,10 +63,9 @@ public class gunScript : MonoBehaviour {
 		if (cooldown > 0) {	  
 			cooldown--;	   
 		}
-
-
+			
 		if (fire > 0.4 && cooldown <= 0) {
-			print ("Firing!"); 
+			//print ("Firing!"); 
 
 			// The factor which makes a non-straight vector the same magnitude as a straight one.
 			// E.G. (1, 1) or (0.7, 0.6) has a greater magnitude than (1, 0) or (0, 1), making the player move faster on diagonals. 
