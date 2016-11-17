@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/Octagon.unity
+  - enabled: 1
+    path: Assets/Scenes/The Hexagon.unity
+  - enabled: 1
+    path: Assets/Scenes/The Square.unity
+  - enabled: 1
+    path: Assets/Scenes/The Triangle.unity

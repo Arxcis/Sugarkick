@@ -1,43 +1,53 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
+
 public class movePlayer : MonoBehaviour {
-	//hello Testing
+   
+		// Public:
+	public float playerSpeed = 1.0F;   	    	// Get speed from puppetManip.cs at some point
+	public float friction    = 1.1F;   
 
-	public static int speed = 6;
+		// Private:
+    Animator   animPlayer;
+   	Rigidbody2D        rb;
+   										
+    bool        isWalking = false;
+    Vector3 moveDirVector = new Vector2(0, 0);
 
-	Transform transPlayer;
-	Vector3 UP    = new Vector3(  0, speed );    // Since unity works in 3 dimensions we have to
-	Vector3 DOWN  = new Vector3(  0,-speed );    // create a Vector3 x,y,z, even though we do not
-	Vector3 RIGHT = new Vector3(  speed, 0 );    // care about the z.
-	Vector3 LEFT  = new Vector3( -speed, 0 );
-
-	// Use this for initialization
+						    				
 	void Start () {
-		transPlayer = GetComponent<Transform>();
+        animPlayer  = GetComponentInChildren<Animator>();
+		rb          = GetComponent<Rigidbody2D> ();
 	}
 
-	// Update is called once per frame
-	void Update () {
+						            // Fixed update is independent on frame rate
+	void FixedUpdate () {
+									// Comment to next 10 lines:
+									// (jonas) This should be written in a more compact and readable 
+									//  manner. Had to add 0.001F to the denominator, so it would not
+									//  be zero, which is forbidden in a denominator. Returns {NaN}
+        moveDirVector.x = Input.GetAxisRaw("MoveAxisX");
+        moveDirVector.y = Input.GetAxisRaw("MoveAxisY");
 
-		if (Input.GetKey ("up")) {
-			print ("up");
-			transPlayer.position += UP * Time.deltaTime;
-		}
+									// Makes diagonal movement similar speed as vertical and horizontal
+		moveDirVector.x = (moveDirVector.x * 1/(Mathf.Sqrt(moveDirVector.x * moveDirVector.x + 
+														   moveDirVector.y * moveDirVector.y + 0.001F)));
+		moveDirVector.y = (moveDirVector.y * 1/(Mathf.Sqrt(moveDirVector.x * moveDirVector.x + 
+														   moveDirVector.y * moveDirVector.y + 0.001F)));
+		rb.velocity = new Vector2 (rb.velocity.x + moveDirVector.x, rb.velocity.y + moveDirVector.y);
 
-		if (Input.GetKey ("down")) {
-			print ("down");
-			transPlayer.position += DOWN * Time.deltaTime;
-		}
 
-		if (Input.GetKey ("left")) {
-			print ("left");
-			transPlayer.position += LEFT * Time.deltaTime;
-		}
-		if (Input.GetKey ("right")) {
-			print ("right");
-			transPlayer.position += RIGHT * Time.deltaTime;
-		}
+													// Adds friction to the player
+		if (rb.velocity.magnitude > 0 && friction != 0) {
+			rb.velocity = rb.velocity * (1 / friction);
+                                         
+        }
 
-	}
+        if (rb.velocity.magnitude > 2)          // Updates the animation if the player is walking
+        {   isWalking = true;   }               
+        else									
+        {   isWalking = false;  }
+        animPlayer.SetBool("isPlayerWalking", isWalking);
+    }
 }
