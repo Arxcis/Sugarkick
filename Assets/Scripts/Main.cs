@@ -7,15 +7,16 @@ public class Main : MonoBehaviour {
 	public int mapsize = 40;                    // Planning to have GLOBAL variables 
     public Transform playerTrans;   			//  here. AY-AY Sir!
     public Animator playerAnim;
+    public Rigidbody2D playerRigi;
 	                                            // Use this for initialization
 	void Start () {
         playerTrans = GameObject.Find("TestPlayer").GetComponent<Transform>();
         playerAnim  = GameObject.Find("TestPlayer").GetComponent<Animator>();
-
+        playerRigi  = GameObject.Find("TestPlayer").GetComponent<Rigidbody2D>();
     }
-	
-	                                            // Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 
 
 	}

@@ -13,12 +13,11 @@ public class gunScript : MonoBehaviour {
     public float fireRate     =  50.0F;
     public float knockbackPow = 200.0F;
     // public GameObject bullets; (Jone): Unity complained that bullet wasn't defined. 
-    public float rotationSpeed = 10.0F;			// Rotation
+    public float rotationSpeed = 10.0F;         // Rotation
 
-		// Private:
-	GameObject  player; 						// For accessing parent player
-	Rigidbody2D     rb;
-	Transform gunTrans;
+    // Private:
+    Main main;                                  //Gets global Variables like player components
+    Transform gunTrans;
 
 	float recoilX;								// Recoil
 	float recoilY;    
@@ -35,8 +34,7 @@ public class gunScript : MonoBehaviour {
 
     void Start ()
     {
-		player   = gameObject.transform.parent.gameObject;	// Getting components
-		rb       = player.GetComponent<Rigidbody2D> ();
+        main = GameObject.Find("Camera").GetComponent<Main>();
         gunTrans = GetComponent<Transform>();
     }
 
@@ -75,16 +73,16 @@ public class gunScript : MonoBehaviour {
 			recoilX = (-1 * direction.x * diagonalCompensator);
 
 			if (setPos) {
-				player.GetComponent<Transform> ().position += new Vector3 (recoilX * (knockbackPow / 300), 
+				main.playerTrans.position += new Vector3 (recoilX * (knockbackPow / 300), 
 																		   recoilY * (knockbackPow / 300), 0);
 			}
 			if(addForce){
-				rb.AddForce(new Vector2 (recoilY * (knockbackPow / 1),
+				main.playerRigi.AddForce(new Vector2 (recoilY * (knockbackPow / 1),
 										 recoilX * (knockbackPow / 1)));
 			}
 
 			if(setVelocity){
-				rb.velocity = new Vector3 (recoilY * (knockbackPow / 10),
+                main.playerRigi.velocity = new Vector3 (recoilY * (knockbackPow / 10),
 									       recoilX * (knockbackPow / 10),0);
 			}
 
