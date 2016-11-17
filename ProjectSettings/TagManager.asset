@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hole
   - Bullet
+  - Void
   layers:
   - Default
   - TransparentFX
