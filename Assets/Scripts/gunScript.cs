@@ -2,36 +2,30 @@
 using System.Collections;
 
 public class gunScript : MonoBehaviour {
+    
+    Main main;  
 
-		// Public:
-	public bool setPos      = true;			// Recoil
-	public bool addForce    = false;	
-	public bool setVelocity = true;
+        // Public:
+    public bool setPos      = true;         // Recoil
+    public bool addForce    = false;    
+    public bool setVelocity = true;
 
-	public float damage       =   1.0F;			// Shooting
-	public float accuracy     = 100.0F;
+    public float damage       =   1.0F;         // Shooting
+    public float accuracy     = 100.0F;
     public float fireRate     =  50.0F;
     public float knockbackPow = 200.0F;
     // public GameObject bullets; (Jone): Unity complained that bullet wasn't defined. 
     public float rotationSpeed = 10.0F;         // Rotation
 
-    // Private:
-    Main main;                                  //Gets global Variables like player components
+    // Private:                               
     Transform gunTrans;
 
-	float recoilX;								// Recoil
-	float recoilY;    
-
-    float gunAngle;							    // Shooting
-	float xAxis    = 0.0F;
-	float yAxis    = 0.0F;
+    float gunAngle;                             // Shooting
     float fire     = 0.0F;
     float cooldown = 0.0F;
 
-	Vector2 direction = new Vector2(0,0);	    // Rotation
-	float   diagonalCompensator = 0.0F;
-	float   diagonalScale       = 0.001F;
-
+    Vector2 inputVec  = new Vector2(0,0);       // Direction input Vector
+    Vector2 recoilVec = new Vector2(0,0);       // Recoil vector
 
     void Start ()
     {
@@ -39,60 +33,47 @@ public class gunScript : MonoBehaviour {
         gunTrans = GetComponent<Transform>();
     }
 
-	void FixedUpdate ()								// Fixed update is frame-rate independent
+    void FixedUpdate ()                             // Fixed update is frame-rate independent
     {              
-        xAxis = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not 
-        yAxis = Input.GetAxisRaw("AimAxisY");		// Keyboard buttons are either 1 and 0 smoothed
-        fire = Input.GetAxisRaw ("Fire");			// https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
+        inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not 
+        inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
+        fire = Input.GetAxisRaw ("Fire");           // https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
 
-        if (xAxis != 0 || yAxis != 0){
-			direction.x = yAxis;
-			direction.y = xAxis;
+        if (inputVec.x != 0 || inputVec.y != 0){
 
-			gunAngle = Vector2.Angle (Vector2.right, direction);	 // Vector2.angle() only outputs positive angles
-																	 // Depending on the configuration of x and y axis,
-			if (yAxis <  0 && xAxis >= 0) {    gunAngle *= -1;     } // in two cases we have to make the gunAngle negative
-			if (yAxis >= 0 && xAxis >= 0) {    gunAngle *= -1;     } // Vector2.angle (base vector, target vector) -> diff vector
+            gunAngle = main.GetAngle(Vector2.up, inputVec);
+            gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
+        }
 
-			// Debug.Log("yAxis: " + yAxis + "  xAxis: " + xAxis + "  angle: " + gunAngle + '\n');
-             
-			gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
-		}
-
-		if (cooldown > 0) {	  
-			cooldown--;	   
-		}
+        if (cooldown > 0) {   
+            cooldown--;    
+        }
 
 
-		if (fire > 0.4 && cooldown <= 0) {
-			print ("Firing!"); 
+        if (fire > 0.4 && cooldown <= 0) {
+            print ("Firing!"); 
+                                                // Scaling recoilVec with negative 1 to send the 
+                                                // player in opposite direction
+            recoilVec = main.DiagonalCompensate( inputVec ) * -1.0F;
 
-														// (jonas) This part needs some more commenting
-			diagonalCompensator =  Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y) * diagonalScale;
+            if (setPos) {                       // Casting vec2 to vec3 before adding to position
+                main.playerTrans.position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
+            }
 
-			recoilY = (-1 * direction.y * diagonalCompensator);
-			recoilX = (-1 * direction.x * diagonalCompensator);
+            if(addForce){
+                main.playerRigi.AddForce(recoilVec * (knockbackPow / 1));
+            }
 
-			if (setPos) {
-				main.playerTrans.position += new Vector3 (recoilX * (knockbackPow / 300), 
-																		   recoilY * (knockbackPow / 300), 0);
-			}
-			if(addForce){
-				main.playerRigi.AddForce(new Vector2 (recoilY * (knockbackPow / 1),
-										 recoilX * (knockbackPow / 1)));
-			}
+            if(setVelocity){
+                main.playerRigi.velocity = recoilVec * (knockbackPow / 10);
+            }
 
-			if(setVelocity){
-                main.playerRigi.velocity = new Vector3 (recoilY * (knockbackPow / 10),
-									       recoilX * (knockbackPow / 10),0);
-			}
-
-			// Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
-			// Missile clone = (Missile)Instantiate(missilePrefab(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
+            // Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
+            // Missile clone = (Missile)Instantiate(missilePrefab(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
 
 
-			cooldown = 1/(fireRate/1000); 
-		}
+            cooldown = 1/(fireRate/1000); 
+        }
         print("Fire: " + fire + "Cooldown: " + cooldown);
     }
 }

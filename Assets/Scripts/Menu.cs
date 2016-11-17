@@ -16,9 +16,9 @@ public class Menu : MonoBehaviour {
 
     public void mainOpen()                             // Switches to the level selection.
     {
-        MainCanvas.enabled = true;
+        MainCanvas.enabled      = true;
         SelectionCanvas.enabled = false;
-        OptionsCanvas.enabled = false;                     
+        OptionsCanvas.enabled   = false;                     
     }
 
     public void OptionsOpen()                          // Switches back to the main menu.                 

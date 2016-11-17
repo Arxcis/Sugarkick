@@ -5,11 +5,12 @@ public class Main : MonoBehaviour {
 
 
 	public int mapsize = 40;                    // Planning to have GLOBAL variables 
-    GameObject player;
     public Transform playerTrans;   			//  here. AY-AY Sir!
     public Animator playerAnim;
     public Rigidbody2D playerRigi;
     public movePlayer playerMove;
+
+    GameObject player;
 	                                            // Use this for initialization
 	void Start () {
 
@@ -38,24 +39,28 @@ public class Main : MonoBehaviour {
 	void load(string filename){
 		Debug.Log ("Loading game...");
 	}
+										// Takes a Vector2 which has a variable absolute length
+                                        // between 1 at 90 degrees, and sqrt(2) at 45 degrees
+                                        // Returns a Vector2 which has an absolute length of 1
+                                        // for all angles.
+	public Vector2 DiagonalCompensate( Vector2 inVec ) { 
+                                        // Gets angle and converts it to radians
+        float angle = GetAngle( Vector2.right, inVec) * Mathf.Deg2Rad;
 
-														// Adjusts an input vector to follow the curve of a 
-														// circle, using the angle.
-	public Vector2 diagonalCompensate(Vector2 inputVec) { 
-
-        float angle = Vector2.Angle( Vector2.right, inputVec ) * Mathf.Deg2Rad;
-        												// in two cases we have to make the angle negative
-
-        Debug.Log("Angle: " + angle);
-
-        if (inputVec.x < 0 && inputVec.y != 0 ){
-        	angle -= Mathf.PI / 2;
-        } else if (inputVec.x < 0) {
-        	angle -= Mathf.PI;
-        }
-
-		return new Vector2( inputVec.x * Mathf.Cos(angle), inputVec.y * Mathf.Sin(angle) );
+		return new Vector2( inVec.x * Mathf.Abs(Mathf.Cos(angle)), 
+                            inVec.y * Mathf.Abs(Mathf.Sin(angle)) );
 	}
+
+    public float GetAngle( Vector2 v1, Vector2 v2 )
+    {
+        var sign = Mathf.Sign( v1.x * v2.y - v1.y * v2.x );
+        return Vector2.Angle(v1, v2) * sign;
+    }
+
+    public Vector3 ToVector3( Vector2 vec2 ) {
+
+        return new Vector3(vec2.x, vec2.y, 0.0f);
+    }
 }
 
 

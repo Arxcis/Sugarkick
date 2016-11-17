@@ -15,7 +15,7 @@ public class movePlayer : MonoBehaviour {
    	Rigidbody2D        rb;
    										
     bool      isWalking = false;
-    Vector3 inputVector = new Vector2(0, 0);
+    Vector2 inputVector = new Vector2(0, 0);
 
 						    				
 	void Start () {
@@ -30,13 +30,15 @@ public class movePlayer : MonoBehaviour {
 									// Comment to next 10 lines:
         inputVector.x = Input.GetAxisRaw("MoveAxisX");
         inputVector.y = Input.GetAxisRaw("MoveAxisY");
-
-		rb.velocity = Vector2.Scale( main.diagonalCompensate(inputVector), playerSpeed );
+        Debug.Log(inputVector);
+                                    // Uses diagonalCompensate in Main script.
+                                    // Returns a Vector which has length 1 no matter which
+                                    // way player is facing.
+		rb.velocity = Vector2.Scale( main.DiagonalCompensate( inputVector ), playerSpeed );
 
 													// Adds friction to the player
 		if (rb.velocity.magnitude > 0 && friction != 0) {
-			rb.velocity = rb.velocity * (1 / friction);
-                                         
+			rb.velocity = rb.velocity * (1 / friction);              
         }
 
         if (rb.velocity.magnitude > 2)          // Updates the animation if the player is walking

@@ -17,7 +17,6 @@ public class moveEnemy : MonoBehaviour {
     bool    isWalking     = false;                  //used to trigger animation
     int     framesCounted = 0;                      //counts frames since last vector update.
     Vector3 vectorToPlayer;
-
                                                         // Use this for initialization
     void Start ()
     {
@@ -29,11 +28,9 @@ public class moveEnemy : MonoBehaviour {
     // Fixed update is frame-rate independent
     void FixedUpdate ()
     {
-        
         if (framesCounted == enemyRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
-                                                        // and moves the player by a factor of this distance.
-
+                                                        // and moves the player by a factor of this distance.    
             vectorToPlayer = new Vector3(enemyTrans.position.x - main.playerTrans.position.x,
                                          enemyTrans.position.y - main.playerTrans.position.y);
             framesCounted = 0;
