@@ -43,6 +43,6 @@ public class movePlayer : MonoBehaviour {
         {   isWalking = true;   }               
         else									
         {   isWalking = false;  }
-        animPlayer.SetBool("isPlayerWalking", isWalking);
+        animPlayer.SetBool("isWalking", isWalking);
     }
 }

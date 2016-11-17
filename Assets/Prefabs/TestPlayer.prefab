@@ -197,8 +197,8 @@ MonoBehaviour:
   setVelocity: 1
   damage: 1
   accuracy: 100
-  fireRate: 100
-  knockbackPow: 100
+  fireRate: 50
+  knockbackPow: 300
   rotationSpeed: 10
 --- !u!212 &212000011320793586
 SpriteRenderer:
