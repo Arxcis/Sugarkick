@@ -11,8 +11,8 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		float spawnLocation = Random.Range( 0, spawnRange ); 
+
+        spawnProgress += Time.deltaTime * spawnrate;
 		if ( spawnProgress >= 1 ) {
 			
 			for ( int i  = 0; i  < Mathf.Floor(spawnProgress); i ++ ) {
