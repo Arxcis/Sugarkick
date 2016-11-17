@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class getKeys : MonoBehaviour {
-
+public class getKeys : MonoBehaviour {				// Depricated script. May need deleting.
+													// Its simplicity is cute thought 
 	// Use this for initialization
 	void Start () {
 	
@@ -26,8 +26,5 @@ public class getKeys : MonoBehaviour {
 		if (Input.GetKey ("right")) {
 			print ("right");
 		}
-
-
-
 	}
 }
