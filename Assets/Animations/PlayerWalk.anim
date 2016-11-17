@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TestPlayerWalk
+  m_Name: PlayerWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300002, guid: 4644a3fea1f3dd746925e3b23f08f24c, type: 3}
-    - time: 0.16666667
+    - time: 0.26666668
       value: {fileID: 21300004, guid: 4644a3fea1f3dd746925e3b23f08f24c, type: 3}
-    - time: 0.33333334
+    - time: 0.5
       value: {fileID: 21300002, guid: 4644a3fea1f3dd746925e3b23f08f24c, type: 3}
     attribute: m_Sprite
     path: 
@@ -50,7 +50,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

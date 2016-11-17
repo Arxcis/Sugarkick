@@ -558,6 +558,11 @@ Prefab:
       propertyPath: addForce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012181596654, guid: d64e8cf5ab42b498783cd682cb909440,
+        type: 2}
+      propertyPath: life
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d64e8cf5ab42b498783cd682cb909440, type: 2}
   m_IsPrefabParent: 0

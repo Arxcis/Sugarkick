@@ -7,6 +7,12 @@ public class puppetManip : MonoBehaviour {
     public int   hP   = 3;                               // amount of hits taken per respwan
     public float movementSpeed=1;
     public Vector3 spawnLocation = new Vector3( 0, 0, 0 );
+    Main main;
+
+    void Start()
+    {
+        main = GameObject.Find("Camera").GetComponent<Main>();
+    }
 
     void respawn( ) {
         gameObject.transform.position = spawnLocation;
@@ -34,5 +40,6 @@ public class puppetManip : MonoBehaviour {
         if ( other.gameObject.CompareTag( "Hole" ) ) {
             kill( );
         }
+        main.playerAnim.SetTrigger("TriggerFellDown");
     }
 }
