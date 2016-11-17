@@ -3,6 +3,7 @@ using System.Collections;
 
 public class puppetManip : MonoBehaviour {
 
+	public bool isEnemy = false;
     public int   life = 1;                               // amount of respawns
     public int   hP   = 3;                               // amount of hits taken per respwan
     public float movementSpeed=1;
@@ -34,5 +35,10 @@ public class puppetManip : MonoBehaviour {
         if ( other.gameObject.CompareTag( "Hole" ) ) {
             kill( );
         }
+	else if(other.gameObject.CompareTag("Bullet") && isEnemy){
+		//damage (other.transform.GetComponent<Damage> ().damage);
+		damage(1);
+		Destroy (other.gameObject);
+	}
     }
 }

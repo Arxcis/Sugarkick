@@ -8,26 +8,26 @@ public class gunScript : MonoBehaviour {
 	public bool addForce    = false;	
 	public bool setVelocity = true;
 
-	public float damage       =   1.0F;			// Shooting
+	public int weaponDamage       =   1;			// Shooting
 	public float accuracy     = 100.0F;
-    public float fireRate     =  50.0F;
-    public float knockbackPow = 200.0F;
-    // public GameObject bullets; (Jone): Unity complained that bullet wasn't defined. 
-    public float rotationSpeed = 10.0F;			// Rotation
-
+	public float fireRate     =  50.0F;
+	public float knockbackPow = 200.0F;
+	public float projectileSpeed = 10.0F;   
+	public GameObject bullets;
+	public GameObject barrelEnd;
+	public GameObject bulletParent;
 		// Private:
 	GameObject  player; 						// For accessing parent player
 	Rigidbody2D     rb;
 	Transform gunTrans;
 
 	float recoilX;								// Recoil
-	float recoilY;    
-
-    float gunAngle;							    // Shooting
+	float recoilY; 
+	float gunAngle;							    // Shooting
 	float xAxis    = 0.0F;
 	float yAxis    = 0.0F;
-    float fire     = 0.0F;
-    float cooldown = 0.0F;
+	float fire     = 0.0F;
+	float cooldown = 0.0F;
 
 	Vector2 direction = new Vector2(0,0);	    // Rotation
 	float   diagonalCompensator = 0.0F;
@@ -68,32 +68,38 @@ public class gunScript : MonoBehaviour {
 		if (fire > 0.4 && cooldown <= 0) {
 			print ("Firing!"); 
 
-														// (jonas) This part needs some more commenting
+			// The factor which makes a non-straight vector the same magnitude as a straight one.
+			// E.G. (1, 1) or (0.7, 0.6) has a greater magnitude than (1, 0) or (0, 1), making the player move faster on diagonals. 
+			// Hence, both 0.7 and 0.6 must be multiplied by this factor.
 			diagonalCompensator =  (1/(Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y + 0.001F)));
 
 			recoilY = (-1 * direction.y * diagonalCompensator);
 			recoilX = (-1 * direction.x * diagonalCompensator);
 
 			if (setPos) {
-				player.GetComponent<Transform> ().position += new Vector3 (recoilX * (knockbackPow / 300), 
-																		   recoilY * (knockbackPow / 300), 0);
+				player.GetComponent<Transform> ().position += new Vector3 (recoilY * (knockbackPow / 100),  recoilX * (knockbackPow / 100), 0);
 			}
+
 			if(addForce){
-				rb.AddForce(new Vector2 (recoilY * (knockbackPow / 1),
-										 recoilX * (knockbackPow / 1)));
+				rb.AddForce(new Vector2 (recoilY * (knockbackPow / 1), recoilX * (knockbackPow / 1)));
 			}
 
 			if(setVelocity){
-				rb.velocity = new Vector3 (recoilY * (knockbackPow / 10),
-									       recoilX * (knockbackPow / 10),0);
+				rb.velocity = new Vector3 (rb.velocity.x + recoilY * (knockbackPow / 10), rb.velocity.y + recoilX * (knockbackPow / 10), 0);
 			}
-
-			// Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
-			// Missile clone = (Missile)Instantiate(missilePrefab(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
-
+			shoot ();
 
 			cooldown = 1/(fireRate/1000); 
 		}
         //print("Fire: " + fire + "Cooldown: " + cooldown);
     }
+
+	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
+	// The velocity of the bullet is set in the direction of the barrel with a speed of "projectileSpeed", set in the inspector. The bullet spawns with the damage of "weaponDamage".
+	void shoot(){
+		var bullet = Instantiate (bullets, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
+		bullet.transform.parent = bulletParent.transform;
+		bullet.GetComponent<Rigidbody2D> ().velocity = new Vector2 (direction.y*projectileSpeed, direction.x*projectileSpeed);
+		bullet.GetComponent<Damage> ().damage = weaponDamage;
+	}
 }
