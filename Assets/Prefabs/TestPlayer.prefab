@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013494906542}
   - 212: {fileID: 212000011320793586}
-  - 114: {fileID: 114000010411095124}
+  - 114: {fileID: 114000014275527550}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -53,11 +53,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011762896334}
-  - 114: {fileID: 114000012085214588}
   - 58: {fileID: 58000011568044200}
   - 50: {fileID: 50000010703513680}
   - 114: {fileID: 114000010131966726}
-  - 114: {fileID: 114000014093984918}
+  - 114: {fileID: 114000012181596654}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -165,29 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8a60045f60542889379508bfd186c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 0.25
+  playerSpeed: {x: 10, y: 10}
   friction: 1.1
---- !u!114 &114000010411095124
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010100305690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setPos: 1
-  addForce: 1
-  setVelocity: 1
-  rotationSpeed: 10
-  bullets: {fileID: 0}
-  damage: 1
-  accuracy: 100
-  fireRate: 10
-  knockbackPow: 1
---- !u!114 &114000012085214588
+--- !u!114 &114000012181596654
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -202,17 +181,25 @@ MonoBehaviour:
   hP: 3
   movementSpeed: 1
   spawnLocation: {x: 0, y: 0, z: 0}
---- !u!114 &114000014093984918
+--- !u!114 &114000014275527550
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011468780718}
+  m_GameObject: {fileID: 1000010100305690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 541e9c30179dc6a45b28ea1aad9e6fd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setPos: 1
+  addForce: 0
+  setVelocity: 1
+  damage: 1
+  accuracy: 100
+  fireRate: 100
+  knockbackPow: 100
+  rotationSpeed: 10
 --- !u!212 &212000011320793586
 SpriteRenderer:
   m_ObjectHideFlags: 1
