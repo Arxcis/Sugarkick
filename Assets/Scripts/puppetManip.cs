@@ -9,6 +9,13 @@ public class puppetManip : MonoBehaviour {
     public float movementSpeed=1;
     public Vector3 spawnLocation = new Vector3( 0, 0, 0 );
 
+	public spawnEnemies spawnE;
+
+	void Start(){
+		if (isEnemy)
+			spawnE = GetComponentInParent<spawnEnemies>();
+	}
+
     void respawn( ) {
         gameObject.transform.position = spawnLocation;
     }
@@ -22,7 +29,13 @@ public class puppetManip : MonoBehaviour {
 
     void kill( ) {
         life--;
-        if ( life <= 0 ) {
+
+	if (isEnemy) {
+		spawnE.spawnEnemy ();
+		Destroy (gameObject);
+	}
+
+        if ( life <= 0) {
             gameObject.SetActive( false );
                                                          /* Die animation and simialr */
         }
@@ -37,8 +50,8 @@ public class puppetManip : MonoBehaviour {
         }
 	else if(other.gameObject.CompareTag("Bullet") && isEnemy){
 		//damage (other.transform.GetComponent<Damage> ().damage);
-		damage(1);
 		Destroy (other.gameObject);
+		damage(1);
 	}
     }
 }
