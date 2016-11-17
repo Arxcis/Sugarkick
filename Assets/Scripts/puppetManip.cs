@@ -26,7 +26,7 @@ public class puppetManip : MonoBehaviour {
                                                          /* Die animation and simialr */
         }
         else {
-            respawn( );
+           respawn( );
         }
     }
 

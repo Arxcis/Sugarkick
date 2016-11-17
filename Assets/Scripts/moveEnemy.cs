@@ -20,6 +20,7 @@ public class moveEnemy : MonoBehaviour {
                                                         // Use this for initialization
     void Start ()
     {
+
         tfEnemy = GetComponent<Transform>();            //Enemy's transform component.
         aniEnemy = GetComponent<Animator>();            //Sprite animator .
     }
