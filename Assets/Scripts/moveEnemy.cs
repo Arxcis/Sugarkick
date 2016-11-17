@@ -19,6 +19,7 @@ public class moveEnemy : MonoBehaviour {
     {
         tfEnemy = GetComponent<Transform>();                        //Enemy's transform component.
         aniEnemy = GetComponent<Animator>();                        //Sprite animator .
+        tfPlayer = GameObject.Find( "TestPlayer" ).GetComponent<Transform>( );
 	}
 	
 	// Update is called once per frame
