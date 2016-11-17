@@ -506,7 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 1000013736368644, guid: 152136904eba01441b4487ed4d096163,
     type: 2}
-  spawnRange: 5
+  spawnRange: 35
   player1: {fileID: 940231935}
   player2: {fileID: 280275792}
   spawn1: {fileID: 1897824427}
@@ -658,6 +658,16 @@ Prefab:
     - target: {fileID: 1000012406002138, guid: 59e38e8f5a3119346a3d30a58b042607, type: 2}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010106504770, guid: 59e38e8f5a3119346a3d30a58b042607,
+        type: 2}
+      propertyPath: fireRate
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010106504770, guid: 59e38e8f5a3119346a3d30a58b042607,
+        type: 2}
+      propertyPath: knockbackPow
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59e38e8f5a3119346a3d30a58b042607, type: 2}
