@@ -55,7 +55,7 @@ public class puppetManip : MonoBehaviour {
 
     	else if(other.gameObject.CompareTag("Bullet") && isEnemy){
     		//damage (other.transform.GetComponent<Damage> ().damage);
-    		Destroy (other.gameObject);
+			Destroy (other.gameObject);
     		damage(1);
     	}
 
