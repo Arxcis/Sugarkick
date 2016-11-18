@@ -5,11 +5,11 @@ public class Main : MonoBehaviour {
 
 
     public int mapsize = 40;                    // Planning to have GLOBAL variables 
-    public Transform playerTrans;               //  here. AY-AY Sir!
-    public Animator playerAnim;
-    public Rigidbody2D playerRigi;
-    public movePlayer playerMove;
-    public gunScript playerGun;
+    public Transform     playerTrans;           //  here. AY-AY Sir!
+    public Animator      playerAnim;
+    public Rigidbody2D   playerRigi;
+    public MovePlayer    playerMove;
+    public GunScript     playerGun;
     public BoxCollider2D playerColl;
 
     GameObject player;
@@ -20,8 +20,8 @@ public class Main : MonoBehaviour {
         playerTrans = player.GetComponent<Transform>();
         playerAnim  = player.GetComponent<Animator>();
         playerRigi  = player.GetComponent<Rigidbody2D>();
-        playerMove  = player.GetComponent<movePlayer>();
-        playerGun   = player.GetComponentInChildren<gunScript>();
+        playerMove  = player.GetComponent<MovePlayer>();
+        playerGun   = player.GetComponentInChildren<GunScript>();
         playerColl  = player.GetComponent<BoxCollider2D>();
 
     }

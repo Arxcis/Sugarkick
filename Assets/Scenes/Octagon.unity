@@ -725,7 +725,7 @@ Prefab:
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
       propertyPath: staticSpawner
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}

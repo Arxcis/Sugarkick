@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class spawnEnemies : MonoBehaviour {
+public class SpawnEnemies : MonoBehaviour {
 
 	Main main;
 
@@ -23,7 +23,7 @@ public class spawnEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		main = GameObject.Find("Camera").GetComponent<Main>();
+		// main = GameObject.Find("Camera").GetComponent<Main>();  // Not used
 		trans = spawns[0].transform;
 	}
 

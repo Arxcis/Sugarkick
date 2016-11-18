@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class puppetManip : MonoBehaviour {
+public class PuppetManip : MonoBehaviour {
 
 	public bool isEnemy = false;
     public int   life = 1;                               // amount of respawns
@@ -14,7 +14,7 @@ public class puppetManip : MonoBehaviour {
 
     void Start()
     {
-        main = GameObject.Find("Camera").GetComponent<Main>();
+        // main = GameObject.Find("Camera").GetComponent<Main>();  // not used
     }
     
     public void respawn( ) {
@@ -43,7 +43,7 @@ public class puppetManip : MonoBehaviour {
 
         if (isEnemy)
         {
-            GetComponentInParent<spawnEnemies>().gotKilled(gameObject.tag);
+            GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag);
             Destroy(gameObject);
         }
         else

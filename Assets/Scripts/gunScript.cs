@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gunScript : MonoBehaviour {
+public class GunScript : MonoBehaviour {
     
     Main main;  
 

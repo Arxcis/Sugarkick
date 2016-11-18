@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 
-public class movePlayer : MonoBehaviour {
+public class MovePlayer : MonoBehaviour {
     
     Main main;  
 
