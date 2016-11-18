@@ -1,22 +1,23 @@
 
 
 ### Iterations
-======
+=================
 
 
-#### Version 0.3 (not complete)
+#### Version 0.3 - not released
 
-To be released ...
+**To be released ...**
 
 Changelog
 - You can shoot bullets.
 - You can kill enemies.
 - Enemeies will respawn.
+- Camera follows player
 
 
 #### Version 0.2
 
-Released 17. november
+**Released 17. november**
 
 Changelog:
 - Created an enemy spawner that spawns enemies.
@@ -26,7 +27,7 @@ Changelog:
 
 #### Version 0.1
 
-Released 
+**Released 11. november**
 
 Changelog:
 - Basic player movement
@@ -39,7 +40,7 @@ Changelog:
 ============================
 
 ### Unity Prefabs
-=====
+=================
 
 - BulletPrefab
 - BulletParent
@@ -51,7 +52,6 @@ Changelog:
 - Spawner
 - TestEnemy 0
 - TestEnemy
-
 
 
 ### Sounds 
