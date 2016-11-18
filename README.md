@@ -1,46 +1,59 @@
 
 
-### Iterations
-=================
+## Iterations
 
 
-#### Version 0.3 - not released
+#### Version 0.3 - coming soon
 
-**To be released ...**
+*Release date: soon..*
+*Cycle length: 1+ days*
 
 Changelog
 - You can shoot bullets.
 - You can kill enemies.
-- Enemeies will respawn.
+- Enemy spawner can respawn enemies in different ways.
 - Camera follows player
+- Enemies falls of the map.
+- Enemies can kill player.
+- Player death animation when killed by enemy.
+- All scenes can be loaded from menu.
+- Mouse aiming support
 
+&nbsp;
 
 #### Version 0.2
 
-**Released 17. november**
+*Released: 17. november*
+*Cycle length: 6 days*
 
 Changelog:
 - Created an enemy spawner that spawns enemies.
-- Possible to fall out of the map.
+- Player can fall off the map.
 - Fall animation.
-- Main menu which launches the game into the first scene.
+- Main menu created. Can launch the Octagon level.
+- Player now has the same speed in all directions.
+- Xbox 360 Controller support for Windows.
+
+
+&nbsp;
 
 #### Version 0.1
 
-**Released 11. november**
+*Released 11. november*
+*Cycle length: 5 days*
 
 Changelog:
-- Basic player movement
+- Basic player movement with keyboard.
 - Dummy movement animation.
 - Gun rotation
 - A single enemy that chases the player.
 
+&nbsp;
+&nbsp;
 
-## Asset list
-============================
+## Assets list
 
 ### Unity Prefabs
-=================
 
 - BulletPrefab
 - BulletParent
@@ -49,15 +62,26 @@ Changelog:
 - GameController
 - Gun
 - Player
-- Spawner
-- TestEnemy 0
-- TestEnemy
+- Spawner 1
+- TestEnemy 1
 
+&nbsp;
+
+### Unity Animations 
+
+- PlayerFallDown
+- PlayerIdle
+- PlayerSprite
+- PlayerWalk
+- TestEnemy
+- TestEnemyIdle
+- TestEnemyWalk
+- TestPlayer
+
+&nbsp;
 
 ### Sounds 
-=============================
 
-List over ting som Ricardo har laget:
 - Background music     = klar
 - Meny music           = klar
 - Weapon 1 sound       = klar
