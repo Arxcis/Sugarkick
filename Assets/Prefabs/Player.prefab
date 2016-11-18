@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011223011370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalPosition: {x: -1.8482101, y: -0.95666516, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 40, y: 120, z: 720}
   m_Children:
@@ -196,10 +196,11 @@ MonoBehaviour:
   setPos: 1
   addForce: 0
   setVelocity: 1
+  isPiercing: 0
   weaponDamage: 1
   accuracy: 100
-  fireRate: 50
-  knockbackPow: 300
+  fireRate: 500
+  knockbackPow: 200
   projectileSpeed: 10
   bullets: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000010173922102}
@@ -216,10 +217,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
-  life: 1
+  isSpawnerChild: 0
+  life: 3
   hP: 3
   movementSpeed: 1
-  fallingSpeedMultiplier: 0.1
+  fallingSpeedMultiplier: 0.2
   spawnLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &114000012788700962
 MonoBehaviour:
