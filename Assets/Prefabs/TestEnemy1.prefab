@@ -26,7 +26,7 @@ GameObject:
   - 50: {fileID: 50000010160299306}
   - 114: {fileID: 114000013223314096}
   m_Layer: 0
-  m_Name: TestEnemy 0
+  m_Name: TestEnemy1
   m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
