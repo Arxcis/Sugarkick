@@ -14,7 +14,7 @@ public class PuppetManip : MonoBehaviour {
 
     void Start()
     {
-        // main = GameObject.Find("Camera").GetComponent<Main>();  // not used
+        main = GameObject.Find("Camera").GetComponent<Main>();  // not used
     }
     
     public void respawn( ) {
