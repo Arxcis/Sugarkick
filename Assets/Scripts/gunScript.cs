@@ -10,6 +10,7 @@ public class gunScript : MonoBehaviour {
     public bool addForce    = false;    
     public bool setVelocity = true;
 
+	public bool isPiercing = false;
     public int   weaponDamage =   1;         // Shooting
     public float accuracy     = 100.0F;
     public float fireRate     =  50.0F;
@@ -78,9 +79,13 @@ public class gunScript : MonoBehaviour {
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
 	// The velocity of the bullet is set in the direction of the barrel with a speed of "projectileSpeed", set in the inspector. The bullet spawns with the damage of "weaponDamage".
 	void shoot(){
+		ProjectileInfo pInfo;
 		var bullet = Instantiate (bullets, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
 		bullet.transform.parent = bulletParent.transform;
+		pInfo = bullet.GetComponent<ProjectileInfo> ();
 		bullet.GetComponent<Rigidbody2D> ().velocity = recoilVec * -1 * projectileSpeed;
-		bullet.GetComponent<Damage> ().damage = weaponDamage;
+		pInfo.damage = weaponDamage;
+		pInfo.projectileSpeed = projectileSpeed;
+		pInfo.isPiercing = isPiercing;
 	}
 }

@@ -9,6 +9,7 @@ public class Main : MonoBehaviour {
     public Animator playerAnim;
     public Rigidbody2D playerRigi;
     public movePlayer playerMove;
+    public gunScript playerGun;
 
     GameObject player;
                                                 // Use this for initialization
@@ -19,6 +20,7 @@ public class Main : MonoBehaviour {
         playerAnim  = player.GetComponent<Animator>();
         playerRigi  = player.GetComponent<Rigidbody2D>();
         playerMove  = player.GetComponent<movePlayer>();
+        playerGun = player.GetComponentInChildren<gunScript>();
 
     }
 
