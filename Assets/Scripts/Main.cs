@@ -10,6 +10,7 @@ public class Main : MonoBehaviour {
     public Rigidbody2D playerRigi;
     public movePlayer playerMove;
     public gunScript playerGun;
+    public BoxCollider2D playerColl;
 
     GameObject player;
                                                 // Use this for initialization
@@ -20,7 +21,8 @@ public class Main : MonoBehaviour {
         playerAnim  = player.GetComponent<Animator>();
         playerRigi  = player.GetComponent<Rigidbody2D>();
         playerMove  = player.GetComponent<movePlayer>();
-        playerGun = player.GetComponentInChildren<gunScript>();
+        playerGun   = player.GetComponentInChildren<gunScript>();
+        playerColl  = player.GetComponent<BoxCollider2D>();
 
     }
 

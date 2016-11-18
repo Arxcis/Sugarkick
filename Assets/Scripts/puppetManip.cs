@@ -23,11 +23,10 @@ public class puppetManip : MonoBehaviour {
         { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
 
         main.playerAnim.SetTrigger("TriggerRespawn");
-
         gameObject.transform.position = spawnLocation;
         main.playerMove.enabled = true;                        // the player can move afer respawning
         main.playerGun.enabled = true;
-        
+        main.playerColl.enabled = true;
     }
 
     public void damage( int d ) {                               //Take hp and check if killed.
@@ -43,18 +42,19 @@ public class puppetManip : MonoBehaviour {
             main.playerRigi.velocity *= fallingSpeedMultiplier;
             main.playerMove.enabled = false;                    //player cannot move while fallling
             main.playerGun.enabled = false;
-            
-            if (deathBy == "fall")  main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
+            main.playerColl.enabled = false;
+
+            if (deathBy == "fall") main.playerAnim.Play("PlayerFallDown"); //main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
             if (deathBy == "enemy") respawn();//insert other death animation instead
-       
+
+
     }
 
     void OnTriggerEnter2D( Collider2D other ) {
         if ( other.gameObject.CompareTag( "Hole" ) ) {
             kill("fall");
         }
-
-    	else if(other.gameObject.CompareTag("Bullet") && isEnemy){
+    	else if (other.gameObject.CompareTag("Bullet") && isEnemy){
     		//damage (other.transform.GetComponent<Damage> ().damage);
 			Destroy (other.gameObject);
     		damage(1);
