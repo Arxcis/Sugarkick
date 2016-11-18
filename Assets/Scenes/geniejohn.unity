@@ -734,6 +734,29 @@ Transform:
   - {fileID: 319052232}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &750583260 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013188729346, guid: 035c2195e4c86490383f565b51035c7a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1013046617}
+--- !u!114 &750583267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 750583260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdadb2e72d4a4394ca60960f92f45d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1891108499}
+  player2: {fileID: 280275792}
+  deadZone: 0
+  desiredPos: {x: 0, y: 0}
+  distance: {x: 0, y: 0}
+  diff: {x: 0, y: 0}
+  dist: 0
 --- !u!1 &792893918
 GameObject:
   m_ObjectHideFlags: 0
