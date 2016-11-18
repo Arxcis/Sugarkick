@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnrate: 1
   enemies:
-  - {fileID: 1000012012581130, guid: 6f2303e3391422f4e84c89fb323ebe0b, type: 2}
+  - {fileID: 1000013736368644, guid: 152136904eba01441b4487ed4d096163, type: 2}
   spawnRange: 1
 --- !u!212 &212000010674595814
 SpriteRenderer:
