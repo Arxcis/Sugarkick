@@ -6,6 +6,7 @@ public class CameraScript : MonoBehaviour {
 	public GameObject player1;
 	public GameObject player2;
 	public float deadZone = 0.0F;
+	public float velocityFactor = 0.0F;
 
 	Transform p1;
 	Transform p2;
@@ -15,6 +16,7 @@ public class CameraScript : MonoBehaviour {
 	public Vector2 diff;
 	public float dist;
 	Camera cam;
+	Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,7 @@ public class CameraScript : MonoBehaviour {
 		p2 = player2.GetComponent<Transform> ();
 		cam = gameObject.GetComponent<Camera> ();
 		camT = gameObject.GetComponent<Transform> ();
+		rb = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame
@@ -29,22 +32,16 @@ public class CameraScript : MonoBehaviour {
 		diff = new Vector2 (p1.position.x - p2.position.x, p1.position.y - p2.position.y);
 
 		desiredPos = new Vector2 (p1.position.x - 0.5F*diff.x, p1.position.y - 0.5F*diff.y);
-		distance = new Vector2 (desiredPos.x - camT.position.x, desiredPos.y - camT.position.y);
-		dist = Mathf.Sqrt(distance.x * distance.x + distance.y * distance.y);
+		distance = desiredPos - new Vector2(camT.position.x, camT.position.y);
+		dist = distance.magnitude;
 
-		if(dist >= deadZone){
-			//move ();
-
-			camT.position = new Vector3 (desiredPos.x, desiredPos.y, camT.position.z);
-			cam.orthographicSize = 10+0.4F*Mathf.Sqrt(diff.x*diff.x + diff.y*diff.y);
+		cam.orthographicSize = 8 + 1.8F*Mathf.Pow(diff.magnitude, 0.6F);
+		if (dist >= deadZone) {
+			rb.velocity = new Vector3 ((desiredPos.x - camT.position.x)*dist*dist*velocityFactor, (desiredPos.y - camT.position.y)*dist*dist*velocityFactor, 0.0F);
+			//camT.position = new Vector3 (desiredPos.x, desiredPos.y, camT.position.z);
+		} 
+		else if(dist <= deadZone){
+			rb.velocity = new Vector2 (0.0F, 0.0F);
 		}
-
 	}
-
-	/*void move(){
-		int k = dist;
-		for (int i = 0; i < k; i++) {
-			
-		}
-	}*/
 }
