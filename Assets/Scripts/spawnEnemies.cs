@@ -5,8 +5,12 @@ public class spawnEnemies : MonoBehaviour {
 
 	Main main;
 
-	public GameObject enemyToSpawn;
+	public GameObject[] enemiesToSpawn;
 	public float spawnRange;
+
+	public bool endlessMode = false;
+	public bool staticSpawner = false;
+	public float spawnsPerSecond;
 
 	public GameObject player1;
 	public GameObject player2;
@@ -15,19 +19,35 @@ public class spawnEnemies : MonoBehaviour {
 	public float[] xPos;
 	public float[] yPos;
 	Transform trans;
+	float staticSpawnerTimer = 0.0F;
 
 	// Use this for initialization
 	void Start () {
 		main = GameObject.Find("Camera").GetComponent<Main>();
 		trans = spawns[0].transform;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void gotKilled (string tag){
+		if (endlessMode) {
+			if (tag == "Enemy1") spawnEnemy (1);
+			if (tag == "Enemy2") spawnEnemy (2);
+			if (tag == "Enemy3") spawnEnemy (3);
+			if (tag == "Enemy4") spawnEnemy (4);
+		}
 	}
 
-	public void spawnEnemy(){
+	// Update is called once per frame
+	void FixedUpdate () {
+		if (staticSpawner) {
+			staticSpawnerTimer += Time.deltaTime*spawnsPerSecond;
+			if (staticSpawnerTimer >= 1) {
+				spawnEnemy (0);
+				staticSpawnerTimer--;
+			}
+		}
+	}
+
+	public void spawnEnemy(int enemyType){
 		bool tooClose;
 		float pX = player1.transform.position.x;
 		float pY = player1.transform.position.y;
@@ -57,7 +77,7 @@ public class spawnEnemies : MonoBehaviour {
 			//tooClose = false;
 		} while (tooClose);
 
-		var enemy = Instantiate (enemyToSpawn, trans.position, Quaternion.identity) as GameObject;
+		var enemy = Instantiate (enemiesToSpawn[enemyType], trans.position, Quaternion.identity) as GameObject;
 		enemy.transform.parent = gameObject.transform;
 	}
 }

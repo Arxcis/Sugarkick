@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DeathTrigger : MonoBehaviour {
 
-	public bool endlessMode = false;
 	spawnEnemies spwnE;
 
 	// Use this for initialization
@@ -12,6 +11,6 @@ public class DeathTrigger : MonoBehaviour {
 	}
 
 	void  OnDestroy(){
-		if(endlessMode) spwnE.spawnEnemy ();
+		spwnE.gotKilled (gameObject.tag);
 	}
 }
