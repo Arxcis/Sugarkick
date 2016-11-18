@@ -28,7 +28,7 @@ public class movePlayer : MonoBehaviour {
                                     // Fixed update is independent on frame rate
     void FixedUpdate () {
                                     // Comment to next 10 lines:
-        inputVector.x = Input.GetAxisRaw("MoveAxisX") * -1;  // Dont know why I have to invert this axis
+        inputVector.x = Input.GetAxisRaw("MoveAxisX");
         inputVector.y = Input.GetAxisRaw("MoveAxisY");
                                     // Uses diagonalCompensate in Main script.
                                     // Returns a Vector which has length 1 no matter which
