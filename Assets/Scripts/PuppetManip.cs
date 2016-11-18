@@ -4,6 +4,7 @@ using System.Collections;
 public class PuppetManip : MonoBehaviour {
 
 	public bool isEnemy = false;
+    public bool isSpawnerChild = false;
     public int   life = 1;                               // amount of respawns
     public int   hP   = 3;                               // amount of hits taken per respwan
     public float movementSpeed=1;
@@ -23,7 +24,7 @@ public class PuppetManip : MonoBehaviour {
             { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
-            main.playerAnim.SetTrigger("TriggerRespawn");
+            main.playerAnim.Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
             main.playerMove.enabled = true;                        // the player can move afer respawning
             main.playerGun.enabled = true;
@@ -43,7 +44,7 @@ public class PuppetManip : MonoBehaviour {
 
         if (isEnemy)
         {
-            GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag);
+            if (isSpawnerChild) GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag);
             Destroy(gameObject);
         }
         else
