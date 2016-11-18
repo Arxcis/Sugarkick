@@ -4,14 +4,15 @@ using System.Collections;
 public class Main : MonoBehaviour {
 
 
-	public int mapsize = 40;                    // Planning to have GLOBAL variables 
-    GameObject player;
-    public Transform playerTrans;   			//  here. AY-AY Sir!
+    public int mapsize = 40;                    // Planning to have GLOBAL variables 
+    public Transform playerTrans;               //  here. AY-AY Sir!
     public Animator playerAnim;
     public Rigidbody2D playerRigi;
     public movePlayer playerMove;
-	                                            // Use this for initialization
-	void Start () {
+
+    GameObject player;
+                                                // Use this for initialization
+    void Start () {
 
         player = GameObject.Find("Player");
         playerTrans = player.GetComponent<Transform>();
@@ -24,38 +25,53 @@ public class Main : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-	}
-		
-	void restart() {
+    }
+        
+    void restart() {
 
-		Debug.Log ("Restarting game");
-	}
+        Debug.Log ("Restarting game");
+    }
 
-	void save() {
-		Debug.Log ("Saving game...");
-	}
+    void save() {
+        Debug.Log ("Saving game...");
+    }
 
-	void load(string filename){
-		Debug.Log ("Loading game...");
-	}
+    void load(string filename){
+        Debug.Log ("Loading game...");
+    }
 
-														// Adjusts an input vector to follow the curve of a 
-														// circle, using the angle.
-	public Vector2 diagonalCompensate(Vector2 inputVec) { 
+    // --------------- UTILITY FUNCTIONS ------------------
 
-        float angle = Vector2.Angle( Vector2.right, inputVec ) * Mathf.Deg2Rad;
-        												// in two cases we have to make the angle negative
+                                        // Takes a Vector2 which has a variable absolute length
+                                        // between 1 at 90 degrees, and sqrt(2) at 45 degrees
+                                        // Returns a Vector2 which has an absolute length of 1
+                                        // for all angles.
+    public Vector2 DiagonalCompensate( Vector2 inVec ) { 
+                                        // Gets angle and converts it to radians
+        float angle = GetAngle( Vector2.right, inVec) * Mathf.Deg2Rad;
 
-        Debug.Log("Angle: " + angle);
+        return new Vector2( inVec.x * Mathf.Abs(Mathf.Cos(angle)), 
+                            inVec.y * Mathf.Abs(Mathf.Sin(angle)) );
+    }
+                  
+                                        // Returns the correct angle between two vectors
+    public float GetAngle( Vector2 v1, Vector2 v2 )
+    {
+        var sign = Mathf.Sign( v1.x * v2.y - v1.y * v2.x );
+        return Vector2.Angle(v1, v2) * sign;
+    }
 
-        if (inputVec.x < 0 && inputVec.y != 0 ){
-        	angle -= Mathf.PI / 2;
-        } else if (inputVec.x < 0) {
-        	angle -= Mathf.PI;
-        }
+                                        // Returns a unit vector given a specific angle
+    public Vector2 GetUnitVector2(float angle) {
 
-		return new Vector2( inputVec.x * Mathf.Cos(angle), inputVec.y * Mathf.Sin(angle) );
-	}
+        return new Vector2( Mathf.Cos(angle), Mathf.Sin(angle) );
+    }
+              
+                                        // Casts a Vector2 to a Vector3
+    public Vector3 ToVector3( Vector2 vec2 ) {
+
+        return new Vector3(vec2.x, vec2.y, 0.0f);
+    }
 }
 
 
