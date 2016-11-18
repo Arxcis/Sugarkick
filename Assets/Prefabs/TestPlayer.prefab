@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011326447832}
   - 212: {fileID: 212000012148565704}
-  - 114: {fileID: 114000011916787154}
+  - 114: {fileID: 114000010613607296}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -153,6 +153,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010613607296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012415849828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setPos: 1
+  addForce: 0
+  setVelocity: 1
+  damage: 1
+  accuracy: 100
+  fireRate: 50
+  knockbackPow: 300
+  rotationSpeed: 10
 --- !u!114 &114000011193236502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,27 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8a60045f60542889379508bfd186c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: {x: 10, y: 10}
+  playerSpeed: 10
   friction: 1.1
---- !u!114 &114000011916787154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012415849828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setPos: 1
-  addForce: 1
-  setVelocity: 0
-  damage: 1
-  accuracy: 100
-  fireRate: 10
-  knockbackPow: 200
-  rotationSpeed: 10
 --- !u!212 &212000010100217846
 SpriteRenderer:
   m_ObjectHideFlags: 1

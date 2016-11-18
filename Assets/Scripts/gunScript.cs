@@ -13,7 +13,7 @@ public class gunScript : MonoBehaviour {
     public float damage       =   1.0F;         // Shooting
     public float accuracy     = 100.0F;
     public float fireRate     =  50.0F;
-    public float knockbackPow = 200.0F;
+    public float knockbackPow = 300.0F;
     // public GameObject bullets; (Jone): Unity complained that bullet wasn't defined. 
     public float rotationSpeed = 10.0F;         // Rotation
 
@@ -41,7 +41,7 @@ public class gunScript : MonoBehaviour {
 
         if (inputVec.x != 0 || inputVec.y != 0){
 
-            gunAngle = main.GetAngle(Vector2.up, inputVec);
+            gunAngle = main.GetAngle( Vector2.up, inputVec );
             gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
         }
 
@@ -54,7 +54,8 @@ public class gunScript : MonoBehaviour {
             print ("Firing!"); 
                                                 // Scaling recoilVec with negative 1 to send the 
                                                 // player in opposite direction
-            recoilVec = main.DiagonalCompensate( inputVec ) * -1.0F;
+            recoilVec = main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
+            
 
             if (setPos) {                       // Casting vec2 to vec3 before adding to position
                 main.playerTrans.position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
@@ -65,7 +66,7 @@ public class gunScript : MonoBehaviour {
             }
 
             if(setVelocity){
-                main.playerRigi.velocity = recoilVec * (knockbackPow / 10);
+                main.playerRigi.velocity += recoilVec * (knockbackPow / 10);
             }
 
             // Instantiate(bullets, new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
@@ -74,6 +75,6 @@ public class gunScript : MonoBehaviour {
 
             cooldown = 1/(fireRate/1000); 
         }
-        print("Fire: " + fire + "Cooldown: " + cooldown);
+        // print("Fire: " + fire + " Cooldown: " + cooldown);
     }
 }
