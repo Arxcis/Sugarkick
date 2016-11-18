@@ -13,7 +13,7 @@ public class Main : MonoBehaviour {
 	                                            // Use this for initialization
 	void Start () {
 
-        player = GameObject.Find("TestPlayer");
+        player = GameObject.Find("Player");
         playerTrans = player.GetComponent<Transform>();
         playerAnim  = player.GetComponent<Animator>();
         playerRigi  = player.GetComponent<Rigidbody2D>();

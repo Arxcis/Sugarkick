@@ -3,6 +3,7 @@ using System.Collections;
 
 public class puppetManip : MonoBehaviour {
 
+	public bool isEnemy = false;
     public int   life = 1;                               // amount of respawns
     public int   hP   = 3;                               // amount of hits taken per respwan
     public float movementSpeed=1;
@@ -10,15 +11,18 @@ public class puppetManip : MonoBehaviour {
     public Vector3 spawnLocation = new Vector3( 0, 0, 0 );
     Main main;
 
+
     void Start()
     {
         main = GameObject.Find("Camera").GetComponent<Main>();
     }
     
     public void respawn( ) {
+
         main.playerAnim.SetTrigger("TriggerRespawn");
+
         gameObject.transform.position = spawnLocation;
-        main.playerMove.enabled = true;                        //the player can move afer respawning
+        main.playerMove.enabled = true;                        // the player can move afer respawning
         
     }
 
@@ -28,6 +32,7 @@ public class puppetManip : MonoBehaviour {
             kill("enemy");
         } 
     } 
+
 
     public void kill(string deathBy) {
         if ( --life <= 0 ) {
@@ -47,6 +52,12 @@ public class puppetManip : MonoBehaviour {
         if ( other.gameObject.CompareTag( "Hole" ) ) {
             kill("fall");
         }
-        
+
+    	else if(other.gameObject.CompareTag("Bullet") && isEnemy){
+    		//damage (other.transform.GetComponent<Damage> ().damage);
+    		Destroy (other.gameObject);
+    		damage(1);
+    	}
+
     }
 }
