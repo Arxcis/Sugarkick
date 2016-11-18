@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f93f110fdb6334f8b8702504c0d828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.1
+  moveSpeed: 6
   enemyRuteCalcRate: 15
   personalSpaceBro: 2.5
 --- !u!114 &114000013223314096
@@ -119,10 +119,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
+  isSpawnerChild: 0
   life: 1
   hP: 3
   movementSpeed: 1
-  fallingSpeedMultiplier: 0.1
+  fallingSpeedMultiplier: 0.3
   spawnLocation: {x: 0, y: 0, z: 0}
 --- !u!212 &212000012301901132
 SpriteRenderer:

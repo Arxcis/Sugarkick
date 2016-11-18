@@ -13,6 +13,7 @@ public class MoveEnemy : MonoBehaviour {
     // Private:
     Transform enemyTrans;
     Animator enemyAnim;
+    Rigidbody2D enemyRigi;
 
     bool    isWalking     = false;                  //used to trigger animation
     int     framesCounted = 0;                      //counts frames since last vector update.
@@ -22,6 +23,7 @@ public class MoveEnemy : MonoBehaviour {
     {
         enemyTrans = GetComponent<Transform>();            //Enemy's transform component.
         enemyAnim = GetComponent<Animator>();            //Sprite animator.
+        enemyRigi = GetComponent<Rigidbody2D>();
         main = GameObject.Find("Camera").GetComponent<Main>();
     }
 
@@ -40,7 +42,7 @@ public class MoveEnemy : MonoBehaviour {
                                                         //Moves enemy moveSpeed in x axis.
         if (vectorToPlayer.magnitude > personalSpaceBro)
         {
-            enemyTrans.position += -vectorToPlayer.normalized * moveSpeed;
+            enemyRigi.velocity = -vectorToPlayer.normalized * moveSpeed;
             isWalking = true;
         }
         else                                            //enemy has reached the player
