@@ -20,13 +20,15 @@ public class puppetManip : MonoBehaviour {
     public void respawn( ) {
 
         if (life <= 0)
-        { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
-
-        main.playerAnim.SetTrigger("TriggerRespawn");
-        gameObject.transform.position = spawnLocation;
-        main.playerMove.enabled = true;                        // the player can move afer respawning
-        main.playerGun.enabled = true;
-        main.playerColl.enabled = true;
+            { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
+        else
+        {
+            main.playerAnim.SetTrigger("TriggerRespawn");
+            gameObject.transform.position = spawnLocation;
+            main.playerMove.enabled = true;                        // the player can move afer respawning
+            main.playerGun.enabled = true;
+            main.playerColl.enabled = true;
+        }
     }
 
     public void damage( int d ) {                               //Take hp and check if killed.
@@ -38,7 +40,15 @@ public class puppetManip : MonoBehaviour {
 
 
     public void kill(string deathBy) {
-        life--;
+
+        if (isEnemy)
+        {
+            GetComponentInParent<spawnEnemies>().gotKilled(gameObject.tag);
+            Destroy(gameObject);
+        }
+        else
+        {
+            life--;
             main.playerRigi.velocity *= fallingSpeedMultiplier;
             main.playerMove.enabled = false;                    //player cannot move while fallling
             main.playerGun.enabled = false;
@@ -46,7 +56,7 @@ public class puppetManip : MonoBehaviour {
 
             if (deathBy == "fall") main.playerAnim.Play("PlayerFallDown"); //main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
             if (deathBy == "enemy") respawn();//insert other death animation instead
-
+        }
 
     }
 

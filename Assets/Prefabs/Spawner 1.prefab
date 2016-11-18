@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010668608580}
   - 114: {fileID: 114000013273088424}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Spawner 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToSpawn:
-  - {fileID: 1000013736368644, guid: 152136904eba01441b4487ed4d096163, type: 2}
-  - {fileID: 1000013736368644, guid: 152136904eba01441b4487ed4d096163, type: 2}
-  - {fileID: 1000013736368644, guid: 152136904eba01441b4487ed4d096163, type: 2}
-  - {fileID: 1000013736368644, guid: 152136904eba01441b4487ed4d096163, type: 2}
+  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
+  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
+  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
+  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
   spawnRange: 15
   endlessMode: 0
   staticSpawner: 0
