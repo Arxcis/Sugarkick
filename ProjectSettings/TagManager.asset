@@ -7,6 +7,10 @@ TagManager:
   - Hole
   - Bullet
   - Void
+  - 'Enemies / Enemy1 '
+  - Enemies / Enemy2
+  - Enemies / Enemy3
+  - Enemies / Enemy4
   layers:
   - Default
   - TransparentFX

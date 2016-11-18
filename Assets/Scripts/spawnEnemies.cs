@@ -10,7 +10,7 @@ public class spawnEnemies : MonoBehaviour {
 
 	public bool endlessMode = false;
 	public bool staticSpawner = false;
-	public float staticSpawnrate;
+	public float spawnsPerSecond;
 
 	public GameObject player1;
 	public GameObject player2;
@@ -19,21 +19,30 @@ public class spawnEnemies : MonoBehaviour {
 	public float[] xPos;
 	public float[] yPos;
 	Transform trans;
-	int staticSpawnerTimer = 0;
+	float staticSpawnerTimer = 0.0F;
 
 	// Use this for initialization
 	void Start () {
 		main = GameObject.Find("Camera").GetComponent<Main>();
 		trans = spawns[0].transform;
 	}
-	
+
+	public void gotKilled (string tag){
+		if (endlessMode) {
+			if (tag == "Enemy1") spawnEnemy (1);
+			if (tag == "Enemy2") spawnEnemy (2);
+			if (tag == "Enemy3") spawnEnemy (3);
+			if (tag == "Enemy4") spawnEnemy (4);
+		}
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (staticSpawner) {
-			staticSpawnerTimer++;
-			if (staticSpawnerTimer >= 1000.0F / staticSpawnrate+1) {
+			staticSpawnerTimer += Time.deltaTime*spawnsPerSecond;
+			if (staticSpawnerTimer >= 1) {
 				spawnEnemy (0);
-				staticSpawnerTimer = 0;
+				staticSpawnerTimer--;
 			}
 		}
 	}

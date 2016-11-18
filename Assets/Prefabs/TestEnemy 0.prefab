@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 114000013223314096}
   m_Layer: 0
   m_Name: TestEnemy 0
-  m_TagString: Untagged
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,6 @@ MonoBehaviour:
   moveSpeed: 0.1
   enemyRuteCalcRate: 15
   personalSpaceBro: 2.5
-  tfPlayer: {fileID: 0}
 --- !u!114 &114000013223314096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,6 +122,7 @@ MonoBehaviour:
   life: 1
   hP: 3
   movementSpeed: 1
+  fallingSpeedMultiplier: 0.1
   spawnLocation: {x: 0, y: 0, z: 0}
 --- !u!212 &212000012301901132
 SpriteRenderer:
