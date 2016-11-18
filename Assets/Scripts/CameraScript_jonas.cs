@@ -7,8 +7,8 @@ public class CameraScript_jonas : MonoBehaviour {
     public GameObject[] players;
     public int cameraScale = 0;
 
-    Camera      cam;      
-    Transform   camTrans;
+    // Camera      cam;      
+    // Transform   camTrans;
     Transform[] playersTrans;
 
     int        numPlayers;
@@ -19,8 +19,8 @@ public class CameraScript_jonas : MonoBehaviour {
     Vector2 centerOfMass = new Vector2(0, 0); // Formula @ http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html
 
 	void Start () {            
-        camTrans = gameObject.GetComponent<Transform>();    // Camera transform
-	    cam   = GetComponent<Camera>();       // To manipulate camsize
+        // camTrans = gameObject.GetComponent<Transform>();    // Camera transform
+	    // cam   = GetComponent<Camera>();       // To manipulate camsize
 
         playersTrans = new Transform[players.Length];
         int i=0;                                // Getting all players transforms
@@ -52,7 +52,6 @@ public class CameraScript_jonas : MonoBehaviour {
         //cam.orthographicSize = maxDistance * cameraScale; // Camera size varies depending on how 
                                                            // far the players away from each other.
 
-        Print(centerOfMass);
 	}
 
     float getMax(List<float> floats){
