@@ -105,8 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  enemyRuteCalcRate: 15
+  enemyRuteCalcRate: 10
   personalSpaceBro: 2.5
+  friction: 1.25
 --- !u!114 &114000013223314096
 MonoBehaviour:
   m_ObjectHideFlags: 1

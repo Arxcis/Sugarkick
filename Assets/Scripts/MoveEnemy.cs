@@ -7,6 +7,7 @@ public class MoveEnemy : MonoBehaviour {
     public float moveSpeed = 0.1f;                  //Movement speed modifier.
     public int   enemyRuteCalcRate = 15;            //Number of frames between each vector update.
     public float personalSpaceBro = 2.5f;
+    public float friction = 1.1F;
     Main main;                                      //gets global veiables form main
 
 
@@ -39,16 +40,20 @@ public class MoveEnemy : MonoBehaviour {
         }
         else framesCounted++;
 
-                                                        //Moves enemy moveSpeed in x axis.
+                                                             //Moves enemy moveSpeed in x axis.
         if (vectorToPlayer.magnitude > personalSpaceBro)
         {
             enemyRigi.velocity = -vectorToPlayer.normalized * moveSpeed;
             isWalking = true;
         }
-        else                                            //enemy has reached the player
-        {
+        else if (vectorToPlayer.magnitude > 0.1F)           //the magnitude is 0 when the enemy spawnes,
+        {                                                   //Because it cant calculate vector to player if enemy trans us NULL.
             isWalking = false;
+            enemyRigi.velocity *= (1 / friction);          // stops the enemy when inside personal space.
             print("Player Hit!");
+            main.playerManip.damage(1, "enemy");  //BUG!! where the enemy will hit the player instantly after spawning.
+            GetComponent<PuppetManip>().kill("attack");
+            
         }
 
         enemyAnim.SetBool("isWalking", isWalking);       //Updates animator. So it knows when its moving.

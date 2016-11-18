@@ -7,6 +7,7 @@ public class PuppetManip : MonoBehaviour {
     public bool isSpawnerChild = false;
     public int   life = 1;                               // amount of respawns
     public int   hP   = 3;                               // amount of hits taken per respwan
+    int currentHp; //= hp (in start)
     public float movementSpeed=1;
     public float fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
     public Vector3 spawnLocation = new Vector3( 0, 0, 0 );
@@ -15,7 +16,8 @@ public class PuppetManip : MonoBehaviour {
 
     void Start()
     {
-        main = GameObject.Find("Camera").GetComponent<Main>();  // not used
+        main = GameObject.Find("Camera").GetComponent<Main>();
+        currentHp = hP;
     }
     
     public void respawn( ) {
@@ -25,6 +27,7 @@ public class PuppetManip : MonoBehaviour {
             { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
+            currentHp = hP;                                     // refills hp after respawn
             main.playerAnim.Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
             main.playerMove.enabled = true;                        // the player can move afer respawning
@@ -33,11 +36,15 @@ public class PuppetManip : MonoBehaviour {
         }
     }
 
-    public void damage( int d, string deathBy) {                               //Take hp and check if killed.
-        hP -= d;
-        if ( hP <= 0 ) {
-            kill(deathBy);
+    public void damage( int d, string hitBy) {                               //Take hp and check if killed.
+        currentHp -= d;
+        if ( currentHp <= 0 ) {
+            kill(hitBy);                                                //call kill function with whatever the player got hit by.
         } 
+        else if(!isEnemy)
+        {
+            main.playerAnim.Play("PlayerHurt");                         //play hurt animation.
+        }
     } 
 
 
@@ -49,8 +56,9 @@ public class PuppetManip : MonoBehaviour {
             GetComponent<MoveEnemy>().enabled = false;                              //the enemy cant move mid air.
             GetComponent<BoxCollider2D>().enabled = false;                          //the collider cant block bullets from beneeth the map.
             if (isSpawnerChild) GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag); //tells the spawner that a child died. :'(
-            if(deathBy == "fall")GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
+            if (deathBy == "fall")GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
             if (deathBy == "bullet")GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+            if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
         }
         else
         {
