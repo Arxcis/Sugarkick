@@ -6,17 +6,17 @@
 #### Version 0.3 - coming soon
 
 *Release date: soon..*
-*Cycle length: 1+ days*
+*Cycle length: 3 days*
 
 Changelog
-- You can shoot bullets.
-- You can kill enemies.
-- Enemy spawner can respawn enemies in different ways.
+- Player can shoot bullets.
+- Player can kill enemies.
+- Enemy spawner can spawn/respawn enemies in different ways.
 - Camera follows player
 - Enemies falls of the map.
 - Enemies can kill player.
 - Player death animation when killed by enemy.
-- All scenes can be loaded from menu.
+- All levels can be loaded from menu.
 - Mouse aiming support
 
 &nbsp;
@@ -27,9 +27,9 @@ Changelog
 *Cycle length: 6 days*
 
 Changelog:
-- Created an enemy spawner that spawns enemies.
+- Created an enemy spawner.
 - Player can fall off the map.
-- Fall animation.
+- Player fall animation.
 - Main menu created. Can launch the Octagon level.
 - Player now has the same speed in all directions.
 - Xbox 360 Controller support for Windows.
@@ -47,6 +47,7 @@ Changelog:
 - Dummy movement animation.
 - Gun rotation
 - A single enemy that chases the player.
+- Octagon, Hexagon, Square and Triangle levels created.
 
 &nbsp;
 &nbsp;
