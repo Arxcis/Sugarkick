@@ -10,7 +10,10 @@ public class SpawnEnemies : MonoBehaviour {
 
 	public bool endlessMode = false;
 	public bool staticSpawner = false;
+	public bool waveMode = false;
 	public float spawnsPerSecond;
+	public int numberOfEnemies;
+	public int maxEnemiesOnScreen;
 
 	public GameObject player1;
 	public GameObject player2;
@@ -21,6 +24,8 @@ public class SpawnEnemies : MonoBehaviour {
 	Transform trans;
 	float staticSpawnerTimer = 0.0F;
 
+	int enemiesSpawned = 0;
+	int currentEnemyCount = 0;
 	// Use this for initialization
 	void Start () {
 		// main = GameObject.Find("Camera").GetComponent<Main>();  // Not used
@@ -34,16 +39,26 @@ public class SpawnEnemies : MonoBehaviour {
 			if (tag == "Enemy3") spawnEnemy (3);
 			if (tag == "Enemy4") spawnEnemy (4);
 		}
+		currentEnemyCount--;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (staticSpawner) {
+		if (staticSpawner || (waveMode && enemiesSpawned < numberOfEnemies && currentEnemyCount < maxEnemiesOnScreen)) {
 			staticSpawnerTimer += Time.deltaTime*spawnsPerSecond;
 			if (staticSpawnerTimer >= 1) {
 				spawnEnemy (0);
 				staticSpawnerTimer--;
+				if (waveMode) {
+					enemiesSpawned++;
+					currentEnemyCount++;
+				}
 			}
+		}
+		if (enemiesSpawned >= numberOfEnemies) {
+			waveMode = false;
+			enemiesSpawned = 0;
+			staticSpawnerTimer = 0.0F;
 		}
 	}
 
