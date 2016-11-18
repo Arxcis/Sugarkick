@@ -12,6 +12,6 @@ public class DeathTrigger : MonoBehaviour {
 	}
 
 	void  OnDestroy(){
-		if(endlessMode) spwnE.spawnEnemy ();
+		if(endlessMode) spwnE.spawnEnemy (0);
 	}
 }

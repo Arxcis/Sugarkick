@@ -5,8 +5,12 @@ public class spawnEnemies : MonoBehaviour {
 
 	Main main;
 
-	public GameObject enemyToSpawn;
+	public GameObject[] enemiesToSpawn;
 	public float spawnRange;
+
+	public bool endlessMode = false;
+	public bool staticSpawner = false;
+	public float staticSpawnrate;
 
 	public GameObject player1;
 	public GameObject player2;
@@ -15,6 +19,7 @@ public class spawnEnemies : MonoBehaviour {
 	public float[] xPos;
 	public float[] yPos;
 	Transform trans;
+	int staticSpawnerTimer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -23,11 +28,17 @@ public class spawnEnemies : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void FixedUpdate () {
+		if (staticSpawner) {
+			staticSpawnerTimer++;
+			if (staticSpawnerTimer >= 1000.0F / staticSpawnrate+1) {
+				spawnEnemy (0);
+				staticSpawnerTimer = 0;
+			}
+		}
 	}
 
-	public void spawnEnemy(){
+	public void spawnEnemy(int enemyType){
 		bool tooClose;
 		float pX = player1.transform.position.x;
 		float pY = player1.transform.position.y;
@@ -57,7 +68,7 @@ public class spawnEnemies : MonoBehaviour {
 			//tooClose = false;
 		} while (tooClose);
 
-		var enemy = Instantiate (enemyToSpawn, trans.position, Quaternion.identity) as GameObject;
+		var enemy = Instantiate (enemiesToSpawn[enemyType], trans.position, Quaternion.identity) as GameObject;
 		enemy.transform.parent = gameObject.transform;
 	}
 }
