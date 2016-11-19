@@ -26,7 +26,7 @@ public class SpawnEnemies : MonoBehaviour {
 	float staticSpawnerTimer = 0.0F;
 
 	int enemiesSpawned = 0;
-	int currentEnemyCount = 0;
+	public int currentEnemyCount = 0;
 	// Use this for initialization
 	void Start () {
 		// main = GameObject.Find("Camera").GetComponent<Main>();  // Not used
@@ -57,10 +57,11 @@ public class SpawnEnemies : MonoBehaviour {
 				}
 			}
 		}
-		if (enemiesSpawned >= numberOfEnemies) {
+		if (enemiesSpawned >= numberOfEnemies && currentEnemyCount == 0) {
 			waveMode = false;
 			enemiesSpawned = 0;
 			staticSpawnerTimer = 0.0F;
+			print ("Currently " + currentEnemyCount + " enemies alive");
 			spawnControl.NextWave ();
 		}
 	}
