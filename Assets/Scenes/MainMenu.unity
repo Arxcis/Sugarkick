@@ -2052,6 +2052,10 @@ MonoBehaviour:
   MainCanvas: {fileID: 462579067}
   OptionsCanvas: {fileID: 1389856296}
   SelectionCanvas: {fileID: 2051126688}
+  menuMusic: {fileID: 8300000, guid: 6d83e16d1b7ba2549808189499782fda, type: 3}
+  buttonSound: {fileID: 8300000, guid: 48b3461395a9206469a15b63ccf5df64, type: 3}
+  musicVolume: 1
+  buttonVolume: 1
 --- !u!82 &1778803919
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2063,12 +2067,12 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6d83e16d1b7ba2549808189499782fda, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 97
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2119,7 +2123,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
