@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010571143630, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
@@ -138,6 +138,16 @@ Prefab:
         type: 2}
       propertyPath: life
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: knockbackPow
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: weaponDamage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
@@ -350,7 +360,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014032041444, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 20000012151492368, guid: 035c2195e4c86490383f565b51035c7a,
         type: 2}
@@ -488,7 +498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011173458986, guid: 999852eb7e1a749b9a776ca54081856e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 999852eb7e1a749b9a776ca54081856e, type: 2}
@@ -541,6 +551,48 @@ BoxCollider2D:
   m_Offset: {x: 0.51, y: -0.01}
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.58}
+--- !u!1001 &1132117093
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1658492276
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +738,11 @@ Prefab:
       propertyPath: spawns.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: enemiesToSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010668608580, guid: 8accac722704243c3aa15fd604453c85, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -716,7 +773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010668608580, guid: 8accac722704243c3aa15fd604453c85, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000010802562038, guid: 8accac722704243c3aa15fd604453c85, type: 2}
       propertyPath: m_Name
@@ -741,7 +798,7 @@ Prefab:
         type: 2}
       propertyPath: player2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 699039297}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
       propertyPath: spawns.Array.data[0]
@@ -750,7 +807,7 @@ Prefab:
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
       propertyPath: endlessMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
@@ -758,6 +815,34 @@ Prefab:
       value: 
       objectReference: {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f,
         type: 2}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: enemiesToSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f,
+        type: 2}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: enemiesToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f,
+        type: 2}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: enemiesToSpawn.Array.data[3]
+      value: 
+      objectReference: {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f,
+        type: 2}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: numberOfEnemies
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: maxEnemiesOnScreen
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8accac722704243c3aa15fd604453c85, type: 2}
   m_IsPrefabParent: 0
