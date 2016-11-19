@@ -94,5 +94,6 @@ public class SpawnEnemies : MonoBehaviour {
 
 		var enemy = Instantiate (enemiesToSpawn[enemyType], trans.position, Quaternion.identity) as GameObject;
 		enemy.transform.parent = gameObject.transform;
+        enemy.GetComponent<PuppetManip>().isSpawnerChild = true;           //Sets the isSpawnerChild to true in the enemy's PupManip
 	}
 }

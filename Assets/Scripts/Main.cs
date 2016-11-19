@@ -11,6 +11,7 @@ public class Main : MonoBehaviour {
     public MovePlayer    playerMove;
     public GunScript     playerGun;
     public BoxCollider2D playerColl;
+    public PuppetManip   playerManip;
 
     GameObject player;
                                                 // Use this for initialization
@@ -23,6 +24,7 @@ public class Main : MonoBehaviour {
         playerMove  = player.GetComponent<MovePlayer>();
         playerGun   = player.GetComponentInChildren<GunScript>();
         playerColl  = player.GetComponent<BoxCollider2D>();
+        playerManip = player.GetComponent<PuppetManip>();
 
     }
 
