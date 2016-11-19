@@ -17,14 +17,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: 720}
-        inSlope: {x: 20, y: 60, z: 0}
-        outSlope: {x: 20, y: 60, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 20, y: 60, z: 360}
+        outSlope: {x: 20, y: 60, z: 360}
         tangentMode: 0
       - time: 2
         value: {x: 40, y: 120, z: 720}
-        inSlope: {x: 20, y: 60, z: 0}
-        outSlope: {x: 20, y: 60, z: 0}
+        inSlope: {x: 20, y: 60, z: 360}
+        outSlope: {x: 20, y: 60, z: 360}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -136,14 +136,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 720
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: 360
+        outSlope: 360
         tangentMode: 10
       - time: 2
         value: 720
-        inSlope: 0
-        outSlope: 0
+        inSlope: 360
+        outSlope: 360
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -247,7 +247,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 1.6666666
+  - time: 2
     functionName: respawn
     data: 
     objectReferenceParameter: {fileID: 0}
