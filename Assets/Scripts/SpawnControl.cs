@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SpawnControl : MonoBehaviour {
 	public bool startWave = false;
@@ -17,6 +18,8 @@ public class SpawnControl : MonoBehaviour {
 		public int maxEnemiesOnScreen;
 		public GameObject[] spawns;
 	}
+
+	public string nextLevel;
 
 	public int waveNumber = 0;
 
@@ -39,7 +42,7 @@ public class SpawnControl : MonoBehaviour {
 			SetWave (waveNumber);
 		}
 		else {
-			print ("Last wave complete!");
+			SceneManager.LoadScene(nextLevel);
 		}
 	}
 		
