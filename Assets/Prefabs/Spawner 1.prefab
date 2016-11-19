@@ -58,8 +58,11 @@ MonoBehaviour:
   - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
   spawnRange: 15
   endlessMode: 0
-  staticSpawner: 1
+  staticSpawner: 0
+  waveMode: 0
   spawnsPerSecond: 1
+  numberOfEnemies: 0
+  maxEnemiesOnScreen: 0
   player1: {fileID: 1000011223011370, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
   player2: {fileID: 1000011223011370, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
   spawns:
