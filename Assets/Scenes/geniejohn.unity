@@ -972,11 +972,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawns.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4000010668608580, guid: 8accac722704243c3aa15fd604453c85, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1015,46 +1010,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
-      propertyPath: spawns.Array.data[1]
-      value: 
-      objectReference: {fileID: 1002529263}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawns.Array.data[2]
-      value: 
-      objectReference: {fileID: 171629326}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawns.Array.data[3]
-      value: 
-      objectReference: {fileID: 1910352280}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawns.Array.data[4]
-      value: 
-      objectReference: {fileID: 911186783}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawns.Array.data[5]
-      value: 
-      objectReference: {fileID: 319052231}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawns.Array.data[0]
-      value: 
-      objectReference: {fileID: 1897824427}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: player2
-      value: 
-      objectReference: {fileID: 280275792}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: player1
-      value: 
-      objectReference: {fileID: 1891108499}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
       propertyPath: staticSpawner
       value: 0
       objectReference: {fileID: 0}
@@ -1065,6 +1020,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
+      propertyPath: spawnsPerSecond
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
       propertyPath: numberOfEnemies
       value: 10
       objectReference: {fileID: 0}
@@ -1072,16 +1032,6 @@ Prefab:
         type: 2}
       propertyPath: maxEnemiesOnScreen
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: spawnsPerSecond
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: endlessMode
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8accac722704243c3aa15fd604453c85, type: 2}
