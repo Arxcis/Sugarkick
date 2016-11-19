@@ -104,6 +104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapsize: 35
+  playerTrans: {fileID: 0}
+  playerAnim: {fileID: 0}
+  playerRigi: {fileID: 0}
+  playerMove: {fileID: 0}
+  playerGun: {fileID: 0}
+  playerColl: {fileID: 0}
 --- !u!124 &124000012713481864
 Behaviour:
   m_ObjectHideFlags: 1

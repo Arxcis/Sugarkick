@@ -72,9 +72,9 @@ public class Main : MonoBehaviour {
     }
               
                                         // Casts a Vector2 to a Vector3
-    public Vector3 ToVector3( Vector2 vec2 ) {
+    public Vector3 ToVector3( Vector2 vec2, float zval=0.0F ) {
 
-        return new Vector3(vec2.x, vec2.y, 0.0f);
+        return new Vector3(vec2.x, vec2.y, zval);
     }
 }
 
