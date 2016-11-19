@@ -732,18 +732,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
-<<<<<<< HEAD
-      propertyPath: numberOfEnemies
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
-        type: 2}
-      propertyPath: maxEnemiesOnScreen
-      value: 15
-=======
       propertyPath: spawnsPerSecond
       value: 2
->>>>>>> c4a4d943e39028223c7d1e908be39f1d4611b29d
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
