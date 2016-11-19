@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 1891108499}
   player2: {fileID: 280275792}
-  deadZone: 1
+  deadZone: 0
   velocityFactor: 0.1
   desiredPos: {x: 0, y: 0}
   distance: {x: 0, y: 0}
@@ -778,12 +778,12 @@ Prefab:
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
       propertyPath: numberOfEnemies
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
       propertyPath: maxEnemiesOnScreen
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
         type: 2}
