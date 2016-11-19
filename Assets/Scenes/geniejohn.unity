@@ -745,6 +745,11 @@ Prefab:
       propertyPath: maxEnemiesOnScreen
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013273088424, guid: 8accac722704243c3aa15fd604453c85,
+        type: 2}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 280275792}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8accac722704243c3aa15fd604453c85, type: 2}
   m_IsPrefabParent: 0
