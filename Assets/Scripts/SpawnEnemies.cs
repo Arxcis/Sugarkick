@@ -4,6 +4,7 @@ using System.Collections;
 public class SpawnEnemies : MonoBehaviour {
 
 	Main main;
+	SpawnControl spawnControl;
 
 	public GameObject[] enemiesToSpawn;
 	public float spawnRange;
@@ -30,6 +31,7 @@ public class SpawnEnemies : MonoBehaviour {
 	void Start () {
 		// main = GameObject.Find("Camera").GetComponent<Main>();  // Not used
 		trans = spawns[0].transform;
+		spawnControl = gameObject.GetComponent<SpawnControl> ();
 	}
 
 	public void gotKilled (string tag){
@@ -59,6 +61,7 @@ public class SpawnEnemies : MonoBehaviour {
 			waveMode = false;
 			enemiesSpawned = 0;
 			staticSpawnerTimer = 0.0F;
+			spawnControl.NextWave ();
 		}
 	}
 
