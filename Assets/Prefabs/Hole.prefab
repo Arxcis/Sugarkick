@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013502372340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: -8.3, z: 0}
+  m_LocalPosition: {x: -17.3, y: 1.9, z: -0.16}
   m_LocalScale: {x: 4, y: 4, z: 4.5233493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -166,11 +166,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014224194860}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb27a40ba9c314941a06a4dd3e5e06b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holeMate: {fileID: 0}
+  preFabMat: {fileID: 0}
+  holeTex: {fileID: 0}
 --- !u!212 &212000014158209680
 SpriteRenderer:
   m_ObjectHideFlags: 1
