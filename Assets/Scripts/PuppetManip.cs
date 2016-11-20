@@ -3,20 +3,26 @@ using System.Collections;
 
 public class PuppetManip : MonoBehaviour {
 
-	public bool isEnemy = false;
-    public bool isSpawnerChild = false;
-    public int   life = 1;                               // amount of respawns
-    public int   hP   = 3;                               // amount of hits taken per respwan
-    int currentHp; //= hp (in start)
-    public int invincibilityFrames = 200;
-    public int invFrm = 0;
-    public float movementSpeed=1;
-    public float fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
-    public Vector3 spawnLocation = new Vector3( 0, 0, 0 );
+
     Main main;
-    public float sugarTimeSlow = 0.5f; //time scales to this * time
-    public float sugarSpeedChange = 1.5f; //movementSpeed scales to this * movementSpeed
-    public bool star = true;
+
+    public bool     isEnemy = false;
+    public bool     isSpawnerChild = false;
+    public int      life = 1;                               // amount of respawns
+    public int      hP   = 3;                               // amount of hits taken per respwan
+    public int      invincibilityFrames = 200;
+    public float    movementSpeed=1;
+    public float    fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
+    public Vector3  spawnLocation = new Vector3( 0, 0, 0 );
+    public int      framesToPlaySugarAnim = 30;
+    public float    sugarTimeSlow = 0.5f; //time scales to this * time
+    public float    sugarSpeedChange = 1.5f; //movementSpeed scales to this * movementSpeed
+
+    int currentHp; //= hp (in start)
+    public int invFrm = 0;
+    int frmPlayedSgrKck = 0;
+    bool hasSugarkick = false;
+
     void Start()
     {
         main = GameObject.Find("Camera").GetComponent<Main>();
@@ -30,7 +36,13 @@ public class PuppetManip : MonoBehaviour {
         
     }
 
-    void FixedUpdate() { if (invFrm != 0) invFrm--; }       //decreases the inv frames unless its 0.
+    void FixedUpdate()
+    {
+        if (invFrm != 0) invFrm--;          //decreases the inv frames unless its 0.
+        if (hasSugarkick) frmPlayedSgrKck++;        //counts up for sugarkick().
+        if (frmPlayedSgrKck == framesToPlaySugarAnim) SugarKickOff(); // turns off sugarkick when reached stop.
+        print("frmPlayedSgrKck: " + frmPlayedSgrKck);
+    }       
     
     public void respawn( ) {
 
@@ -57,7 +69,7 @@ public class PuppetManip : MonoBehaviour {
         {
             invFrm = invincibilityFrames;
             main.playerAnim.Play("PlayerHurt");                         //play hurt animation.
-            SugarKick(true);
+            
         }
     } 
 
@@ -87,6 +99,38 @@ public class PuppetManip : MonoBehaviour {
         }
 
     }
+    public void startSugarkick() { SugarKickOn(); }//for some reason. Unity wont let med start sugarkick() directly.
+
+   
+   public void SugarKickOn ()
+    {
+            if (frmPlayedSgrKck != framesToPlaySugarAnim)
+            {
+                hasSugarkick = true;
+                movementSpeed *= sugarSpeedChange;
+                Time.timeScale *= sugarTimeSlow;
+                Time.fixedDeltaTime *= sugarTimeSlow;
+                main.playerAnim.Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
+           
+            main.playerMove.playerSpeed = movementSpeed;
+            //currentHp = hP; Dont know why this is here. Commented it cuz it will run twice.
+        }
+    }
+    public void SugarKickOff()
+    {
+      
+                frmPlayedSgrKck = 0;              //restes the counter, ready for next sugarkick.
+                hasSugarkick = false;
+                movementSpeed /= sugarSpeedChange;
+                Time.timeScale /= sugarTimeSlow;
+                Time.fixedDeltaTime /= sugarTimeSlow;
+                main.playerAnim.Play("PlayerIdle"); //Goes back to normal idle animation.
+
+            main.playerMove.playerSpeed = movementSpeed;
+            //currentHp = hP; Dont know why this is here. Commented it cuz it will run twice.
+        
+    }
+
 
     void OnTriggerEnter2D( Collider2D other ) {
         if ( other.gameObject.CompareTag( "Hole" ) ) {
@@ -98,23 +142,6 @@ public class PuppetManip : MonoBehaviour {
 		damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
     }
+    
 
-    void SugarKick(bool starting){
-        if (star)
-        {
-            movementSpeed *= sugarSpeedChange;
-            Time.timeScale *= sugarTimeSlow;
-            Time.fixedDeltaTime *= sugarTimeSlow;
-        }
-        else
-        {
-            movementSpeed /= sugarSpeedChange;
-            Time.timeScale /= sugarTimeSlow;
-            Time.fixedDeltaTime /= sugarTimeSlow;
-        }
-
-        MovePlayer mover = gameObject.GetComponent<MovePlayer>();
-        mover.playerSpeed = movementSpeed;
-        currentHp = hP;
-    }
 }
