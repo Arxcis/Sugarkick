@@ -10,7 +10,9 @@ public class GunScript : MonoBehaviour {
     public bool addForce    = false;    
     public bool setVelocity = true;
 
-	public bool isPiercing = false;
+    public bool truePiercing = false;
+    public int pierceNumber;
+
     public int   weaponDamage =   1;         // Shooting
     public float accuracy     = 100.0F;
     public float fireRate     =  50.0F;
@@ -86,6 +88,7 @@ public class GunScript : MonoBehaviour {
 		bullet.GetComponent<Rigidbody2D> ().velocity = recoilVec * -1 * projectileSpeed;
 		pInfo.damage = weaponDamage;
 		pInfo.projectileSpeed = projectileSpeed;
-		pInfo.isPiercing = isPiercing;
+		pInfo.truePiercing = truePiercing;
+		pInfo.pierceNumber = pierceNumber;
 	}
 }
