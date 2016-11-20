@@ -79,10 +79,9 @@ public class PuppetManip : MonoBehaviour {
             kill("fall");
         }
     	else if (other.gameObject.CompareTag("Bullet") && isEnemy){
-    		//damage (other.transform.GetComponent<Damage> ().damage);
-			Destroy (other.gameObject);
-    		damage(1, "bullet");
+		if(!other.GetComponent<ProjectileInfo>().truePiercing && other.GetComponent<ProjectileInfo>().pierceNumber < 1) Destroy (other.gameObject);
+		other.GetComponent<ProjectileInfo> ().pierceNumber--;
+		damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
-
     }
 }
