@@ -34,7 +34,7 @@ public class PuppetManip : MonoBehaviour {
             currentHp = hP;                                     // refills hp after respawn
             main.playerAnim.Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
-            main.playerMove.enabled = true;                        // the player can move afer respawning
+            main.playerMove.enabled = true;                        // the player can move afer respawning.
             main.playerGun.enabled = true;
             main.playerColl.enabled = true;
         }
