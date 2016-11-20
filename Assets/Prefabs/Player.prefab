@@ -196,7 +196,8 @@ MonoBehaviour:
   setPos: 0
   addForce: 0
   setVelocity: 1
-  isPiercing: 0
+  truePiercing: 0
+  pierceNumber: 0
   weaponDamage: 1
   accuracy: 100
   fireRate: 50
@@ -220,6 +221,8 @@ MonoBehaviour:
   isSpawnerChild: 0
   life: 3
   hP: 3
+  invincibilityFrames: 80
+  invFrm: 0
   movementSpeed: 1
   fallingSpeedMultiplier: 0.2
   spawnLocation: {x: 0, y: 0, z: 0}

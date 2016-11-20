@@ -50,9 +50,14 @@ public class MoveEnemy : MonoBehaviour {
         {                                                   //Because it cant calculate vector to player if enemy trans us NULL.
             isWalking = false;
             enemyRigi.velocity *= (1 / friction);          // stops the enemy when inside personal space.
-            print("Player Hit!");
-            main.playerManip.damage(1, "enemy");  //BUG!! where the enemy will hit the player instantly after spawning.
-            GetComponent<PuppetManip>().kill("attack");
+
+
+            if (main.playerManip.invFrm == 0)           //if the player is not invincible, hit player!
+            {
+                print("Player Hit!");
+                main.playerManip.damage(1, "enemy");  
+                GetComponent<PuppetManip>().kill("attack");
+            }
             
         }
 
