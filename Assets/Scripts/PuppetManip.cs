@@ -7,6 +7,7 @@ public class PuppetManip : MonoBehaviour {
     public bool isSpawnerChild = false;
     public int   life = 1;                               // amount of respawns
     public int   hP   = 3;                               // amount of hits taken per respwan
+    public int invincibilityFrames = 150;
     int currentHp; //= hp (in start)
     public float movementSpeed=1;
     public float fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
