@@ -14,12 +14,20 @@ public class PuppetManip : MonoBehaviour {
     public float fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
     public Vector3 spawnLocation = new Vector3( 0, 0, 0 );
     Main main;
-
-
+    public float sugarTimeSlow = 0.5f; //time scales to this * time
+    public float sugarSpeedChange = 1.5f; //movementSpeed scales to this * movementSpeed
+    public bool star = true;
     void Start()
     {
         main = GameObject.Find("Camera").GetComponent<Main>();
-        currentHp = hP;
+        if (!isEnemy)
+        {
+            MovePlayer mover = gameObject.GetComponent<MovePlayer>();
+            mover.playerSpeed = movementSpeed;
+            currentHp = hP;
+        }
+
+        
     }
 
     void FixedUpdate() { if (invFrm != 0) invFrm--; }       //decreases the inv frames unless its 0.
@@ -49,6 +57,7 @@ public class PuppetManip : MonoBehaviour {
         {
             invFrm = invincibilityFrames;
             main.playerAnim.Play("PlayerHurt");                         //play hurt animation.
+            SugarKick(true);
         }
     } 
 
@@ -88,5 +97,24 @@ public class PuppetManip : MonoBehaviour {
 		other.GetComponent<ProjectileInfo> ().pierceNumber--;
 		damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
+    }
+
+    void SugarKick(bool starting){
+        if (star)
+        {
+            movementSpeed *= sugarSpeedChange;
+            Time.timeScale *= sugarTimeSlow;
+            Time.fixedDeltaTime *= sugarTimeSlow;
+        }
+        else
+        {
+            movementSpeed /= sugarSpeedChange;
+            Time.timeScale /= sugarTimeSlow;
+            Time.fixedDeltaTime /= sugarTimeSlow;
+        }
+
+        MovePlayer mover = gameObject.GetComponent<MovePlayer>();
+        mover.playerSpeed = movementSpeed;
+        currentHp = hP;
     }
 }
