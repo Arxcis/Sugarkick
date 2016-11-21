@@ -6,9 +6,9 @@ public class GunScript : MonoBehaviour {
     Main main;  
 
         // Public:
-    public bool setPos      = true;         // Recoil
+    public bool setPos      = false;         // Recoil
     public bool addForce    = false;    
-    public bool setVelocity = true;
+    public bool setVelocity = false;
 
     public bool truePiercing = false;
     public int pierceNumber;
