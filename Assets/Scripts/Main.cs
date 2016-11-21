@@ -5,11 +5,13 @@ public class Main : MonoBehaviour {
 
 
     public int mapsize = 40;                    // Planning to have GLOBAL variables 
-    public Transform playerTrans;               //  here. AY-AY Sir!
-    public Animator playerAnim;
-    public Rigidbody2D playerRigi;
-    public movePlayer playerMove;
-    public gunScript playerGun;
+    public Transform     playerTrans;           //  here. AY-AY Sir!
+    public Animator      playerAnim;
+    public Rigidbody2D   playerRigi;
+    public MovePlayer    playerMove;
+    public GunScript     playerGun;
+    public BoxCollider2D playerColl;
+    public PuppetManip   playerManip;
 
     GameObject player;
                                                 // Use this for initialization
@@ -19,8 +21,10 @@ public class Main : MonoBehaviour {
         playerTrans = player.GetComponent<Transform>();
         playerAnim  = player.GetComponent<Animator>();
         playerRigi  = player.GetComponent<Rigidbody2D>();
-        playerMove  = player.GetComponent<movePlayer>();
-        playerGun = player.GetComponentInChildren<gunScript>();
+        playerMove  = player.GetComponent<MovePlayer>();
+        playerGun   = player.GetComponentInChildren<GunScript>();
+        playerColl  = player.GetComponent<BoxCollider2D>();
+        playerManip = player.GetComponent<PuppetManip>();
 
     }
 
@@ -70,9 +74,9 @@ public class Main : MonoBehaviour {
     }
               
                                         // Casts a Vector2 to a Vector3
-    public Vector3 ToVector3( Vector2 vec2 ) {
+    public Vector3 ToVector3( Vector2 vec2, float zval=0.0F ) {
 
-        return new Vector3(vec2.x, vec2.y, 0.0f);
+        return new Vector3(vec2.x, vec2.y, zval);
     }
 }
 
