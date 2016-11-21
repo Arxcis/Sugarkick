@@ -18,7 +18,7 @@ public class BackgroundRotation : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         BackGround1.Rotate(new Vector3(0, 0, Background1Rotation));
         BackGround2.Rotate(new Vector3(0, 0, Background2Rotation));

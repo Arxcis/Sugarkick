@@ -123,6 +123,7 @@ MonoBehaviour:
   isSpawnerChild: 0
   life: 1
   hP: 3
+  invincibilityFrames: 0
   movementSpeed: 1
   fallingSpeedMultiplier: 0.3
   spawnLocation: {x: 0, y: 0, z: 0}

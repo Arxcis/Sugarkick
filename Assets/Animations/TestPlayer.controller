@@ -123,6 +123,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &1102000010485189830
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sugarkick
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 30705f580b2c1fe4dad3f0b23d8fed71, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
 --- !u!1102 &1102000012049296000
 AnimatorState:
   serializedVersion: 5
@@ -252,7 +275,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102000012315499878}
-    m_Position: {x: 732, y: 0, z: 0}
+    m_Position: {x: 744, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102000012620671038}
     m_Position: {x: 336, y: 96, z: 0}
@@ -261,11 +284,13 @@ AnimatorStateMachine:
     m_Position: {x: 336, y: 216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102000013949961944}
-    m_Position: {x: 600, y: 156, z: 0}
+    m_Position: {x: 552, y: 156, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102000010485189830}
+    m_Position: {x: 744, y: 72, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
-  m_EntryTransitions:
-  - {fileID: 1109000012295158514}
+  m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 180, y: 0, z: 0}
@@ -273,16 +298,3 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 552, y: 0, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102000012620671038}
---- !u!1109 &1109000012295158514
-AnimatorTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102000012620671038}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 1

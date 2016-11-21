@@ -189,7 +189,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010571143630, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
@@ -220,6 +220,21 @@ Prefab:
         type: 2}
       propertyPath: addForce
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010767180144, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010767180144, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: sugarTimeSlow
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010767180144, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: sugarSpeedChange
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
