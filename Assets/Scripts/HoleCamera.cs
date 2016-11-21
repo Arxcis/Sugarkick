@@ -4,7 +4,7 @@ using System.Collections;
 public class HoleCamera : MonoBehaviour {
 
     Camera cam;                 //camera of the hole
-    Transform holeTrans;        // the hole sprite's transform important for camera size. Needs be equal.
+    Transform holeTrans;        // the hole sprite's transform important for camera size. Needs be equal.s
     SpriteRenderer holeRend;
     public Material holeMate;
     public Material preFabMat;

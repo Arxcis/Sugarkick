@@ -27,7 +27,7 @@ public class MovePlayer : MonoBehaviour {
 
                                                     // Adds friction to the player
         if (main.playerRigi.velocity.magnitude > 0 && main.playerManip.friction != 0) {
-            main.playerRigi.velocity = main.playerRigi.velocity * (1 / main.playerManip.friction);              
+            main.playerRigi.velocity *= (1 / main.playerManip.friction);              
         }
 
         if (main.playerRigi.velocity.magnitude > 2)          // Updates the animation if the player is walking
