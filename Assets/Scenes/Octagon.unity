@@ -520,6 +520,24 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011223011370, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
     type: 2}
   m_PrefabInternal: {fileID: 122716657}
+--- !u!114 &699039298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 699039297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d624733c4b3f614389d4b2d3ab0ff6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guns: []
+  gunDropChanse:
+  - 100
+  - 46.2
+  - 27.4
+  - 16.2
+  - 12.4
 --- !u!1001 &712450839
 Prefab:
   m_ObjectHideFlags: 0
