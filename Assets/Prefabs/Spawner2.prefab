@@ -89,11 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abab06fd928b5f4890e926b32c638de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesToSpawn:
-  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
-  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
-  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
-  - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
+  enemiesToSpawn: []
   spawnRange: 0
   endlessMode: 0
   staticSpawner: 0
@@ -103,8 +99,7 @@ MonoBehaviour:
   maxEnemiesOnScreen: 0
   player1: {fileID: 0}
   player2: {fileID: 0}
-  spawns:
-  - {fileID: 0}
+  spawns: []
   xPos:
   - 0
   - 0

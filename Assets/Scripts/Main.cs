@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
@@ -18,6 +19,18 @@ public class Main : MonoBehaviour {
 
     public GameObject player;
     public GameObject head;
+
+	public Text scoreText;
+	public Text timeText;
+	public Text timerText;
+
+	public int staticScoreMultiplier;
+	float dynamicScoreMultiplier = 1.0F;
+	int enemiesKilled;
+	int score;
+	float timerFloat;
+	int timerInt;
+
                                                 // Use this for initialization
     void Start () {
 
@@ -32,14 +45,35 @@ public class Main : MonoBehaviour {
         playerColl  = player.GetComponent<BoxCollider2D>();
         playerManip = player.GetComponent<PuppetManip>();
         headRend    = head.GetComponent<SpriteRenderer>();
-
+		scoreText = GameObject.Find ("Score").GetComponent<Text> ();
+		timerText = GameObject.Find ("Timer").GetComponent<Text> ();
+		timeText = GameObject.Find ("Time:").GetComponent<Text> ();
     }
 
     // Update is called once per frame
     void Update () {
 
+		// Updates the timer
+		if (timerText && timeText) {
+			timerFloat += Time.deltaTime;
+			timerInt = (int)timerFloat;
+			timerText.text = timerInt.ToString ();
+		} 
     }
+		
+	void FixedUpdate(){
+		
+	}
         
+	// Temporary scoring system
+	public void NewScore(){
+		enemiesKilled++;
+		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
+		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
+		if(scoreText) scoreText.text = score.ToString();
+	}
+
+
     void restart() {
 
         Debug.Log ("Restarting game");

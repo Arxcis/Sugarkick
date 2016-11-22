@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class SpawnControl : MonoBehaviour {
@@ -28,7 +29,7 @@ public class SpawnControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnEnemies = gameObject.GetComponent<SpawnEnemies> ();
-		NextWave ();
+		if(spawnEnemies.endlessMode == false) NextWave ();
 	}
 	
 	// Update is called once per frame
@@ -47,17 +48,17 @@ public class SpawnControl : MonoBehaviour {
 	}
 		
 	public void SetWave(int waveNum){
-		
+
+		spawnEnemies.enemiesToSpawn.Clear();
+
 		for (int i = 0; i < waves[waveNum-1].enemiesToSpawn.Length; i++) {
-			if(i < spawnEnemies.enemiesToSpawn.Length){
-				spawnEnemies.enemiesToSpawn [i] = waves [waveNum-1].enemiesToSpawn [i];
-			}
+				spawnEnemies.enemiesToSpawn.Add (waves [waveNum-1].enemiesToSpawn [i]);
 		}
 
+		spawnEnemies.spawns.Clear();
+
 		for (int i = 0; i < waves [waveNum - 1].spawns.Length; i++) {
-			if(i < spawnEnemies.spawns.Length){
-				spawnEnemies.spawns [i] = waves [waveNum-1].spawns [i];
-			}
+				spawnEnemies.spawns.Add( waves [waveNum-1].spawns [i]);
 		}
 
 		spawnEnemies.spawnRange = waves [waveNum-1].spawnRange;
