@@ -33,11 +33,11 @@ public class PuppetManip : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (invFrm != 0) invFrm--;          //decreases the inv frames unless its 0.
+        if (invFrm != 0) invFrm--;                  //decreases the inv frames unless its 0.
         if (hasSugarkick) frmPlayedSgrKck++;        //counts up for sugarkick().
         if (frmPlayedSgrKck == framesToPlaySugarAnim) SugarKickOff(); // turns off sugarkick when reached stop.
-    }       
-    
+    }
+
     public void respawn( ) {
 
         if (isEnemy) Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
@@ -53,19 +53,19 @@ public class PuppetManip : MonoBehaviour {
             main.playerColl.enabled = true;
         }
     }
-    
+
     public void damage( int d, string hitBy) {                               //Take hp and check if killed.
         currentHp -= d;
         if ( currentHp <= 0 ) {
             kill(hitBy);                                                //call kill function with whatever the player got hit by.
-        } 
+        }
         else if(!isEnemy && invFrm == 0)
         {
             invFrm = invincibilityFrames;
             main.playerAnim.Play("PlayerHurt");                         //play hurt animation.
-            
+
         }
-    } 
+    }
 
 
     public void kill(string deathBy) {
@@ -93,7 +93,7 @@ public class PuppetManip : MonoBehaviour {
         }
 
     }
-   
+
    public void SugarKickOn ()
     {
             if (frmPlayedSgrKck != framesToPlaySugarAnim)
@@ -103,7 +103,7 @@ public class PuppetManip : MonoBehaviour {
                 Time.timeScale *= sugarTimeSlow;
                 Time.fixedDeltaTime *= sugarTimeSlow;
                 main.playerAnim.Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
-           
+
         }
     }
     public void SugarKickOff()
@@ -127,6 +127,6 @@ public class PuppetManip : MonoBehaviour {
 		damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
     }
-    
+
 
 }

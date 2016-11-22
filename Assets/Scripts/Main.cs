@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
 
-    public int mapsize = 40;                    // Planning to have GLOBAL variables 
+    public int mapsize = 40;                    // Planning to have GLOBAL variables
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
     public Rigidbody2D   playerRigi;
@@ -16,10 +17,21 @@ public class Main : MonoBehaviour {
 
     public Sprite headFront;
     public Sprite headBack;
+    public GameObject player;
+    public GameObject head;
 
-    GameObject player;
-    GameObject head;
+	  public Text scoreText;
+	  public Text timeText;
+	  public Text timerText;
 
+	  public int staticScoreMultiplier;
+	  float dynamicScoreMultiplier = 1.0F;
+	  int enemiesKilled;
+	  int score;
+	  float timerFloat;
+	  int timerInt;
+
+                                                // Use this for initialization
     void Start () {
 
         player = GameObject.Find("Player");
@@ -31,15 +43,37 @@ public class Main : MonoBehaviour {
         playerGun   = player.GetComponentInChildren<GunScript>();
         playerColl  = player.GetComponent<BoxCollider2D>();
         playerManip = player.GetComponent<PuppetManip>();
-        headRend = head.GetComponent<SpriteRenderer>();
 
+        headRend    = head.GetComponent<SpriteRenderer>();
+		    scoreText = GameObject.Find ("Score").GetComponent<Text> ();
+		    timerText = GameObject.Find ("Timer").GetComponent<Text> ();
+		    timeText = GameObject.Find ("Time:").GetComponent<Text> ();
     }
 
     // Update is called once per frame
     void Update () {
 
+		// Updates the timer
+		if (timerText && timeText) {
+			timerFloat += Time.deltaTime;
+			timerInt = (int)timerFloat;
+			timerText.text = timerInt.ToString ();
+		}
     }
-        
+
+	void FixedUpdate(){
+
+	}
+
+	// Temporary scoring system
+	public void NewScore(){
+		enemiesKilled++;
+		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
+		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
+		if(scoreText) scoreText.text = score.ToString();
+	}
+
+
     void restart() {
 
         Debug.Log ("Restarting game");
@@ -59,14 +93,14 @@ public class Main : MonoBehaviour {
                                         // between 1 at 90 degrees, and sqrt(2) at 45 degrees
                                         // Returns a Vector2 which has an absolute length of 1
                                         // for all angles.
-    public Vector2 DiagonalCompensate( Vector2 inVec ) { 
+    public Vector2 DiagonalCompensate( Vector2 inVec ) {
                                         // Gets angle and converts it to radians
         float angle = GetAngle( Vector2.right, inVec) * Mathf.Deg2Rad;
 
-        return new Vector2( inVec.x * Mathf.Abs(Mathf.Cos(angle)), 
+        return new Vector2( inVec.x * Mathf.Abs(Mathf.Cos(angle)),
                             inVec.y * Mathf.Abs(Mathf.Sin(angle)) );
     }
-                  
+
                                         // Returns the correct angle between two vectors
     public float GetAngle( Vector2 v1, Vector2 v2 )
     {
@@ -79,18 +113,10 @@ public class Main : MonoBehaviour {
 
         return new Vector2( Mathf.Cos(angle), Mathf.Sin(angle) );
     }
-              
+
                                         // Casts a Vector2 to a Vector3
     public Vector3 ToVector3( Vector2 vec2, float zval=0.0F ) {
 
         return new Vector3(vec2.x, vec2.y, zval);
     }
 }
-
-
-
-
-
-
-
-
