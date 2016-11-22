@@ -73,7 +73,7 @@ public class PuppetManip : MonoBehaviour {
         if (isEnemy)
         {
             GetComponent<Rigidbody2D>().velocity *= fallingSpeedMultiplier;         //the enemy slows down after falling off.
-            if (gameObject.tag == "Jumper") GetComponent<MoveJumper>().enabled = false;   //the enemy cant move mid air.
+            if (gameObject.tag == "Enemy2") GetComponent<MoveJumper>().enabled = false;   //the enemy cant move mid air.
             else GetComponent<MoveEnemy>().enabled = false;                              //the enemy cant move mid air.
             GetComponent<BoxCollider2D>().enabled = false;                          //the collider cant block bullets from beneeth the map.
             if (isSpawnerChild) GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag); //tells the spawner that a child died. :'(

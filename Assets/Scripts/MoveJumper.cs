@@ -39,7 +39,7 @@ public class MoveJumper : MonoBehaviour {
         jumpColl = GetComponent<BoxCollider2D>();
         // jumpPlanner = GetComponentInChildren<BoxCollider2D>();
         
-        gameObject.tag = "Jumper";                                  // sets a tag so Puppet knows what to do.
+        gameObject.tag = "Enemy2";                                  // sets a tag so Puppet knows what to do.
     }
 
 

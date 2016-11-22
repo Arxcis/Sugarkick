@@ -48,6 +48,10 @@ public class Main : MonoBehaviour {
 		    scoreText = GameObject.Find ("Score").GetComponent<Text> ();
 		    timerText = GameObject.Find ("Timer").GetComponent<Text> ();
 		    timeText = GameObject.Find ("Time:").GetComponent<Text> ();
+
+        Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
+        Time.fixedDeltaTime = 1;         
+
     }
 
     // Update is called once per frame

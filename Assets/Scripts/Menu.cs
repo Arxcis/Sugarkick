@@ -14,6 +14,8 @@ public class Menu : MonoBehaviour {
     public float buttonVolume = 1f;
     public float backgroundSpeed1 = 0.5f;
     public float backgroundSpeed2 = 0.3f;
+    public float backgroundSpeed3 = 0.3f;
+
     AudioSource aud;
 
     void Awake()                                       // Is run before "start" functions.
@@ -33,6 +35,7 @@ public class Menu : MonoBehaviour {
     {
         GameObject.Find("Background1").transform.Rotate(new Vector3(0,0,backgroundSpeed1));
         GameObject.Find("Background2").transform.Rotate(new Vector3(0, 0, backgroundSpeed2));
+        GameObject.Find("Background3").transform.Rotate(new Vector3(0, 0, backgroundSpeed3));
     }
 
     public void OptionsOpen()                          // Switches back to the main menu.                 
@@ -51,6 +54,13 @@ public class Menu : MonoBehaviour {
         OptionsCanvas.enabled = false;
         aud.PlayOneShot(buttonSound, buttonVolume);
     }
+
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
 
     public void LoadOctagon()                           // Loads the different scenes.
     {
