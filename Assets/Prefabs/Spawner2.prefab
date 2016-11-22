@@ -66,7 +66,7 @@ MonoBehaviour:
     numberOfEnemies: 10
     maxEnemiesOnScreen: 5
     spawns:
-    - {fileID: 0}
+    - {fileID: 1000011645647416}
   - enemiesToSpawn:
     - {fileID: 1000013736368644, guid: 29fe92281932ee643b66c1441aafeb7f, type: 2}
     spawnRange: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
     numberOfEnemies: 20
     maxEnemiesOnScreen: 7
     spawns:
-    - {fileID: 0}
+    - {fileID: 1000011645647416}
 --- !u!114 &114000013500545966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +99,8 @@ MonoBehaviour:
   maxEnemiesOnScreen: 0
   player1: {fileID: 0}
   player2: {fileID: 0}
-  spawns: []
+  spawns:
+  - {fileID: 1000011645647416}
   xPos:
   - 0
   - 0
