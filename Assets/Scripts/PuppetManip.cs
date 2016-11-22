@@ -8,18 +8,17 @@ public class PuppetManip : MonoBehaviour {
 
     public bool     isEnemy = false;
     public bool     isSpawnerChild = false;
-    public int      life = 1;                               // amount of respawns
+    public int      life = 3;                               // amount of respawns
     public int      hP   = 3;                               // amount of hits taken per respwan
     public int      invincibilityFrames = 200;
-    public float    movementSpeed=10;
-    public float    friction = 1.1f;
+    public float    movementSpeed=1;
     public float    fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
     public Vector3  spawnLocation = new Vector3( 0, 0, 0 );
     public int      framesToPlaySugarAnim = 30;
     public float    sugarTimeSlow = 0.5f; //time scales to this * time
     public float    sugarSpeedChange = 1.5f; //movementSpeed scales to this * movementSpeed
-    public string foo;
     public GameObject[] guns;
+    public float friction = 1.4f;
 
     int currentHp; //= hp (in start)
     public int invFrm = 0;
@@ -29,12 +28,12 @@ public class PuppetManip : MonoBehaviour {
     void Start()
     {
         main = GameObject.Find("Camera").GetComponent<Main>();
-
+        currentHp = hP;
     }
 
     void FixedUpdate()
     {
-        if (invFrm != 0) invFrm--;          //decreases the inv frames unless its 0.
+        if (invFrm != 0) invFrm--;                  //decreases the inv frames unless its 0.
         if (hasSugarkick) frmPlayedSgrKck++;        //counts up for sugarkick().
         if (frmPlayedSgrKck == framesToPlaySugarAnim) SugarKickOff(); // turns off sugarkick when reached stop.
     }
@@ -94,8 +93,6 @@ public class PuppetManip : MonoBehaviour {
         }
 
     }
-    public void startSugarkick() { SugarKickOn(); }//for some reason. Unity wont let med start sugarkick() directly.
-
 
    public void SugarKickOn ()
     {
@@ -107,8 +104,6 @@ public class PuppetManip : MonoBehaviour {
                 Time.fixedDeltaTime *= sugarTimeSlow;
                 main.playerAnim.Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
 
-
-            //currentHp = hP; Dont know why this is here. Commented it cuz it will run twice.
         }
     }
     public void SugarKickOff()
@@ -120,9 +115,6 @@ public class PuppetManip : MonoBehaviour {
                 Time.timeScale /= sugarTimeSlow;
                 Time.fixedDeltaTime /= sugarTimeSlow;
                 main.playerAnim.Play("PlayerIdle"); //Goes back to normal idle animation.
-
-            //currentHp = hP; Dont know why this is here. Commented it cuz it will run twice.
-
     }
 
 
