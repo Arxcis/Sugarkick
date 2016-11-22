@@ -5,10 +5,6 @@ using System.Collections;
 public class MovePlayer : MonoBehaviour {
     
     Main main;  
-
-        // Public:
-    
-
         // Private:
     Animator   animPlayer;
     Rigidbody2D        rb;
@@ -32,10 +28,10 @@ public class MovePlayer : MonoBehaviour {
                                     // Uses diagonalCompensate in Main script.
                                     // Returns a Vector which has length 1 no matter which
                                     // way player is facing.
-        rb.velocity = main.DiagonalCompensate( inputVector ) * main.playerManip.movementSpeed;
+        rb.velocity += main.DiagonalCompensate( inputVector ) * main.playerManip.movementSpeed;
 
                                                     // Adds friction to the player
-        if (rb.velocity.magnitude > 0 && main.playerManip.friction != 0) {
+        if (rb.velocity.magnitude > 0 && main.playerManip.friction!= 0) {
             rb.velocity = rb.velocity * (1 / main.playerManip.friction);              
         }
 
@@ -44,8 +40,5 @@ public class MovePlayer : MonoBehaviour {
         else                                    
         {   isWalking = false;  }
         animPlayer.SetBool("isWalking", isWalking);
-
-
-        
     }
 }

@@ -40,13 +40,10 @@ public class GunScript : MonoBehaviour {
     }
 
     void FixedUpdate ()                             // Fixed update is frame-rate independent
-    {             
-       
-         
+    {              
         inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not 
         inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
         fire = Input.GetAxisRaw ("Fire");           // https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
-        main.playerAnim.SetFloat("AimAxisY", inputVec.y); // feed the aim Y to the animator so it can display the right head.
 
         if (inputVec.x != 0 || inputVec.y != 0){
 
@@ -77,14 +74,14 @@ public class GunScript : MonoBehaviour {
             }
 
             shoot();
-            cooldown = 1/(fireRate/1000); 
+            cooldown = 1/(fireRate/1000);
         }
 
-
-        if (gunAngle < 110 && gunAngle > -100)   // sets the correct head sprite.
-            main.headRend.sprite = main.HeadBack;
-        else main.headRend.sprite = main.HeadFront;
-
+        print("gun angl: " + gunAngle);
+        if (gunAngle > -100 && gunAngle < 110)
+            main.headRend.sprite = main.headBack;
+        else
+            main.headRend.sprite = main.headFront;
     }
 
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
