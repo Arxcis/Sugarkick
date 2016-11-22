@@ -11,8 +11,7 @@ public class PuppetManip : MonoBehaviour {
     public int      life = 1;                               // amount of respawns
     public int      hP   = 3;                               // amount of hits taken per respwan
     public int      invincibilityFrames = 200;
-    public float    movementSpeed=10;
-    public float    friction = 1.1f;
+    public float    movementSpeed=1;
     public float    fallingSpeedMultiplier = 0.1F;          //how fast does the player move xy while falling.
     public Vector3  spawnLocation = new Vector3( 0, 0, 0 );
     public int      framesToPlaySugarAnim = 30;
@@ -27,7 +26,14 @@ public class PuppetManip : MonoBehaviour {
     void Start()
     {
         main = GameObject.Find("Camera").GetComponent<Main>();
-   
+        if (!isEnemy)
+        {
+            MovePlayer mover = gameObject.GetComponent<MovePlayer>();
+            mover.playerSpeed = movementSpeed;
+            currentHp = hP;
+        }
+
+        
     }
 
     void FixedUpdate()
@@ -35,6 +41,7 @@ public class PuppetManip : MonoBehaviour {
         if (invFrm != 0) invFrm--;          //decreases the inv frames unless its 0.
         if (hasSugarkick) frmPlayedSgrKck++;        //counts up for sugarkick().
         if (frmPlayedSgrKck == framesToPlaySugarAnim) SugarKickOff(); // turns off sugarkick when reached stop.
+        print("frmPlayedSgrKck: " + frmPlayedSgrKck);
     }       
     
     public void respawn( ) {
@@ -105,7 +112,7 @@ public class PuppetManip : MonoBehaviour {
                 Time.fixedDeltaTime *= sugarTimeSlow;
                 main.playerAnim.Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
            
-             
+            main.playerMove.playerSpeed = movementSpeed;
             //currentHp = hP; Dont know why this is here. Commented it cuz it will run twice.
         }
     }
@@ -119,6 +126,7 @@ public class PuppetManip : MonoBehaviour {
                 Time.fixedDeltaTime /= sugarTimeSlow;
                 main.playerAnim.Play("PlayerIdle"); //Goes back to normal idle animation.
 
+            main.playerMove.playerSpeed = movementSpeed;
             //currentHp = hP; Dont know why this is here. Commented it cuz it will run twice.
         
     }
