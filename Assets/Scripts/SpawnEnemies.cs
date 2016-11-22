@@ -51,7 +51,9 @@ public class SpawnEnemies : MonoBehaviour {
 		if (staticSpawner || (waveMode && enemiesSpawned < numberOfEnemies && currentEnemyCount < maxEnemiesOnScreen)) {
 			staticSpawnerTimer += Time.deltaTime*spawnsPerSecond;
 			if (staticSpawnerTimer >= 1) {
-				spawnEnemy (0);
+				int j = Random.Range (0, (enemiesToSpawn.Count));
+
+				spawnEnemy (j);
 				staticSpawnerTimer--;
 				if (waveMode) {
 					enemiesSpawned++;
@@ -101,6 +103,7 @@ public class SpawnEnemies : MonoBehaviour {
 
 		var enemy = Instantiate (enemiesToSpawn[enemyType], trans.position, Quaternion.identity) as GameObject;
 		enemy.transform.parent = gameObject.transform;
-        enemy.GetComponent<PuppetManip>().isSpawnerChild = true;           //Sets the isSpawnerChild to true in the enemy's PupManip
+		if(enemy.tag.Contains("2")) enemy.GetComponentInChildren<PuppetManip>().isSpawnerChild = true;
+		else enemy.GetComponent<PuppetManip>().isSpawnerChild = true;           //Sets the isSpawnerChild to true in the enemy's PupManip
 	}
 }

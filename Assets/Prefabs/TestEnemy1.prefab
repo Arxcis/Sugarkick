@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 114000013223314096}
   m_Layer: 0
   m_Name: TestEnemy1
-  m_TagString: Enemy1
+  m_TagString: 'Enemies / Enemy1 '
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,11 @@ MonoBehaviour:
   movementSpeed: 1
   fallingSpeedMultiplier: 0.3
   spawnLocation: {x: 0, y: 0, z: 0}
+  framesToPlaySugarAnim: 30
+  sugarTimeSlow: 0.5
+  sugarSpeedChange: 1.5
+  friction: 1.4
+  invFrm: 0
 --- !u!212 &212000012301901132
 SpriteRenderer:
   m_ObjectHideFlags: 1
