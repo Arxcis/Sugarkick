@@ -74,8 +74,14 @@ public class GunScript : MonoBehaviour {
             }
 
             shoot();
-            cooldown = 1/(fireRate/1000); 
+            cooldown = 1/(fireRate/1000);
         }
+
+        print("gun angl: " + gunAngle);
+        if (gunAngle > -100 && gunAngle < 110)
+            main.headRend.sprite = main.headBack;
+        else
+            main.headRend.sprite = main.headFront;
     }
 
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
