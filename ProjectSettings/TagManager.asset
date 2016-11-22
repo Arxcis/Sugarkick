@@ -11,6 +11,8 @@ TagManager:
   - Enemies / Enemy2
   - Enemies / Enemy3
   - Enemies / Enemy4
+  - Pickup / gun
+  - Enemy1
   layers:
   - Default
   - TransparentFX
