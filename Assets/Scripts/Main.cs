@@ -12,12 +12,18 @@ public class Main : MonoBehaviour {
     public GunScript     playerGun;
     public BoxCollider2D playerColl;
     public PuppetManip   playerManip;
+    public SpriteRenderer headRend;
+
+    public Sprite headFront;
+    public Sprite headBack;
 
     GameObject player;
-                                                // Use this for initialization
+    GameObject head;
+
     void Start () {
 
         player = GameObject.Find("Player");
+        head = GameObject.Find("Head");
         playerTrans = player.GetComponent<Transform>();
         playerAnim  = player.GetComponent<Animator>();
         playerRigi  = player.GetComponent<Rigidbody2D>();
@@ -25,6 +31,7 @@ public class Main : MonoBehaviour {
         playerGun   = player.GetComponentInChildren<GunScript>();
         playerColl  = player.GetComponent<BoxCollider2D>();
         playerManip = player.GetComponent<PuppetManip>();
+        headRend = head.GetComponent<SpriteRenderer>();
 
     }
 
