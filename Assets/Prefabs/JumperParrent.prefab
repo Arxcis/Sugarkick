@@ -59,7 +59,7 @@ GameObject:
   - 114: {fileID: 114000011495571498}
   m_Layer: 0
   m_Name: Jumper
-  m_TagString: Untagged
+  m_TagString: Jumper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 1000012132465788}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4248347840497a1479097fe91821ac5c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -237,13 +237,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412adfc13885c794f9aca99b8e9e7d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumperRuteCalcRate: 15
+  jumperRuteCalcRate: 20
   personalSpaceBro: 2.5
-  jumpDistance: 4
+  jumpDistance: 5
   walkDiviation: 0.1
   noDeviationRange: 8
   blockedAngleDiv: 50
-  jumpCooldown: 100
+  jumpCooldown: 80
   midAir: 0
 --- !u!114 &114000012109105960
 MonoBehaviour:
