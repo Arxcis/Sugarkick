@@ -11,6 +11,8 @@ TagManager:
   - Enemies / Enemy2
   - Enemies / Enemy3
   - Enemies / Enemy4
+  - Enemy1
+  - Jumper
   layers:
   - Default
   - TransparentFX

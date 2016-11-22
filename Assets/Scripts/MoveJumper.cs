@@ -38,7 +38,7 @@ public class MoveJumper : MonoBehaviour {
         jumperAnim = GetComponent<Animator>();
         jumpColl = GetComponent<BoxCollider2D>();
         // jumpPlanner = GetComponentInChildren<BoxCollider2D>();
-
+        
         gameObject.tag = "Jumper";                                  // sets a tag so Puppet knows what to do.
     }
 
@@ -91,7 +91,14 @@ public class MoveJumper : MonoBehaviour {
             jumperAnim.SetBool("midAir", midAir);
         }
 
-
+        if (main.playerManip.invFrm == 0 && 
+            vectorToPlayer.magnitude < personalSpaceBro &&
+            vectorToPlayer.magnitude > 0.1f)         //if the player is not invincible, is within range, but not 0? hit player!
+        {
+            print("Player Hit!");
+            main.playerManip.damage(1, "enemy");
+            GetComponent<PuppetManip>().kill("attack");
+        }
 
         if (coldwn != 0 && midAir == false) coldwn--;                       //redice the cooldown of gounded and not 0.
     }
@@ -104,6 +111,11 @@ public class MoveJumper : MonoBehaviour {
         jumperAnim.Play("JumperLand");
         jumperAnim.SetBool("midAir", midAir);
 
+    }
+
+    void OnDestroy()
+    {
+        Destroy(transform.parent.gameObject);       // destroys parrent so there is no trace left.
     }
 
 }
