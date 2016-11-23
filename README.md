@@ -175,46 +175,46 @@ The group was motivated to use GitHub extensively from the start. 4/5 members co
 
 References to Unity's standard library assets that are used in this project
 
-__Classes__
- >(Object)[https://docs.unity3d.com/ScriptReference/Object.html] <br />
- (GameObject)[https://docs.unity3d.com/ScriptReference/GameObject.html]<br />
- (Transform) [https://docs.unity3d.com/ScriptReference/Transform.html]  <br />
- (Vector2)[https://docs.unity3d.com/ScriptReference/Vector2.html]      <br />
- (Vector3)[https://docs.unity3d.com/ScriptReference/Vector3.html]      <br />
- (Camera)[https://docs.unity3d.com/ScriptReference/Camera.html] <br/>
- (Rigidbody2D)[https://docs.unity3d.com/ScriptReference/Rigidbody2D.html] <br/>
- (Quaternion)[https://docs.unity3d.com/ScriptReference/Quaternion.html] <br />
- (Input)[https://docs.unity3d.com/ScriptReference/Input.html] <br/>
+__Classes__ <br />
+ [Object](https://docs.unity3d.com/ScriptReference/Object.html) <br />
+ [GameObject](https://docs.unity3d.com/ScriptReference/GameObject.html)<br />
+ [Transform](https://docs.unity3d.com/ScriptReference/Transform.html)  <br />
+ [Vector2](https://docs.unity3d.com/ScriptReference/Vector2.html)      <br />
+ [Vector3](https://docs.unity3d.com/ScriptReference/Vector3.html)      <br />
+ [Camera](https://docs.unity3d.com/ScriptReference/Camera.html) <br/>
+ [Rigidbody2D](https://docs.unity3d.com/ScriptReference/Rigidbody2D.html) <br/>
+ [Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.html) <br />
+ [Input](https://docs.unity3d.com/ScriptReference/Input.html) <br/>
 
  <br />
 
- __Variables__
- >(Vector3 Transform.position)[https://docs.unity3d.com/ScriptReference/Transform-position.html] <br/>
- (float Vector2.magnitude)[https://docs.unity3d.com/ScriptReference/Vector2-magnitude.html] <br />
- (float Camera.orthographicSize)[https://docs.unity3d.com/ScriptReference/Camera-orthographicSize.html] <br/>
- (float Rigidbody2D.velocity)(https://docs.unity3d.com/ScriptReference/Rigidbody2D-velocity.html) <br/>
- (float Time.deltaTime)[https://docs.unity3d.com/ScriptReference/Time-deltaTime.html] <br/>
- (float Input.GetAxis)[https://docs.unity3d.com/ScriptReference/Input.GetAxis.html] <br />
- (float Input.GetAxisRaw)[https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html] <br />
+ __Variables__ <br />
+ [Vector3 Transform.position](https://docs.unity3d.com/ScriptReference/Transform-position.html) <br/>
+ [float Vector2.magnitude](https://docs.unity3d.com/ScriptReference/Vector2-magnitude.html) <br />
+ [float Camera.orthographicSize](https://docs.unity3d.com/ScriptReference/Camera-orthographicSize.html) <br/>
+ [float Rigidbody2D.velocity](https://docs.unity3d.com/ScriptReference/Rigidbody2D-velocity.html) <br/>
+ [float Time.deltaTime](https://docs.unity3d.com/ScriptReference/Time-deltaTime.html) <br/>
+ [float Input.GetAxis](https://docs.unity3d.com/ScriptReference/Input.GetAxis.html) <br />
+ [float Input.GetAxisRaw](https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html) <br />
 
 
- __Functions__
- >(GameObject.CompareTag(String) -> bool)[https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html] <br />
- (GameObject.Find(String) -> GameObject)[https://docs.unity3d.com/ScriptReference/GameObject.Find.html] <br />
- (Component.GetComponent&lt;ComponentName&gt;() -> Component)[https://docs.unity3d.com/ScriptReference/Component.GetComponent.html] <br/>
- (Object.Destroy(Object))[https://docs.unity3d.com/ScriptReference/Object.Destroy.html] <br/>
- (Object.Instantiate(Object original) -> Object)[https://docs.unity3d.com/ScriptReference/Object.Instantiate.html] <br />
- (Transform.Rotate(Vector3))[https://docs.unity3d.com/ScriptReference/Transform.Rotate.html] <br/>
- (Rigidbody2D.AddForce(Vector2))[https://docs.unity3d.com/ScriptReference/Rigidbody2D.AddForce.html] <br/>
- (Quaternion.Euler(float x, float y, float z) -> Quaternion)[https://docs.unity3d.com/ScriptReference/Quaternion.Euler.html] <br />
- (MonoBehaviour.Awake())[https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html] <br/>
- (MonoBehaviour.Start())[https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html] <br/>
- (MonoBehaviour.Update())[https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html] <br/>
- (MonoBehaviour.FixedUpdate())[https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html] <br/>
+ __Functions__ <br />
+ [GameObject.CompareTag(String) -> bool](https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html) <br />
+ [GameObject.Find(String) -> GameObject](https://docs.unity3d.com/ScriptReference/GameObject.Find.html) <br />
+ [Component.GetComponent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponent.html) <br/>
+ [Object.Destroy(Object)](https://docs.unity3d.com/ScriptReference/Object.Destroy.html) <br/>
+ [Object.Instantiate(Object original) -> Object](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) <br />
+ [Transform.Rotate(Vector3)](https://docs.unity3d.com/ScriptReference/Transform.Rotate.html) <br/>
+ [Rigidbody2D.AddForce(Vector2)](https://docs.unity3d.com/ScriptReference/Rigidbody2D.AddForce.html) <br/>
+ [Quaternion.Euler(float x, float y, float z) -> Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.Euler.html) <br />
+ [MonoBehaviour.Awake()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html) <br/>
+ [MonoBehaviour.Start()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) <br/>
+ [MonoBehaviour.Update()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) <br/>
+ [MonoBehaviour.FixedUpdate()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html) <br/>
 
 
 __Misc__
->(List.add())
+(List.add())
 (List.Clear())
 
 >## Discussion
