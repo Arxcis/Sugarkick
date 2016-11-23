@@ -1,16 +1,28 @@
 
+## Contents
 
+1. [Changelog - Iterations](#content1)
+2. [Homegrown assets](#content2)
+3. [ Git reference](#content3)
+4. [Unity reference](#content4)
+5. [Discussion](#content5)
+
+&nbsp;
+
+<a name="content1"></a>
 ## Changelog - Iterations
 
----------------
 
 ### Version 0.4 - not released
 
 *Release date: TBD*
 *Cycle length: 3 days*
 
-- Main character sprite 2.0
-- Camera follows player(s)
+- Main character head sprite
+- HUD with scoring and timer
+- Fancy main menu with sound options
+- Weapon pickups
+
 
 &nbsp;
 
@@ -64,10 +76,9 @@
 &nbsp;
 &nbsp;
 
+<a name="content2"></a>
+## Homegrown assets
 
-## In-house built assets
-
----
 #### Unity Prefabs
 
 - BulletDestruction
@@ -124,8 +135,8 @@
 &nbsp;
 &nbsp;
 
+<a name="content3"></a>
 ## Git reference
----------------
 
 The group was motivated to use GitHub extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep. Below are a selection of the commands we had to learn.
 
@@ -169,9 +180,8 @@ The group was motivated to use GitHub extensively from the start. 4/5 members co
 &nbsp;
 &nbsp;
 
-
+<a name="content4"></a>
 ## Unity reference
-------------------
 
 References to Unity's standard library assets that are used in this project
 
@@ -184,11 +194,19 @@ __Classes__ <br />
  [Camera](https://docs.unity3d.com/ScriptReference/Camera.html) <br/>
  [Rigidbody2D](https://docs.unity3d.com/ScriptReference/Rigidbody2D.html) <br/>
  [Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.html) <br />
+ [Sprite](https://docs.unity3d.com/ScriptReference/Sprite.html) <br/>
+ [SpriteRenderer](https://docs.unity3d.com/ScriptReference/SpriteRenderer.html) <br/>
+ [Material](https://docs.unity3d.com/ScriptReference/Material.html) <br/>
+ [RenderTexture](https://docs.unity3d.com/ScriptReference/RenderTexture.html) <br/>
  [Input](https://docs.unity3d.com/ScriptReference/Input.html) <br/>
 
  <br />
 
  __Variables__ <br />
+ [Quaternion Quaternion.identity](https://docs.unity3d.com/ScriptReference/Quaternion-identity.html) <br/>
+ [Transform Transform.parent](https://docs.unity3d.com/ScriptReference/Transform-parent.html) <br />
+ [Sprite SpriteRenderer.sprite](https://docs.unity3d.com/ScriptReference/SpriteRenderer-sprite.html) <br />
+ [Renderer.sharedMaterial](https://docs.unity3d.com/ScriptReference/Renderer-sharedMaterial.html) <br />
  [Vector3 Transform.position](https://docs.unity3d.com/ScriptReference/Transform-position.html) <br/>
  [float Vector2.magnitude](https://docs.unity3d.com/ScriptReference/Vector2-magnitude.html) <br />
  [float Camera.orthographicSize](https://docs.unity3d.com/ScriptReference/Camera-orthographicSize.html) <br/>
@@ -197,16 +215,20 @@ __Classes__ <br />
  [float Input.GetAxis](https://docs.unity3d.com/ScriptReference/Input.GetAxis.html) <br />
  [float Input.GetAxisRaw](https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html) <br />
 
+ <br />
 
  __Functions__ <br />
- [GameObject.CompareTag(String) -> bool](https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html) <br />
- [GameObject.Find(String) -> GameObject](https://docs.unity3d.com/ScriptReference/GameObject.Find.html) <br />
+ [GameObject.CompareTag(String tag) -> bool](https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html) <br />
+ [GameObject.Find(String name) -> GameObject](https://docs.unity3d.com/ScriptReference/GameObject.Find.html) <br />
  [Component.GetComponent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponent.html) <br/>
+ [Component.GetComponentInParent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) <br />
  [Object.Destroy(Object)](https://docs.unity3d.com/ScriptReference/Object.Destroy.html) <br/>
  [Object.Instantiate(Object original) -> Object](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) <br />
  [Transform.Rotate(Vector3)](https://docs.unity3d.com/ScriptReference/Transform.Rotate.html) <br/>
  [Rigidbody2D.AddForce(Vector2)](https://docs.unity3d.com/ScriptReference/Rigidbody2D.AddForce.html) <br/>
  [Quaternion.Euler(float x, float y, float z) -> Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.Euler.html) <br />
+ [Material.CopyPropertiesFromMaterial(Material other)](https://docs.unity3d.com/ScriptReference/Material.CopyPropertiesFromMaterial.html) <br/>
+ [Material.SetTexture(string propertyName, Texture)](https://docs.unity3d.com/ScriptReference/Material.SetTexture.html) <br/>
  [MonoBehaviour.Awake()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html) <br/>
  [MonoBehaviour.Start()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) <br/>
  [MonoBehaviour.Update()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) <br/>
@@ -217,10 +239,10 @@ __Misc__
 (List.add())
 (List.Clear())
 
->## Discussion
 
--------
+<a name="content5"></a>
+## Discussion
 
->As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amoun of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
+As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amoun of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
 
-![Workload image](https://goo.gl/photos/oGYcVnFqjYv8QFjt7)
+![Workload image](images/project_1.jpg)
