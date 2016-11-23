@@ -19,7 +19,6 @@ public class MoveJumper : MonoBehaviour {
     PuppetManip jumperPupp;
     Animator jumperAnim;
     BoxCollider2D jumpColl;
-    // BoxCollider2D jumpPlanner;
     Main main;
 
     public bool midAir = false;

@@ -6,11 +6,6 @@ public class Main : MonoBehaviour {
 
 
     public int mapsize = 40;                    // Planning to have GLOBAL variables
-    public bool isMainMenu = false;
-    public float musicVol = 0.3f;
-    public float effectsVol = 0.4f;
-    public GameObject musicTrackbar;
-    public GameObject effectsTrackbar;
 
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
@@ -40,8 +35,6 @@ public class Main : MonoBehaviour {
                                                 // Use this for initialization
     void Start () {
 
-        if (!isMainMenu)            //define player components in not in main menu. Player does not exist in menu.
-        {
             player = GameObject.Find("Player");         //finds tha player game object in the scene.
             head = GameObject.Find("Head");             //finds the head.
             playerTrans = player.GetComponent<Transform>();     //Defines the player components:
@@ -56,16 +49,14 @@ public class Main : MonoBehaviour {
             scoreText = GameObject.Find("Score").GetComponent<Text>();
             timerText = GameObject.Find("Timer").GetComponent<Text>();
             timeText = GameObject.Find("Time:").GetComponent<Text>();
-        }
+        
         Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
-        Time.fixedDeltaTime = 1;         
 
     }
 
     // Update is called once per frame
     void Update () {
-        if (!isMainMenu)
-        {
+    
             // Updates the timer
             if (timerText && timeText)
             {
@@ -73,26 +64,8 @@ public class Main : MonoBehaviour {
                 timerInt = (int)timerFloat;
                 timerText.text = timerInt.ToString();
             }
-        }
+        
     }
-
-	void FixedUpdate(){
-
-	}
-
-
-    public void getOptionsvalues()
-    {
-        musicVol = musicTrackbar.GetComponent<Slider>().value;              //gets the value of the volume trackbar.
-        effectsVol = effectsTrackbar.GetComponent<Slider>().value;          //gets the value of the effects trackbar.
-        setSoundvalues();                                                   //calls the function that sets the values.
-    }
-
-    void setSoundvalues()
-    {
-        GetComponent<AudioSource>().volume = musicVol;                  //sets the volume values to the audiosources.
-    }
-
 
     // Temporary scoring system
     public void NewScore(){
