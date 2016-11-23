@@ -16,12 +16,14 @@
 ### Version 0.4 - not released
 
 *Release date: TBD*
-*Cycle length: 3 days*
+*Cycle length: 4 days*
 
 - Main character head sprite
 - HUD with scoring and timer
 - Fancy main menu with sound options
 - Weapon pickups
+- New enemy type: The Jumper
+- Sugarkick mechanic - slows down time speeds up player
 
 
 &nbsp;
@@ -76,7 +78,29 @@
 &nbsp;
 &nbsp;
 
+
 <a name="content2"></a>
+## Discussion
+
+__Progress as a function of time__
+
+As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
+
+<img src="images/project_1.jpg" width="60%"/>
+
+__SCRUM - fast iterations, always finished/never finished__
+
+The method for managing the project was chosen to be an informal type of the Scrum method.  Using GitHub extensively we were able to at least do the fast iterations part very well. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
+
+GitHub makes us able to work decentralized, and keeps the pace of the project at a certain speed, no matter where each team member is located. Still, it is worth mentioning that frequent meetings are needed to maintin progress speed. New issues has to be made, knowledge has to be transferred, and there is no better way than a good old fashioned meeting.
+
+
+&nbsp;
+&nbsp;
+
+
+
+<a name="content3"></a>
 ## Homegrown assets
 
 #### Unity Prefabs
@@ -135,7 +159,7 @@
 &nbsp;
 &nbsp;
 
-<a name="content3"></a>
+<a name="content4"></a>
 ## Git reference
 
 The group was motivated to use GitHub extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep. Below are a selection of the commands we had to learn.
@@ -180,13 +204,13 @@ The group was motivated to use GitHub extensively from the start. 4/5 members co
 &nbsp;
 &nbsp;
 
-<a name="content4"></a>
+<a name="content5"></a>
 ## Unity reference
 
 References to Unity's standard library assets that are used in this project
 
 __Classes__ <br />
- [Object](https://docs.unity3d.com/ScriptReference/Object.html) <br />
+ >[Object](https://docs.unity3d.com/ScriptReference/Object.html) <br />
  [GameObject](https://docs.unity3d.com/ScriptReference/GameObject.html)<br />
  [Transform](https://docs.unity3d.com/ScriptReference/Transform.html)  <br />
  [Vector2](https://docs.unity3d.com/ScriptReference/Vector2.html)      <br />
@@ -203,7 +227,7 @@ __Classes__ <br />
  <br />
 
  __Variables__ <br />
- [Quaternion Quaternion.identity](https://docs.unity3d.com/ScriptReference/Quaternion-identity.html) <br/>
+ >[Quaternion Quaternion.identity](https://docs.unity3d.com/ScriptReference/Quaternion-identity.html) <br/>
  [Transform Transform.parent](https://docs.unity3d.com/ScriptReference/Transform-parent.html) <br />
  [Sprite SpriteRenderer.sprite](https://docs.unity3d.com/ScriptReference/SpriteRenderer-sprite.html) <br />
  [Renderer.sharedMaterial](https://docs.unity3d.com/ScriptReference/Renderer-sharedMaterial.html) <br />
@@ -218,7 +242,7 @@ __Classes__ <br />
  <br />
 
  __Functions__ <br />
- [GameObject.CompareTag(String tag) -> bool](https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html) <br />
+ >[GameObject.CompareTag(String tag) -> bool](https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html) <br />
  [GameObject.Find(String name) -> GameObject](https://docs.unity3d.com/ScriptReference/GameObject.Find.html) <br />
  [Component.GetComponent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponent.html) <br/>
  [Component.GetComponentInParent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) <br />
@@ -236,13 +260,6 @@ __Classes__ <br />
 
 
 __Misc__
-(List.add())
-(List.Clear())
 
-
-<a name="content5"></a>
-## Discussion
-
-As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amoun of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
-
-![Workload image](images/project_1.jpg)
+[List.add()](https://msdn.microsoft.com/en-us/library/3wcytfd1.aspx) <br />
+[List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
