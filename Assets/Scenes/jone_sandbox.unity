@@ -137,11 +137,16 @@ Prefab:
     - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: fireRate
-      value: 300
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: knockbackPow
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: weaponDamage
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -409,7 +414,7 @@ Transform:
   - {fileID: 284120588}
   - {fileID: 231202772}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!114 &541466799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +639,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012324595562, guid: 6d739cf4b48d91d428dd1d6b0bdd0d6e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d739cf4b48d91d428dd1d6b0bdd0d6e, type: 2}
@@ -739,39 +744,6 @@ Prefab:
     - target: {fileID: 4000012897372104, guid: 02dd6b0333a09a8419aa3ed2591e1c80, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010722265372, guid: 02dd6b0333a09a8419aa3ed2591e1c80,
-        type: 2}
-      propertyPath: friction
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010196380160, guid: 02dd6b0333a09a8419aa3ed2591e1c80, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011129831646, guid: 02dd6b0333a09a8419aa3ed2591e1c80,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.08693774
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011129831646, guid: 02dd6b0333a09a8419aa3ed2591e1c80,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.65073353
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011129831646, guid: 02dd6b0333a09a8419aa3ed2591e1c80,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.9852941
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010196380160, guid: 02dd6b0333a09a8419aa3ed2591e1c80, type: 2}
-      propertyPath: m_TagString
-      value: JumperCheckRadius
-      objectReference: {fileID: 0}
-    - target: {fileID: 58000011476261314, guid: 02dd6b0333a09a8419aa3ed2591e1c80,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02dd6b0333a09a8419aa3ed2591e1c80, type: 2}
@@ -1230,7 +1202,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014032041444, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013496892816, guid: 035c2195e4c86490383f565b51035c7a,
         type: 2}
