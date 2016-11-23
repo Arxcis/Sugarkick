@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SpawnControl : MonoBehaviour {
 	public bool startWave = false;
 	SpawnEnemies spawnEnemies;
+
+	// Wave class for keeping things orderly.
 	[System.Serializable]
 	public class Wave
 	{
@@ -37,6 +39,7 @@ public class SpawnControl : MonoBehaviour {
 		if (startWave) NextWave ();
 	}
 
+	// Triggers the next wave unless its already the last wave, where it will load the nextLevel(string-variable set in the inspector) instead. 
 	public void NextWave(){
 		if (waveNumber < waves.Length) {
 			waveNumber++;
@@ -46,21 +49,27 @@ public class SpawnControl : MonoBehaviour {
 			SceneManager.LoadScene(nextLevel);
 		}
 	}
-		
-	public void SetWave(int waveNum){
 
+	// Passes the values of the next wave to the SpawnEnemies-script.
+	public void SetWave(int waveNum){
+		
+	// Clears the List.
 		spawnEnemies.enemiesToSpawn.Clear();
 
+	// Passes the enemy-prefabs to the SpawnEnemies-script.
 		for (int i = 0; i < waves[waveNum-1].enemiesToSpawn.Length; i++) {
 				spawnEnemies.enemiesToSpawn.Add (waves [waveNum-1].enemiesToSpawn [i]);
 		}
 
+	// Clears the List.
 		spawnEnemies.spawns.Clear();
 
+	// Passes the spawn-locations to the SpawnEnemies-script.
 		for (int i = 0; i < waves [waveNum - 1].spawns.Length; i++) {
 				spawnEnemies.spawns.Add( waves [waveNum-1].spawns [i]);
 		}
 
+	// Passes the rest of the values to the SpawnEnemies-script.
 		spawnEnemies.spawnRange = waves [waveNum-1].spawnRange;
 		spawnEnemies.endlessMode = waves [waveNum-1].endlessMode;
 		spawnEnemies.staticSpawner = waves [waveNum-1].staticSpawner;
