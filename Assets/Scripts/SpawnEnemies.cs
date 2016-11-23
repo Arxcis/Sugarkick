@@ -31,7 +31,7 @@ public class SpawnEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		main = GameObject.Find("Camera").GetComponent<Main>(); 
+		main = GameObject.Find("Camera").GetComponent<Main>();
 		if(endlessMode == false) trans = spawns[0].transform;
 		spawnControl = gameObject.GetComponent<SpawnControl> ();
 	}
@@ -54,14 +54,14 @@ public class SpawnEnemies : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		
+
 	// Will spawn enemies with a set interval. If wavemode, it makes sure that it does not spawn too many.
 		if (staticSpawner || (waveMode && enemiesSpawned < numberOfEnemies && currentEnemyCount < maxEnemiesOnScreen)) {
 			staticSpawnerTimer += Time.deltaTime*spawnsPerSecond;
 			if (staticSpawnerTimer >= 1) {
-				
-	// Assigns a value to int j from amount of enemies in the enemypool.			
-				int j = Random.Range (0, (enemiesToSpawn.Count));
+
+	// Assigns a value to int j from amount of enemies in the enemypool.
+				int j = Random.Range (0, enemiesToSpawn.Count);     // jonas: added minus 1 to prevent reference to invalid index
 				spawnEnemy (j);
 				staticSpawnerTimer--;
 
@@ -88,17 +88,17 @@ public class SpawnEnemies : MonoBehaviour {
 		float pX = player1.transform.position.x;
 		float pY = player1.transform.position.y;
 
-	// Stores the spawn-positions in xPos and yPos-variables. 
+	// Stores the spawn-positions in xPos and yPos-variables.
 			for (int i = 0; i < spawns.Count; i++) {
-				xPos [i] = spawns [i].transform.position.x;
-				yPos [i] = spawns [i].transform.position.y;
+				xPos [i] = spawns[i].transform.position.x;
+				yPos [i] = spawns[i].transform.position.y;
 			}
 
 			int k = 0;
 
 	// Loops until a fitting spawn-location is found.
 			do {
-			
+
 	// This bool is used to make sure the enemy is spawned "spawnRange"-distance away from the player.
 				tooClose = false;
 

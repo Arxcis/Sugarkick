@@ -19,7 +19,6 @@ public class MoveJumper : MonoBehaviour {
     PuppetManip jumperPupp;
     Animator jumperAnim;
     BoxCollider2D jumpColl;
-    // BoxCollider2D jumpPlanner;
     Main main;
 
     public bool midAir = false;
@@ -37,9 +36,7 @@ public class MoveJumper : MonoBehaviour {
         jumperPupp = GetComponent<PuppetManip>();
         jumperAnim = GetComponent<Animator>();
         jumpColl = GetComponent<BoxCollider2D>();
-        // jumpPlanner = GetComponentInChildren<BoxCollider2D>();
         
-        gameObject.tag = "Jumper";                                  // sets a tag so Puppet knows what to do.
     }
 
 
@@ -111,11 +108,19 @@ public class MoveJumper : MonoBehaviour {
         jumperAnim.Play("JumperLand");
         jumperAnim.SetBool("midAir", midAir);
 
-    }
 
-    void OnDestroy()
-    {
-        Destroy(transform.parent.gameObject);       // destroys parrent so there is no trace left.
+        //Jumps back so it dosen't go in the hole.
+        jumpedFromPos = jumperTrans.position;                           //Sets the position the jumperjumper from.
+
+        jumperRigi.velocity = vectorToPlayer;                //Starts th jump by giving it velocity.
+        jumperRigi.velocity = jumperRigi.velocity.normalized * jumperPupp.movementSpeed;
+
+        midAir = true;                                                  // the enemy is now mid air.
+        jumpColl.enabled = false;                                       //cant fall down a hole while midair.
+        jumperAnim.Play("JumperTakeoff");                                  //Plays JumpUp animaion.
+        jumperAnim.SetBool("midAir", midAir);
+        coldwn = jumpCooldown;                                          //start the time no next jump cooldown.
+
     }
 
 }

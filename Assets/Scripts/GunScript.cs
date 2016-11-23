@@ -77,7 +77,6 @@ public class GunScript : MonoBehaviour {
             cooldown = 1/(fireRate/1000);
         }
 
-        print("gun angl: " + gunAngle);
         if (gunAngle > -100 && gunAngle < 110)
             main.headRend.sprite = main.headBack;
         else

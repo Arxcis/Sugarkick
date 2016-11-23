@@ -6,6 +6,7 @@ public class Main : MonoBehaviour {
 
 
     public int mapsize = 40;                    // Planning to have GLOBAL variables
+
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
     public Rigidbody2D   playerRigi;
@@ -34,39 +35,40 @@ public class Main : MonoBehaviour {
                                                 // Use this for initialization
     void Start () {
 
-        player = GameObject.Find("Player");
-        head = GameObject.Find("Head");
-        playerTrans = player.GetComponent<Transform>();
-        playerAnim  = player.GetComponent<Animator>();
-        playerRigi  = player.GetComponent<Rigidbody2D>();
-        playerMove  = player.GetComponent<MovePlayer>();
-        playerGun   = player.GetComponentInChildren<GunScript>();
-        playerColl  = player.GetComponent<BoxCollider2D>();
-        playerManip = player.GetComponent<PuppetManip>();
+            player = GameObject.Find("Player");         //finds tha player game object in the scene.
+            head = GameObject.Find("Head");             //finds the head.
+            playerTrans = player.GetComponent<Transform>();     //Defines the player components:
+            playerAnim = player.GetComponent<Animator>();
+            playerRigi = player.GetComponent<Rigidbody2D>();
+            playerMove = player.GetComponent<MovePlayer>();
+            playerGun = player.GetComponentInChildren<GunScript>();
+            playerColl = player.GetComponent<BoxCollider2D>();
+            playerManip = player.GetComponent<PuppetManip>();
 
-        headRend    = head.GetComponent<SpriteRenderer>();
-		    scoreText = GameObject.Find ("Score").GetComponent<Text> ();
-		    timerText = GameObject.Find ("Timer").GetComponent<Text> ();
-		    timeText = GameObject.Find ("Time:").GetComponent<Text> ();
+            headRend = head.GetComponent<SpriteRenderer>();
+            scoreText = GameObject.Find("Score").GetComponent<Text>();
+            timerText = GameObject.Find("Timer").GetComponent<Text>();
+            timeText = GameObject.Find("Time:").GetComponent<Text>();
+        
+        Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
+
     }
 
     // Update is called once per frame
     void Update () {
-
-		// Updates the timer
-		if (timerText && timeText) {
-			timerFloat += Time.deltaTime;
-			timerInt = (int)timerFloat;
-			timerText.text = timerInt.ToString ();
-		}
+    
+            // Updates the timer
+            if (timerText && timeText)
+            {
+                timerFloat += Time.deltaTime;
+                timerInt = (int)timerFloat;
+                timerText.text = timerInt.ToString();
+            }
+        
     }
 
-	void FixedUpdate(){
-
-	}
-
-	// Temporary scoring system
-	public void NewScore(){
+    // Temporary scoring system
+    public void NewScore(){
 		enemiesKilled++;
 		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
 		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
