@@ -75,7 +75,6 @@ public class Main : MonoBehaviour {
 		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
 		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
 		if(scoreText) scoreText.text = score.ToString();
-		print (score);
 	}
 
 
