@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-
     public int mapsize = 40;                    // Planning to have GLOBAL variables
 
     public Transform     playerTrans;           //  here. AY-AY Sir!
@@ -32,6 +31,7 @@ public class Main : MonoBehaviour {
 	  float timerFloat;
 	  int timerInt;
 
+ 
                                                 // Use this for initialization
     void Start () {
 
@@ -64,7 +64,6 @@ public class Main : MonoBehaviour {
                 timerInt = (int)timerFloat;
                 timerText.text = timerInt.ToString();
             }
-        
     }
 
     // Temporary scoring system
