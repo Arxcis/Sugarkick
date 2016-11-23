@@ -142,6 +142,7 @@ public class PuppetManip : MonoBehaviour {
             guns[3].SetActive(true);
           break;
         }
+			Destroy (other.gameObject);
         //GameObject.Find(other.gameObject.name).SetActive(true);
         //GameObject.GetChild("Gun").gameObject.setActive(false);
       }
