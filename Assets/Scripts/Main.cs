@@ -40,11 +40,11 @@ public class Main : MonoBehaviour {
                                                 // Use this for initialization
     void Start () {
 
-        if (!isMainMenu)
+        if (!isMainMenu)            //define player components in not in main menu. Player does not exist in menu.
         {
-            player = GameObject.Find("Player");
-            head = GameObject.Find("Head");
-            playerTrans = player.GetComponent<Transform>();
+            player = GameObject.Find("Player");         //finds tha player game object in the scene.
+            head = GameObject.Find("Head");             //finds the head.
+            playerTrans = player.GetComponent<Transform>();     //Defines the player components:
             playerAnim = player.GetComponent<Animator>();
             playerRigi = player.GetComponent<Rigidbody2D>();
             playerMove = player.GetComponent<MovePlayer>();
@@ -81,14 +81,21 @@ public class Main : MonoBehaviour {
 	}
 
 
-    public void setOptionsvalues()
+    public void getOptionsvalues()
     {
-        
+        musicVol = musicTrackbar.GetComponent<Slider>().value;              //gets the value of the volume trackbar.
+        effectsVol = effectsTrackbar.GetComponent<Slider>().value;          //gets the value of the effects trackbar.
+        setSoundvalues();                                                   //calls the function that sets the values.
+    }
+
+    void setSoundvalues()
+    {
+        GetComponent<AudioSource>().volume = musicVol;                  //sets the volume values to the audiosources.
     }
 
 
-	// Temporary scoring system
-	public void NewScore(){
+    // Temporary scoring system
+    public void NewScore(){
 		enemiesKilled++;
 		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
 		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
