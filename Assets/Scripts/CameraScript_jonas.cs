@@ -1,3 +1,14 @@
+// --------------------------------------------------------------------------------- //
+// Filename    : CameraScript_jonas.cs
+// Project     : Sugarkick
+// Created by  : Jonas Solsvik
+// Date        : ?
+// Description : This script serves as a testing ground for different ways to
+//                control the camera. The current implementation is not complete.
+//                It calculates the center of mass of all the players in the scene,
+//                for centering the camera. It also finds the maximum distance between
+//                two players, for keeping the camera at the correct height.
+
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,12 +19,11 @@ public class CameraScript_jonas : MonoBehaviour {
 
     public GameObject[] players;
 
-    public int sizeBuffer = 0; 
+    public int sizeBuffer = 0;
     public float camSizeBreakPoint = 10.0F;
     public float camExpandSpeed = 0.45F, camExpandAdjust = 5.5F;
 
-
-    Camera      cam;      
+    Camera      cam;
     Transform   camTrans;
     Transform[] playersTrans;
 
@@ -25,9 +35,9 @@ public class CameraScript_jonas : MonoBehaviour {
     Vector2 centerOfMass = new Vector2(0, 0); // Formula @ http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html
 
 	void Start () {
-        main = GameObject.Find("Camera").GetComponent<Main>();            
+        main = GameObject.Find("Camera").GetComponent<Main>();
         camTrans = gameObject.GetComponent<Transform>();    // Camera transform
-	    cam      = GetComponent<Camera>();       // To manipulate camsize
+	      cam      = GetComponent<Camera>();                  // To manipulate camsize
 
         playersTrans = new Transform[players.Length];
         int i=0;                                // Getting all players transforms
@@ -36,18 +46,18 @@ public class CameraScript_jonas : MonoBehaviour {
             i++;
         }
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-            // Reset data each frame
-        numPlayers = players.Length;             //  Number of players
+                                                    // Reset data each frame
+        numPlayers = players.Length;                //  Number of players
         xSum = 0; ySum = 0; distances.Clear();
 
-            // Center of mass calculation and max distance calculation
+                                                        // Center of mass calculation and max distance calculation
         foreach( Transform pt in playersTrans ) {
             xSum += pt.position.x;
             ySum += pt.position.y;
-                                    // Compares every player to every other player
+                                                        // Finds the distance between every player to every other player
             foreach( Transform ptCompare in playersTrans ) {
                 distances.Add((ptCompare.position - pt.position).magnitude);
             }
@@ -56,23 +66,25 @@ public class CameraScript_jonas : MonoBehaviour {
         centerOfMass.x = xSum / numPlayers;
         centerOfMass.y = ySum / numPlayers;
         maxDistance = getMax( distances );
-        Debug.Log("premaxd = " + maxDistance);
+        // Debug.Log("premaxd = " + maxDistance);
+
         maxDistance += sizeBuffer;
-        maxDistance = (maxDistance < camSizeBreakPoint) ? camSizeBreakPoint : 
+        maxDistance = (maxDistance < camSizeBreakPoint) ? camSizeBreakPoint :
                               maxDistance * camExpandSpeed + camExpandAdjust;
 
-        camTrans.position = main.ToVector3( centerOfMass, -1);  // Center of mass = camera position
-        cam.orthographicSize =  maxDistance;                         // Camera size varies depending on how 
-                                                                    // far the players away from each other.
-        Debug.Log("COM = " + centerOfMass + '\n' + " maxd = " + maxDistance);
+        camTrans.position = main.ToVector3( centerOfMass, -1);    // Center of mass = camera position
+        cam.orthographicSize =  maxDistance;                      // Camera size varies depending on how
+                                                                  // far the players away from each other.
+        // Debug.Log("COM = " + centerOfMass + '\n' + " maxd = " + maxDistance);
 	}
 
+                                                      // Gets the max distance each frame
     float getMax(List<float> floats){
 
         float max = 0;
         foreach(float f in floats) {
-            if (f > max) 
-                max = f;   
+            if (f > max)
+                max = f;
         }
         return max;
     }
