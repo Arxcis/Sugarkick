@@ -6,6 +6,12 @@ public class Main : MonoBehaviour {
 
 
     public int mapsize = 40;                    // Planning to have GLOBAL variables
+    public bool isMainMenu = false;
+    public float musicVol = 0.3f;
+    public float effectsVol = 0.4f;
+    public GameObject musicTrackbar;
+    public GameObject effectsTrackbar;
+
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
     public Rigidbody2D   playerRigi;
@@ -34,21 +40,23 @@ public class Main : MonoBehaviour {
                                                 // Use this for initialization
     void Start () {
 
-        player = GameObject.Find("Player");
-        head = GameObject.Find("Head");
-        playerTrans = player.GetComponent<Transform>();
-        playerAnim  = player.GetComponent<Animator>();
-        playerRigi  = player.GetComponent<Rigidbody2D>();
-        playerMove  = player.GetComponent<MovePlayer>();
-        playerGun   = player.GetComponentInChildren<GunScript>();
-        playerColl  = player.GetComponent<BoxCollider2D>();
-        playerManip = player.GetComponent<PuppetManip>();
+        if (!isMainMenu)
+        {
+            player = GameObject.Find("Player");
+            head = GameObject.Find("Head");
+            playerTrans = player.GetComponent<Transform>();
+            playerAnim = player.GetComponent<Animator>();
+            playerRigi = player.GetComponent<Rigidbody2D>();
+            playerMove = player.GetComponent<MovePlayer>();
+            playerGun = player.GetComponentInChildren<GunScript>();
+            playerColl = player.GetComponent<BoxCollider2D>();
+            playerManip = player.GetComponent<PuppetManip>();
 
-        headRend    = head.GetComponent<SpriteRenderer>();
-		    scoreText = GameObject.Find ("Score").GetComponent<Text> ();
-		    timerText = GameObject.Find ("Timer").GetComponent<Text> ();
-		    timeText = GameObject.Find ("Time:").GetComponent<Text> ();
-
+            headRend = head.GetComponent<SpriteRenderer>();
+            scoreText = GameObject.Find("Score").GetComponent<Text>();
+            timerText = GameObject.Find("Timer").GetComponent<Text>();
+            timeText = GameObject.Find("Time:").GetComponent<Text>();
+        }
         Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
         Time.fixedDeltaTime = 1;         
 
@@ -56,18 +64,28 @@ public class Main : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-		// Updates the timer
-		if (timerText && timeText) {
-			timerFloat += Time.deltaTime;
-			timerInt = (int)timerFloat;
-			timerText.text = timerInt.ToString ();
-		}
+        if (!isMainMenu)
+        {
+            // Updates the timer
+            if (timerText && timeText)
+            {
+                timerFloat += Time.deltaTime;
+                timerInt = (int)timerFloat;
+                timerText.text = timerInt.ToString();
+            }
+        }
     }
 
 	void FixedUpdate(){
 
 	}
+
+
+    public void setOptionsvalues()
+    {
+        
+    }
+
 
 	// Temporary scoring system
 	public void NewScore(){
