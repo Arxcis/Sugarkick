@@ -37,7 +37,7 @@ GameObject:
   - 212: {fileID: 212000013420254190}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - 114: {fileID: 114000010767180144}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011223011370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalPosition: {x: -1.8445408, y: -2.820469, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -408,10 +408,10 @@ MonoBehaviour:
   setVelocity: 1
   truePiercing: 1
   pierceNumber: 0
-  weaponDamage: 2
+  weaponDamage: 1
   accuracy: 80
-  fireRate: 100
-  knockbackPow: 400
+  fireRate: 13
+  knockbackPow: 100
   projectileSpeed: 10
   bullets: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000010173922102}

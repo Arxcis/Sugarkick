@@ -35,16 +35,19 @@ public class Main : MonoBehaviour {
 
           // TEST Functionality - NOT IN USE YET
     // public int numOfPlayers = 1;                                // Holds the number of active players at any given moment
-    // public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+    public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
 
                                                 // Use this for initialization
     void Start () {
 
-            if(!GameObject.Find("Player")) { Debug.Log("PLAYER NOT FOUND IN SCENE!"); }  // Important check
+            if(!GameObject.FindWithTag("Player")) { Debug.Log("PLAYER NOT FOUND IN SCENE!"); }  // Important check
 
-            player = GameObject.Find("Player");         //finds tha player game object in the scene.
-            head = GameObject.Find("Head");             //finds the head.
-            playerTrans = player.GetComponent<Transform>();     //Defines the player components:
+            player = GameObject.FindWithTag("Player");                 // finds tha player game object in the scene.
+
+            players.Add(player);                              // Add players found to players array
+
+            head = GameObject.FindWithTag("Head");                     //finds the head.
+            playerTrans = player.GetComponent<Transform>();        //Defines the player components:
             playerAnim = player.GetComponent<Animator>();
             playerRigi = player.GetComponent<Rigidbody2D>();
             playerMove = player.GetComponent<MovePlayer>();
@@ -57,40 +60,77 @@ public class Main : MonoBehaviour {
             timerText = GameObject.Find("Timer").GetComponent<Text>();
             timeText = GameObject.Find("Time:").GetComponent<Text>();
 
-        Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
+        Time.timeScale = 1f;                           //sets time scale to 1 incrase sugarkick was active.
 
     }
 
-    // Update is called once per frame
+                                                      // Update is called once per frame
     void Update () {
-
-            // Updates the timer
-            if (timerText && timeText)
-            {
-                timerFloat += Time.deltaTime;
-                timerInt = (int)timerFloat;
-                timerText.text = timerInt.ToString();
-            }
-
+        if (timerText && timeText)                    // Updates the timer
+        {
+            timerFloat += Time.deltaTime;
+            timerInt = (int)timerFloat;
+            timerText.text = timerInt.ToString();
+        }
     }
 
-    // Temporary scoring system
+          // Description: Function that returs entire player object, or any of its component objects.
+          // @param  : int playerIndex - choose which player to get the component from.
+          // @param  : string component - choose which component to get from a given player.
+          // @return : Object - an object that can both be player object, or component object.
+    Object getPlayer(int playerIndex, string component="Player") {
+
+      switch(component){
+
+        case "0":
+        case "Player":
+          return player;
+
+        case "1":
+        case "Transform":
+          return player.GetComponent<Transform>();
+
+        case "2":
+        case "Rigidbody":
+          return player.GetComponent<Rigidbody2D>();
+
+        case "3":
+        case "BoxCollider":
+          return player.GetComponent<BoxCollider2D>();
+
+        case "4":
+        case "Animator":
+          return player.GetComponent<Animator>();
+
+        case "5":
+        case "Move":
+          return player.GetComponent<MovePlayer>();
+
+        case "6":
+        case "PuppetManip":
+          return player.GetComponent<PuppetManip>();
+
+        case "7":
+        case "Gun":
+          return player.GetComponentInChildren<GunScript>();
+
+        case "8":
+        case "Head":
+          return GameObject.FindWithTag("Head");
+
+        default:
+          Debug.Log("Configuration of player/component not FOUND! Returning player0");
+          return players[0];
+      }
+    }
+
+                                                        // Temporary scoring system
     public void NewScore(){
   		enemiesKilled++;
   		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
   		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
   		if(scoreText) scoreText.text = score.ToString();
   	}
-
-                                    // TEST Functionality, DONT USE! (Jonas)
-    void keepSelfAlive() {          // Makes sure that main scripts' parent are kept alive between scenes.
-      if ( GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {    // If there is more than 1 Main Camera, destroy this Camera
-        Debug.Log("There are two Main Cameras in the scene, destroying self....\n");
-        Destroy(gameObject);
-      } else {
-        DontDestroyOnLoad(gameObject);                   // Makes sure that the Main Camera is not Destroyed between scenes
-      }
-    }
 
 
     // --------------- UTILITY FUNCTIONS ------------------
@@ -126,3 +166,14 @@ public class Main : MonoBehaviour {
         return new Vector3(vec2.x, vec2.y, zval);
     }
 }
+
+
+// TEST Functionality, DONT USE! (Jonas)
+//void keepSelfAlive() {          // Makes sure that main scripts' parent are kept alive between scenes.
+//  if ( GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {    // If there is more than 1 Main Camera, destroy this Camera
+//    Debug.Log("There are two Main Cameras in the scene, destroying self....\n");
+//    Destroy(gameObject);
+//  } else {
+//    DontDestroyOnLoad(gameObject);                   // Makes sure that the Main Camera is not Destroyed between scenes
+//  }
+//}
