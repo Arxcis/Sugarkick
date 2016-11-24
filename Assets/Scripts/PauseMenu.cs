@@ -21,7 +21,6 @@ public class PauseMenu : MonoBehaviour {
             if (inPauseMenu == true) closePause();              // opens or closes pause menu depending on if user is already in menu.
             else openPause();
         }
-        print("pause: " + (Input.GetAxis("Pause")));
     }
 
     public void toMainMenu()
