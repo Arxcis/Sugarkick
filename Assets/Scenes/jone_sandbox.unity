@@ -90,6 +90,12 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &13008533 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+    type: 2}
+  m_PrefabInternal: {fileID: 1625374604}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!224 &28833717 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000012297811190, guid: fca929812287e16429b62f5b88450b8c,
@@ -163,7 +169,7 @@ Prefab:
     - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: mouseOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
@@ -484,6 +490,36 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 13008533}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 350368315}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fca929812287e16429b62f5b88450b8c, type: 2}
   m_IsPrefabParent: 0
@@ -617,6 +653,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1068963687}
   m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &437337664 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+    type: 2}
+  m_PrefabInternal: {fileID: 992520421}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &491257620 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011917731378, guid: 999852eb7e1a749b9a776ca54081856e,
@@ -1002,7 +1044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &856778729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,6 +1425,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1069069612}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 13008533}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 627e7635f5be1014d849533f209a3183, type: 2}
   m_IsPrefabParent: 0
@@ -1407,6 +1464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411d603804db4148b265c43bdffd0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 856778728}
+  pauseStartFocus: {fileID: 13008533}
   ButtonClick: {fileID: 8300000, guid: 6e5c07f4692ec454daf3983f6ce960b0, type: 3}
 --- !u!114 &1052609807
 MonoBehaviour:
@@ -1612,6 +1671,36 @@ Prefab:
       propertyPath: m_Value
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 28833718}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1069069612}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012613256246, guid: fca929812287e16429b62f5b88450b8c,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fca929812287e16429b62f5b88450b8c, type: 2}
   m_IsPrefabParent: 0
@@ -1620,6 +1709,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000012297811190, guid: fca929812287e16429b62f5b88450b8c,
     type: 2}
   m_PrefabInternal: {fileID: 1068963687}
+--- !u!114 &1069069612 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+    type: 2}
+  m_PrefabInternal: {fileID: 1466551031}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1075792201
 Prefab:
   m_ObjectHideFlags: 0
@@ -2154,6 +2249,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restartLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 350368315}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 437337664}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 627e7635f5be1014d849533f209a3183, type: 2}
   m_IsPrefabParent: 0
@@ -2217,17 +2327,17 @@ Prefab:
     - target: {fileID: 224000012739325306, guid: 627e7635f5be1014d849533f209a3183,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 5.7
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 224000012739325306, guid: 627e7635f5be1014d849533f209a3183,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -34
+      value: 118.6
       objectReference: {fileID: 0}
     - target: {fileID: 224000012739325306, guid: 627e7635f5be1014d849533f209a3183,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 26.1
+      value: 36.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012739325306, guid: 627e7635f5be1014d849533f209a3183,
         type: 2}
@@ -2272,7 +2382,9 @@ Prefab:
     - target: {fileID: 114000011986672768, guid: 627e7635f5be1014d849533f209a3183,
         type: 2}
       propertyPath: m_Text
-      value: Back
+      value: 'Back to game
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 114000011986672768, guid: 627e7635f5be1014d849533f209a3183,
         type: 2}
@@ -2287,6 +2399,31 @@ Prefab:
     - target: {fileID: 1000012499050524, guid: 627e7635f5be1014d849533f209a3183, type: 2}
       propertyPath: m_Name
       value: btnBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 437337664}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 28833718}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1052609806}
+    - target: {fileID: 114000012784676578, guid: 627e7635f5be1014d849533f209a3183,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: closePause
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 627e7635f5be1014d849533f209a3183, type: 2}
