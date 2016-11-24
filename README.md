@@ -1,4 +1,16 @@
 
+# Assignment 4 - Experience Design
+
+Implementation of Sugarkick with Unity Engine
+
+__The Team__ <br/>
+Jonas Solsvik         <br/>
+Jone Martin Skaara    <br/>
+Johannes Gabriel Aas <br/>
+Eldar Hauge Torkelsen <br />
+Ricardo Montana      <br />
+
+
 ## Contents
 
 1. [Changelog - Iterations](#content1)
@@ -102,6 +114,10 @@ __The singleplayer -> multiplayer transition problem__
 - Code written for single player is a intervined web of dependencies.
 - Huge job, big risk, might be better to fork a separate repo.
 - Multiplayer from the start, or no multiplayer.
+
+
+__Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klarte å implementere!__
+
 
 
 &nbsp;
@@ -321,5 +337,5 @@ __Classes__ <br />
 
 __Misc__
 
-[List.add()](https://msdn.microsoft.com/en-us/library/3wcytfd1.aspx) <br />
-[List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
+>[List.add()](https://msdn.microsoft.com/en-us/library/3wcytfd1.aspx) <br />
+ [List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
