@@ -8,6 +8,9 @@ public class Menu : MonoBehaviour {
     public Canvas MainCanvas;                          // Decleares canvases used.
     public Canvas OptionsCanvas;
     public Canvas SelectionCanvas;
+    public GameObject mainStartFocus;
+    public GameObject optionsStartFocus;
+    public GameObject selectionStartFocus;
     public AudioClip menuMusic;
     public AudioClip buttonSound;
 
@@ -26,6 +29,7 @@ public class Menu : MonoBehaviour {
         MainCanvas.enabled      = true;
         SelectionCanvas.enabled = false;
         OptionsCanvas.enabled   = false;
+        mainStartFocus.GetComponent<Button>().Select();
     }
 
     void FixedUpdate()
@@ -38,10 +42,13 @@ public class Menu : MonoBehaviour {
 
     public void OptionsOpen()                          // Switches back to the main menu.                 
     {
+
         SoundManager.instance.bamPow(buttonSound);
         MainCanvas.enabled = false;
         SelectionCanvas.enabled = false;
         OptionsCanvas.enabled = true;
+        optionsStartFocus.GetComponent<Slider>().Select();
+
 
     }
 
@@ -51,6 +58,8 @@ public class Menu : MonoBehaviour {
         MainCanvas.enabled = false;
         SelectionCanvas.enabled = true;
         OptionsCanvas.enabled = false;
+        selectionStartFocus.GetComponent<Button>().Select();
+
     }
 
 

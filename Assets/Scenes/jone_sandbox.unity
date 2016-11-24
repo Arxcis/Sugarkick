@@ -293,6 +293,16 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!82 &236292541 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82000012314653920, guid: f3b6c8a809b479746a6ae19eceaa9198,
+    type: 2}
+  m_PrefabInternal: {fileID: 311571396}
+--- !u!82 &236292542 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82000010502746034, guid: f3b6c8a809b479746a6ae19eceaa9198,
+    type: 2}
+  m_PrefabInternal: {fileID: 311571396}
 --- !u!1001 &276501137
 Prefab:
   m_ObjectHideFlags: 0
@@ -588,6 +598,16 @@ Prefab:
       propertyPath: effectsTrackbar
       value: 
       objectReference: {fileID: 350368315}
+    - target: {fileID: 114000013397599438, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: musicAud
+      value: 
+      objectReference: {fileID: 236292542}
+    - target: {fileID: 114000013397599438, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: effectsAud
+      value: 
+      objectReference: {fileID: 236292541}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b6c8a809b479746a6ae19eceaa9198, type: 2}
   m_IsPrefabParent: 0
@@ -1388,6 +1408,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 6e5c07f4692ec454daf3983f6ce960b0, type: 3}
+--- !u!114 &1052609807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052609805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588ee269924e6f046bcba03c01a7e60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapsize: 40
+  playerTrans: {fileID: 0}
+  playerAnim: {fileID: 0}
+  playerRigi: {fileID: 0}
+  playerMove: {fileID: 0}
+  playerGun: {fileID: 0}
+  playerColl: {fileID: 0}
+  playerManip: {fileID: 0}
+  headRend: {fileID: 0}
+  headFront: {fileID: 21300000, guid: 02eeb9fc03ee3ac4b893fe711cef6557, type: 3}
+  headBack: {fileID: 21300000, guid: 1b37e069565c5d44488741370bbb5ce8, type: 3}
+  player: {fileID: 0}
+  head: {fileID: 0}
+  scoreText: {fileID: 0}
+  timeText: {fileID: 0}
+  timerText: {fileID: 0}
+  staticScoreMultiplier: 0
 --- !u!1001 &1068963687
 Prefab:
   m_ObjectHideFlags: 0
@@ -1952,7 +2000,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010898996370, guid: 81e75b64bd94dff4d87f9aacff7d7622, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81e75b64bd94dff4d87f9aacff7d7622, type: 2}
@@ -2735,6 +2783,7 @@ Prefab:
       propertyPath: ButtonClick
       value: 
       objectReference: {fileID: 8300000, guid: 48b3461395a9206469a15b63ccf5df64, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000013496892816, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
   m_IsPrefabParent: 0
