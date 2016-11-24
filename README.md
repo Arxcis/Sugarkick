@@ -170,42 +170,69 @@ __The singleplayer -> multiplayer transition problem__
 <a name="content4"></a>
 ## Git reference
 
-The group was motivated to use GitHub extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep. Below are a selection of the commands we had to learn.
+The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
+Here is a reference list of the Git commands used to build this project. <br/>
+_(Disclosure: The links follow the same grouping as you can find here https://git-scm.com/docs)_
 
-> git init                                       <br />
-  git clone *__url__*                            <br />
-  git checkout *__branch/commit id__*            <br />
-  git merge *__branch/commit id__*               <br /> <br />
-  git branch                                     <br />
-  git branch -m                                  <br />
-  git branch -D                                  <br /> <br />
-  git fetch                                      <br />
-  git push origin *__branch__*                   <br />
-  git pull origin *__branch__*                   <br /> <br />
-  git log                                        <br />
-  git log --graph                                <br />
-  git log --pretty=oneline                       <br />
-  git diff                                       <br /> <br />
-  git remote show origin                         <br />
-  git remote add *__url__*                       <br />
-  git remote -v                                  <br />  
-  git add .                                      <br />
-  git add *__filename(s)__*                      <br />
-  git commit                                     <br />
-  git commit -m "*__message__*"                  <br />
-  git tag                                        <br />
-  git tag -a *__version__* *__commit id__*       <br />
-  git tag -a *__version__* -m *__message__*      <br /> <br />
-  git revert *__commit id__*                     <br />
-  git reset --hard                               <br />
-  git reset --hard *__tag/branch/commit id__*    <br />
-  git reset HEAD~                                <br />
-  git rm *__file__*                              <br />
-  git mv *__filefrom fileto__*                   <br /> <br />
-  git config --list                              <br />
+
+__Setup and Config__
+
+  >[git *__command__* --help](https://git-scm.com/docs/git-help) <br/>
+  [git config --list](https://git-scm.com/docs/git-config)  <br />
   git config --global user.name "*__name__*"     <br />
   git config --global user.email *__email__*     <br />
   git config --global core.editor *__app-path__* --wait <br />
+
+__Gettings started__
+
+  >[git init](https://git-scm.com/docs/git-init)  <br />
+   [git clone *__url__*](https://git-scm.com/docs/git-clone) <br /> <br/>
+
+
+__Basic snapshooting__
+  >[git add .](https://git-scm.com/docs/git-add)    <br />
+   git add *__filename(s)__*                        <br />
+  [git status](https://git-scm.com/docs/git-status) <br/>
+  [git diff](https://git-scm.com/docs/git-diff)     <br />
+  [git commit](https://git-scm.com/docs/git-commit) <br/>
+   git commit -m "*__message__*"                    <br />
+  [git reset --hard](https://git-scm.com/docs/git-reset) <br />
+   git reset --hard *__tag/branch/commit id__*    <br />
+   git reset HEAD~                                <br />
+   [git rm *__file__*](https://git-scm.com/docs/git-rm)            <br />
+   [git mv *__filefrom fileto__*](https://git-scm.com/docs/git-mv) <br />
+
+
+
+__Branching and merging__
+ >[git checkout *__branch/commit id__*](https://git-scm.com/docs/git-checkout) <br />
+  [git merge *__branch/commit id__*](https://git-scm.com/docs/git-merge)   <br />
+  [git branch](https://git-scm.com/docs/git-branch)<br />
+  git branch -m                                    <br />
+  git branch -D                                    <br />
+  [git log](https://git-scm.com/docs/git-log)      <br />
+  git log --graph                                  <br />
+  git log --pretty=oneline                         <br />
+  [git stash](https://git-scm.com/docs/git-stash)  <br />
+  [git tag](https://git-scm.com/docs/git-tag)      <br />
+  git tag -a *__version__* *__commit id__*         <br />
+  git tag -a *__version__* -m *__message__*        <br />
+
+
+__Sharing and Updating projects__
+  >[git fetch](https://git-scm.com/docs/git-fetch) <br />
+  [git pull origin *__branch__*](https://git-scm.com/docs/git-pull) <br />
+  [git pull origin *__branch__*](https://git-scm.com/docs/git-push) <br />
+  [git remote show origin](https://git-scm.com/docs/git-remote)  <br />
+   git remote add *__url__*                       <br />
+   git remote -v                                  <br />  
+
+__Patching__
+  >[git revert *__commit id__*](https://git-scm.com/docs/git-revert)  <br />
+   [git rebase](https://git-scm.com/docs/git-rebase) <br />
+
+
+
 
 
 
@@ -226,6 +253,7 @@ __Classes__ <br />
  [Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.html) <br />
  [Rigidbody2D](https://docs.unity3d.com/ScriptReference/Rigidbody2D.html) <br/>
  [BoxCollider2D](https://docs.unity3d.com/ScriptReference/BoxCollider2D.html) <br/>
+ [CircleCollider2D](https://docs.unity3d.com/ScriptReference/CircleCollider2D.html) <br/>
  [Sprite](https://docs.unity3d.com/ScriptReference/Sprite.html) <br/>
  [SpriteRenderer](https://docs.unity3d.com/ScriptReference/SpriteRenderer.html) <br/>
  [Material](https://docs.unity3d.com/ScriptReference/Material.html) <br/>
@@ -234,8 +262,14 @@ __Classes__ <br />
  [Text](https://docs.unity3d.com/ScriptReference/UI.Text.html) <br />
  [Animator](https://docs.unity3d.com/ScriptReference/Animator.html) <br />
  [Camera](https://docs.unity3d.com/ScriptReference/Camera.html) <br/>
- [Input](https://docs.unity3d.com/ScriptReference/Input.html) <br/>
- [Debug](https://docs.unity3d.com/ScriptReference/Debug.html) <br/>
+ [Canvas](https://docs.unity3d.com/ScriptReference/Canvas.html) <br />
+ [AudioClip](https://docs.unity3d.com/ScriptReference/AudioClip.html) <br />
+ [SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.html) <br />
+ [Input](https://docs.unity3d.com/ScriptReference/Input.html) <br />
+ [Debug](https://docs.unity3d.com/ScriptReference/Debug.html) <br />
+ [Color](https://docs.unity3d.com/ScriptReference/Color.html) <br />
+
+
 
  <br />
 
@@ -263,15 +297,21 @@ __Classes__ <br />
  [Component.GetComponentInParent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) <br />
  [Component.GetComponentInChildren&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInChildren.html) <br />
  [Object.Destroy(Object)](https://docs.unity3d.com/ScriptReference/Object.Destroy.html) <br/>
+ [Object.DontDestroyOnLoad(Object)](https://docs.unity3d.com/ScriptReference/Object.DontDestroyOnLoad.html) <br/>
  [Object.Instantiate(Object original) -> Object](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) <br />
  [Camera.ViewportToWorldPoint(Vector3 position) -> Vector3](https://docs.unity3d.com/ScriptReference/Camera.ScreenToWorldPoint.html) <br/>
  [Transform.Rotate(Vector3)](https://docs.unity3d.com/ScriptReference/Transform.Rotate.html) <br/>
  [Rigidbody2D.AddForce(Vector2)](https://docs.unity3d.com/ScriptReference/Rigidbody2D.AddForce.html) <br/>
  [Quaternion.Euler(float x, float y, float z) -> Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.Euler.html) <br />
+ [Vector2.Angle(Vector2 from, Vector2 to) -> Vector2](https://docs.unity3d.com/ScriptReference/Vector2.Angle.html) <br/>
  [Vector3.RoateTowards -> Vector3](https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html) <br/>
  [Material.CopyPropertiesFromMaterial(Material other)](https://docs.unity3d.com/ScriptReference/Material.CopyPropertiesFromMaterial.html) <br/>
  [Material.SetTexture(string propertyName, Texture)](https://docs.unity3d.com/ScriptReference/Material.SetTexture.html) <br/>
  [Shader.Find(String name) -> Shader](https://docs.unity3d.com/ScriptReference/Shader.Find.html) <br/>
+ [Animator.Play(String statename)](https://docs.unity3d.com/ScriptReference/Animator.Play.html) <br/>
+ [Animator.SetBool(String name, Bool)](https://docs.unity3d.com/ScriptReference/Animator.SetBool.html) <br/>
+ [Debug.Log](https://docs.unity3d.com/ScriptReference/Debug.Log.html) <br />
+ [Debug.DrawRay](https://docs.unity3d.com/ScriptReference/Debug.DrawRay.html) <br/>
  [MonoBehaviour.Awake()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html) <br/>
  [MonoBehaviour.Start()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) <br/>
  [MonoBehaviour.Update()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) <br/>

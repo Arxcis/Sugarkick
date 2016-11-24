@@ -25,6 +25,7 @@ public class GunScript : MonoBehaviour {
     public GameObject bullets;
     public GameObject barrelEnd;
     public GameObject bulletParent;
+
     public bool mouseOn = false;      // mouse on / off
 
     // Private:
@@ -104,8 +105,8 @@ public class GunScript : MonoBehaviour {
 	}
 
   void mouseAimUpdate() {
-    mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector3
-    Debug.Log("Mouse position: " + mousePos);
+    mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector
+
                                          // Create Vector2 from the difference in position between mouse and player
     facingMouseVector = new Vector2(mousePos.x - main.playerTrans.position.x, mousePos.y - main.playerTrans.position.y);
     gunAngle = main.GetAngle( Vector2.up, facingMouseVector );
