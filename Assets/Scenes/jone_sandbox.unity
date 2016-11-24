@@ -146,26 +146,6 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 491257620}
-    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: fireRate
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: knockbackPow
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: weaponDamage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: mouseOn
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
   m_IsPrefabParent: 0
@@ -781,6 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapsize: 40
+  mouseOn: 0
   playerTrans: {fileID: 0}
   playerAnim: {fileID: 0}
   playerRigi: {fileID: 0}
