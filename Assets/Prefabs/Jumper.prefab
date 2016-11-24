@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000011354798556}
   m_Layer: 0
   m_Name: JumperHoleRadius
-  m_TagString: Untagged
+  m_TagString: JumperCheckRadius
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   framesToPlaySugarAnim: 1
   sugarTimeSlow: 0.5
   sugarSpeedChange: 1.5
-  friction: 40
+  friction: 30
   invFrm: 0
 --- !u!114 &114000011354798556
 MonoBehaviour:
@@ -222,6 +222,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6eba1eacd8819c1439153f57b6a78fe7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.08693774, g: 0.65073353, b: 0.9852941, a: 1}
   m_FlipX: 0
   m_FlipY: 0

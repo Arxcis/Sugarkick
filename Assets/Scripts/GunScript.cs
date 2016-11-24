@@ -26,8 +26,6 @@ public class GunScript : MonoBehaviour {
     public GameObject barrelEnd;
     public GameObject bulletParent;
 
-    public bool mouseOn = false;      // mouse on / off
-
     // Private:
     Transform gunTrans;
 
@@ -51,7 +49,7 @@ public class GunScript : MonoBehaviour {
     void FixedUpdate ()                             // Fixed update is frame-rate independent
     {
 
-      if( mouseOn ) {
+      if( main.mouseOn ) {
         mouseAimUpdate();           // Update aim with mouse
       }                             //     or
       else {                        //
@@ -106,7 +104,6 @@ public class GunScript : MonoBehaviour {
 
   void mouseAimUpdate() {
     mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector
-
                                          // Create Vector2 from the difference in position between mouse and player
     facingMouseVector = new Vector2(mousePos.x - main.playerTrans.position.x, mousePos.y - main.playerTrans.position.y);
     gunAngle = main.GetAngle( Vector2.up, facingMouseVector );
