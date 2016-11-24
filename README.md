@@ -36,6 +36,8 @@ Ricardo Montana      <br />
 - HUD with scoring and timer
 - Fancy main menu with sound options
 - Weapon pickups
+- Weapon sounds
+- Local multiplayer support
 - New enemy type: The Jumper
 - Sugarkick mechanic - slows down time speeds up player
 
