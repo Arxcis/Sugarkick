@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-
-    public int mapsize = 40;                    // Planning to have GLOBAL variables
+    public int mapsize = 40;
 
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
@@ -33,13 +32,14 @@ public class Main : MonoBehaviour {
 	  float timerFloat;
 	  int timerInt;
 
-    public int numOfPlayers = 1;                                // Holds the number of active players at any given moment
-    public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+          // TEST Functionality - NOT IN USE YET
+    // public int numOfPlayers = 1;                                // Holds the number of active players at any given moment
+    // public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
 
                                                 // Use this for initialization
     void Start () {
 
-            // keepSelfAlive();                // Makes sure that main scripts' parent are kept alive between scenes.
+            if(!GameObject.Find("Player")) { Debug.Log("PLAYER NOT FOUND IN SCENE!"); }  // Important check
 
             player = GameObject.Find("Player");         //finds tha player game object in the scene.
             head = GameObject.Find("Head");             //finds the head.
@@ -81,6 +81,7 @@ public class Main : MonoBehaviour {
   		if(scoreText) scoreText.text = score.ToString();
   	}
 
+                                    // TEST Functionality, DONT USE! (Jonas)
     void keepSelfAlive() {          // Makes sure that main scripts' parent are kept alive between scenes.
       if ( GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {    // If there is more than 1 Main Camera, destroy this Camera
         Debug.Log("There are two Main Cameras in the scene, destroying self....\n");
