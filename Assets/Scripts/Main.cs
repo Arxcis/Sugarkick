@@ -74,6 +74,13 @@ public class Main : MonoBehaviour {
 
     }
 
+    public void toggleMouseAiming()         //useed by toggle ui element in pause menu.
+    {
+        if (mouseOn) mouseOn = false;
+        else mouseOn = true;
+    }
+
+
     // Temporary scoring system
     public void NewScore(){
   		enemiesKilled++;
