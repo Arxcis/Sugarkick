@@ -33,7 +33,7 @@ public class Main : MonoBehaviour {
 	  float timerFloat;
 	  int timerInt;
 
-            // ----------- TEST Functionality - NOT IN USE YET ---------------- jonas
+            // ----------- TEST Functionality - NOT IN USE YET ---------------- jonas point of no return
     // public int numOfPlayers = 1;                                               // Holds the number of active players at any given moment
     GameObject[] playerTags;
     List       <GameObject> players = new List<GameObject>();         // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
@@ -48,7 +48,8 @@ public class Main : MonoBehaviour {
             playerTags = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject playerObject in playerTags ) {      // Finds all tagged 'player' game objects in given scene
                 players.Add(playerObject);
-            } ;
+            };
+
             player = players[0];                                    // Player object is here for backwards with legacy scripts compability
             selectedPlayer = players[0];                            // Player in focus
 
@@ -66,8 +67,7 @@ public class Main : MonoBehaviour {
             timerText = GameObject.Find("Timer").GetComponent<Text>();
             timeText = GameObject.Find("Time:").GetComponent<Text>();
 
-        Time.timeScale = 1f;                           //sets time scale to 1 incrase sugarkick was active.
-
+        Time.timeScale = 1f;                           // Sets time scale to 1 incrase sugarkick was active.
     }
 
                                                       // Update is called once per frame
@@ -88,7 +88,7 @@ public class Main : MonoBehaviour {
     Object getPlayer(int playerIndex, string component="Player") {
 
       selectedPlayer = players[playerIndex];
-      switch(component){
+      switch( component ) {
 
         case "Player":
           return selectedPlayer;
