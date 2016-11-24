@@ -96,6 +96,13 @@ The method for managing the project was chosen to be an informal type of the Scr
 GitHub makes us able to work decentralized, and keeps the pace of the project at a certain speed, no matter where each team member is located. Still, it is worth mentioning that frequent meetings are needed to maintin progress speed. New issues has to be made, knowledge has to be transferred, and there is no better way than a good old fashioned meeting.
 
 
+__The singleplayer -> multiplayer transition problem__
+
+- Code written for single player is a intervined web of dependencies.
+- Huge job, big risk, might be better to fork a separate repo.
+- Multiplayer from the start, or no multiplayer.
+
+
 &nbsp;
 &nbsp;
 
@@ -216,14 +223,19 @@ __Classes__ <br />
  [Transform](https://docs.unity3d.com/ScriptReference/Transform.html)  <br />
  [Vector2](https://docs.unity3d.com/ScriptReference/Vector2.html)      <br />
  [Vector3](https://docs.unity3d.com/ScriptReference/Vector3.html)      <br />
- [Camera](https://docs.unity3d.com/ScriptReference/Camera.html) <br/>
- [Rigidbody2D](https://docs.unity3d.com/ScriptReference/Rigidbody2D.html) <br/>
  [Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.html) <br />
+ [Rigidbody2D](https://docs.unity3d.com/ScriptReference/Rigidbody2D.html) <br/>
+ [BoxCollider2D](https://docs.unity3d.com/ScriptReference/BoxCollider2D.html) <br/>
  [Sprite](https://docs.unity3d.com/ScriptReference/Sprite.html) <br/>
  [SpriteRenderer](https://docs.unity3d.com/ScriptReference/SpriteRenderer.html) <br/>
  [Material](https://docs.unity3d.com/ScriptReference/Material.html) <br/>
  [RenderTexture](https://docs.unity3d.com/ScriptReference/RenderTexture.html) <br/>
+ [Shader](https://docs.unity3d.com/ScriptReference/Shader.html) <br />
+ [Text](https://docs.unity3d.com/ScriptReference/UI.Text.html) <br />
+ [Animator](https://docs.unity3d.com/ScriptReference/Animator.html) <br />
+ [Camera](https://docs.unity3d.com/ScriptReference/Camera.html) <br/>
  [Input](https://docs.unity3d.com/ScriptReference/Input.html) <br/>
+ [Debug](https://docs.unity3d.com/ScriptReference/Debug.html) <br/>
 
  <br />
 
@@ -237,6 +249,7 @@ __Classes__ <br />
  [float Camera.orthographicSize](https://docs.unity3d.com/ScriptReference/Camera-orthographicSize.html) <br/>
  [float Rigidbody2D.velocity](https://docs.unity3d.com/ScriptReference/Rigidbody2D-velocity.html) <br/>
  [float Time.deltaTime](https://docs.unity3d.com/ScriptReference/Time-deltaTime.html) <br/>
+ [float Time.timeScale](https://docs.unity3d.com/ScriptReference/Time-timeScale.html) <br />
  [float Input.GetAxis](https://docs.unity3d.com/ScriptReference/Input.GetAxis.html) <br />
  [float Input.GetAxisRaw](https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html) <br />
  [Vector3 Input.mousePosition](https://docs.unity3d.com/ScriptReference/Input-mousePosition.html) <br />
@@ -248,6 +261,7 @@ __Classes__ <br />
  [GameObject.Find(String name) -> GameObject](https://docs.unity3d.com/ScriptReference/GameObject.Find.html) <br />
  [Component.GetComponent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponent.html) <br/>
  [Component.GetComponentInParent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) <br />
+ [Component.GetComponentInChildren&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInChildren.html) <br />
  [Object.Destroy(Object)](https://docs.unity3d.com/ScriptReference/Object.Destroy.html) <br/>
  [Object.Instantiate(Object original) -> Object](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) <br />
  [Camera.ViewportToWorldPoint(Vector3 position) -> Vector3](https://docs.unity3d.com/ScriptReference/Camera.ScreenToWorldPoint.html) <br/>
@@ -257,6 +271,7 @@ __Classes__ <br />
  [Vector3.RoateTowards -> Vector3](https://docs.unity3d.com/ScriptReference/Vector3.RotateTowards.html) <br/>
  [Material.CopyPropertiesFromMaterial(Material other)](https://docs.unity3d.com/ScriptReference/Material.CopyPropertiesFromMaterial.html) <br/>
  [Material.SetTexture(string propertyName, Texture)](https://docs.unity3d.com/ScriptReference/Material.SetTexture.html) <br/>
+ [Shader.Find(String name) -> Shader](https://docs.unity3d.com/ScriptReference/Shader.Find.html) <br/>
  [MonoBehaviour.Awake()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html) <br/>
  [MonoBehaviour.Start()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) <br/>
  [MonoBehaviour.Update()](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) <br/>
