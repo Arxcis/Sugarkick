@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011223011370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalPosition: {x: -1.8445408, y: -2.820469, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -403,15 +403,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunSound: {fileID: 8300000, guid: 7cdab9b42a3b8df42bec5320530a8b05, type: 3}
   setPos: 0
   addForce: 1
   setVelocity: 1
   truePiercing: 1
   pierceNumber: 0
-  weaponDamage: 2
+  weaponDamage: 1
   accuracy: 80
   fireRate: 100
-  knockbackPow: 400
+  knockbackPow: 100
   projectileSpeed: 10
   bullets: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000010173922102}
@@ -429,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   isSpawnerChild: 0
-  life: 1000
+  life: 3
   hP: 3
   invincibilityFrames: 80
   movementSpeed: 10
@@ -456,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunSound: {fileID: 8300000, guid: 3c4ad3b55847f1740b6f9b508b465499, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
@@ -480,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunSound: {fileID: 8300000, guid: 158ba84c25931f54691dc8f99a184c78, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
@@ -504,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunSound: {fileID: 8300000, guid: aa67ce6fdbf758a4dbea9f839b4fffcd, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1

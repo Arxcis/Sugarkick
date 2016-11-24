@@ -6,6 +6,7 @@ public class GunScript : MonoBehaviour {
     Main main;
     GameObject cam;
     Camera camscript;
+    public AudioClip GunSound;
 
 
         // Public:
@@ -91,6 +92,8 @@ public class GunScript : MonoBehaviour {
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
 	// The velocity of the bullet is set in the direction of the barrel with a speed of "projectileSpeed", set in the inspector. The bullet spawns with the damage of "weaponDamage".
 	void shoot(){
+        SoundManager.instance.bamPow(GunSound); // plays designated gun sound
+
 		ProjectileInfo pInfo;
 		var bullet = Instantiate (bullets, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
 		bullet.transform.parent = bulletParent.transform;
