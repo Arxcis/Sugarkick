@@ -2,10 +2,11 @@
 ## Contents
 
 1. [Changelog - Iterations](#content1)
-2. [Homegrown assets](#content2)
-3. [ Git reference](#content3)
-4. [Unity reference](#content4)
-5. [Discussion](#content5)
+2. [Discussion](#content2)
+3. [Homegrown assets](#content3)
+4. [Git reference](#content4)
+5. [Unity reference](#content5)
+
 
 &nbsp;
 
@@ -229,7 +230,7 @@ __Sharing and Updating projects__
 
 __Patching__
   >[git revert *__commit id__*](https://git-scm.com/docs/git-revert)  <br />
-   [git rebase](https://git-scm.com/docs/git-rebase) <br />
+   [git rebase *__basebranch__* *__branch__*](https://git-scm.com/docs/git-rebase) <br />
 
 
 
