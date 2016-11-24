@@ -25,7 +25,6 @@ public class GunScript : MonoBehaviour {
     public GameObject bullets;
     public GameObject barrelEnd;
     public GameObject bulletParent;
-    public bool mouseOn = false;      // mouse on / off
 
     // Private:
     Transform gunTrans;
@@ -50,7 +49,7 @@ public class GunScript : MonoBehaviour {
     void FixedUpdate ()                             // Fixed update is frame-rate independent
     {
 
-      if( mouseOn ) {
+      if( main.mouseOn ) {
         mouseAimUpdate();           // Update aim with mouse
       }                             //     or
       else {                        //

@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapsize: 40
+  mouseOn: 1
   playerTrans: {fileID: 0}
   playerAnim: {fileID: 0}
   playerRigi: {fileID: 0}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
     public int mapsize = 40;
+    public bool mouseOn = false;      // mouse on / off
 
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
