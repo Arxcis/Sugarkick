@@ -18,6 +18,7 @@
 *Release date: TBD*
 *Cycle length: 4 days*
 
+- Mouse aiming
 - Main character head sprite
 - HUD with scoring and timer
 - Fancy main menu with sound options
