@@ -20,6 +20,7 @@ public class CameraScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		p1 = player1.GetComponent<Transform> ();
 		p2 = player2.GetComponent<Transform> ();
 		cam = gameObject.GetComponent<Camera> ();
@@ -39,7 +40,7 @@ public class CameraScript : MonoBehaviour {
 		if (dist >= deadZone) {
 			rb.velocity = new Vector3 ((desiredPos.x - camT.position.x)*dist*dist*velocityFactor, (desiredPos.y - camT.position.y)*dist*dist*velocityFactor, 0.0F);
 			//camT.position = new Vector3 (desiredPos.x, desiredPos.y, camT.position.z);
-		} 
+		}
 		else if(dist <= deadZone){
 			rb.velocity = new Vector2 (0.0F, 0.0F);
 		}

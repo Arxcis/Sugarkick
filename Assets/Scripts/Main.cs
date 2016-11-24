@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;    // List<type>()
 using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-    public int mapsize = 40;                    // Planning to have GLOBAL variables
+    public int mapsize = 40;
 
     public Transform     playerTrans;           //  here. AY-AY Sir!
     public Animator      playerAnim;
@@ -31,9 +32,14 @@ public class Main : MonoBehaviour {
 	  float timerFloat;
 	  int timerInt;
 
- 
+          // TEST Functionality - NOT IN USE YET
+    // public int numOfPlayers = 1;                                // Holds the number of active players at any given moment
+    // public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+
                                                 // Use this for initialization
     void Start () {
+
+            if(!GameObject.Find("Player")) { Debug.Log("PLAYER NOT FOUND IN SCENE!"); }  // Important check
 
             player = GameObject.Find("Player");         //finds tha player game object in the scene.
             head = GameObject.Find("Head");             //finds the head.
@@ -49,14 +55,14 @@ public class Main : MonoBehaviour {
             scoreText = GameObject.Find("Score").GetComponent<Text>();
             timerText = GameObject.Find("Timer").GetComponent<Text>();
             timeText = GameObject.Find("Time:").GetComponent<Text>();
-        
+
         Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
 
     }
 
     // Update is called once per frame
     void Update () {
-    
+
             // Updates the timer
             if (timerText && timeText)
             {
@@ -64,29 +70,27 @@ public class Main : MonoBehaviour {
                 timerInt = (int)timerFloat;
                 timerText.text = timerInt.ToString();
             }
+
     }
 
     // Temporary scoring system
     public void NewScore(){
-		enemiesKilled++;
-		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
-		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
-		if(scoreText) scoreText.text = score.ToString();
-	}
+  		enemiesKilled++;
+  		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
+  		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
+  		if(scoreText) scoreText.text = score.ToString();
+  	}
 
-
-    void restart() {
-
-        Debug.Log ("Restarting game");
+                                    // TEST Functionality, DONT USE! (Jonas)
+    void keepSelfAlive() {          // Makes sure that main scripts' parent are kept alive between scenes.
+      if ( GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {    // If there is more than 1 Main Camera, destroy this Camera
+        Debug.Log("There are two Main Cameras in the scene, destroying self....\n");
+        Destroy(gameObject);
+      } else {
+        DontDestroyOnLoad(gameObject);                   // Makes sure that the Main Camera is not Destroyed between scenes
+      }
     }
 
-    void save() {
-        Debug.Log ("Saving game...");
-    }
-
-    void load(string filename){
-        Debug.Log ("Loading game...");
-    }
 
     // --------------- UTILITY FUNCTIONS ------------------
 

@@ -537,7 +537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014032041444, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20000012151492368, guid: 035c2195e4c86490383f565b51035c7a,
         type: 2}
@@ -961,7 +961,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012324595562, guid: 6d739cf4b48d91d428dd1d6b0bdd0d6e, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000012226547926, guid: 6d739cf4b48d91d428dd1d6b0bdd0d6e,
         type: 2}
@@ -1017,7 +1017,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011808780328, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cf62ccf7388846229b783d1e1108914, type: 2}
@@ -1123,6 +1123,11 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 956168198}
+    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: mouseOn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
   m_IsPrefabParent: 0
@@ -1199,7 +1204,7 @@ Transform:
   - {fileID: 1692150011}
   - {fileID: 712450840}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1658492279
 MonoBehaviour:
   m_ObjectHideFlags: 0
