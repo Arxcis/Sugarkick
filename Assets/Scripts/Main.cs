@@ -33,21 +33,27 @@ public class Main : MonoBehaviour {
 	  float timerFloat;
 	  int timerInt;
 
-          // TEST Functionality - NOT IN USE YET
-    // public int numOfPlayers = 1;                                // Holds the number of active players at any given moment
-    public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+            // ----------- TEST Functionality - NOT IN USE YET ---------------- jonas
+    // public int numOfPlayers = 1;                                               // Holds the number of active players at any given moment
+    GameObject[] playerTags;
+    List       <GameObject> players = new List<GameObject>();         // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+    GameObject selectedPlayer;                                        // Selected player at any given moment
 
-                                                // Use this for initialization
-    void Start () {
 
-            if(!GameObject.FindWithTag("Player")) { Debug.Log("PLAYER NOT FOUND IN SCENE!"); }  // Important check
+    void Start () {                                                 // Use this for initialization
 
-            player = GameObject.FindWithTag("Player");                 // finds tha player game object in the scene.
 
-            players.Add(player);                              // Add players found to players array
+            if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
-            head = GameObject.FindWithTag("Head");                     //finds the head.
-            playerTrans = player.GetComponent<Transform>();        //Defines the player components:
+            playerTags = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject playerObject in playerTags ) {      // Finds all tagged 'player' game objects in given scene
+                players.Add(playerObject);
+            } ;
+            player = players[0];                                    // Player object is here for backwards with legacy scripts compability
+            selectedPlayer = players[0];                            // Player in focus
+
+            head = GameObject.FindWithTag("Head");                  // Finds the head.
+            playerTrans = player.GetComponent<Transform>();         // Defines the player components:
             playerAnim = player.GetComponent<Animator>();
             playerRigi = player.GetComponent<Rigidbody2D>();
             playerMove = player.GetComponent<MovePlayer>();
@@ -74,49 +80,45 @@ public class Main : MonoBehaviour {
         }
     }
 
+          // PLAYER INTERFACE
           // Description: Function that returs entire player object, or any of its component objects.
           // @param  : int playerIndex - choose which player to get the component from.
           // @param  : string component - choose which component to get from a given player.
           // @return : Object - an object that can both be player object, or component object.
     Object getPlayer(int playerIndex, string component="Player") {
 
+      selectedPlayer = players[playerIndex];
       switch(component){
 
-        case "0":
         case "Player":
-          return player;
+          return selectedPlayer;
 
-        case "1":
         case "Transform":
-          return player.GetComponent<Transform>();
+          return selectedPlayer.GetComponent<Transform>();
 
-        case "2":
         case "Rigidbody":
-          return player.GetComponent<Rigidbody2D>();
+          return selectedPlayer.GetComponent<Rigidbody2D>();
 
-        case "3":
         case "BoxCollider":
-          return player.GetComponent<BoxCollider2D>();
+          return selectedPlayer.GetComponent<BoxCollider2D>();
 
-        case "4":
         case "Animator":
-          return player.GetComponent<Animator>();
+          return selectedPlayer.GetComponent<Animator>();
 
-        case "5":
         case "Move":
-          return player.GetComponent<MovePlayer>();
+          return selectedPlayer.GetComponent<MovePlayer>();
 
-        case "6":
         case "PuppetManip":
-          return player.GetComponent<PuppetManip>();
+          return selectedPlayer.GetComponent<PuppetManip>();
 
-        case "7":
         case "Gun":
-          return player.GetComponentInChildren<GunScript>();
+          return selectedPlayer.GetComponentInChildren<GunScript>();
 
-        case "8":
         case "Head":
-          return GameObject.FindWithTag("Head");
+          return selectedPlayer.transform.Find("Head");
+
+        case "HeadRend":
+          return selectedPlayer.transform.Find("Head").GetComponent<SpriteRenderer>();
 
         default:
           Debug.Log("Configuration of player/component not FOUND! Returning player0");
