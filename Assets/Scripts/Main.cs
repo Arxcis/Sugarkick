@@ -29,7 +29,7 @@ public class Main : MonoBehaviour {
     List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players.
     GameObject selectedPlayer;                            // Selected player at any given moment
 
-    void Start () {                                       // Use this for initialization
+    void Awake () {                                       // Use this for initialization
 
         if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 

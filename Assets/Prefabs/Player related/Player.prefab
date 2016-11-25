@@ -411,8 +411,8 @@ MonoBehaviour:
   pierceNumber: 0
   weaponDamage: 1
   accuracy: 80
-  fireRate: 100
-  knockbackPow: 100
+  fireRate: 300
+  knockbackPow: 500
   projectileSpeed: 10
   bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000010173922102}
