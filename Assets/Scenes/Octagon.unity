@@ -1070,6 +1070,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014090984364, guid: 035c2195e4c86490383f565b51035c7a,
+        type: 2}
+      propertyPath: minimumZoom
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000013496892816, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
     - {fileID: 114000012261129398, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
