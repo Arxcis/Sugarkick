@@ -46,11 +46,11 @@ public class PuppetManip : MonoBehaviour {
         else
         {
             currentHp = hP;                                     // refills hp after respawn
-            main.playerAnim.Play("PlayerIdle");
+            main.Player<Animator>(0).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
-            main.playerMove.enabled = true;                        // the player can move afer respawning.
-            main.playerGun.enabled = true;
-            main.playerColl.enabled = true;
+            main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
+            main.Player<GunScript>(0, "Gun").enabled = true;
+            main.Player<BoxCollider2D>(0).enabled = true;
         }
     }
 
@@ -62,7 +62,7 @@ public class PuppetManip : MonoBehaviour {
         else if(!isEnemy && invFrm == 0)
         {
             invFrm = invincibilityFrames;
-            main.playerAnim.Play("PlayerHurt");                         //play hurt animation.
+            main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
 
         }
     }
@@ -89,12 +89,12 @@ public class PuppetManip : MonoBehaviour {
         else
         {
             life--;
-            main.playerRigi.velocity *= fallingSpeedMultiplier;
-            main.playerMove.enabled = false;                    //player cannot move while fallling.
-            main.playerGun.enabled = false;                     //Player cant shoot while falling off.
-            main.playerColl.enabled = false;                    //Player cant collide after falling the first time.
+            main.Player<Rigidbody2D>(0).velocity *= fallingSpeedMultiplier;
+            main.Player<MovePlayer>(0).enabled = false;                    //player cannot move while fallling.
+            main.Player<GunScript>(0, "Gun").enabled = false;                     //Player cant shoot while falling off.
+            main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
 
-            if (deathBy == "fall") main.playerAnim.Play("PlayerFallDown"); //main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
+            if (deathBy == "fall") main.Player<Animator>(0).Play("PlayerFallDown"); //main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
             if (deathBy == "enemy") respawn();//insert other death animation instead
         }
 
@@ -108,7 +108,7 @@ public class PuppetManip : MonoBehaviour {
                 movementSpeed *= sugarSpeedChange;
                 Time.timeScale *= sugarTimeSlow;
                 Time.fixedDeltaTime *= sugarTimeSlow;
-                main.playerAnim.Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
+                main.Player<Animator>(0).Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
 
         }
     }
@@ -120,7 +120,7 @@ public class PuppetManip : MonoBehaviour {
                 movementSpeed /= sugarSpeedChange;
                 Time.timeScale /= sugarTimeSlow;
                 Time.fixedDeltaTime /= sugarTimeSlow;
-                main.playerAnim.Play("PlayerIdle"); //Goes back to normal idle animation.
+                main.Player<Animator>(0).Play("PlayerIdle"); //Goes back to normal idle animation.
     }
 
 

@@ -68,15 +68,15 @@ public class GunScript : MonoBehaviour {
           recoilVec = main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
 
           if (setPos) {                       // Casting vec2 to vec3 before adding to position
-              main.playerTrans.position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
+              main.Player<Transform>(0).position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
           }
 
           if(addForce){
-              main.playerRigi.AddForce(recoilVec * (knockbackPow / 1));
+              main.Player<Rigidbody2D>(0).AddForce(recoilVec * (knockbackPow / 1));
           }
 
           if(setVelocity){
-              main.playerRigi.velocity += recoilVec * (knockbackPow / 10);
+              main.Player<Rigidbody2D>(0).velocity += recoilVec * (knockbackPow / 10);
           }
 
           shoot();
@@ -84,9 +84,9 @@ public class GunScript : MonoBehaviour {
       }
 
       if (gunAngle > -100 && gunAngle < 110)
-          main.headRend.sprite = main.headBack;
+          main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;
       else
-          main.headRend.sprite = main.headFront;
+          main.Player<SpriteRenderer>(0, "Head").sprite = main.headFront;
   }
 
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
@@ -108,7 +108,8 @@ public class GunScript : MonoBehaviour {
   void mouseAimUpdate() {
     mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector
                                          // Create Vector2 from the difference in position between mouse and player
-    facingMouseVector = new Vector2(mousePos.x - main.playerTrans.position.x, mousePos.y - main.playerTrans.position.y);
+    facingMouseVector = new Vector2(mousePos.x - main.Player<Transform>(0).position.x,
+                                    mousePos.y - main.Player<Transform>(0).position.y);
     gunAngle = main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
   }
