@@ -36,7 +36,7 @@ public class MoveJumper : MonoBehaviour {
         jumperPupp = GetComponent<PuppetManip>();
         jumperAnim = GetComponent<Animator>();
         jumpColl = GetComponent<BoxCollider2D>();
-        
+
     }
 
 
@@ -46,8 +46,8 @@ public class MoveJumper : MonoBehaviour {
         if (framesCounted == jumperRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
                                                         // and moves the player by a factor of this distance.
-            vectorToPlayer = new Vector3(jumperTrans.position.x - main.playerTrans.position.x,
-                                         jumperTrans.position.y - main.playerTrans.position.y);
+            vectorToPlayer = new Vector3(jumperTrans.position.x - main.Player<Transform>(0).position.x,
+                                         jumperTrans.position.y - main.Player<Transform>(0).position.y);
             framesCounted = 0;
         }
         else framesCounted++;
@@ -88,12 +88,12 @@ public class MoveJumper : MonoBehaviour {
             jumperAnim.SetBool("midAir", midAir);
         }
 
-        if (main.playerManip.invFrm == 0 && 
+        if (main.Player<PuppetManip>(0).invFrm == 0 &&
             vectorToPlayer.magnitude < personalSpaceBro &&
             vectorToPlayer.magnitude > 0.1f)         //if the player is not invincible, is within range, but not 0? hit player!
         {
             print("Player Hit!");
-            main.playerManip.damage(1, "enemy");
+            main.Player<PuppetManip>(0).damage(1, "enemy");
             GetComponent<PuppetManip>().kill("attack");
         }
 
