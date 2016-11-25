@@ -68,7 +68,7 @@ public class MoveJumper : MonoBehaviour {
 
 
             midAir = true;                                                  // the enemy is now mid air.
-            jumpColl.enabled = false;                                       //cant fall down a hole while midair.
+            //jumpColl.enabled = false;                                       //cant fall down a hole while midair.
             jumperAnim.Play("JumperTakeoff");                                  //Plays JumpUp animaion.
             jumperAnim.SetBool("midAir", midAir);
             coldwn = jumpCooldown;                                          //start the time no next jump cooldown.
@@ -83,7 +83,7 @@ public class MoveJumper : MonoBehaviour {
         {
             jumperRigi.velocity *= (1 / jumperPupp.friction);                             //stop jumping. Land.
             midAir = false;                                                 //no longer in-air.
-            jumpColl.enabled = true;
+           // jumpColl.enabled = true;
             jumperAnim.Play("JumperLand");
             jumperAnim.SetBool("midAir", midAir);
         }

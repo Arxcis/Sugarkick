@@ -103,7 +103,7 @@ public class SpawnEnemies : MonoBehaviour {
 				tooClose = false;
 
 	// This number is used to select a spawn-location from the "spawns"-list.
-				int j = Random.Range (0, spawns.Count - 1);
+				int j = Random.Range (0, spawns.Count);
 
 	// Loops through the spawn-locations to see if number 'j' fits and is not "tooClose".
 				for (int f = 0; f < spawns.Count; f++) {
