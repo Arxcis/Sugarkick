@@ -56,11 +56,15 @@ public class Main : MonoBehaviour {
 
     /* GENERAL PLAYER INTERFACE FUNCTIONS
      * Description: Overriding the Player-function to support returning multiple types:
-     *                1. Player GameObject
-     *                2. Player child GameObjects
-     *                3. Player Components
-     *                4. Player child components
+     *                0. Players List<GameObject>
+     *                1. Player  GameObject
+     *                2. Player  child GameObjects
+     *                3. Player  Components
+     *                4. Player  child components
     */
+    public List <GameObject> Players() {
+        return players;
+    }
                       // Demo: GameObject player = Player(0);
     public GameObject Player(int playerIndex){
         return players[playerIndex];
@@ -109,8 +113,8 @@ public class Main : MonoBehaviour {
                                         // between 1 at 90 degrees, and sqrt(2) at 45 degrees
                                         // Returns a Vector2 which has an absolute length of 1
                                         // for all angles.
-    public Vector2 DiagonalCompensate( Vector2 inVec ) {
-                                        // Gets angle and converts it to radians
+    public Vector2 DiagonalCompensate( Vector2 inVec )
+    {                                    // Gets angle and converts it to radians
         float angle = GetAngle( Vector2.right, inVec) * Mathf.Deg2Rad;
 
         return new Vector2( inVec.x * Mathf.Abs(Mathf.Cos(angle)),
@@ -125,14 +129,14 @@ public class Main : MonoBehaviour {
     }
 
                                         // Returns a unit vector given a specific angle
-    public Vector2 GetUnitVector2(float angle) {
-
+    public Vector2 GetUnitVector2(float angle)
+    {
         return new Vector2( Mathf.Cos(angle), Mathf.Sin(angle) );
     }
 
                                         // Casts a Vector2 to a Vector3
-    public Vector3 ToVector3( Vector2 vec2, float zval=0.0F ) {
-
+    public Vector3 ToVector3( Vector2 vec2, float zval=0.0F )
+    {
         return new Vector3(vec2.x, vec2.y, zval);
     }
 }

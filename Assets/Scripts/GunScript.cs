@@ -17,15 +17,15 @@ public class GunScript : MonoBehaviour {
     public bool truePiercing = false;
     public int pierceNumber;
 
-    public int   weaponDamage =   1;         // Shooting
-    public float accuracy     = 100.0F;
-    public float fireRate     =  50.0F;
-    public float knockbackPow = 300.0F;
+    public int   weaponDamage    =   1;         // Shooting
+    public float accuracy        = 100.0F;
+    public float fireRate        =  50.0F;
+    public float knockbackPow    = 300.0F;
     public float projectileSpeed = 10.0F;
 
-    public GameObject bullets;
+    public GameObject bulletPrefab;
     public GameObject barrelEnd;
-    public GameObject bulletParent;
+	public GameObject bulletContainer;
 
     // Private:
     Transform gunTrans;
