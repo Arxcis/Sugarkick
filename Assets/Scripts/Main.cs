@@ -54,12 +54,13 @@ public class Main : MonoBehaviour {
         }
     }
 
-      // GENERIC PLAYER INTERFACE FUNCTIONS
-      // Description: Overriding the Player-function to support returning multiple types:
-      //                1. Player GameObject
-      //                2. Player child GameObjects
-      //                3. Player Components
-      //                4. Player child components
+    /* GENERIC PLAYER INTERFACE FUNCTIONS
+     * Description: Overriding the Player-function to support returning multiple types:
+     *                1. Player GameObject
+     *                2. Player child GameObjects
+     *                3. Player Components
+     *                4. Player child components
+    */
     public GameObject Player(int playerIndex){
         return players[playerIndex];
     }
