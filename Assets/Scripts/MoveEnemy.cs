@@ -28,12 +28,16 @@ public class MoveEnemy : MonoBehaviour {
         enemyAnim = GetComponent<Animator>();            //Sprite animator.
         enemyRigi = GetComponent<Rigidbody2D>();
         main = GameObject.Find("Camera").GetComponent<Main>(); 
+		numberOfPlayers = main.Players ().Count;
     }
 
     // Fixed update is frame-rate independent
     void FixedUpdate ()
     {
-        if (framesCounted == enemyRuteCalcRate)         // Updates the enemy's rute every x frames
+
+
+
+        if (framesCounted >= enemyRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
                                                         // and moves the player by a factor of this distance.
 			UpdateTarget();
