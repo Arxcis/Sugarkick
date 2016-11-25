@@ -85,7 +85,7 @@ public class GunScript : MonoBehaviour {
       if (gunAngle > -100 && gunAngle < 110)
           main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;
       else
-          main.headRend.sprite = main.headFront;
+          main.Player<SpriteRenderer>(0, "Head").sprite = main.headFront;
   }
 
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
@@ -105,7 +105,8 @@ public class GunScript : MonoBehaviour {
   void mouseAimUpdate() {
     mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector
                                          // Create Vector2 from the difference in position between mouse and player
-    facingMouseVector = new Vector2(mousePos.x - main.playerTrans.position.x, mousePos.y - main.playerTrans.position.y);
+    facingMouseVector = new Vector2(mousePos.x - main.Player<Transform>(0).position.x,
+                                    mousePos.y - main.Player<Transform>(0).position.y);
     gunAngle = main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
   }

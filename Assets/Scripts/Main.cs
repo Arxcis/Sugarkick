@@ -36,7 +36,7 @@ public class Main : MonoBehaviour {
             // ----------- TEST Functionality - NOT IN USE YET ---------------- jonas point of no return
     // public int numOfPlayers = 1;                                               // Holds the number of active players at any given moment
     GameObject[] playerTags;
-    List       <GameObject> players = new List<GameObject>();         // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+    List <GameObject> players = new List<GameObject>();         // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
     GameObject selectedPlayer;                                        // Selected player at any given moment
 
 
@@ -89,7 +89,7 @@ public class Main : MonoBehaviour {
     public GameObject Player(int playerIndex){
         return players[playerIndex];
     }
-    
+
     public GameObject Player(int playerIndex, string child) {
       return players[playerIndex].transform.Find(child).gameObject;
     }
