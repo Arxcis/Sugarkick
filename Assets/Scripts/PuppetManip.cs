@@ -73,7 +73,7 @@ public class PuppetManip : MonoBehaviour {
         if (isEnemy)
         {
             GetComponent<Rigidbody2D>().velocity *= fallingSpeedMultiplier;         //the enemy slows down after falling off.
-            if (gameObject.CompareTag("Jumper"))
+            if (gameObject.tag.Contains("Enemy2"))
             {
                 GetComponent<MoveJumper>().enabled = false;   //the enemy cant move mid air.
                 GetComponentInChildren<CircleCollider2D>().enabled = false;

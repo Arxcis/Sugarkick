@@ -44,7 +44,7 @@ GameObject:
   - 212: {fileID: 212000011129831646}
   m_Layer: 0
   m_Name: Jumper
-  m_TagString: Jumper
+  m_TagString: Enemies / Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   framesToPlaySugarAnim: 1
   sugarTimeSlow: 0.5
   sugarSpeedChange: 1.5
+  guns: []
   friction: 30
   invFrm: 0
 --- !u!114 &114000011354798556
