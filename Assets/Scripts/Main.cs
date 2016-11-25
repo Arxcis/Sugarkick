@@ -7,20 +7,9 @@ public class Main : MonoBehaviour {
 
     public int mapsize = 40;
     public bool mouseOn = false;      // mouse on / off
-
-    public Transform     playerTrans;           //  here. AY-AY Sir!
-    public Animator      playerAnim;
-    public Rigidbody2D   playerRigi;
-    public MovePlayer    playerMove;
-    public GunScript     playerGun;
-    public BoxCollider2D playerColl;
-    public PuppetManip   playerManip;
-    public SpriteRenderer headRend;
-
+    
     public Sprite headFront;
     public Sprite headBack;
-    public GameObject player;
-    public GameObject head;
 
 	  public Text scoreText;
 	  public Text timeText;
@@ -34,11 +23,8 @@ public class Main : MonoBehaviour {
 	  int timerInt;
 
             // ----------- TEST Functionality - NOT IN USE YET ---------------- jonas point of no return
-    // public int numOfPlayers = 1;                                               // Holds the number of active players at any given moment
-    GameObject[] playerTags;
-    List <GameObject> players = new List<GameObject>();         // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
-    GameObject selectedPlayer;                                        // Selected player at any given moment
-
+    List <GameObject> players = new List<GameObject>();              // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+    GameObject selectedPlayer;                                       // Selected player at any given moment
 
     void Start () {                                                 // Use this for initialization
 
@@ -48,20 +34,6 @@ public class Main : MonoBehaviour {
             foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {    // Finds all tagged 'player' game objects in given scene
                 players.Add(playerObject);
             };
-
-            player = players[0];                                    // Player object is here for backwards with legacy scripts compability
-
-// ---------- KEEP THIS UNTIL ENTIRE CODE IS REBASED TO NEW PLAYER SYSTEM -----------------------------
-            head = GameObject.FindWithTag("Head");                  // Finds the head.
-            playerTrans = player.GetComponent<Transform>();         // Defines the player components:
-            playerAnim = player.GetComponent<Animator>();
-            playerRigi = player.GetComponent<Rigidbody2D>();
-            playerMove = player.GetComponent<MovePlayer>();
-            playerGun = player.GetComponentInChildren<GunScript>();
-            playerColl = player.GetComponent<BoxCollider2D>();
-            playerManip = player.GetComponent<PuppetManip>();
-            headRend = head.GetComponent<SpriteRenderer>();
-// ---------- KEEP THIS UNTIL ENTIRE CODE IS REBASED TO NEW PLAYER SYSTEM -----------------------------
 
             scoreText = GameObject.Find("Score").GetComponent<Text>();
             timerText = GameObject.Find("Timer").GetComponent<Text>();
