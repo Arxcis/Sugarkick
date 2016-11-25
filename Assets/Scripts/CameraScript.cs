@@ -24,7 +24,7 @@ public class CameraScript : MonoBehaviour {
 	public float zoomScaler     = 0.3F;
 	public float zoomExponent   = 0.8F;
 	public float cameraDeadzone = 2.0F;
-	public float moveScaler     = 0.5F;
+	public float moveScaler     = 0.1F;
 
     Camera      cam;
     Transform   camTrans;
@@ -36,7 +36,6 @@ public class CameraScript : MonoBehaviour {
 	float      temp = 0;
 	float      camDistance;
 
-    List<float>     distances        = new List<float>();
     List<Transform> playerTransforms = new List<Transform>();
     Vector2         centerOfMass     = Vector2.zero;             // Formula @ http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html
 	Vector2         camDirection     = Vector2.zero;
@@ -57,7 +56,7 @@ public class CameraScript : MonoBehaviour {
       	                                                  // Update is called once per frame
 	void LateUpdate ()
     {
-        xSum = 0; ySum = 0; distances.Clear();            // Reset data
+		xSum = 0; ySum = 0; maxDistance=0;            // Reset data
 
 		ComputeCenterOfMass();
         ComputeMaxDistance ();
@@ -81,7 +80,7 @@ public class CameraScript : MonoBehaviour {
 		if (maxDistance <= minimumZoom) {						 // CamSize has to be adjusted and is a function of maxDistance
 			cam.orthographicSize = minimumZoom;
 		} else {
-			//cam.orthographicSize = (Mathf.Pow(maxDistance - minimumZoom, zoomExponent) * zoomScaler) + minimumZoom;
+			cam.orthographicSize = (Mathf.Pow(maxDistance - minimumZoom, zoomExponent) * zoomScaler) + minimumZoom;
 		}
 	}
 		
@@ -93,7 +92,7 @@ public class CameraScript : MonoBehaviour {
 				maxDistance = temp;
 			}
 		}
-		maxDistance *= 2; 		           // Max is the radius of the player with maximum distance to
+		maxDistance = maxDistance * 2; 		   // Max is the radius of the player with maximum distance to
     }                                          // center of Mass. Multiply with 2 to find how wide the camera needs to scale.
 
 	void ComputeCenterOfMass()
