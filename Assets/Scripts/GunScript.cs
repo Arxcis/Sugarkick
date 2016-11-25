@@ -23,9 +23,9 @@ public class GunScript : MonoBehaviour {
     public float knockbackPow    = 300.0F;
     public float projectileSpeed = 10.0F;
 
-    public GameObject bulletPrefab;
+    public GameObject bulletSeed;
     public GameObject barrelEnd;
-	public GameObject bulletContainer;
+	public GameObject bulletParent;
 
     // Private:
     Transform gunTrans;
@@ -95,7 +95,7 @@ public class GunScript : MonoBehaviour {
         SoundManager.instance.bamPow(GunSound); // plays designated gun sound
 
 		ProjectileInfo pInfo;
-		var bullet = Instantiate (bullets, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
+		var bullet = Instantiate (bulletSeed, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
 		bullet.transform.parent = bulletParent.transform;
 		pInfo = bullet.GetComponent<ProjectileInfo> ();
 		bullet.GetComponent<Rigidbody2D> ().velocity = recoilVec * -1 * projectileSpeed;
