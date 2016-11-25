@@ -54,29 +54,30 @@ public class Main : MonoBehaviour {
         }
     }
 
-    /* GENERIC PLAYER INTERFACE FUNCTIONS
+    /* GENERAL PLAYER INTERFACE FUNCTIONS
      * Description: Overriding the Player-function to support returning multiple types:
      *                1. Player GameObject
      *                2. Player child GameObjects
      *                3. Player Components
      *                4. Player child components
     */
+                      // Demo: GameObject player = Player(0);
     public GameObject Player(int playerIndex){
         return players[playerIndex];
     }
-
+                      // Demo: GameObject playerHead = Player(1, "Head");
     public GameObject Player(int playerIndex, string child) {
       return players[playerIndex]
                .transform
                  .Find(child)
                    .gameObject;
     }
-
+                      // Demo: Transform playerTrans = Player<Transform>(3);
     public T Player<T>(int playerIndex) where T : Component {
         return players[playerIndex]
                  .GetComponent<T>();
     }
-
+                      // Demo: SpriteRenderer playerHeadRend = Player<SpriteRenderer>(2, "Head");
     public T Player<T>(int playerIndex, string child) where T : Component {
       return players[playerIndex]
                .transform
