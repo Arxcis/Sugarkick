@@ -19,13 +19,15 @@ public class MoveEnemy : MonoBehaviour {
     bool    isWalking     = false;                  //used to trigger animation
     int     framesCounted = 0;                      //counts frames since last vector update.
     Vector3 vectorToPlayer;
+	int targetIndex = 0;
+	int numberOfPlayers = 0;
                                                         // Use this for initialization
     void Start ()
     {
         enemyTrans = GetComponent<Transform>();            //Enemy's transform component.
         enemyAnim = GetComponent<Animator>();            //Sprite animator.
         enemyRigi = GetComponent<Rigidbody2D>();
-        main = GameObject.Find("Camera").GetComponent<Main>();
+        main = GameObject.Find("Camera").GetComponent<Main>(); 
     }
 
     // Fixed update is frame-rate independent
@@ -34,8 +36,7 @@ public class MoveEnemy : MonoBehaviour {
         if (framesCounted == enemyRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
                                                         // and moves the player by a factor of this distance.
-            vectorToPlayer = new Vector3(enemyTrans.position.x - main.Player<Transform>(0).position.x,
-                                         enemyTrans.position.y - main.Player<Transform>(0).position.y);
+			UpdateTarget();
             framesCounted = 0;
         }
         else framesCounted++;
@@ -63,4 +64,19 @@ public class MoveEnemy : MonoBehaviour {
 
         enemyAnim.SetBool("isWalking", isWalking);       //Updates animator. So it knows when its moving.
     }
+
+	void UpdateTarget()
+	{
+
+
+		ChangeTarget (0);
+	}
+
+
+	void ChangeTarget(int pIndex)
+	{
+		vectorToPlayer = new Vector3 (enemyTrans.position.x - main.Player<Transform> (pIndex).position.x,
+			                          enemyTrans.position.y - main.Player<Transform> (pIndex).position.y);
+
+	}
 }
