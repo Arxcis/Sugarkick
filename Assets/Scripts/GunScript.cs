@@ -67,15 +67,15 @@ public class GunScript : MonoBehaviour {
           recoilVec = main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
 
           if (setPos) {                       // Casting vec2 to vec3 before adding to position
-              main.playerTrans.position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
+              main.Player<Transform>(0).position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
           }
 
           if(addForce){
-              main.playerRigi.AddForce(recoilVec * (knockbackPow / 1));
+              main.Player<Rigidbody2D>(0).AddForce(recoilVec * (knockbackPow / 1));
           }
 
           if(setVelocity){
-              main.playerRigi.velocity += recoilVec * (knockbackPow / 10);
+              main.Player<Rigidbody2D>(0).velocity += recoilVec * (knockbackPow / 10);
           }
 
           shoot();
@@ -83,7 +83,7 @@ public class GunScript : MonoBehaviour {
       }
 
       if (gunAngle > -100 && gunAngle < 110)
-          main.headRend.sprite = main.headBack;
+          main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;
       else
           main.headRend.sprite = main.headFront;
   }

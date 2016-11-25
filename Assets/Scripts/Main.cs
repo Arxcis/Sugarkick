@@ -45,14 +45,13 @@ public class Main : MonoBehaviour {
 
             if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
-            playerTags = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject playerObject in playerTags ) {      // Finds all tagged 'player' game objects in given scene
+            foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {    // Finds all tagged 'player' game objects in given scene
                 players.Add(playerObject);
             };
 
             player = players[0];                                    // Player object is here for backwards with legacy scripts compability
-            selectedPlayer = players[0];                            // Player in focus
 
+// ---------- KEEP THIS UNTIL ENTIRE CODE IS REBASED TO NEW PLAYER SYSTEM -----------------------------
             head = GameObject.FindWithTag("Head");                  // Finds the head.
             playerTrans = player.GetComponent<Transform>();         // Defines the player components:
             playerAnim = player.GetComponent<Animator>();
@@ -61,8 +60,9 @@ public class Main : MonoBehaviour {
             playerGun = player.GetComponentInChildren<GunScript>();
             playerColl = player.GetComponent<BoxCollider2D>();
             playerManip = player.GetComponent<PuppetManip>();
-
             headRend = head.GetComponent<SpriteRenderer>();
+// ---------- KEEP THIS UNTIL ENTIRE CODE IS REBASED TO NEW PLAYER SYSTEM -----------------------------
+
             scoreText = GameObject.Find("Score").GetComponent<Text>();
             timerText = GameObject.Find("Timer").GetComponent<Text>();
             timeText = GameObject.Find("Time:").GetComponent<Text>();
@@ -80,50 +80,26 @@ public class Main : MonoBehaviour {
         }
     }
 
-          // PLAYER INTERFACE
-          // Description: Function that returs entire player object, or any of its component objects.
-          // @param  : int playerIndex - choose which player to get the component from.
-          // @param  : string component - choose which component to get from a given player.
-          // @return : Object - an object that can both be player object, or component object.
-    Object getPlayer(int playerIndex, string component="Player") {
+      // GENERIC PLAYERS INTERFACE
+      // Description: Overriding the Player-function to support returning:
+      //                1. Player GameObject
+      //                2. Player child GameObjects
+      //                3. Player Components
+      //                4. Player child components
+    public GameObject Player(int playerIndex){
+        return players[playerIndex];
+    }
+    
+    public GameObject Player(int playerIndex, string child) {
+      return players[playerIndex].transform.Find(child).gameObject;
+    }
 
-      selectedPlayer = players[playerIndex];
-      switch( component ) {
+    public T Player<T>(int playerIndex) where T : Component {
+        return players[playerIndex].GetComponent<T>();
+    }
 
-        case "Player":
-          return selectedPlayer;
-
-        case "Transform":
-          return selectedPlayer.GetComponent<Transform>();
-
-        case "Rigidbody":
-          return selectedPlayer.GetComponent<Rigidbody2D>();
-
-        case "BoxCollider":
-          return selectedPlayer.GetComponent<BoxCollider2D>();
-
-        case "Animator":
-          return selectedPlayer.GetComponent<Animator>();
-
-        case "Move":
-          return selectedPlayer.GetComponent<MovePlayer>();
-
-        case "PuppetManip":
-          return selectedPlayer.GetComponent<PuppetManip>();
-
-        case "Gun":
-          return selectedPlayer.GetComponentInChildren<GunScript>();
-
-        case "Head":
-          return selectedPlayer.transform.Find("Head");
-
-        case "HeadRend":
-          return selectedPlayer.transform.Find("Head").GetComponent<SpriteRenderer>();
-
-        default:
-          Debug.Log("Configuration of player/component not FOUND! Returning player0");
-          return players[0];
-      }
+    public T Player<T>(int playerIndex, string child) where T : Component {
+      return players[playerIndex].transform.Find(child).GetComponent<T>();
     }
 
                                                         // Temporary scoring system
