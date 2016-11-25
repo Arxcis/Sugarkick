@@ -25,7 +25,6 @@ public class MoveEnemy : MonoBehaviour {
 	bool    justChangedTarget = false;
     Vector2 vectorToPlayer;
 	int targetIndex = 0;
-	int numberOfPlayers = 0;
                                                          // Use this for initialization
     void Start ()
     {
@@ -33,13 +32,11 @@ public class MoveEnemy : MonoBehaviour {
         enemyAnim = GetComponent<Animator>();            //Sprite animator.
         enemyRigi = GetComponent<Rigidbody2D>();
         main = GameObject.Find("Camera").GetComponent<Main>(); 
-		numberOfPlayers = main.Players ().Count;
     }
 
     // Fixed update is frame-rate independent
     void FixedUpdate ()
     {
-
 
 		if (justChangedTarget == true) 
 		{
@@ -89,7 +86,6 @@ public class MoveEnemy : MonoBehaviour {
 
             if (main.Player<PuppetManip>(0).invFrm == 0)           //if the player is not invincible, hit player!
             {
-                print("Player Hit!");
                 main.Player<PuppetManip>(0).damage(1, "enemy");  
                 GetComponent<PuppetManip>().kill("attack");
             }
