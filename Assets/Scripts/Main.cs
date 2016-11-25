@@ -1,78 +1,91 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;    // List<type>()
+using System.Collections.Generic;          // List<type>()
 using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-    public int mapsize = 40;
-    public bool mouseOn = false;      // mouse on / off
-
-    public Transform     playerTrans;           //  here. AY-AY Sir!
-    public Animator      playerAnim;
-    public Rigidbody2D   playerRigi;
-    public MovePlayer    playerMove;
-    public GunScript     playerGun;
-    public BoxCollider2D playerColl;
-    public PuppetManip   playerManip;
-    public SpriteRenderer headRend;
+        // Public
+    public int mapsize = 40;              // Not in use yet
+    public bool mouseOn = false;          // mouse on / off
 
     public Sprite headFront;
     public Sprite headBack;
-    public GameObject player;
-    public GameObject head;
 
 	  public Text scoreText;
 	  public Text timeText;
 	  public Text timerText;
 
 	  public int staticScoreMultiplier;
+
+        // Private
 	  float dynamicScoreMultiplier = 1.0F;
 	  int enemiesKilled;
 	  int score;
 	  float timerFloat;
 	  int timerInt;
 
-          // TEST Functionality - NOT IN USE YET
-    // public int numOfPlayers = 1;                                // Holds the number of active players at any given moment
-    // public List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+              // NEW PLAYER SYSTEM
+    List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players.
+    GameObject selectedPlayer;                            // Selected player at any given moment
 
-                                                // Use this for initialization
-    void Start () {
+    void Start () {                                       // Use this for initialization
 
-            if(!GameObject.Find("Player")) { Debug.Log("PLAYER NOT FOUND IN SCENE!"); }  // Important check
+        if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
-            player = GameObject.Find("Player");         //finds tha player game object in the scene.
-            head = GameObject.Find("Head");             //finds the head.
-            playerTrans = player.GetComponent<Transform>();     //Defines the player components:
-            playerAnim = player.GetComponent<Animator>();
-            playerRigi = player.GetComponent<Rigidbody2D>();
-            playerMove = player.GetComponent<MovePlayer>();
-            playerGun = player.GetComponentInChildren<GunScript>();
-            playerColl = player.GetComponent<BoxCollider2D>();
-            playerManip = player.GetComponent<PuppetManip>();
+        foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
+            players.Add(playerObject);                   // Finds all GameObjects tagged 'player' in given scene
+        };
 
-            headRend = head.GetComponent<SpriteRenderer>();
-            scoreText = GameObject.Find("Score").GetComponent<Text>();
-            timerText = GameObject.Find("Timer").GetComponent<Text>();
-            timeText = GameObject.Find("Time:").GetComponent<Text>();
+        scoreText = GameObject.Find("Score").GetComponent<Text>();
+        timerText = GameObject.Find("Timer").GetComponent<Text>();
+        timeText = GameObject.Find("Time:").GetComponent<Text>();
 
-        Time.timeScale = 1f;            //sets time scale to 1 incase sugarkick was active.
-
+        Time.timeScale = 1f;                           // Sets time scale to 1 incrase sugarkick was active.
     }
 
-    // Update is called once per frame
+                                                      // Update is called once per frame
     void Update () {
-
-            // Updates the timer
-            if (timerText && timeText)
-            {
-                timerFloat += Time.deltaTime;
-                timerInt = (int)timerFloat;
-                timerText.text = timerInt.ToString();
-            }
-
+        if (timerText && timeText)                    // Updates the timer
+        {
+            timerFloat += Time.deltaTime;
+            timerInt = (int)timerFloat;
+            timerText.text = timerInt.ToString();
+        }
     }
+
+    /* GENERAL PLAYER INTERFACE FUNCTIONS
+     * Description: Overriding the Player-function to support returning multiple types:
+     *                1. Player GameObject
+     *                2. Player child GameObjects
+     *                3. Player Components
+     *                4. Player child components
+    */
+                      // Demo: GameObject player = Player(0);
+    public GameObject Player(int playerIndex){
+        return players[playerIndex];
+    }
+                      // Demo: GameObject playerHead = Player(1, "Head");
+    public GameObject Player(int playerIndex, string child) {
+      return players[playerIndex]
+               .transform
+                 .Find(child)
+                   .gameObject;
+    }
+                      // Demo: Transform playerTrans = Player<Transform>(3);
+    public T Player<T>(int playerIndex) where T : Component {
+        return players[playerIndex]
+                 .GetComponent<T>();
+    }
+                      // Demo: SpriteRenderer playerHeadRend = Player<SpriteRenderer>(2, "Head");
+    public T Player<T>(int playerIndex, string child) where T : Component {
+      return players[playerIndex]
+               .transform
+                 .Find(child)
+                   .gameObject
+                     .GetComponent<T>();
+    }
+
 
     public void toggleMouseAiming()         //useed by toggle ui element in pause menu.
     {
@@ -81,23 +94,13 @@ public class Main : MonoBehaviour {
     }
 
 
-    // Temporary scoring system
+                                            // Temporary scoring system
     public void NewScore(){
   		enemiesKilled++;
   		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
   		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
   		if(scoreText) scoreText.text = score.ToString();
   	}
-
-                                    // TEST Functionality, DONT USE! (Jonas)
-    void keepSelfAlive() {          // Makes sure that main scripts' parent are kept alive between scenes.
-      if ( GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {    // If there is more than 1 Main Camera, destroy this Camera
-        Debug.Log("There are two Main Cameras in the scene, destroying self....\n");
-        Destroy(gameObject);
-      } else {
-        DontDestroyOnLoad(gameObject);                   // Makes sure that the Main Camera is not Destroyed between scenes
-      }
-    }
 
 
     // --------------- UTILITY FUNCTIONS ------------------
@@ -133,3 +136,14 @@ public class Main : MonoBehaviour {
         return new Vector3(vec2.x, vec2.y, zval);
     }
 }
+
+
+// TEST Functionality, DONT USE! (Jonas)
+//void keepSelfAlive() {          // Makes sure that main scripts' parent are kept alive between scenes.
+//  if ( GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {    // If there is more than 1 Main Camera, destroy this Camera
+//    Debug.Log("There are two Main Cameras in the scene, destroying self....\n");
+//    Destroy(gameObject);
+//  } else {
+//    DontDestroyOnLoad(gameObject);                   // Makes sure that the Main Camera is not Destroyed between scenes
+//  }
+//}

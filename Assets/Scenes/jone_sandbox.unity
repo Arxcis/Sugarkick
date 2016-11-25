@@ -3,7 +3,7 @@
 --- !u!29 &1
 SceneSettings:
   m_ObjectHideFlags: 0
-  m_PVSData: 
+  m_PVSData:
   m_PVSObjectsArray: []
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
@@ -186,22 +186,22 @@ Prefab:
     - target: {fileID: 114000011259190198, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: bulletParent
-      value: 
+      value:
       objectReference: {fileID: 491257620}
     - target: {fileID: 114000011530458772, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: bulletParent
-      value: 
+      value:
       objectReference: {fileID: 491257620}
     - target: {fileID: 114000012507982904, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: bulletParent
-      value: 
+      value:
       objectReference: {fileID: 491257620}
     - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: bulletParent
-      value: 
+      value:
       objectReference: {fileID: 491257620}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
+  m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -426,7 +426,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
+  m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -487,22 +487,22 @@ Prefab:
     - target: {fileID: 114000013397599438, guid: f3b6c8a809b479746a6ae19eceaa9198,
         type: 2}
       propertyPath: musicTrackbar
-      value: 
+      value:
       objectReference: {fileID: 28833718}
     - target: {fileID: 114000013397599438, guid: f3b6c8a809b479746a6ae19eceaa9198,
         type: 2}
       propertyPath: effectsTrackbar
-      value: 
+      value:
       objectReference: {fileID: 350368315}
     - target: {fileID: 114000013397599438, guid: f3b6c8a809b479746a6ae19eceaa9198,
         type: 2}
       propertyPath: musicAud
-      value: 
+      value:
       objectReference: {fileID: 236292542}
     - target: {fileID: 114000013397599438, guid: f3b6c8a809b479746a6ae19eceaa9198,
         type: 2}
       propertyPath: effectsAud
-      value: 
+      value:
       objectReference: {fileID: 236292541}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b6c8a809b479746a6ae19eceaa9198, type: 2}
@@ -549,7 +549,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
+  m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -598,8 +598,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26a980e92700d624c90d2aa9a2d9fd2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   BackGround1: {fileID: 284120588}
   BackGround2: {fileID: 231202772}
   Particles: {fileID: 910774660}
@@ -715,8 +715,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35428e01c9196d745b1ee8fcac23b0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1001 &749041017
 Prefab:
   m_ObjectHideFlags: 0
@@ -843,8 +843,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d411d603804db4148b265c43bdffd0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   pauseMenu: {fileID: 856778728}
   pauseStartFocus: {fileID: 13008533}
   ButtonClick: {fileID: 8300000, guid: 6e5c07f4692ec454daf3983f6ce960b0, type: 3}
@@ -1067,8 +1067,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35428e01c9196d745b1ee8fcac23b0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1001 &1210850442
 Prefab:
   m_ObjectHideFlags: 0
@@ -1289,32 +1289,32 @@ Prefab:
     - target: {fileID: 114000013711488018, guid: 7b0bd084e17b0ae40862824333599442,
         type: 2}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 1052609809}
     - target: {fileID: 114000010508602668, guid: 7b0bd084e17b0ae40862824333599442,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 1052609806}
     - target: {fileID: 114000011497526860, guid: 7b0bd084e17b0ae40862824333599442,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 1052609806}
     - target: {fileID: 114000011639303944, guid: 7b0bd084e17b0ae40862824333599442,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 1052609806}
     - target: {fileID: 114000012214520258, guid: 7b0bd084e17b0ae40862824333599442,
         type: 2}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 1387490519}
     - target: {fileID: 114000012796405180, guid: 7b0bd084e17b0ae40862824333599442,
         type: 2}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value:
       objectReference: {fileID: 1387490519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0bd084e17b0ae40862824333599442, type: 2}
@@ -1468,8 +1468,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35428e01c9196d745b1ee8fcac23b0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1001 &2030888423
 Prefab:
   m_ObjectHideFlags: 0
@@ -1571,8 +1571,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35428e01c9196d745b1ee8fcac23b0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1001 &2144538554
 Prefab:
   m_ObjectHideFlags: 0
@@ -1618,19 +1618,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: scoreText
-      value: 
+      value:
       objectReference: {fileID: 1244494185}
     - target: {fileID: 0}
       propertyPath: timeText
-      value: 
+      value:
       objectReference: {fileID: 894322373}
     - target: {fileID: 0}
       propertyPath: timerText
-      value: 
+      value:
       objectReference: {fileID: 1426137482}
     - target: {fileID: 0}
       propertyPath: ButtonClick
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 48b3461395a9206469a15b63ccf5df64, type: 3}
     - target: {fileID: 224000010464037748, guid: 035c2195e4c86490383f565b51035c7a,
         type: 2}

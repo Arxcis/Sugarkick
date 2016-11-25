@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MoveEnemy : MonoBehaviour {
-        
+
         // Public:
     public float moveSpeed = 0.1f;                  //Movement speed modifier.
     public int   enemyRuteCalcRate = 15;            //Number of frames between each vector update.
@@ -33,9 +33,9 @@ public class MoveEnemy : MonoBehaviour {
     {
         if (framesCounted == enemyRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
-                                                        // and moves the player by a factor of this distance.    
-            vectorToPlayer = new Vector3(enemyTrans.position.x - main.playerTrans.position.x,
-                                         enemyTrans.position.y - main.playerTrans.position.y);
+                                                        // and moves the player by a factor of this distance.
+            vectorToPlayer = new Vector3(enemyTrans.position.x - main.Player<Transform>(0).position.x,
+                                         enemyTrans.position.y - main.Player<Transform>(0).position.y);
             framesCounted = 0;
         }
         else framesCounted++;
@@ -52,13 +52,13 @@ public class MoveEnemy : MonoBehaviour {
             enemyRigi.velocity *= (1 / friction);          // stops the enemy when inside personal space.
 
 
-            if (main.playerManip.invFrm == 0)           //if the player is not invincible, hit player!
+            if (main.Player<PuppetManip>(0).invFrm == 0)           //if the player is not invincible, hit player!
             {
                 print("Player Hit!");
-                main.playerManip.damage(1, "enemy");  
+                main.Player<PuppetManip>(0).damage(1, "enemy");  
                 GetComponent<PuppetManip>().kill("attack");
             }
-            
+
         }
 
         enemyAnim.SetBool("isWalking", isWalking);       //Updates animator. So it knows when its moving.
