@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScript_johannes : MonoBehaviour {
 
 	public GameObject player1;
 	public GameObject player2;
@@ -38,7 +38,8 @@ public class CameraScript : MonoBehaviour {
 
 		cam.orthographicSize = 8 + 1.8F*Mathf.Pow(diff.magnitude, 0.6F);
 		if (dist >= deadZone) {
-			rb.velocity = new Vector3 ((desiredPos.x - camT.position.x)*dist*dist*velocityFactor, (desiredPos.y - camT.position.y)*dist*dist*velocityFactor, 0.0F);
+			rb.velocity = new Vector3 ((desiredPos.x - camT.position.x)*dist*dist*velocityFactor, 
+									   (desiredPos.y - camT.position.y)*dist*dist*velocityFactor, 0.0F);
 			//camT.position = new Vector3 (desiredPos.x, desiredPos.y, camT.position.z);
 		}
 		else if(dist <= deadZone){

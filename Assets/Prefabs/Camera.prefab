@@ -25,6 +25,8 @@ GameObject:
   - 81: {fileID: 81000013526394704}
   - 114: {fileID: 114000012261129398}
   - 114: {fileID: 114000013324234880}
+  - 50: {fileID: 50000013571498272}
+  - 114: {fileID: 114000014090984364}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -52,7 +54,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -66,6 +68,23 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!50 &50000013571498272
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013188729346}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!81 &81000013526394704
 AudioListener:
   m_ObjectHideFlags: 1
@@ -93,18 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapsize: 40
   mouseOn: 1
-  playerTrans: {fileID: 0}
-  playerAnim: {fileID: 0}
-  playerRigi: {fileID: 0}
-  playerMove: {fileID: 0}
-  playerGun: {fileID: 0}
-  playerColl: {fileID: 0}
-  playerManip: {fileID: 0}
-  headRend: {fileID: 0}
   headFront: {fileID: 21300000, guid: 02eeb9fc03ee3ac4b893fe711cef6557, type: 3}
   headBack: {fileID: 21300000, guid: 1b37e069565c5d44488741370bbb5ce8, type: 3}
-  player: {fileID: 0}
-  head: {fileID: 0}
   scoreText: {fileID: 0}
   timeText: {fileID: 0}
   timerText: {fileID: 0}
@@ -123,6 +132,22 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   pauseStartFocus: {fileID: 0}
   ButtonClick: {fileID: 8300000, guid: 6e5c07f4692ec454daf3983f6ce960b0, type: 3}
+--- !u!114 &114000014090984364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013188729346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f4667fa3ff4487eae341f47d32ac84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumZoom: 15
+  zoomScaler: 0.3
+  zoomExponent: 0.8
+  cameraDeadzone: 2
+  moveScaler: 0.1
 --- !u!124 &124000012713481864
 Behaviour:
   m_ObjectHideFlags: 1
