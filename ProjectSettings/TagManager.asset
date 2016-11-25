@@ -15,6 +15,7 @@ TagManager:
   - Jumper
   - JumperCheckRadius
   - Head
+  - Gun
   layers:
   - Default
   - TransparentFX

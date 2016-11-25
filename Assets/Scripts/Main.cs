@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-    public int mapsize = 40;
+        // Public
+    public int mapsize = 40;          // Not in use yet
     public bool mouseOn = false;      // mouse on / off
-    
+
     public Sprite headFront;
     public Sprite headBack;
 
@@ -16,28 +17,29 @@ public class Main : MonoBehaviour {
 	  public Text timerText;
 
 	  public int staticScoreMultiplier;
+
+        // Private
 	  float dynamicScoreMultiplier = 1.0F;
 	  int enemiesKilled;
 	  int score;
 	  float timerFloat;
 	  int timerInt;
 
-            // ----------- TEST Functionality - NOT IN USE YET ---------------- jonas point of no return
-    List <GameObject> players = new List<GameObject>();              // An array with pointers to all the active players. Gets filled by PlayerSetup.cs
+              // NEW PLAYER SYSTEM
+    List<GameObject> players = new List<GameObject>();               // An array with pointers to all the active players.
     GameObject selectedPlayer;                                       // Selected player at any given moment
 
-    void Start () {                                                 // Use this for initialization
+    void Start () {                                                  // Use this for initialization
 
+        if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
-            if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
+        foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
+            players.Add(playerObject);                               // Finds all GameObjects tagged 'player' in given scene
+        };
 
-            foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {    // Finds all tagged 'player' game objects in given scene
-                players.Add(playerObject);
-            };
-
-            scoreText = GameObject.Find("Score").GetComponent<Text>();
-            timerText = GameObject.Find("Timer").GetComponent<Text>();
-            timeText = GameObject.Find("Time:").GetComponent<Text>();
+        scoreText = GameObject.Find("Score").GetComponent<Text>();
+        timerText = GameObject.Find("Timer").GetComponent<Text>();
+        timeText = GameObject.Find("Time:").GetComponent<Text>();
 
         Time.timeScale = 1f;                           // Sets time scale to 1 incrase sugarkick was active.
     }
@@ -53,7 +55,7 @@ public class Main : MonoBehaviour {
     }
 
       // GENERIC PLAYERS INTERFACE
-      // Description: Overriding the Player-function to support returning:
+      // Description: Overriding the Player-function to support returning of multiple types:
       //                1. Player GameObject
       //                2. Player child GameObjects
       //                3. Player Components
