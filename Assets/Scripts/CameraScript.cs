@@ -1,48 +1,96 @@
+// --------------------------------------------------------------------------------- //
+// Filename    : CameraScript_jonas.cs
+// Project     : Sugarkick
+// Created by  : Jonas Solsvik
+// Date        : ?
+// Description : This script serves as a testing ground for different ways to
+//                control the camera. The current implementation is not complete.
+//                It calculates the 'center of mass' of all the players in the scene,
+//                for centering the camera. It also finds the maximum distance between
+//                any player and 'center of mass'.
+
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScript_jonas : MonoBehaviour {
 
-	public GameObject player1;
-	public GameObject player2;
-	public float deadZone = 0.0F;
-	public float velocityFactor = 0.0F;
+    Main main;                            // GameState
 
-	Transform p1;
-	Transform p2;
-	Transform camT;
-	public Vector2 desiredPos;
-	public Vector2 distance;
-	public Vector2 diff;
-	public float dist;
-	Camera cam;
-	Rigidbody2D rb;
+	public float minimumZoom;
+	public float zoomScaler;
+	public float zoomExponent;
 
-	// Use this for initialization
-	void Start () {
-		
-		p1 = player1.GetComponent<Transform> ();
-		p2 = player2.GetComponent<Transform> ();
-		cam = gameObject.GetComponent<Camera> ();
-		camT = gameObject.GetComponent<Transform> ();
-		rb = gameObject.GetComponent<Rigidbody2D> ();
+    Camera           cam;
+    Transform   camTrans;
+
+    float       xSum, ySum;
+    float      maxDistance;
+    float      camDistance;
+
+    List<float>     distances        = new List<float>();
+    List<Transform> playerTransforms = new List<Transform>();
+    Vector2 centerOfMass = new Vector2(0, 0);             // Formula @ http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html
+
+	void Start ()
+    {
+      main     = GameObject.Find("Camera").GetComponent<Main>();
+      camTrans = gameObject.GetComponent<Transform>();    // Camera transform
+      cam      = GetComponent<Camera>();                  // To manipulate camsize
+
+      foreach( GameObject player in main.Players() ) {             // Getting all players transforms
+          playerTransforms.Add(player.GetComponent<Transform>());
+      }
 	}
+      	                                                // Update is called once per frame
+	void Update ()
+    {
+        xSum = 0; ySum = 0; distances.Clear();                    // Reset data
 
-	// Update is called once per frame
-	void FixedUpdate () {
-		diff = new Vector2 (p1.position.x - p2.position.x, p1.position.y - p2.position.y);
+        ComputeCenterOfMass( ref centerOfMass );
+        ComputeMaxDistance( ref distances, ref maxDistance );
 
-		desiredPos = new Vector2 (p1.position.x - 0.5F*diff.x, p1.position.y - 0.5F*diff.y);
-		distance = desiredPos - new Vector2(camT.position.x, camT.position.y);
-		dist = distance.magnitude;
-
-		cam.orthographicSize = 8 + 1.8F*Mathf.Pow(diff.magnitude, 0.6F);
-		if (dist >= deadZone) {
-			rb.velocity = new Vector3 ((desiredPos.x - camT.position.x)*dist*dist*velocityFactor, (desiredPos.y - camT.position.y)*dist*dist*velocityFactor, 0.0F);
-			//camT.position = new Vector3 (desiredPos.x, desiredPos.y, camT.position.z);
+		Debug.Log ("MaxDistance:" + maxDistance);
+		if (maxDistance <= minimumZoom) {
+			camDistance = minimumZoom;
+		} else {
+			camDistance = (Mathf.Pow(maxDistance - minimumZoom, zoomExponent) * zoomScaler) + minimumZoom;
 		}
-		else if(dist <= deadZone){
-			rb.velocity = new Vector2 (0.0F, 0.0F);
-		}
-	}
+
+        camTrans.position = main.ToVector3( centerOfMass, -1);    // Center of mass = camera position
+        cam.orthographicSize =  camDistance;                      // Camera size varies depending on how
+  }                                                               // far the players away from each other.
+
+  void ComputeMaxDistance(ref List<float> distances, ref float max)
+  {
+    foreach( Transform playTrans in playerTransforms ) {
+			distances.Add ((centerOfMass - new Vector2 (playTrans.position.x, playTrans.position.y)).magnitude);
+    }
+	max = GetMax( distances ) * 2; 		 // GetMax the radius of the player with maximum distance to
+  }                                              // center of Mass. Multiply with 2 to find how wide the camera needs to scale.
+
+  void ComputeCenterOfMass(ref Vector2 center)
+  {
+    foreach( Transform playTrans in playerTransforms ) {
+      xSum += playTrans.position.x;
+      ySum += playTrans.position.y;
+    }
+	center.x = xSum / main.Players().Count;             // Center of mass calculation
+	center.y = ySum / main.Players().Count;
+  }
+
+  // Gets the max number from a list
+  float GetMax(List<float> numbers)
+  {
+	float max = 0;
+    foreach(float num in numbers) {
+      if (num > max) {
+        max = num;
+      }
+    }
+    return max;
+  }
+
 }
+
+// EOF
