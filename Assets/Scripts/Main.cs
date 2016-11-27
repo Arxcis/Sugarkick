@@ -32,7 +32,7 @@ public class Main : MonoBehaviour {
     static GameObject selectedPlayer;                            // Selected player at any given moment
 
     void Awake ()
-    {                                    
+    {
         if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
         foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
