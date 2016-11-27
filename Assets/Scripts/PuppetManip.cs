@@ -51,6 +51,7 @@ public class PuppetManip : MonoBehaviour
         else
         {
             currentHp = hP;                                     // refills hp after respawn
+            invFrm = 2 * invincibilityFrames;
             Main.Player<Animator>(0).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
             Main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
@@ -96,7 +97,11 @@ public class PuppetManip : MonoBehaviour
             else GetComponent<MoveEnemy>().enabled = false;                              //the enemy cant move mid air.
             GetComponent<BoxCollider2D>().enabled = false;                          //the collider cant block bullets from beneeth the map.
             if (isSpawnerChild) GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag); //tells the spawner that a child died. :'(
-            if (deathBy == "fall")GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
+            if (deathBy == "fall")
+            {
+                SoundManager.instance.bamPow(fallSound);
+                GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
+            }
             if (deathBy == "bullet")GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
             if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
         }
