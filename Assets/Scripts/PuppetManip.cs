@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PuppetManip : MonoBehaviour {
-
-
-    Main main;
-
+public class PuppetManip : MonoBehaviour
+{
     public bool     isEnemy = false;
     public bool     isSpawnerChild = false;
     public int      life = 3;                               // amount of respawns
@@ -27,7 +24,7 @@ public class PuppetManip : MonoBehaviour {
 
     void Start()
     {
-        main = GameObject.Find("Camera").GetComponent<Main>();
+
         currentHp = hP;
     }
 
@@ -38,23 +35,24 @@ public class PuppetManip : MonoBehaviour {
         if (frmPlayedSgrKck == framesToPlaySugarAnim) SugarKickOff(); // turns off sugarkick when reached stop.
     }
 
-    public void respawn( ) {
-
+    public void respawn( )
+    {
         if (isEnemy) Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
         if (life <= 0)
             { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
             currentHp = hP;                                     // refills hp after respawn
-            main.Player<Animator>(0).Play("PlayerIdle");
+            Main.Player<Animator>(0).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
-            main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
-            main.Player<GunScript>(0, "Gun").enabled = true;
-            main.Player<BoxCollider2D>(0).enabled = true;
+            Main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
+            Main.Player<GunScript>(0, "Gun").enabled = true;
+            Main.Player<BoxCollider2D>(0).enabled = true;
         }
     }
 
-    public void damage( int d, string hitBy) {                               //Take hp and check if killed.
+    public void damage( int d, string hitBy)                    //Take hp and check if killed.
+    {
         currentHp -= d;
         if ( currentHp <= 0 ) {
             kill(hitBy);                                                //call kill function with whatever the player got hit by.
@@ -62,14 +60,14 @@ public class PuppetManip : MonoBehaviour {
         else if(!isEnemy && invFrm == 0)
         {
             invFrm = invincibilityFrames;
-            main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
+            Main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
 
         }
     }
 
 
-    public void kill(string deathBy) {
-
+    public void kill(string deathBy)
+    {
         if (isEnemy)
         {
             GetComponent<Rigidbody2D>().velocity *= fallingSpeedMultiplier;         //the enemy slows down after falling off.
@@ -89,26 +87,25 @@ public class PuppetManip : MonoBehaviour {
         else
         {
             life--;
-            main.Player<Rigidbody2D>(0).velocity *= fallingSpeedMultiplier;
-            main.Player<MovePlayer>(0).enabled = false;                    //player cannot move while fallling.
-            main.Player<GunScript>(0, "Gun").enabled = false;                     //Player cant shoot while falling off.
-            main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
+            Main.Player<Rigidbody2D>(0).velocity *= fallingSpeedMultiplier;
+            Main.Player<MovePlayer>(0).enabled = false;                    //player cannot move while fallling.
+            Main.Player<GunScript>(0, "Gun").enabled = false;                     //Player cant shoot while falling off.
+            Main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
 
-            if (deathBy == "fall") main.Player<Animator>(0).Play("PlayerFallDown"); //main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
+            if (deathBy == "fall") Main.Player<Animator>(0).Play("PlayerFallDown"); //Main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
             if (deathBy == "enemy") respawn();//insert other death animation instead
         }
-
     }
 
    public void SugarKickOn ()
-    {
+  {
             if (frmPlayedSgrKck != framesToPlaySugarAnim)
             {
                 hasSugarkick = true;
                 movementSpeed *= sugarSpeedChange;
                 Time.timeScale *= sugarTimeSlow;
                 Time.fixedDeltaTime *= sugarTimeSlow;
-                main.Player<Animator>(0).Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
+                Main.Player<Animator>(0).Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
 
         }
     }
@@ -120,34 +117,35 @@ public class PuppetManip : MonoBehaviour {
                 movementSpeed /= sugarSpeedChange;
                 Time.timeScale /= sugarTimeSlow;
                 Time.fixedDeltaTime /= sugarTimeSlow;
-                main.Player<Animator>(0).Play("PlayerIdle"); //Goes back to normal idle animation.
+                Main.Player<Animator>(0).Play("PlayerIdle"); //Goes back to normal idle animation.
     }
 
 
-    void OnTriggerEnter2D( Collider2D other ) {
+    void OnTriggerEnter2D( Collider2D other )
+    {
         if ( other.gameObject.CompareTag( "Hole" )  && !gameObject.CompareTag("Jumper")) {
             kill("fall");
         }
     	else if (other.gameObject.CompareTag("Bullet") && isEnemy){
-		if(!other.GetComponent<ProjectileInfo>().truePiercing && other.GetComponent<ProjectileInfo>().pierceNumber < 1) Destroy (other.gameObject);
-		other.GetComponent<ProjectileInfo> ().pierceNumber--;
-		damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
+		      if(!other.GetComponent<ProjectileInfo>().truePiercing && other.GetComponent<ProjectileInfo>().pierceNumber < 1) Destroy (other.gameObject);
+		          other.GetComponent<ProjectileInfo> ().pierceNumber--;
+		          damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
       else if (!isEnemy && other.gameObject.CompareTag("Pickup / gun")) {
-      for (int i=0; i< guns.Length; ++i) {
-          guns[i].SetActive(false);
-        }
-        switch(other.gameObject.name){
-          case "GunDrop1":
-            guns[1].SetActive(true);
-          break;
-          case "GunDrop2":
-            guns[2].SetActive(true);
-          break;
-          case "GunDrop3":
-            guns[3].SetActive(true);
-          break;
-        }
+        for (int i=0; i< guns.Length; ++i) {
+            guns[i].SetActive(false);
+          }
+          switch(other.gameObject.name){
+            case "GunDrop1":
+              guns[1].SetActive(true);
+            break;
+            case "GunDrop2":
+              guns[2].SetActive(true);
+            break;
+            case "GunDrop3":
+              guns[3].SetActive(true);
+            break;
+          }
 			Destroy (other.gameObject);
         //GameObject.Find(other.gameObject.name).SetActive(true);
         //GameObject.GetChild("Gun").gameObject.setActive(false);

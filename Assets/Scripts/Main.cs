@@ -3,34 +3,36 @@ using System.Collections;
 using System.Collections.Generic;          // List<type>()
 using UnityEngine.UI;
 
+              // Declaring a static class, the only thing you are telling the compiler is that
+              // all the members of the class have to be static.
+              // A static class cannot be instantiated!
 public class Main : MonoBehaviour {
 
         // Public
-    public int mapsize = 40;              // Not in use yet
-    public bool mouseOn = false;          // mouse on / off
+    public static bool mouseOn = true;          // mouse on / off
 
     public Sprite headFront;
     public Sprite headBack;
 
-	  public Text scoreText;
-	  public Text timeText;
-	  public Text timerText;
+	  public static Text scoreText;
+	  public static Text timeText;
+	  public static Text timerText;
 
-	  public int staticScoreMultiplier;
+	  public static int staticScoreMultiplier;
 
         // Private
-	  float dynamicScoreMultiplier = 1.0F;
-	  int enemiesKilled;
-	  int score;
-	  float timerFloat;
-	  int timerInt;
+	  static float dynamicScoreMultiplier = 1.0F;
+	  static int enemiesKilled;
+	  static int score;
+	  static float timerFloat;
+	  static int timerInt;
 
               // NEW PLAYER SYSTEM
-    List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players.
-    GameObject selectedPlayer;                            // Selected player at any given moment
+    static List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players.
+    static GameObject selectedPlayer;                            // Selected player at any given moment
 
-    void Awake () {                                       // Use this for initialization
-
+    void Awake ()
+    {                                    
         if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
         foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
@@ -62,31 +64,32 @@ public class Main : MonoBehaviour {
      *                3. Player<component>(index)    -> Component
      *                4. Player<component>(index, childname) -> Component
     */
-    public List <GameObject> Players()
+    public static List <GameObject> Players()
     {
         return players;
     }
 
-    public GameObject Player(int playerIndex)
+    public static GameObject Player(int playerIndex)
     {
         return players[playerIndex];
     }
 
-    public GameObject Player(int playerIndex, string child)
+    public static GameObject Player(int playerIndex, string child)
     {
+
       return players[playerIndex]
                .transform
                  .Find(child)
                    .gameObject;
     }
 
-    public T Player<T>(int playerIndex) where T : Component
+    public static T Player<T>(int playerIndex) where T : Component
     {
         return players[playerIndex]
                  .GetComponent<T>();
     }
 
-    public T Player<T>(int playerIndex, string child) where T : Component
+    public static T Player<T>(int playerIndex, string child) where T : Component
     {
       return players[playerIndex]
                .transform
@@ -96,7 +99,7 @@ public class Main : MonoBehaviour {
     }
 
 
-    public void toggleMouseAiming()         //useed by toggle ui element in pause menu.
+    public static void toggleMouseAiming()         //useed by toggle ui element in pause menu.
     {
         if (mouseOn) mouseOn = false;
         else mouseOn = true;
@@ -104,7 +107,8 @@ public class Main : MonoBehaviour {
 
 
                                             // Temporary scoring system
-    public void NewScore(){
+    public static void NewScore()
+    {
   		enemiesKilled++;
   		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
   		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
@@ -118,7 +122,7 @@ public class Main : MonoBehaviour {
                                         // between 1 at 90 degrees, and sqrt(2) at 45 degrees
                                         // Returns a Vector2 which has an absolute length of 1
                                         // for all angles.
-    public Vector2 DiagonalCompensate( Vector2 inVec )
+    public static Vector2 DiagonalCompensate( Vector2 inVec )
     {                                    // Gets angle and converts it to radians
         float angle = GetAngle( Vector2.right, inVec) * Mathf.Deg2Rad;
 
@@ -127,20 +131,20 @@ public class Main : MonoBehaviour {
     }
 
                                         // Returns the correct angle between two vectors
-    public float GetAngle( Vector2 v1, Vector2 v2 )
+    public static float GetAngle( Vector2 v1, Vector2 v2 )
     {
-        var sign = Mathf.Sign( v1.x * v2.y - v1.y * v2.x );
+        float sign = Mathf.Sign( v1.x * v2.y - v1.y * v2.x );
         return Vector2.Angle(v1, v2) * sign;
     }
 
                                         // Returns a unit vector given a specific angle
-    public Vector2 GetUnitVector2(float angle)
+    public static Vector2 GetUnitVector2(float angle)
     {
         return new Vector2( Mathf.Cos(angle), Mathf.Sin(angle) );
     }
 
                                         // Casts a Vector2 to a Vector3
-    public Vector3 ToVector3( Vector2 vec2, float zval=0.0F )
+    public static Vector3 ToVector3( Vector2 vec2, float zval=0.0F )
     {
         return new Vector3(vec2.x, vec2.y, zval);
     }

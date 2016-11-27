@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class SpawnEnemies : MonoBehaviour {
 
-	Main main;
 	SpawnControl spawnControl;
 
 	public List<GameObject> enemiesToSpawn = new List<GameObject>();
@@ -31,14 +30,13 @@ public class SpawnEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		main = GameObject.Find("Camera").GetComponent<Main>();
 		if(endlessMode == false) trans = spawns[0].transform;
 		spawnControl = gameObject.GetComponent<SpawnControl> ();
 	}
 
 	// This function is called by dying enemies.
 	public void gotKilled (string tag){
-		main.NewScore ();
+		Main.NewScore ();
 
 	// In endless mode, spawn a new enemy of the same type.
 		if (endlessMode) {
