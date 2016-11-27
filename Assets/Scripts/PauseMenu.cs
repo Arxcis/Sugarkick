@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void toggleAiming()
     {
-        Main.toggleMouseAiming();
+        Main.toggleMouseAiming();       //calls the static toggle aiming function in main.
     }
 
     public void toMainMenu()
