@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010529700626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.02, y: 7.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -154,7 +154,7 @@ MonoBehaviour:
   life: 1
   hP: 2
   invincibilityFrames: 0
-  movementSpeed: 12
+  movementSpeed: 15
   fallingSpeedMultiplier: 0.2
   spawnLocation: {x: 0, y: 0, z: 0}
   framesToPlaySugarAnim: 1
@@ -187,11 +187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumperRuteCalcRate: 20
   personalSpaceBro: 2.5
-  jumpDistance: 5
-  walkDiviation: 0.1
-  noDeviationRange: 8
+  jumpDistance: 8
+  walkDiviation: 0.01
+  noDeviationRange: 10
   blockedAngleDiv: 50
-  jumpCooldown: 80
+  jumpCooldown: 60
   midAir: 0
 --- !u!212 &212000011129831646
 SpriteRenderer:

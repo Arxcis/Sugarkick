@@ -24,7 +24,7 @@ GameObject:
   - 58: {fileID: 58000010683489050}
   - 114: {fileID: 114000010132873140}
   m_Layer: 0
-  m_Name: BulletPrefab
+  m_Name: BulletSeed
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

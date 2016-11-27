@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GunScript : MonoBehaviour {
-
+public class GunScript : MonoBehaviour
+{
     Main main;
     GameObject cam;
     Camera camscript;
@@ -17,15 +17,15 @@ public class GunScript : MonoBehaviour {
     public bool truePiercing = false;
     public int pierceNumber;
 
-    public int   weaponDamage =   1;         // Shooting
-    public float accuracy     = 100.0F;
-    public float fireRate     =  50.0F;
-    public float knockbackPow = 300.0F;
+    public int   weaponDamage    =   1;         // Shooting
+    public float accuracy        = 100.0F;
+    public float fireRate        =  50.0F;
+    public float knockbackPow    = 300.0F;
     public float projectileSpeed = 10.0F;
 
-    public GameObject bullets;
+    public GameObject bulletSeed;
     public GameObject barrelEnd;
-    public GameObject bulletParent;
+	public GameObject bulletParent;
 
     // Private:
     Transform gunTrans;
@@ -50,7 +50,7 @@ public class GunScript : MonoBehaviour {
     void FixedUpdate ()                             // Fixed update is frame-rate independent
     {
 
-      if( main.mouseOn ) {
+      if( Main.mouseOn ) {
         mouseAimUpdate();           // Update aim with mouse
       }                             //     or
       else {                        //
@@ -65,18 +65,18 @@ public class GunScript : MonoBehaviour {
 
       if (fire > 0.4 && cooldown <= 0) {      // Scaling recoilVec with negative 1 to send the
                                               // player in opposite direction
-          recoilVec = main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
+          recoilVec = Main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
 
           if (setPos) {                       // Casting vec2 to vec3 before adding to position
-              main.Player<Transform>(0).position += main.ToVector3(recoilVec * (knockbackPow / 300.0F));
+              Main.Player<Transform>(0).position += Main.ToVector3(recoilVec * (knockbackPow / 300.0F));
           }
 
           if(addForce){
-              main.Player<Rigidbody2D>(0).AddForce(recoilVec * (knockbackPow / 1));
+              Main.Player<Rigidbody2D>(0).AddForce(recoilVec * (knockbackPow / 1));
           }
 
           if(setVelocity){
-              main.Player<Rigidbody2D>(0).velocity += recoilVec * (knockbackPow / 10);
+              Main.Player<Rigidbody2D>(0).velocity += recoilVec * (knockbackPow / 10);
           }
 
           shoot();
@@ -84,45 +84,52 @@ public class GunScript : MonoBehaviour {
       }
 
       if (gunAngle > -100 && gunAngle < 110)
-          main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;
+          Main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;   // non-static part of main has to be called through an object.
       else
-          main.Player<SpriteRenderer>(0, "Head").sprite = main.headFront;
+          Main.Player<SpriteRenderer>(0, "Head").sprite = main.headFront;
   }
 
 	// Creating a prefab, "bullets" set in the inspector. Created at the position of "barrelEnd", also set in the inspector. Then the bullet is parented to "bulletParent", also set in the inspector.
 	// The velocity of the bullet is set in the direction of the barrel with a speed of "projectileSpeed", set in the inspector. The bullet spawns with the damage of "weaponDamage".
-	void shoot(){
+	void shoot()
+  {
         SoundManager.instance.bamPow(GunSound); // plays designated gun sound
 
+		float i = Random.Range (-50, 50);  // random float to make the spray deviate a bit. 
+		recoilVec = Main.GetUnitVector2( (gunAngle+90+ (i/50)*(100/accuracy)) * Mathf.Deg2Rad )*-1; // (i/50) is a float between -1 and 1 - for a random distribution
+													    // between the extremals.
+													    // (100/accuracy) determines the extremals for the firing diviation.
+													    // The bigger the accuracy, the smaller the deviation.
 		ProjectileInfo pInfo;
-		var bullet = Instantiate (bullets, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
+		var bullet = Instantiate (bulletSeed, new Vector3(barrelEnd.GetComponent<Transform>().position.x, barrelEnd.GetComponent<Transform>().position.y, 0), Quaternion.identity) as GameObject;
 		bullet.transform.parent = bulletParent.transform;
 		pInfo = bullet.GetComponent<ProjectileInfo> ();
-		bullet.GetComponent<Rigidbody2D> ().velocity = recoilVec * -1 * projectileSpeed;
+		bullet.GetComponent<Rigidbody2D> ().velocity = recoilVec * -1 * projectileSpeed; // Sets the velocity to be a bit random.
 		pInfo.damage = weaponDamage;
 		pInfo.projectileSpeed = projectileSpeed;
 		pInfo.truePiercing = truePiercing;
 		pInfo.pierceNumber = pierceNumber;
 	}
 
-  void mouseAimUpdate() {
+  void mouseAimUpdate()
+  {
     mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector
                                          // Create Vector2 from the difference in position between mouse and player
-    facingMouseVector = new Vector2(mousePos.x - main.Player<Transform>(0).position.x,
-                                    mousePos.y - main.Player<Transform>(0).position.y);
-    gunAngle = main.GetAngle( Vector2.up, facingMouseVector );
+    facingMouseVector = new Vector2(mousePos.x - Main.Player<Transform>(0).position.x,
+                                    mousePos.y - Main.Player<Transform>(0).position.y);
+    gunAngle = Main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
   }
 
-  void keyAimUpdate() {
-
+  void keyAimUpdate()
+  {
     inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not
     inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
     fire = Input.GetAxisRaw ("Fire");           // https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
 
     if (inputVec.x != 0 || inputVec.y != 0){
 
-        gunAngle = main.GetAngle( Vector2.up, inputVec );
+        gunAngle = Main.GetAngle( Vector2.up, inputVec );
         gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
     }
   }

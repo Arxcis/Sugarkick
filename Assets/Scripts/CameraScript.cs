@@ -1,48 +1,108 @@
+// --------------------------------------------------------------------------------- //
+// Filename    : CameraScript_jonas.cs
+// Project     : Sugarkick
+// Created by  : Jonas Solsvik
+// Date        : ?
+// Description : This script serves as a testing ground for different ways to
+//                control the camera.
+//                It calculates the 'center of mass' of all the players in the scene,
+//                for centering the camera. It also finds the maximum distance between
+//                any player and 'center of mass'. Moves the cameras rigidbody2d for a
+//                smooth experience
+
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class CameraScript : MonoBehaviour {
 
-	public GameObject player1;
-	public GameObject player2;
-	public float deadZone = 0.0F;
-	public float velocityFactor = 0.0F;
+[RequireComponent (typeof(Rigidbody2D))]
+public class CameraScript : MonoBehaviour
+{
+  
+	public float minimumZoom    = 15.0F;
+	public float zoomScaler     = 0.3F;
+	public float zoomExponent   = 0.8F;
+	public float cameraDeadzone = 2.0F;
+	public float moveScaler     = 0.1F;
 
-	Transform p1;
-	Transform p2;
-	Transform camT;
-	public Vector2 desiredPos;
-	public Vector2 distance;
-	public Vector2 diff;
-	public float dist;
-	Camera cam;
-	Rigidbody2D rb;
+  Camera      cam;
+  Transform   camTrans;
+	Rigidbody2D camRigid;
 
-	// Use this for initialization
-	void Start () {
-		
-		p1 = player1.GetComponent<Transform> ();
-		p2 = player2.GetComponent<Transform> ();
-		cam = gameObject.GetComponent<Camera> ();
-		camT = gameObject.GetComponent<Transform> ();
-		rb = gameObject.GetComponent<Rigidbody2D> ();
+  float      xSum, ySum;
+  float      maxDistance;
+  float      camSize;
+	float      temp = 0;
+	float      camDistance;
+
+  List<Transform> playerTransforms = new List<Transform>();
+  Vector2         centerOfMass     = Vector2.zero;             // Formula @ http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html
+	Vector2         camDirection     = Vector2.zero;
+
+	void Start ()
+    {
+      camTrans = gameObject.GetComponent<Transform>();      // Camera transform
+	    camRigid = gameObject.GetComponent<Rigidbody2D>();    // Camera transform
+      cam      = GetComponent<Camera>();                    // To manipulate camsize
+
+      foreach( GameObject player in Main.Players() ) {             // Getting all players transforms
+			     playerTransforms.Add(player.transform);
+      }
+	  camTrans.position = new Vector3 (0,0,-1);           // Make sure that cam is above the map
 	}
 
-	// Update is called once per frame
-	void FixedUpdate () {
-		diff = new Vector2 (p1.position.x - p2.position.x, p1.position.y - p2.position.y);
+      	                                                  // Update is called once per frame
+	void LateUpdate ()
+    {
+		xSum = 0; ySum = 0; maxDistance=0;            // Reset data
 
-		desiredPos = new Vector2 (p1.position.x - 0.5F*diff.x, p1.position.y - 0.5F*diff.y);
-		distance = desiredPos - new Vector2(camT.position.x, camT.position.y);
-		dist = distance.magnitude;
+		ComputeCenterOfMass();
+    ComputeMaxDistance ();
+		SetCamSize ();
+		SetCamVelocity();
+    }
 
-		cam.orthographicSize = 8 + 1.8F*Mathf.Pow(diff.magnitude, 0.6F);
-		if (dist >= deadZone) {
-			rb.velocity = new Vector3 ((desiredPos.x - camT.position.x)*dist*dist*velocityFactor, (desiredPos.y - camT.position.y)*dist*dist*velocityFactor, 0.0F);
-			//camT.position = new Vector3 (desiredPos.x, desiredPos.y, camT.position.z);
+	void SetCamVelocity()            // Gets distance between camera and mass center. Starts moving towards it with a sqrMagnitude scale.
+  {
+		camDistance  = Vector2.Distance( centerOfMass, camTrans.position );
+		camDirection = (centerOfMass - (Vector2)camTrans.position);
+
+		if (camDistance < cameraDeadzone) {
+			camRigid.velocity = Vector2.zero;
+		} else {
+			camRigid.velocity = camDirection * camDirection.sqrMagnitude * moveScaler;
 		}
-		else if(dist <= deadZone){
-			rb.velocity = new Vector2 (0.0F, 0.0F);
+	}
+
+	void SetCamSize()
+	{
+		if (maxDistance <= minimumZoom) {						 // CamSize has to be adjusted and is a function of maxDistance
+			cam.orthographicSize = minimumZoom;
+		} else {
+			cam.orthographicSize = (Mathf.Pow(maxDistance - minimumZoom, zoomExponent) * zoomScaler) + minimumZoom;
 		}
+	}
+
+  void ComputeMaxDistance ()                    // Calculate
+  {
+	   foreach (Transform playTrans in playerTransforms) {
+		     temp = ((centerOfMass - new Vector2 (playTrans.position.x, playTrans.position.y)).magnitude);
+		     if (temp > maxDistance) {
+			      maxDistance = temp;
+		     }
+	   }
+	   maxDistance = maxDistance * 2; 		   // Max is the radius of the player with maximum distance to
+  }                                          // center of Mass. Multiply with 2 to find how wide the camera needs to scale.
+
+	void ComputeCenterOfMass()
+	{
+		foreach (Transform playTrans in playerTransforms) {
+			xSum += playTrans.position.x;
+			ySum += playTrans.position.y;
+		}
+		centerOfMass.x = xSum / Main.Players ().Count;             // Center of mass calculation
+		centerOfMass.y = ySum / Main.Players ().Count;
 	}
 }
+
+// EOF

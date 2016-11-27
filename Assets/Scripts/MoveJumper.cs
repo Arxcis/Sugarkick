@@ -19,7 +19,6 @@ public class MoveJumper : MonoBehaviour {
     PuppetManip jumperPupp;
     Animator jumperAnim;
     BoxCollider2D jumpColl;
-    Main main;
 
     public bool midAir = false;
     int coldwn = 0;
@@ -30,7 +29,6 @@ public class MoveJumper : MonoBehaviour {
 
     void Start()
     {
-        main = GameObject.Find("Camera").GetComponent<Main>();      //gets all the global info
         jumperTrans = GetComponent<Transform>();
         jumperRigi = GetComponent<Rigidbody2D>();
         jumperPupp = GetComponent<PuppetManip>();
@@ -46,8 +44,8 @@ public class MoveJumper : MonoBehaviour {
         if (framesCounted == jumperRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
                                                         // and moves the player by a factor of this distance.
-            vectorToPlayer = new Vector3(jumperTrans.position.x - main.Player<Transform>(0).position.x,
-                                         jumperTrans.position.y - main.Player<Transform>(0).position.y);
+            vectorToPlayer = new Vector3(jumperTrans.position.x - Main.Player<Transform>(0).position.x,
+                                         jumperTrans.position.y - Main.Player<Transform>(0).position.y);
             framesCounted = 0;
         }
         else framesCounted++;
@@ -68,7 +66,7 @@ public class MoveJumper : MonoBehaviour {
 
 
             midAir = true;                                                  // the enemy is now mid air.
-            jumpColl.enabled = false;                                       //cant fall down a hole while midair.
+            //jumpColl.enabled = false;                                       //cant fall down a hole while midair.
             jumperAnim.Play("JumperTakeoff");                                  //Plays JumpUp animaion.
             jumperAnim.SetBool("midAir", midAir);
             coldwn = jumpCooldown;                                          //start the time no next jump cooldown.
@@ -83,17 +81,17 @@ public class MoveJumper : MonoBehaviour {
         {
             jumperRigi.velocity *= (1 / jumperPupp.friction);                             //stop jumping. Land.
             midAir = false;                                                 //no longer in-air.
-            jumpColl.enabled = true;
+           // jumpColl.enabled = true;
             jumperAnim.Play("JumperLand");
             jumperAnim.SetBool("midAir", midAir);
         }
 
-        if (main.Player<PuppetManip>(0).invFrm == 0 &&
+        if (Main.Player<PuppetManip>(0).invFrm == 0 &&
             vectorToPlayer.magnitude < personalSpaceBro &&
             vectorToPlayer.magnitude > 0.1f)         //if the player is not invincible, is within range, but not 0? hit player!
         {
             print("Player Hit!");
-            main.Player<PuppetManip>(0).damage(1, "enemy");
+            Main.Player<PuppetManip>(0).damage(1, "enemy");
             GetComponent<PuppetManip>().kill("attack");
         }
 
@@ -122,5 +120,4 @@ public class MoveJumper : MonoBehaviour {
         coldwn = jumpCooldown;                                          //start the time no next jump cooldown.
 
     }
-
 }
