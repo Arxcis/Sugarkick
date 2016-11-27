@@ -23,6 +23,12 @@ public class PauseMenu : MonoBehaviour {
         }
     }
 
+
+    public void toggleAiming()
+    {
+        Main.toggleMouseAiming();
+    }
+
     public void toMainMenu()
     {
         SoundManager.instance.bamPow(ButtonClick);      //plays buttonclick
