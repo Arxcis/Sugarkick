@@ -54,6 +54,8 @@ public class PuppetManip : MonoBehaviour
             invFrm = 2 * invincibilityFrames;
             Main.Player<Animator>(0).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
+            GameObject.FindGameObjectWithTag("MainCamera").gameObject.transform
+                    .position = new Vector3(spawnLocation.x, spawnLocation.y, -10);  // moves the camera to respawn location.
             Main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
             Main.Player<GunScript>(0, "Rifle").enabled = true;      //re-enables all the guns.
             Main.Player<GunScript>(0, "Canon").enabled = true;
@@ -102,7 +104,11 @@ public class PuppetManip : MonoBehaviour
                 SoundManager.instance.bamPow(fallSound);
                 GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
             }
-            if (deathBy == "bullet")GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+            if (deathBy == "bullet")
+            {
+                SoundManager.instance.bamPow(deathSound);
+                GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+            }
             if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
         }
         else

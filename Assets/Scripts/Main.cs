@@ -148,6 +148,11 @@ public class Main : MonoBehaviour {
     {
         return new Vector3(vec2.x, vec2.y, zval);
     }
+
+    public static float pitchDeviation (float range)       //used to give a deviation in pitch when playing a sound. normal value is 0.1f:
+    {
+        return 1f + Random.Range(-range, range);    //meaning that the pich can go from 0.90f t0 1.10f.
+    }
 }
 
 

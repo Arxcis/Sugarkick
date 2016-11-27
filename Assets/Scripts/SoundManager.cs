@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour {
 
     public AudioSource musicAud;
     public AudioSource effectsAud;
+    public AudioSource gunAud;
     public Slider musicTrackbar;            // set vol slider with inspector
     public Slider effectsTrackbar;
     
@@ -43,8 +44,30 @@ public class SoundManager : MonoBehaviour {
 
     public void bamPow(AudioClip poof)                  // playa sound with the effects aud source. 
     {
+        effectsAud.pitch = 1f;                     
         effectsAud.volume = effectsVol;                 // sets the volume.
         effectsAud.PlayOneShot(poof);                   // playes the sound.
     }
 
+    public void bamPow(AudioClip poof, float pitchDeviation)      // playa sound with the effects aud source. 
+    {
+        effectsAud.pitch = 1f + pitchDeviation;          // sets the pitch based on the parameter
+        effectsAud.volume = effectsVol;                 // sets the volume.
+        effectsAud.PlayOneShot(poof);                   // playes the sound.
+    }
+
+
+    public void bangBang(AudioClip poof)                  // playa sound with the effects aud source. 
+    {
+        gunAud.pitch = 1f;
+        gunAud.volume = effectsVol;                 // sets the volume.
+        gunAud.PlayOneShot(poof);                   // playes the sound.
+    }
+
+    public void bangBang(AudioClip poof, float pitchDeviation)      // playa sound with the effects aud source. 
+    {
+        gunAud.pitch = 1f + pitchDeviation;          // sets the pitch based on the parameter
+        gunAud.volume = effectsVol;                 // sets the volume.
+        gunAud.PlayOneShot(poof);                   // playes the sound.
+    }
 }

@@ -165,7 +165,7 @@ MonoBehaviour:
   friction: 30
   respawnSound: {fileID: 0}
   spawnSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 656f8375be401dd4f907b9ccda69408a, type: 3}
   hurtSound: {fileID: 8300000, guid: a96fc8f5681cbbd4a8ad7ee0c077d0cb, type: 3}
   fallSound: {fileID: 8300000, guid: 87106e979c630e34a8a28d40d7e7371c, type: 3}
   invFrm: 0

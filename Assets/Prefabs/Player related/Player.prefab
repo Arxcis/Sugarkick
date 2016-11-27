@@ -350,7 +350,7 @@ MonoBehaviour:
   truePiercing: 0
   pierceNumber: 2
   weaponDamage: 1
-  accuracy: 13
+  accuracy: 12
   fireRate: 230
   knockbackPow: 560
   projectileSpeed: 10
@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  chanceOfEnemyHurtSound: 3
   isSpawnerChild: 0
   life: 3
   hP: 3
