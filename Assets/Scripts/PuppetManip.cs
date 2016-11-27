@@ -99,7 +99,11 @@ public class PuppetManip : MonoBehaviour
             Main.Player<GunScript>(0, "Gun").enabled = false;                     //Player cant shoot while falling off.
             Main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
 
-            if (deathBy == "fall") Main.Player<Animator>(0).Play("PlayerFallDown"); //Main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
+            if (deathBy == "fall")
+            {
+                SoundManager.instance.bamPow(fallSound);
+                Main.Player<Animator>(0).Play("PlayerFallDown"); //Main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
+            }
 
             if (deathBy == "enemy")
             {

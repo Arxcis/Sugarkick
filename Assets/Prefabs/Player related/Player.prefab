@@ -449,7 +449,7 @@ MonoBehaviour:
   spawnSound: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 5f551e707a1bb6047a6a626635d30601, type: 3}
   hurtSound: {fileID: 8300000, guid: e5f9c520367b9bd45b34244345a971e5, type: 3}
-  fallSound: {fileID: 0}
+  fallSound: {fileID: 8300000, guid: 7a3dda7573dbfa546802b7e8adc33b09, type: 3}
   invFrm: 0
 --- !u!114 &114000011259190198
 MonoBehaviour:
