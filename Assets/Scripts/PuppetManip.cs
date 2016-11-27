@@ -22,6 +22,8 @@ public class PuppetManip : MonoBehaviour
     int frmPlayedSgrKck = 0;
     bool hasSugarkick = false;
 
+    int index;                        // objects position in the global list
+
     void Start()
     {
 
@@ -71,7 +73,7 @@ public class PuppetManip : MonoBehaviour
         if (isEnemy)
         {
             GetComponent<Rigidbody2D>().velocity *= fallingSpeedMultiplier;         //the enemy slows down after falling off.
-            if (gameObject.CompareTag("Jumper"))
+            if (gameObject.tag.Contains("Enemy2"))
             {
                 GetComponent<MoveJumper>().enabled = false;   //the enemy cant move mid air.
                 GetComponentInChildren<CircleCollider2D>().enabled = false;
@@ -123,7 +125,7 @@ public class PuppetManip : MonoBehaviour
 
     void OnTriggerEnter2D( Collider2D other )
     {
-        if ( other.gameObject.CompareTag( "Hole" )  && !gameObject.CompareTag("Jumper")) {
+        if ( other.gameObject.CompareTag( "Hole" )  && !gameObject.tag.Contains("Enemy2")) {
             kill("fall");
         }
     	else if (other.gameObject.CompareTag("Bullet") && isEnemy){
@@ -152,5 +154,14 @@ public class PuppetManip : MonoBehaviour
       }
     }
 
+    public void setIndex(int i)
+    {
+      index = i;
+    }
+
+    public int getIndex()
+    {
+      return index;
+    }
 
 }

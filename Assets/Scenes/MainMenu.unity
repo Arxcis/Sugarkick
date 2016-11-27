@@ -941,7 +941,7 @@ GameObject:
   - 114: {fileID: 462579065}
   m_Layer: 5
   m_Name: MainCanvas
-  m_TagString: Untagged
+  m_TagString: 'Enemies / Enemy1 '
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2915,6 +2915,16 @@ Prefab:
       propertyPath: m_FontData.m_FontSize
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014204728560, guid: 1b692ad9e25287945b2fcc5be4716db8,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1778803918}
+    - target: {fileID: 114000014204728560, guid: 1b692ad9e25287945b2fcc5be4716db8,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: quitGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b692ad9e25287945b2fcc5be4716db8, type: 2}
   m_IsPrefabParent: 0
@@ -3089,7 +3099,7 @@ GameObject:
   - 114: {fileID: 2051126686}
   m_Layer: 5
   m_Name: SelectionCanvas
-  m_TagString: Untagged
+  m_TagString: 'Enemies / Enemy1 '
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

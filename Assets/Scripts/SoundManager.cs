@@ -46,7 +46,8 @@ public class SoundManager : MonoBehaviour {
         effectsAud.loop = false;
         effectsAud.clip = poof;     //gets the soundclip from perameter
         effectsAud.volume = effectsVol;
-        effectsAud.Play();
+        effectsAud.PlayOneShot(poof);
+        //effectsAud.Play();
     }
 
 }
