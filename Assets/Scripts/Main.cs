@@ -96,6 +96,9 @@ public class Main : MonoBehaviour {
     }
 
 
+
+
+
     public static void toggleMouseAiming()         //useed by toggle ui element in pause menu.
     {
         print("Switched mouse-aiming from: " + mouseOn + " to: " + !mouseOn);

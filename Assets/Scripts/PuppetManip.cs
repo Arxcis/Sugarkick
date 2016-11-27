@@ -45,7 +45,7 @@ public class PuppetManip : MonoBehaviour
     public void respawn( )
     {
         if (isEnemy) Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
-        if (life <= 0)
+        else if (life <= 0)
             { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
@@ -53,7 +53,9 @@ public class PuppetManip : MonoBehaviour
             Main.Player<Animator>(0).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
             Main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
-            Main.Player<GunScript>(0, "Gun").enabled = true;
+            Main.Player<GunScript>(0, "Rifle").enabled = true;      //re-enables all the guns.
+            Main.Player<GunScript>(0, "Canon").enabled = true;
+            Main.Player<GunScript>(0, "Spraygun").enabled = true;
             Main.Player<BoxCollider2D>(0).enabled = true;
         }
     }
@@ -97,7 +99,9 @@ public class PuppetManip : MonoBehaviour
             life--;
             Main.Player<Rigidbody2D>(0).velocity *= fallingSpeedMultiplier;
             Main.Player<MovePlayer>(0).enabled = false;                    //player cannot move while fallling.
-            Main.Player<GunScript>(0, "Gun").enabled = false;                     //Player cant shoot while falling off.
+            Main.Player<GunScript>(0, "Rifle").enabled = false;                     //Player cant shoot while falling off.
+            Main.Player<GunScript>(0, "Canon").enabled = false;
+            Main.Player<GunScript>(0, "Spraygun").enabled = false;
             Main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
 
             if (deathBy == "fall")
