@@ -123,7 +123,7 @@ public class PuppetManip : MonoBehaviour
 
     void OnTriggerEnter2D( Collider2D other )
     {
-        if ( other.gameObject.CompareTag( "Hole" )  && !gameObject.CompareTag("Jumper")) {
+        if ( other.gameObject.CompareTag( "Hole" )  && !gameObject.tag.Contains("Enemy2")) {
             kill("fall");
         }
     	else if (other.gameObject.CompareTag("Bullet") && isEnemy){
