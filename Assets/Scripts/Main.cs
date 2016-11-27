@@ -35,8 +35,11 @@ public class Main : MonoBehaviour {
 
         if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
+        int i=0;
         foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
+            playerObject.GetComponent<PuppetManip>().setIndex(i);
             players.Add(playerObject);                   // Finds all GameObjects tagged 'player' in given scene
+            i++;
         };
 
         scoreText = GameObject.Find("Score").GetComponent<Text>();

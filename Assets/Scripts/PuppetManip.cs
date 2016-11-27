@@ -22,6 +22,8 @@ public class PuppetManip : MonoBehaviour
     int frmPlayedSgrKck = 0;
     bool hasSugarkick = false;
 
+    int index;                        // objects position in the global list
+
     void Start()
     {
 
@@ -152,5 +154,14 @@ public class PuppetManip : MonoBehaviour
       }
     }
 
+    public void setIndex(int i)
+    {
+      index = i;
+    }
+
+    public int getIndex()
+    {
+      return index;
+    }
 
 }
