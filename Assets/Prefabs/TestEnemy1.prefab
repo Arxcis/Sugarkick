@@ -106,6 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   enemyRuteCalcRate: 10
+  checkForNewTargetRate: 150
+  retargetCD: 400
   personalSpaceBro: 2.5
   friction: 1.25
 --- !u!114 &114000013223314096
@@ -120,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
+  chanceOfEnemyHurtSound: 5
   isSpawnerChild: 0
   life: 1
   hP: 3
@@ -130,7 +133,13 @@ MonoBehaviour:
   framesToPlaySugarAnim: 30
   sugarTimeSlow: 0.5
   sugarSpeedChange: 1.5
+  guns: []
   friction: 1.4
+  respawnSound: {fileID: 0}
+  spawnSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: a96fc8f5681cbbd4a8ad7ee0c077d0cb, type: 3}
+  fallSound: {fileID: 0}
   invFrm: 0
 --- !u!212 &212000012301901132
 SpriteRenderer:

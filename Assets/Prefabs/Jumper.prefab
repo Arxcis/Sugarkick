@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
+  chanceOfEnemyHurtSound: 5
   isSpawnerChild: 0
   life: 1
   hP: 2
@@ -162,6 +163,11 @@ MonoBehaviour:
   sugarSpeedChange: 1.5
   guns: []
   friction: 30
+  respawnSound: {fileID: 0}
+  spawnSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: a96fc8f5681cbbd4a8ad7ee0c077d0cb, type: 3}
+  fallSound: {fileID: 0}
   invFrm: 0
 --- !u!114 &114000011354798556
 MonoBehaviour:

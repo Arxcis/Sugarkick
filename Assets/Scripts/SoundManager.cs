@@ -43,11 +43,8 @@ public class SoundManager : MonoBehaviour {
 
     public void bamPow(AudioClip poof)                  // playa sound with the effects aud source. 
     {
-        effectsAud.loop = false;
-        effectsAud.clip = poof;     //gets the soundclip from perameter
-        effectsAud.volume = effectsVol;
-        effectsAud.PlayOneShot(poof);
-        //effectsAud.Play();
+        effectsAud.volume = effectsVol;                 // sets the volume.
+        effectsAud.PlayOneShot(poof);                   // playes the sound.
     }
 
 }

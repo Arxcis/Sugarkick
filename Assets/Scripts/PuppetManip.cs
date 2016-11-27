@@ -4,6 +4,7 @@ using System.Collections;
 public class PuppetManip : MonoBehaviour
 {
     public bool     isEnemy = false;
+    public int      chanceOfEnemyHurtSound = 3;             //randoom number form 0 to this, if 0? Play hurt sound on hit.
     public bool     isSpawnerChild = false;
     public int      life = 3;                               // amount of respawns
     public int      hP   = 3;                               // amount of hits taken per respwan
@@ -71,7 +72,12 @@ public class PuppetManip : MonoBehaviour
             invFrm = invincibilityFrames;
             SoundManager.instance.bamPow(hurtSound);                    // plays hurt sound.
             Main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
+        }
 
+        if (isEnemy)
+        {
+            if (Random.Range(0, chanceOfEnemyHurtSound) == 0) SoundManager.instance.bamPow(hurtSound);
+            //enemyHurtAnimation goes here.
         }
     }
 
@@ -107,7 +113,7 @@ public class PuppetManip : MonoBehaviour
             if (deathBy == "fall")
             {
                 SoundManager.instance.bamPow(fallSound);
-                Main.Player<Animator>(0).Play("PlayerFallDown"); //Main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
+                Main.Player<Animator>(0).Play("PlayerFallDown");                 //Animation runs respawn()
             }
 
             if (deathBy == "enemy")
