@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="EDITED Våpen 1_data" version="1.3.0" audacityversion="2.1.2" sel0="0.2240542067" sel1="0.2240542067" vpos="0" h="0.0000000000" zoom="187.4546370968" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="Logic Pro X 10.2.4"/>
+		<tag name="COMMENTS" value=" 00000000 00000210 00000AE0 000000000002B110 00000000 00012E0A 00000000 00000000 00000000 00000000 00000000 00000000"/>
+	</tags>
+	<wavetrack name="Våpen 1" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="9881">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000675.au" len="9881" min="-0.839129" max="0.743047" rms="0.114079"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Våpen 1" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="9881">
+				<waveblock start="0">
+					<simpleblockfile filename="e000021a.au" len="9881" min="-0.839129" max="0.743047" rms="0.114079"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
