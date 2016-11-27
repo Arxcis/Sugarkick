@@ -73,7 +73,7 @@ GameObject:
   - 212: {fileID: 212000011255691660}
   - 114: {fileID: 114000011259190198}
   m_Layer: 0
-  m_Name: Gun2
+  m_Name: TelephoneGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ GameObject:
   - 212: {fileID: 212000012883254388}
   - 114: {fileID: 114000011530458772}
   m_Layer: 0
-  m_Name: Gun3
+  m_Name: Spraygun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ GameObject:
   - 212: {fileID: 212000010975421016}
   - 114: {fileID: 114000010197539940}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: RifleGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ GameObject:
   - 212: {fileID: 212000010064928332}
   - 114: {fileID: 114000012507982904}
   m_Layer: 0
-  m_Name: Gun1
+  m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,15 +211,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011223011370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8445408, y: -2.820469, z: -0.2}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011030060900}
   - {fileID: 4000010923997490}
   - {fileID: 4000012582493016}
-  - {fileID: 4000013872323428}
   - {fileID: 4000012234209864}
+  - {fileID: 4000013872323428}
   - {fileID: 4000013234539622}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -302,7 +302,7 @@ Transform:
   m_Children:
   - {fileID: 4000010434460410}
   m_Father: {fileID: 4000010571143630}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &4000012582493016
 Transform:
   m_ObjectHideFlags: 1
@@ -343,7 +343,7 @@ Transform:
   m_Children:
   - {fileID: 4000011810942574}
   m_Father: {fileID: 4000010571143630}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!50 &50000010681827026
 Rigidbody2D:
   serializedVersion: 2
@@ -403,16 +403,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunSound: {fileID: 8300000, guid: 7cdab9b42a3b8df42bec5320530a8b05, type: 3}
+  GunSound: {fileID: 8300000, guid: 53879d07aa2815f4c9bdfd6070a4061c, type: 3}
   setPos: 0
   addForce: 1
   setVelocity: 1
-  truePiercing: 1
-  pierceNumber: 0
+  truePiercing: 0
+  pierceNumber: 2
   weaponDamage: 1
-  accuracy: 80
-  fireRate: 300
-  knockbackPow: 500
+  accuracy: 13
+  fireRate: 230
+  knockbackPow: 560
   projectileSpeed: 10
   bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000010173922102}
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunSound: {fileID: 8300000, guid: 3c4ad3b55847f1740b6f9b508b465499, type: 3}
+  GunSound: {fileID: 8300000, guid: e5f9c520367b9bd45b34244345a971e5, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
@@ -482,17 +482,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunSound: {fileID: 8300000, guid: 158ba84c25931f54691dc8f99a184c78, type: 3}
+  GunSound: {fileID: 8300000, guid: 3ef63d8e78a5f5147af51738a95f9611, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
   truePiercing: 0
   pierceNumber: 0
   weaponDamage: 1
-  accuracy: 100
-  fireRate: 70
-  knockbackPow: 300
-  projectileSpeed: 5
+  accuracy: 2.6
+  fireRate: 400
+  knockbackPow: 200
+  projectileSpeed: 16
   bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000012917014478}
   bulletParent: {fileID: 0}
@@ -507,17 +507,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunSound: {fileID: 8300000, guid: aa67ce6fdbf758a4dbea9f839b4fffcd, type: 3}
+  GunSound: {fileID: 8300000, guid: 9deddbb3cef2e1047a98bbaad3200d65, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
   truePiercing: 0
   pierceNumber: 0
-  weaponDamage: 1
+  weaponDamage: 3
   accuracy: 100
-  fireRate: 50
-  knockbackPow: 500
-  projectileSpeed: 6
+  fireRate: 40
+  knockbackPow: 1200
+  projectileSpeed: 7
   bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000012510779360}
   bulletParent: {fileID: 0}

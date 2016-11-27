@@ -46,7 +46,7 @@ public class CameraScript : MonoBehaviour
       cam      = GetComponent<Camera>();                    // To manipulate camsize
 
       foreach( GameObject player in Main.Players() ) {             // Getting all players transforms
-			     playerTransforms.Add(player.transform);
+			     playerTransforms.Add(player.transform);//this line generates a crash when restarting the level
       }
 	  camTrans.position = new Vector3 (0,0,-1);           // Make sure that cam is above the map
 	}
