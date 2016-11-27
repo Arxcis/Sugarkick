@@ -17,6 +17,12 @@ public class PuppetManip : MonoBehaviour
     public GameObject[] guns;
     public float friction = 1.4f;
 
+    public AudioClip respawnSound;      //only for player.
+    public AudioClip spawnSound;        //for player and enemies.
+    public AudioClip deathSound;        //player and enemies.
+    public AudioClip hurtSound;         // player and enemies.
+    public AudioClip fallSound;         // player and enemies.
+
     int currentHp; //= hp (in start)
     public int invFrm = 0;
     int frmPlayedSgrKck = 0;
@@ -60,6 +66,7 @@ public class PuppetManip : MonoBehaviour
         else if(!isEnemy && invFrm == 0)
         {
             invFrm = invincibilityFrames;
+            SoundManager.instance.bamPow(hurtSound);                    // plays hurt sound.
             Main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
 
         }
@@ -93,7 +100,12 @@ public class PuppetManip : MonoBehaviour
             Main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
 
             if (deathBy == "fall") Main.Player<Animator>(0).Play("PlayerFallDown"); //Main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
-            if (deathBy == "enemy") respawn();//insert other death animation instead
+
+            if (deathBy == "enemy")
+            {
+                SoundManager.instance.bamPow(deathSound);
+                respawn();//insert other death animation instead
+            }
         }
     }
 

@@ -73,7 +73,7 @@ GameObject:
   - 212: {fileID: 212000011255691660}
   - 114: {fileID: 114000011259190198}
   m_Layer: 0
-  m_Name: TelephoneGun
+  m_Name: Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ GameObject:
   - 212: {fileID: 212000012883254388}
   - 114: {fileID: 114000011530458772}
   m_Layer: 0
-  m_Name: Spraygun
+  m_Name: Gun3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ GameObject:
   - 212: {fileID: 212000010975421016}
   - 114: {fileID: 114000010197539940}
   m_Layer: 0
-  m_Name: RifleGun
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ GameObject:
   - 212: {fileID: 212000010064928332}
   - 114: {fileID: 114000012507982904}
   m_Layer: 0
-  m_Name: Canon
+  m_Name: Gun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,6 +445,11 @@ MonoBehaviour:
   - {fileID: 1000011474848404}
   - {fileID: 1000012743475460}
   friction: 1.8
+  respawnSound: {fileID: 8300000, guid: 5fde680c9e8c303418b1eeb4fee1e338, type: 3}
+  spawnSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 5f551e707a1bb6047a6a626635d30601, type: 3}
+  hurtSound: {fileID: 8300000, guid: e5f9c520367b9bd45b34244345a971e5, type: 3}
+  fallSound: {fileID: 0}
   invFrm: 0
 --- !u!114 &114000011259190198
 MonoBehaviour:
@@ -457,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunSound: {fileID: 8300000, guid: e5f9c520367b9bd45b34244345a971e5, type: 3}
+  GunSound: {fileID: 8300000, guid: f227a7581bc2ee948aead62cb57f4aba, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
@@ -559,8 +564,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1282523699
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 78e9bd22112178a4483576a3329b9599, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -625,8 +630,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1282523699
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 78e9bd22112178a4483576a3329b9599, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -658,8 +663,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1282523699
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 78e9bd22112178a4483576a3329b9599, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

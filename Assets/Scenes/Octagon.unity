@@ -1772,57 +1772,6 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 1628005642}
-    - target: {fileID: 212000010064928332, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011255691660, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012883254388, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011255691660, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1282523699
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012883254388, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1282523699
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000010064928332, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1282523699
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013101326150, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
-      propertyPath: m_Name
-      value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013687778176, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
-      propertyPath: m_Name
-      value: Gun1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011474848404, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
-      propertyPath: m_Name
-      value: Gun2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012743475460, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
-      propertyPath: m_Name
-      value: Gun3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011259190198, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: GunSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f227a7581bc2ee948aead62cb57f4aba, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
   m_IsPrefabParent: 0
