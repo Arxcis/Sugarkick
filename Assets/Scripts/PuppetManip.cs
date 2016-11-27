@@ -32,7 +32,6 @@ public class PuppetManip : MonoBehaviour
 
     void Start()
     {
-
         currentHp = hP;
     }
 
@@ -149,25 +148,7 @@ public class PuppetManip : MonoBehaviour
 		          other.GetComponent<ProjectileInfo> ().pierceNumber--;
 		          damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
-      else if (!isEnemy && other.gameObject.CompareTag("Pickup / gun")) {
-        for (int i=0; i< guns.Length; ++i) {
-            guns[i].SetActive(false);
-          }
-          switch(other.gameObject.name){
-            case "GunDrop1":
-              guns[1].SetActive(true);
-            break;
-            case "GunDrop2":
-              guns[2].SetActive(true);
-            break;
-            case "GunDrop3":
-              guns[3].SetActive(true);
-            break;
-          }
-			Destroy (other.gameObject);
-        //GameObject.Find(other.gameObject.name).SetActive(true);
-        //GameObject.GetChild("Gun").gameObject.setActive(false);
-      }
+
     }
 
     public void setIndex(int i)

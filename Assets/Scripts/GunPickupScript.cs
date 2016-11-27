@@ -1,41 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GunPickupScript : MonoBehaviour {
+public class GunPickupScript : MonoBehaviour
+{
+    public int rotationSpeed = 3;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-		transform.Rotate(new Vector3(0,0,45)*Time.deltaTime);
-	}
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        transform.Rotate(0, 0, rotationSpeed);
+    }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-       if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            for (int i = 0; i < Main.Player<PuppetManip>(0).guns.Length; ++i)
+
+            PuppetManip mnIp = other.GetComponent<PuppetManip>();         //gets the collided players puppit manip.
+
+
+            for (int i = 0; i < mnIp.guns.Length; ++i)
             {
-                guns[i].SetActive(false);
+                    mnIp.guns[i].SetActive(false);                        //sets all the guns in guns[] to inactive.
             }
-            switch (other.gameObject.name)
-            {
-                case "GunDrop1":
-                    guns[1].SetActive(true);
-                    break;
-                case "GunDrop2":
-                    guns[2].SetActive(true);
-                    break;
-                case "GunDrop3":
-                    guns[3].SetActive(true);
-                    break;
-            }
-            Destroy(other.gameObject);
-            //GameObject.Find(other.gameObject.name).SetActive(true);
-            //GameObject.GetChild("Gun").gameObject.setActive(false);
+            if      (gameObject.tag.Contains("Rifle")) mnIp.guns[0].SetActive(true);     //Rifle
+            else if (gameObject.tag.Contains("Canon")) mnIp.guns[1].SetActive(true);     //Canon
+            else if (gameObject.tag.Contains("Spraygun")) mnIp.guns[2].SetActive(true);     //Spraygun
+
+            Destroy(gameObject);
         }
     }
+}
