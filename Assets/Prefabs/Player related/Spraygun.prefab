@@ -92,6 +92,7 @@ MonoBehaviour:
   fireRate: 400
   knockbackPow: 200
   projectileSpeed: 16
+  bulletLifeTime: 100
   bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000014150152720}
   bulletParent: {fileID: 1000011917731378, guid: 999852eb7e1a749b9a776ca54081856e,

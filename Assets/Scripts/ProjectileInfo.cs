@@ -7,4 +7,13 @@ public class ProjectileInfo : MonoBehaviour {
 	public int damage;
 	public float projectileSpeed;
 	public int pierceNumber;
+    public int bulletLifeTime;
+
+
+    void FixedUpdate()
+    {
+        if (bulletLifeTime <= 0) Destroy(gameObject);   // destroys bullet if it runns out of frames to live.
+
+        bulletLifeTime--;                   // reduces the amount of frames the bullet has left to live.    
+    }
 }

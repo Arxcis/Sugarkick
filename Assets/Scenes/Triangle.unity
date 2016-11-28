@@ -140,6 +140,11 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 787226177}
+    - target: {fileID: 114000010265421010, guid: 31486c71ebf318f4d8cd321c682153ff,
+        type: 2}
+      propertyPath: bulletLifeTime
+      value: 65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31486c71ebf318f4d8cd321c682153ff, type: 2}
   m_IsPrefabParent: 0
@@ -1297,6 +1302,11 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 787226177}
+    - target: {fileID: 114000012329061802, guid: e9543631db2d6d94f8f08c79c4d7a62f,
+        type: 2}
+      propertyPath: bulletLifeTime
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9543631db2d6d94f8f08c79c4d7a62f, type: 2}
   m_IsPrefabParent: 0
@@ -1344,6 +1354,11 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 787226177}
+    - target: {fileID: 114000012265049568, guid: 797f74958d94e3a4d9e23c06a06962b0,
+        type: 2}
+      propertyPath: bulletLifeTime
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 797f74958d94e3a4d9e23c06a06962b0, type: 2}
   m_IsPrefabParent: 0
