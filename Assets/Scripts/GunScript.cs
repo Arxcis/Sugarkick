@@ -27,7 +27,7 @@ public class GunScript : MonoBehaviour
 
     public GameObject bulletSeed;
     public GameObject barrelEnd;
-	public GameObject bulletParent;
+	  public GameObject bulletParent;
 
     // Private:
     Transform gunTrans;
@@ -98,7 +98,7 @@ public class GunScript : MonoBehaviour
         float soundPitch = Random.Range(-0.1f, 0.1f);         // the pitch deviation needs to be on a seperate line due to how the compiler deals with functions.
         SoundManager.instance.bangBang(GunSound, soundPitch); // plays designated gun sound
 
-		float i = Random.Range (-50, 50);  // random float to make the spray deviate a bit. 
+		float i = Random.Range (-50, 50);  // random float to make the spray deviate a bit.
 		recoilVec = Main.GetUnitVector2( (gunAngle+90+ (i/50)*(100/accuracy)) * Mathf.Deg2Rad )*-1; // (i/50) is a float between -1 and 1 - for a random distribution
 													    // between the extremals.
 													    // (100/accuracy) determines the extremals for the firing diviation.
@@ -114,7 +114,7 @@ public class GunScript : MonoBehaviour
 		pInfo.pierceNumber = pierceNumber;
         pInfo.bulletLifeTime = bulletLifeTime;
         pInfo.bulletSize = bulletSize;
-        
+
 	}
 
   void mouseAimUpdate()
