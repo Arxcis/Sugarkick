@@ -203,7 +203,7 @@ public class PuppetManip : MonoBehaviour
       return index;
     }
 
-    public Component getActiveGunScript()
+    public GunScript GetActiveGunScript()
     {
       foreach(GameObject gun in guns)
       {
@@ -211,6 +211,6 @@ public class PuppetManip : MonoBehaviour
           return gun.GetComponent<GunScript>();
         }
       }
-      return guns[0].GetComponent<GunScript>();
+      return null;
     }
 }
