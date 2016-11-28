@@ -22,7 +22,7 @@ Ricardo Montana      <br />
 
 &nbsp;
 
-<a name="content1"></a>
+<a id="content1"></a>
 ## Changelog - Iterations
 
 
@@ -95,7 +95,7 @@ Ricardo Montana      <br />
 &nbsp;
 
 
-<a name="content2"></a>
+<a id="content2"></a>
 ## Discussion
 
 __Progress as a function of time__
@@ -127,7 +127,7 @@ __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klar
 
 
 
-<a name="content3"></a>
+<a id="content3"></a>
 ## Homegrown assets
 
 #### Unity Prefabs
@@ -164,6 +164,7 @@ __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klar
 #### Sounds
 
 - Background music     = klar
+
 - Meny music           = klar
 - Weapon 1 sound       = klar
 - Weapon 1 smash sound = klar
@@ -186,7 +187,7 @@ __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klar
 &nbsp;
 &nbsp;
 
-<a name="content4"></a>
+<a id="content4"></a>
 ## Git reference
 
 The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
@@ -258,7 +259,7 @@ __Patching__
 &nbsp;
 &nbsp;
 
-<a name="content5"></a>
+<a id="content5"></a>
 ## Unity reference
 
 References to Unity's standard library assets that are used in this project
