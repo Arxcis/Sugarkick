@@ -203,14 +203,14 @@ public class PuppetManip : MonoBehaviour
       return index;
     }
 
-    public GameObject getActiveGun()
+    public Component getActiveGunScript()
     {
       foreach(GameObject gun in guns)
       {
         if (gun.GetComponent<GunScript>().enabled) {
-          return gun;
+          return gun.GetComponent<GunScript>();
         }
       }
+      return guns[0].GetComponent<GunScript>();
     }
-
 }
