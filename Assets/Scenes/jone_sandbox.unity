@@ -135,6 +135,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010351648862, guid: 97015f9773484104180afa6ce6777d68, type: 2}
+      propertyPath: m_TagString
+      value: Weapons / Rifle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97015f9773484104180afa6ce6777d68, type: 2}
   m_IsPrefabParent: 0
@@ -307,6 +311,10 @@ Prefab:
     - target: {fileID: 4000014116228098, guid: c1d8e5c018c275040b408cfe7e6dfbb3, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012924108258, guid: c1d8e5c018c275040b408cfe7e6dfbb3, type: 2}
+      propertyPath: m_TagString
+      value: Weapons / Canon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1d8e5c018c275040b408cfe7e6dfbb3, type: 2}
@@ -1394,6 +1402,10 @@ Prefab:
     - target: {fileID: 4000013732862672, guid: 9967df37b590e184cab5511b566e361a, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013238731266, guid: 9967df37b590e184cab5511b566e361a, type: 2}
+      propertyPath: m_TagString
+      value: Weapons / Spraygun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9967df37b590e184cab5511b566e361a, type: 2}

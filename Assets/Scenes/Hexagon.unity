@@ -1812,6 +1812,21 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: volumeChange
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013711488018, guid: 7b0bd084e17b0ae40862824333599442,
+        type: 2}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013711488018, guid: 7b0bd084e17b0ae40862824333599442,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1275098473}
+    - target: {fileID: 114000013711488018, guid: 7b0bd084e17b0ae40862824333599442,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggleAiming
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0bd084e17b0ae40862824333599442, type: 2}
   m_IsPrefabParent: 0

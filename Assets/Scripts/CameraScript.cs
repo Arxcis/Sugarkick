@@ -38,7 +38,7 @@ public class CameraScript : MonoBehaviour
   List<Transform> playerTransforms = new List<Transform>();
   Vector2         centerOfMass     = Vector2.zero;             // Formula @ http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html
 	Vector2         camDirection     = Vector2.zero;
-
+     
 	void Start ()
     {
       camTrans = gameObject.GetComponent<Transform>();      // Camera transform
