@@ -53,10 +53,13 @@ public class GunScript : MonoBehaviour
     {
 
       if( Main.mouseOn ) {
-        mouseAimUpdate();           // Update aim with mouse
+
+        mouseAimUpdate( Input.mousePosition );           // Update aim with mouse
       }                             //     or
       else {                        //
-        keyAimUpdate();             // Update aim with keys
+        inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not
+        inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
+        keyAimUpdate( inputVec );             // Update aim with keys
       }
 
       if (cooldown > 0) {
@@ -117,25 +120,21 @@ public class GunScript : MonoBehaviour
 
 	}
 
-  void mouseAimUpdate()
+  void mouseAimUpdate( Vector3 mouseVec )
   {
-    mousePos = camscript.ScreenToWorldPoint(Input.mousePosition); // Returns Vector
-                                         // Create Vector2 from the difference in position between mouse and player
+    mousePos = camscript.ScreenToWorldPoint(mouseVec); // Returns Vector
+                                               // Create Vector2 from the difference in position between mouse and player
     facingMouseVector = new Vector2(mousePos.x - Main.Player<Transform>(0).position.x,
                                     mousePos.y - Main.Player<Transform>(0).position.y);
     gunAngle = Main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
   }
 
-  void keyAimUpdate()
+  void keyAimUpdate( Vector2 inVec )
   {
-    inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not
-    inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
-    fire = Input.GetAxisRaw ("Fire");           // https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
+    if (inVec.x != 0 || inVec.y != 0){
 
-    if (inputVec.x != 0 || inputVec.y != 0){
-
-        gunAngle = Main.GetAngle( Vector2.up, inputVec );
+        gunAngle = Main.GetAngle( Vector2.up, inVec );
         gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
     }
   }
