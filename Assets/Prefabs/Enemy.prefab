@@ -26,7 +26,7 @@ GameObject:
   - 50: {fileID: 50000010160299306}
   - 114: {fileID: 114000013223314096}
   m_Layer: 0
-  m_Name: TestEnemy1
+  m_Name: Enemy
   m_TagString: 'Enemies / Enemy1 '
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013736368644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: -0.5, z: -0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -125,7 +125,7 @@ MonoBehaviour:
   chanceOfEnemyHurtSound: 5
   isSpawnerChild: 0
   life: 1
-  hP: 3
+  hP: 30
   invincibilityFrames: 0
   movementSpeed: 1
   fallingSpeedMultiplier: 0.3
@@ -137,7 +137,7 @@ MonoBehaviour:
   guns: []
   friction: 1.4
   respawnSound: {fileID: 0}
-  spawnSound: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: 4f42805fd8f45304487086cf49f049ac, type: 3}
   deathSound: {fileID: 8300000, guid: 656f8375be401dd4f907b9ccda69408a, type: 3}
   hurtSound: {fileID: 8300000, guid: a96fc8f5681cbbd4a8ad7ee0c077d0cb, type: 3}
   fallSound: {fileID: 8300000, guid: 87106e979c630e34a8a28d40d7e7371c, type: 3}
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a701e8594361e724da5ede6d16d959fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57fde1ccc27377f40a772110169a389d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

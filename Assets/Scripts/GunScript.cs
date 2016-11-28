@@ -22,6 +22,8 @@ public class GunScript : MonoBehaviour
     public float fireRate        =  50.0F;
     public float knockbackPow    = 300.0F;
     public float projectileSpeed = 10.0F;
+    public int bulletLifeTime = 1000;
+    public float bulletSize = 1f;
 
     public GameObject bulletSeed;
     public GameObject barrelEnd;
@@ -110,6 +112,9 @@ public class GunScript : MonoBehaviour
 		pInfo.projectileSpeed = projectileSpeed;
 		pInfo.truePiercing = truePiercing;
 		pInfo.pierceNumber = pierceNumber;
+        pInfo.bulletLifeTime = bulletLifeTime;
+        pInfo.bulletSize = bulletSize;
+        
 	}
 
   void mouseAimUpdate()

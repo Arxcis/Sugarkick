@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour {
 
     public float musicVol = 0.3f;               //default vol values.
     public float effectsVol = 0.4f;
+    public float effectsPitchDeviation = 0.08f;
+    float randomPitch = 0;
 
     void Awake()    //ran before the Start()
     {
@@ -23,7 +25,12 @@ public class SoundManager : MonoBehaviour {
         else if (instance != null) Destroy(gameObject);
         musicAud.volume = musicVol;
         effectsAud.volume = effectsVol;
-    } 
+    }
+    
+    void FixedUpdate()
+    {
+        randomPitch = 1f + Random.Range(-effectsPitchDeviation, effectsPitchDeviation); //generates the random pitch.
+    }
 
     public void volumeChange()                  //when volume is changed with sliders, update the values.
     {
@@ -46,6 +53,7 @@ public class SoundManager : MonoBehaviour {
     {
         effectsAud.pitch = 1f;                     
         effectsAud.volume = effectsVol;                 // sets the volume.
+        effectsAud.pitch = randomPitch;
         effectsAud.PlayOneShot(poof);                   // playes the sound.
     }
 
