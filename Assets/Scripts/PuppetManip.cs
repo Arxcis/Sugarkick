@@ -34,6 +34,7 @@ public class PuppetManip : MonoBehaviour
 
     void Start()
     {
+        SoundManager.instance.bamPow(spawnSound);       //PLayes the spawn sound. (both enemy and player).
         currentHp = hP;
     }
 
@@ -54,6 +55,7 @@ public class PuppetManip : MonoBehaviour
         { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
+            SoundManager.instance.bamPow(respawnSound);
             currentHp = hP;                                     // refills hp after respawn
             invFrm = 2 * invincibilityFrames;
             Main.Player<Animator>(0).Play("PlayerIdle");
