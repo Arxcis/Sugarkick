@@ -15,6 +15,7 @@ public class PuppetManip : MonoBehaviour
     public int      framesToPlaySugarAnim = 30;
     public float    sugarTimeSlow = 0.5f; //time scales to this * time
     public float    sugarSpeedChange = 1.5f; //movementSpeed scales to this * movementSpeed
+    public GameObject weaponDrop;
     public GameObject[] guns;
     public float friction = 1.4f;
 
@@ -45,9 +46,13 @@ public class PuppetManip : MonoBehaviour
 
     public void respawn( )
     {
-        if (isEnemy) Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
+        if (isEnemy)
+        {
+            //Instantiate(weaponDrop, transform);
+            Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
+        }
         else if (life <= 0)
-            { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
+        { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
             currentHp = hP;                                     // refills hp after respawn

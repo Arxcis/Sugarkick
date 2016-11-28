@@ -133,6 +133,7 @@ MonoBehaviour:
   framesToPlaySugarAnim: 30
   sugarTimeSlow: 0.5
   sugarSpeedChange: 1.5
+  weaponDrop: {fileID: 1000012924108258, guid: c1d8e5c018c275040b408cfe7e6dfbb3, type: 2}
   guns: []
   friction: 1.4
   respawnSound: {fileID: 0}

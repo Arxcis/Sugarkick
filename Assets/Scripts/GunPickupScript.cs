@@ -11,13 +11,27 @@ using System.Collections;
 ######################################################################################################
 ######################################################################################################
 
+    Acually, scratch that, letss use an int number INTstead XD.
 */
 
 public class GunPickupScript : MonoBehaviour
 {
     public int rotationSpeed = 3;
+    public int weaponIndex = 0;         // 0 = not set, choose a random    //1 = rifle,    2 = canon,      3 = spraygun
+    public Color[] dropColor;
+    public Sprite[] dropSprite;
 
-    // Update is called once per frame
+    SpriteRenderer dropRend;
+    
+    void Start()
+    {
+        if (dropColor.Length < 3 || dropSprite.Length < 3) print("ERROR: The sprite or color array of this drop is not big enough"); //just in case.s
+        if (weaponIndex == 0) weaponIndex = Random.Range(1, 3+1); // sets the weapon index to a random index from 1 to 3. Max is exclusive.
+        dropRend = GetComponent<SpriteRenderer>();      //gets th spriterenderer in the drop.
+        dropRend.sprite = dropSprite[weaponIndex-1];      //sets te rend's sprite.
+        dropRend.color = dropColor[weaponIndex-1];        //sets the rend's color.
+    }
+
     void FixedUpdate()
     {
         transform.Rotate(0, 0, rotationSpeed);
@@ -26,20 +40,15 @@ public class GunPickupScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))              // if collided with a player.
+        if (other.gameObject.CompareTag("Player"))                          // if collided with a player.
         {
 
-            PuppetManip mnIp = other.GetComponent<PuppetManip>();                        //gets the collided players puppit manip.
-
-
+            PuppetManip mnIp = other.GetComponent<PuppetManip>();               //gets the collided players puppit manip.
             for (int i = 0; i < mnIp.guns.Length; ++i)
             {
-                    mnIp.guns[i].SetActive(false);                                      //sets all the guns in guns[] to inactive.
+                    mnIp.guns[i].SetActive(false);                              //sets all the guns in guns[] to inactive.
             }
-            if      (gameObject.tag.Contains("Rifle")) mnIp.guns[0].SetActive(true);        //Rifle
-            else if (gameObject.tag.Contains("Canon")) mnIp.guns[1].SetActive(true);        //Canon
-            else if (gameObject.tag.Contains("Spraygun")) mnIp.guns[2].SetActive(true);     //Spraygun
-
+            mnIp.guns[weaponIndex -1].SetActive(true);                             //sets weaponindex as active weapon.
             Destroy(gameObject);
         }
     }
