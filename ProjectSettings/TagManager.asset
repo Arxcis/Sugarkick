@@ -15,6 +15,9 @@ TagManager:
   - JumperCheckRadius
   - Head
   - Gun
+  - Weapons / Rifle
+  - Weapons / Canon
+  - Weapons / Spraygun
   layers:
   - Default
   - TransparentFX

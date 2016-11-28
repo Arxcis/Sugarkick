@@ -133,7 +133,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010736050004, guid: 97015f9773484104180afa6ce6777d68, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010351648862, guid: 97015f9773484104180afa6ce6777d68, type: 2}
+      propertyPath: m_TagString
+      value: Weapons / Rifle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97015f9773484104180afa6ce6777d68, type: 2}
@@ -183,6 +187,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: bulletParent
+      value: 
+      objectReference: {fileID: 491257620}
     - target: {fileID: 114000011259190198, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: bulletParent
@@ -194,11 +203,6 @@ Prefab:
       value: 
       objectReference: {fileID: 491257620}
     - target: {fileID: 114000012507982904, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
-        type: 2}
-      propertyPath: bulletParent
-      value: 
-      objectReference: {fileID: 491257620}
-    - target: {fileID: 114000010197539940, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
         type: 2}
       propertyPath: bulletParent
       value: 
@@ -308,6 +312,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012924108258, guid: c1d8e5c018c275040b408cfe7e6dfbb3, type: 2}
+      propertyPath: m_TagString
+      value: Weapons / Canon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1d8e5c018c275040b408cfe7e6dfbb3, type: 2}
   m_IsPrefabParent: 0
@@ -335,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 231202771}
   m_LocalRotation: {x: -0, y: -0, z: -0.15082955, w: 0.98855984}
   m_LocalPosition: {x: 0, y: 0, z: 6.1739197}
-  m_LocalScale: {x: 1.5000002, y: 1.5000002, z: 0.41159466}
+  m_LocalScale: {x: 2.1852312, y: 2.185232, z: 0.59961975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.35}
   m_Children: []
   m_Father: {fileID: 541466798}
@@ -407,7 +415,7 @@ Transform:
   m_GameObject: {fileID: 284120587}
   m_LocalRotation: {x: -0, y: -0, z: 0.099319756, w: 0.9950556}
   m_LocalPosition: {x: 0, y: 0, z: 8.66}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.41159466}
+  m_LocalScale: {x: 2.1852307, y: 2.1852314, z: 0.59961975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.4}
   m_Children: []
   m_Father: {fileID: 541466798}
@@ -504,6 +512,21 @@ Prefab:
       propertyPath: effectsAud
       value: 
       objectReference: {fileID: 236292541}
+    - target: {fileID: 82000010502746034, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: edf87f424eb0e904a9b745cebe516d30, type: 3}
+    - target: {fileID: 82000010502746034, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012314653920, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b6c8a809b479746a6ae19eceaa9198, type: 2}
   m_IsPrefabParent: 0
@@ -906,6 +929,18 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radius
       value: 70.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010781659530, guid: 3d035159de88b3e4ea9677b9fad7a2a8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.7284103
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010781659530, guid: 3d035159de88b3e4ea9677b9fad7a2a8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.7284104
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010781659530, guid: 3d035159de88b3e4ea9677b9fad7a2a8, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.7706112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d035159de88b3e4ea9677b9fad7a2a8, type: 2}
@@ -1366,7 +1401,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013732862672, guid: 9967df37b590e184cab5511b566e361a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013238731266, guid: 9967df37b590e184cab5511b566e361a, type: 2}
+      propertyPath: m_TagString
+      value: Weapons / Spraygun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9967df37b590e184cab5511b566e361a, type: 2}

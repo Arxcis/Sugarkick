@@ -2225,6 +2225,11 @@ Prefab:
       propertyPath: musicAud
       value: 
       objectReference: {fileID: 879311941}
+    - target: {fileID: 82000010502746034, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f292ba7c25f5f424885ea8979c314f9c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b6c8a809b479746a6ae19eceaa9198, type: 2}
   m_IsPrefabParent: 0

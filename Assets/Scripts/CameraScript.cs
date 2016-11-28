@@ -3,8 +3,8 @@
 // Project     : Sugarkick
 // Created by  : Jonas Solsvik
 // Date        : ?
-// Description : This script serves as a testing ground for different ways to
-//                control the camera.
+// Attached to : Main camera
+// Description : This script is controlling the movement and zooming of the camera
 //                It calculates the 'center of mass' of all the players in the scene,
 //                for centering the camera. It also finds the maximum distance between
 //                any player and 'center of mass'. Moves the cameras rigidbody2d for a
@@ -18,7 +18,7 @@ using System.Collections.Generic;
 [RequireComponent (typeof(Rigidbody2D))]
 public class CameraScript : MonoBehaviour
 {
-  
+
 	public float minimumZoom    = 15.0F;
 	public float zoomScaler     = 0.3F;
 	public float zoomExponent   = 0.8F;
@@ -46,7 +46,7 @@ public class CameraScript : MonoBehaviour
       cam      = GetComponent<Camera>();                    // To manipulate camsize
 
       foreach( GameObject player in Main.Players() ) {             // Getting all players transforms
-			     playerTransforms.Add(player.transform);
+			     playerTransforms.Add(player.transform);//this line generates a crash when restarting the level
       }
 	  camTrans.position = new Vector3 (0,0,-1);           // Make sure that cam is above the map
 	}

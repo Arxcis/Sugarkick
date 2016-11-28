@@ -4,6 +4,7 @@ using System.Collections;
 public class PuppetManip : MonoBehaviour
 {
     public bool     isEnemy = false;
+    public int      chanceOfEnemyHurtSound = 3;             //randoom number form 0 to this, if 0? Play hurt sound on hit.
     public bool     isSpawnerChild = false;
     public int      life = 3;                               // amount of respawns
     public int      hP   = 3;                               // amount of hits taken per respwan
@@ -14,8 +15,15 @@ public class PuppetManip : MonoBehaviour
     public int      framesToPlaySugarAnim = 30;
     public float    sugarTimeSlow = 0.5f; //time scales to this * time
     public float    sugarSpeedChange = 1.5f; //movementSpeed scales to this * movementSpeed
+    public GameObject weaponDrop;
     public GameObject[] guns;
     public float friction = 1.4f;
+
+    public AudioClip respawnSound;      //only for player.
+    public AudioClip spawnSound;        //for player and enemies.
+    public AudioClip deathSound;        //player and enemies.
+    public AudioClip hurtSound;         // player and enemies.
+    public AudioClip fallSound;         // player and enemies.
 
     int currentHp; //= hp (in start)
     public int invFrm = 0;
@@ -26,7 +34,6 @@ public class PuppetManip : MonoBehaviour
 
     void Start()
     {
-
         currentHp = hP;
     }
 
@@ -39,16 +46,24 @@ public class PuppetManip : MonoBehaviour
 
     public void respawn( )
     {
-        if (isEnemy) Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
-        if (life <= 0)
-            { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
+        if (isEnemy)
+        {
+            Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
+        }
+        else if (life <= 0)
+        { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
             currentHp = hP;                                     // refills hp after respawn
+            invFrm = 2 * invincibilityFrames;
             Main.Player<Animator>(0).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
+            GameObject.FindGameObjectWithTag("MainCamera").gameObject.transform
+                    .position = new Vector3(spawnLocation.x, spawnLocation.y, -10);  // moves the camera to respawn location.
             Main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
-            Main.Player<GunScript>(0, "Gun").enabled = true;
+            Main.Player<GunScript>(0, "Rifle").enabled = true;      //re-enables all the guns.
+            Main.Player<GunScript>(0, "Canon").enabled = true;
+            Main.Player<GunScript>(0, "Spraygun").enabled = true;
             Main.Player<BoxCollider2D>(0).enabled = true;
         }
     }
@@ -62,8 +77,14 @@ public class PuppetManip : MonoBehaviour
         else if(!isEnemy && invFrm == 0)
         {
             invFrm = invincibilityFrames;
+            SoundManager.instance.bamPow(hurtSound);                    // plays hurt sound.
             Main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
+        }
 
+        if (isEnemy)
+        {
+            if (Random.Range(0, chanceOfEnemyHurtSound) == 0) SoundManager.instance.bamPow(hurtSound);
+            //enemyHurtAnimation goes here.
         }
     }
 
@@ -82,8 +103,17 @@ public class PuppetManip : MonoBehaviour
             else GetComponent<MoveEnemy>().enabled = false;                              //the enemy cant move mid air.
             GetComponent<BoxCollider2D>().enabled = false;                          //the collider cant block bullets from beneeth the map.
             if (isSpawnerChild) GetComponentInParent<SpawnEnemies>().gotKilled(gameObject.tag); //tells the spawner that a child died. :'(
-            if (deathBy == "fall")GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
-            if (deathBy == "bullet")GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+            if (deathBy == "fall")
+            {
+                SoundManager.instance.bamPow(fallSound);
+                GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
+            }
+            if (deathBy == "bullet")
+            {
+                Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
+                SoundManager.instance.bamPow(deathSound);
+                GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+            }
             if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
         }
         else
@@ -91,11 +121,22 @@ public class PuppetManip : MonoBehaviour
             life--;
             Main.Player<Rigidbody2D>(0).velocity *= fallingSpeedMultiplier;
             Main.Player<MovePlayer>(0).enabled = false;                    //player cannot move while fallling.
-            Main.Player<GunScript>(0, "Gun").enabled = false;                     //Player cant shoot while falling off.
+            Main.Player<GunScript>(0, "Rifle").enabled = false;                     //Player cant shoot while falling off.
+            Main.Player<GunScript>(0, "Canon").enabled = false;
+            Main.Player<GunScript>(0, "Spraygun").enabled = false;
             Main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
 
-            if (deathBy == "fall") Main.Player<Animator>(0).Play("PlayerFallDown"); //Main.playerAnim.SetTrigger("TriggerFellDown");      //Animation runs respawn()
-            if (deathBy == "enemy") respawn();//insert other death animation instead
+            if (deathBy == "fall")
+            {
+                SoundManager.instance.bamPow(fallSound);
+                Main.Player<Animator>(0).Play("PlayerFallDown");                 //Animation runs respawn()
+            }
+
+            if (deathBy == "enemy")
+            {
+                SoundManager.instance.bamPow(deathSound);
+                respawn();//insert other death animation instead
+            }
         }
     }
 
@@ -133,25 +174,7 @@ public class PuppetManip : MonoBehaviour
 		          other.GetComponent<ProjectileInfo> ().pierceNumber--;
 		          damage(other.GetComponent<ProjectileInfo>().damage, "bullet");
     	}
-      else if (!isEnemy && other.gameObject.CompareTag("Pickup / gun")) {
-        for (int i=0; i< guns.Length; ++i) {
-            guns[i].SetActive(false);
-          }
-          switch(other.gameObject.name){
-            case "GunDrop1":
-              guns[1].SetActive(true);
-            break;
-            case "GunDrop2":
-              guns[2].SetActive(true);
-            break;
-            case "GunDrop3":
-              guns[3].SetActive(true);
-            break;
-          }
-			Destroy (other.gameObject);
-        //GameObject.Find(other.gameObject.name).SetActive(true);
-        //GameObject.GetChild("Gun").gameObject.setActive(false);
-      }
+
     }
 
     public void setIndex(int i)

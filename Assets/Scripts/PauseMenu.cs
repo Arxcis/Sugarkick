@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void toggleAiming()
     {
+        SoundManager.instance.bamPow(ButtonClick);      //Plays clikc sound.
         Main.toggleMouseAiming();       //calls the static toggle aiming function in main.
     }
 
@@ -38,7 +39,6 @@ public class PauseMenu : MonoBehaviour {
     public void restartLevel()
     {
         SoundManager.instance.bamPow(ButtonClick);      //plays buttonclick
-
         Scene currentScene = SceneManager.GetActiveScene();     //gets the scene loaded.
         string nameOfLevel = currentScene.name;                  //gets the name of that scene.
         SceneManager.LoadScene(nameOfLevel);                    //loads the scene with that name.
@@ -48,6 +48,7 @@ public class PauseMenu : MonoBehaviour {
     //Opens pause meny
     void openPause()
     {
+        SoundManager.instance.bamPow(ButtonClick);      //Plays clikc sound.
         inPauseMenu = true;                             // the player is now in menu.
         pauseMenu.SetActive(inPauseMenu);               //pause menu gameobject is now active.
         pauseStartFocus.Select();                       //selevt the back button as selected ui element.
@@ -57,6 +58,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void closePause()                // public cuz used by back button.
     {
+        SoundManager.instance.bamPow(ButtonClick);      //Plays clikc sound.
         Time.timeScale = oldTimeScale;                  //Sets th timescale back to what it was before the pause.
         inPauseMenu = false;                            //No longer in menu.
         pauseMenu.SetActive(inPauseMenu);               //sets pause menu object as inactive.

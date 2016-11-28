@@ -93,7 +93,8 @@ public class GunScript : MonoBehaviour
 	// The velocity of the bullet is set in the direction of the barrel with a speed of "projectileSpeed", set in the inspector. The bullet spawns with the damage of "weaponDamage".
 	void shoot()
   {
-        SoundManager.instance.bamPow(GunSound); // plays designated gun sound
+        float soundPitch = Random.Range(-0.1f, 0.1f);         // the pitch deviation needs to be on a seperate line due to how the compiler deals with functions.
+        SoundManager.instance.bangBang(GunSound, soundPitch); // plays designated gun sound
 
 		float i = Random.Range (-50, 50);  // random float to make the spray deviate a bit. 
 		recoilVec = Main.GetUnitVector2( (gunAngle+90+ (i/50)*(100/accuracy)) * Mathf.Deg2Rad )*-1; // (i/50) is a float between -1 and 1 - for a random distribution
