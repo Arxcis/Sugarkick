@@ -7,19 +7,20 @@ public class MovePlayer : MonoBehaviour {
 
         // Private
     bool  isWalking = false;
-    Vector2 inputVector = new Vector2(0,0);
-
+    Vector2 testVector = Vector2.zero;
 
     void Start ()
     {}
 
     void FixedUpdate ()                           // Fixed update is independent on frame rate
     {
+      testVector.x = Input.GetAxisRaw("MoveAxisX");
+      testVector.y = Input.GetAxisRaw("MoveAxisY");
+      Move( testVector );
+    }
 
-      inputVector.x = Input.GetAxisRaw("MoveAxisX");
-      inputVector.y = Input.GetAxisRaw("MoveAxisY");
-                                                      // Uses diagonalCompensate in Main script.
-                                                      // Returns a Vector which has length 1 no matter which
+    public void Move(Vector2 inputVector)             // Uses diagonalCompensate in Main script.
+    {                                                 // Returns a Vector which has length 1 no matter which
                                                       // way player is facing.
       Main.Player<Rigidbody2D>(0).velocity += Main.DiagonalCompensate( inputVector ) * Main.Player<PuppetManip>(0).movementSpeed;
 
@@ -33,6 +34,5 @@ public class MovePlayer : MonoBehaviour {
       else
       {   isWalking = false;  }
       Main.Player<Animator>(0).SetBool("isWalking", isWalking);
-
     }
 }
