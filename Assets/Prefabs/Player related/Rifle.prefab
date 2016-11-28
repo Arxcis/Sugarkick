@@ -86,13 +86,14 @@ MonoBehaviour:
   addForce: 1
   setVelocity: 1
   truePiercing: 0
-  pierceNumber: 2
-  weaponDamage: 1
+  pierceNumber: 1
+  weaponDamage: 15
   accuracy: 12
   fireRate: 300
   knockbackPow: 500
-  projectileSpeed: 10
-  bulletLifeTime: 100
+  projectileSpeed: 9
+  bulletLifeTime: 80
+  bulletSize: 1.4
   bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
   barrelEnd: {fileID: 1000014127308104}
   bulletParent: {fileID: 0}

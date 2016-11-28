@@ -125,7 +125,7 @@ MonoBehaviour:
   chanceOfEnemyHurtSound: 5
   isSpawnerChild: 0
   life: 1
-  hP: 3
+  hP: 30
   invincibilityFrames: 0
   movementSpeed: 1
   fallingSpeedMultiplier: 0.3
