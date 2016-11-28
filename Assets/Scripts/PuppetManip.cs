@@ -110,13 +110,27 @@ public class PuppetManip : MonoBehaviour
                 SoundManager.instance.bamPow(fallSound);
                 GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
             }
-            if (deathBy == "bullet")
+            if (gameObject.tag.Contains("Enemy1")) // if its a wrapped candy
             {
-                Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
-                SoundManager.instance.bamPow(deathSound);
-                GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+                if (deathBy == "bullet")
+                {
+                    Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
+                    SoundManager.instance.bamPow(deathSound);
+                    GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+                }
+                if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
             }
-            if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
+            else if (gameObject.tag.Contains("Enemy2")) // if its a jumper.
+            {
+                if (deathBy == "bullet")
+                {
+                    Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
+                    SoundManager.instance.bamPow(deathSound);
+                    GetComponent<Animator>().Play("JumperDeath");      //starts the death animation for the enemy.
+                }
+                if (deathBy == "attack") GetComponent<Animator>().Play("JumperDeath");       //WIll add an attack animation later.
+            }
+
         }
         else
         {

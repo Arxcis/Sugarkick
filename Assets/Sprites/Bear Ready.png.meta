@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 57fde1ccc27377f40a772110169a389d
-timeCreated: 1480349971
+guid: 86513a47d926fe44c9123d498b2e66dd
+timeCreated: 1480351812
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wrappedCandySheet_0
-    21300002: wrappedCandySheet_1
-    21300004: wrappedCandySheet_2
-    21300006: wrappedCandySheet_3
+    21300000: Bear Ready_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -42,12 +39,12 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 14, y: 40, z: 6, w: 11}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -57,54 +54,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wrappedCandySheet_0
+      name: Bear Ready_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 45
-        width: 307
-        height: 233
+        x: 362
+        y: 221
+        width: 158
+        height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: wrappedCandySheet_1
-      rect:
-        serializedVersion: 2
-        x: 361
-        y: 34
-        width: 316
-        height: 248
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: wrappedCandySheet_2
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 14
-        width: 282
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: wrappedCandySheet_3
-      rect:
-        serializedVersion: 2
-        x: 1006
-        y: 31
-        width: 321
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
