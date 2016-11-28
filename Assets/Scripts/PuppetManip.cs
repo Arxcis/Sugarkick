@@ -48,7 +48,6 @@ public class PuppetManip : MonoBehaviour
     {
         if (isEnemy)
         {
-            //Instantiate(weaponDrop, transform);
             Destroy(gameObject);                       //Destroys the enemy after death/fall animation is done.
         }
         else if (life <= 0)
@@ -111,6 +110,7 @@ public class PuppetManip : MonoBehaviour
             }
             if (deathBy == "bullet")
             {
+                Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
                 SoundManager.instance.bamPow(deathSound);
                 GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
             }
