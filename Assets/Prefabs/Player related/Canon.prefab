@@ -9,33 +9,16 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011590447010}
+  m_RootGameObject: {fileID: 1000011440940632}
   m_IsPrefabParent: 1
---- !u!1 &1000011590447010
+--- !u!1 &1000011243630178
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011509208736}
-  - 212: {fileID: 212000011829000808}
-  - 114: {fileID: 114000013177349528}
-  m_Layer: 0
-  m_Name: Gun2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000013667134404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000013146077918}
+  - 4: {fileID: 4000013183566806}
   m_Layer: 0
   m_Name: BarrelEnd
   m_TagString: Untagged
@@ -43,64 +26,82 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011509208736
+--- !u!1 &1000011440940632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013454439356}
+  - 212: {fileID: 212000013420091642}
+  - 114: {fileID: 114000012329061802}
+  m_Layer: 0
+  m_Name: Canon
+  m_TagString: Gun
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4000013183566806
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011590447010}
+  m_GameObject: {fileID: 1000011243630178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 4000013146077918}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &4000013146077918
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013667134404}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2850001, z: -0.2}
+  m_LocalPosition: {x: 0, y: 4.25, z: -0.2}
   m_LocalScale: {x: 0.1, y: 0.3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000011509208736}
+  m_Father: {fileID: 4000013454439356}
   m_RootOrder: 0
---- !u!114 &114000013177349528
+--- !u!4 &4000013454439356
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011440940632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.3, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000013183566806}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000012329061802
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011590447010}
+  m_GameObject: {fileID: 1000011440940632}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef1f67c246d3184399d8de77a90d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunSound: {fileID: 8300000, guid: 9deddbb3cef2e1047a98bbaad3200d65, type: 3}
   setPos: 1
   addForce: 0
   setVelocity: 1
-  truePiercing: 0
+  truePiercing: 1
   pierceNumber: 0
-  weaponDamage: 1
+  weaponDamage: 3
   accuracy: 100
-  fireRate: 50
-  knockbackPow: 300
-  projectileSpeed: 10
-  bullets: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
-  barrelEnd: {fileID: 1000013919517062, guid: 587beed0664624c5496e319ef0fa0983, type: 2}
+  fireRate: 40
+  knockbackPow: 1200
+  projectileSpeed: 7
+  bulletSeed: {fileID: 1000012500125740, guid: 308f7a8dfa49d7241b7c5784423ae6e0, type: 2}
+  barrelEnd: {fileID: 1000011243630178}
   bulletParent: {fileID: 1000011917731378, guid: 999852eb7e1a749b9a776ca54081856e,
     type: 2}
---- !u!212 &212000011829000808
+--- !u!212 &212000013420091642
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011590447010}
+  m_GameObject: {fileID: 1000011440940632}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -122,9 +123,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9116186e82fd83749877dc7da8380ef5, type: 3}
+  m_SortingLayerID: 1282523699
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 78e9bd22112178a4483576a3329b9599, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
