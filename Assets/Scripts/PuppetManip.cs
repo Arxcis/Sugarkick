@@ -34,6 +34,7 @@ public class PuppetManip : MonoBehaviour
 
     void Start()
     {
+        SoundManager.instance.bamPow(spawnSound);       //PLayes the spawn sound. (both enemy and player).
         currentHp = hP;
     }
 
@@ -54,6 +55,7 @@ public class PuppetManip : MonoBehaviour
         { gameObject.SetActive(false); }                     //Die animation and simialr, insert Game over()
         else
         {
+            SoundManager.instance.bamPow(respawnSound);
             currentHp = hP;                                     // refills hp after respawn
             invFrm = 2 * invincibilityFrames;
             Main.Player<Animator>(0).Play("PlayerIdle");
@@ -108,13 +110,27 @@ public class PuppetManip : MonoBehaviour
                 SoundManager.instance.bamPow(fallSound);
                 GetComponent<Animator>().Play("EnemyFallDown");      //starts the fall animation for the enemy.
             }
-            if (deathBy == "bullet")
+            if (gameObject.tag.Contains("Enemy1")) // if its a wrapped candy
             {
-                Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
-                SoundManager.instance.bamPow(deathSound);
-                GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+                if (deathBy == "bullet")
+                {
+                    Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
+                    SoundManager.instance.bamPow(deathSound);
+                    GetComponent<Animator>().Play("EnemyDeath");      //starts the death animation for the enemy.
+                }
+                if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
             }
-            if (deathBy == "attack") GetComponent<Animator>().Play("EnemyDeath");       //WIll add an attack animation later.
+            else if (gameObject.tag.Contains("Enemy2")) // if its a jumper.
+            {
+                if (deathBy == "bullet")
+                {
+                    Instantiate(weaponDrop, transform.position, Quaternion.identity);   // spawns weapondrop.
+                    SoundManager.instance.bamPow(deathSound);
+                    GetComponent<Animator>().Play("JumperDeath");      //starts the death animation for the enemy.
+                }
+                if (deathBy == "attack") GetComponent<Animator>().Play("JumperDeath");       //WIll add an attack animation later.
+            }
+
         }
         else
         {
@@ -187,4 +203,17 @@ public class PuppetManip : MonoBehaviour
       return index;
     }
 
+    // WE dont neeed this yet, since there is only one active gun per player we can just use
+    // GameObject.find();
+
+   public GunScript GetActiveGunScript()
+   {
+     foreach(GameObject gun in guns)
+     {
+       if (gun.activeInHierarchy) {
+         return gun.GetComponent<GunScript>();
+       }
+     }
+     return null;
+   }
 }

@@ -108,10 +108,13 @@ public class MoveJumper : MonoBehaviour {
 
 
         //Jumps back so it dosen't go in the hole.
-        jumpedFromPos = jumperTrans.position;                           //Sets the position the jumperjumper from.
 
-        jumperRigi.velocity = vectorToPlayer;                //Starts th jump by giving it velocity.
-        jumperRigi.velocity = jumperRigi.velocity.normalized * jumperPupp.movementSpeed;
+        jumperRigi.velocity = new Vector3(jumperTrans.position.x - jumpedFromPos.x,
+                                          jumperTrans.position.y - jumpedFromPos.y);                //Starts th jump by giving it velocity.
+        jumperRigi.velocity += new Vector2((Random.value + walkDiv) * Random.Range(-1, 1),
+                                               Random.Range(-1, 1) * (Random.value + walkDiv));
+        jumperRigi.velocity = -jumperRigi.velocity.normalized * jumperPupp.movementSpeed;
+        jumpedFromPos = jumperTrans.position;                           // sets new jump from position
 
         midAir = true;                                                  // the enemy is now mid air.
         jumpColl.enabled = false;                                       //cant fall down a hole while midair.

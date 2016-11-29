@@ -69,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010529700626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -7.02, y: 7.07, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012749251364}
@@ -106,7 +106,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Radius: 2.3
 --- !u!61 &61000014101589758
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -118,9 +118,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.12}
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2.19, y: 3.13}
 --- !u!95 &95000012471281510
 Animator:
   serializedVersion: 3
@@ -153,7 +153,7 @@ MonoBehaviour:
   chanceOfEnemyHurtSound: 5
   isSpawnerChild: 0
   life: 1
-  hP: 2
+  hP: 20
   invincibilityFrames: 0
   movementSpeed: 15
   fallingSpeedMultiplier: 0.2
@@ -165,7 +165,7 @@ MonoBehaviour:
   guns: []
   friction: 30
   respawnSound: {fileID: 0}
-  spawnSound: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: 4f42805fd8f45304487086cf49f049ac, type: 3}
   deathSound: {fileID: 8300000, guid: 656f8375be401dd4f907b9ccda69408a, type: 3}
   hurtSound: {fileID: 8300000, guid: a96fc8f5681cbbd4a8ad7ee0c077d0cb, type: 3}
   fallSound: {fileID: 8300000, guid: 87106e979c630e34a8a28d40d7e7371c, type: 3}
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6eba1eacd8819c1439153f57b6a78fe7, type: 3}
-  m_Color: {r: 0.08693774, g: 0.65073353, b: 0.9852941, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 86513a47d926fe44c9123d498b2e66dd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
