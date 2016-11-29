@@ -73,7 +73,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000010721571390
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010164246356
 Transform:
   m_ObjectHideFlags: 1
@@ -238,7 +238,7 @@ Transform:
   m_GameObject: {fileID: 1000010395372316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.8, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010571143630}
@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011485313424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalPosition: {x: 0, y: -0.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -276,7 +276,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010585696064}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.45544606, w: 0.8902634}
   m_LocalPosition: {x: 0, y: 0.01, z: 0.2}
   m_LocalScale: {x: 0.1, y: 0.3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -448,7 +448,7 @@ MonoBehaviour:
   addForce: 1
   setVelocity: 1
   truePiercing: 0
-  pierceNumber: 1
+  pierceNumber: 0
   weaponDamage: 15
   accuracy: 12
   fireRate: 300
@@ -587,8 +587,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1282523699
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4644a3fea1f3dd746925e3b23f08f24c, type: 3}
-  m_Color: {r: 0.9191176, g: 0.66230536, b: 0.66230536, a: 1}
+  m_Sprite: {fileID: 21300022, guid: 2948ec774c48ea349a1bf753b6bee656, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000013420254190
@@ -620,7 +620,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1282523699
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 02eeb9fc03ee3ac4b893fe711cef6557, type: 3}
+  m_Sprite: {fileID: 21300018, guid: 2948ec774c48ea349a1bf753b6bee656, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
