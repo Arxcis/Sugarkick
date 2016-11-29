@@ -25,8 +25,14 @@ Ricardo Montana      <br />
 <a id="content1"></a>
 ## Changelog - Iterations
 
+### Version 0.5 - not released
 
-### Version 0.4 - not released
+*Release date:30.11.2016*
+*Cycle length: 3 days*
+
+- Improved edge detection
+
+### Version 0.4
 
 *Release date: TBD*
 *Cycle length: 4 days*
