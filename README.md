@@ -13,12 +13,24 @@ Ricardo Montana      <br />
 
 ## Contents
 
+0. [InputManagers](#content0)
 1. [Changelog - Iterations](#content1)
 2. [Discussion](#content2)
 3. [Homegrown assets](#content3)
 4. [Git reference](#content4)
 5. [Unity reference](#content5)
 
+
+&nbsp;
+
+<a id="content0"></a>
+## InputManagers - OS specific
+
+To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
+with one of these files.
+
+<a href="config/InputManager_macSierra.asset" download> Input - macSierra</a> <br />
+<a href="config/InputManager_win10.asset" download>     Input - Windows10</a>
 
 &nbsp;
 

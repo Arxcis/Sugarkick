@@ -55,7 +55,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 40.32
+  orthographic size: 39.74
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -111,8 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411d603804db4148b265c43bdffd0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  pauseStartFocus: {fileID: 0}
+  pauseMenu: {fileID: 1000012822101358, guid: 7b0bd084e17b0ae40862824333599442, type: 2}
+  pauseStartFocus: {fileID: 114000011639303944, guid: 7b0bd084e17b0ae40862824333599442,
+    type: 2}
   ButtonClick: {fileID: 8300000, guid: 6e5c07f4692ec454daf3983f6ce960b0, type: 3}
 --- !u!114 &114000012639209392
 MonoBehaviour:
