@@ -29,8 +29,8 @@ Ricardo Montana      <br />
 To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
 with one of these files.
 
-<a href="config/InputManager_macSierra.asset" download> Input - macSierra</a> <br />
-<a href="config/InputManager_win10.asset" download>     Input - Windows10</a>
+<a href="config/InputManager_macSierra.asset" target="_blank"> Input - macSierra</a> <br />
+<a href="config/InputManager_win10.asset" target="_blank">     Input - Windows10 </a>
 
 &nbsp;
 
