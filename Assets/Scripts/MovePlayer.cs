@@ -7,17 +7,6 @@ public class MovePlayer : MonoBehaviour {
 
         // Private
     bool  isWalking = false;
-    Vector2 testVector = Vector2.zero;
-
-    void Start ()
-    {}
-
-    void FixedUpdate ()                           // Fixed update is independent on frame rate
-    {
-      // testVector.x = Input.GetAxisRaw("MoveAxisX");
-      // testVector.y = Input.GetAxisRaw("MoveAxisY");
-      // Move( testVector );
-    }
 
     public void Move(Vector2 inputVector, int i)             // Uses diagonalCompensate in Main script.
     {                                                 // Returns a Vector which has length 1 no matter which

@@ -1,3 +1,16 @@
+// --------------------------------------------------------------------------------- //
+// Filename    : Actions.cs
+// Project     : Sugarkick
+// Created by  : Jonas Solsvik
+// Date        : 29.11.2016
+// Attached to : Main camera
+// Description : This script is a general way of mapping the inputaxes of the player
+//                to any function that is in relation to the player.
+// Note        : The ordering of enum Device and DeviceNames has to be kept in sync (1:1 realtionship)
+// 								for the initialization to work.
+
+
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,7 +18,7 @@ using System.Collections.Generic;
 
 public class Actions : MonoBehaviour {
 
-	// Public
+	// Public											// The next two attributes has to have a 1:1 realtionship
 	public enum Device : int {		// Used to access correct slot in string[] device names
 		Keyboard1,
 		Joy1,
@@ -15,10 +28,6 @@ public class Actions : MonoBehaviour {
 		Keyboard2
 	};
 
-	public bool keyboardOn = false;													  // On/off keyboard 1 and 2
-	public List<Device> activeDevices = new List<Device>();   // Maps players to their respective device.
-
-	// Private
 	string[] DeviceNames = {				// Names that works as keys to access the Input.GetAxis(name+axis)
 		"Keyboard1",
 		"Joy1",
@@ -28,11 +37,15 @@ public class Actions : MonoBehaviour {
 		"Keyboard2"
 	};
 
+	public bool keyboardOn = false;													  // On/off keyboard 1 and 2
+	public List<Device> activeDevices = new List<Device>();   // Maps players to their respective device.
+
+	// Private
 	Vector2 moveInput   = Vector2.zero;							// Stores temp values for all the input axes
 	Vector2 aimInput    = Vector2.zero;
 	Vector2 mouseInput  = Vector3.zero;
 	float   fireInput   = 0.0F;
-	GunScript activeGun;
+	GunScript activeGun;                          // temp value 
 
 
 	// Use this for initialization
@@ -47,12 +60,11 @@ public class Actions : MonoBehaviour {
 	{
 		for (int i = 0; i < Main.Players().Count; i++)	  	// Wanted to use a foreach here, but player actually never used
 		{
-			CallMove(i);
-			CallAim(i);
-			CallFire(i);
+			ActionMove(i);
+			ActionAim(i);
+			ActionFire(i);
 		}
 	}
-
 
 
 	void MapActiveDevices()
@@ -65,7 +77,7 @@ public class Actions : MonoBehaviour {
 	}
 
 
-	void CallMove( int i )
+	void ActionMove( int i )
 	{
 				// -------------------- Move ------------------------
 				moveInput.x = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_MoveHorizontal");
@@ -76,7 +88,7 @@ public class Actions : MonoBehaviour {
 				// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Move" + moveInput);
 	}
 
-	void CallAim( int i )
+	void ActionAim( int i )
 	{
 		// --------------------- Aim --------------------------
 		if( activeDevices[i] == Device.Keyboard1 ) {            				// Mouse aiming
@@ -102,7 +114,7 @@ public class Actions : MonoBehaviour {
 		}
 	}
 
-	void CallFire( int i )
+	void ActionFire( int i )
 	{
 		// --------------------- Fire ------------------------------
 		fireInput = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_Fire" );
