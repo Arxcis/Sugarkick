@@ -21,18 +21,18 @@ public class InputActions : MonoBehaviour {
 	// Public											// The next two attributes has to have a 1:1 realtionship
 	public enum Device : int {		// Used to access correct slot in string[] device names
 		KeyboardMouse,
-		Joy1,
 		Joy2,
 		Joy3,
+		Joy1,
 		Joy4,
 		Keyboard
 	};
 
 	string[] DeviceNames = {				// Names that works as keys to access the Input.GetAxis(name+axis)
 		"KeyboardMouse",
-		"Joy1",
 		"Joy2",
 		"Joy3",
+		"Joy1",
 		"Joy4",
 		"Keyboard"
 	};
@@ -85,7 +85,7 @@ public class InputActions : MonoBehaviour {
 
 				Main.Player<MovePlayer>(i).Move( moveInput, i);
 
-				// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Move" + moveInput);
+				//Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Move" + moveInput);
 	}
 
 	void AimAction( int i )
@@ -99,7 +99,7 @@ public class InputActions : MonoBehaviour {
 			if (activeGun != null) {
 				activeGun.MouseAimUpdate(mouseInput, i);
 			}
-			// Debug.Log(DeviceNames[ (int)activeDevices[i] ] + "_Mouse" + mouseInput);
+			//Debug.Log(DeviceNames[ (int)activeDevices[i] ] + "_Mouse" + mouseInput);
 		}
 		else																													// Normal aiming
 		{
@@ -110,7 +110,7 @@ public class InputActions : MonoBehaviour {
 			if (activeGun != null) {
 				activeGun.KeyAimUpdate(aimInput);
 			}
-			// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Aim" + aimInput);
+			//Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Aim" + aimInput);
 		}
 	}
 
@@ -125,7 +125,7 @@ public class InputActions : MonoBehaviour {
 			activeGun.Fire(fireInput, i);
 		}
 		i++;
-		// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Fire" + fireInput);
+		//Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Fire" + fireInput);
 	}
 
 	// End of class
