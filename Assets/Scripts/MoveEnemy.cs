@@ -22,6 +22,7 @@ public class MoveEnemy : MonoBehaviour
 	  int     framesCounted3 = 0;
 	  bool    justChangedTarget = false;
     Vector2 vectorToPlayer;
+
 	  int targetIndex = 0;
                                                          // Use this for initialization
     void Start ()
@@ -81,9 +82,9 @@ public class MoveEnemy : MonoBehaviour
             enemyRigi.velocity *= (1 / friction);          // stops the enemy when inside personal space.
 
 
-            if (Main.Player<PuppetManip>(0).invFrm == 0)           //if the player is not invincible, hit player!
+            if (Main.Player<PuppetManip>( targetIndex ).invFrm == 0)           //if the player is not invincible, hit player!
             {
-                Main.Player<PuppetManip>(0).damage(1, "enemy");
+                Main.Player<PuppetManip>( targetIndex ).damage(1, "enemy");
                 GetComponent<PuppetManip>().kill("attack");
             }
 
