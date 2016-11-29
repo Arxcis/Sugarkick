@@ -95,12 +95,12 @@ public class Main : MonoBehaviour {
     public static T Player<T>(int playerIndex, string child) where T : Component
     {
       return players[playerIndex]
-               .transform
-                 .Find(child)
-                   .gameObject
-                     .GetComponent<T>();
-    }
+                 .transform
+                   .Find(child)
+                     .gameObject
+                       .GetComponent<T>();
 
+    }
 
 
 
@@ -140,6 +140,7 @@ public class Main : MonoBehaviour {
                                         // Returns the correct angle between two vectors
     public static float GetAngle( Vector2 v1, Vector2 v2 )
     {
+        v1 = v1.normalized;    v2 = v2.normalized;
         float sign = Mathf.Sign( v1.x * v2.y - v1.y * v2.x );
         return Vector2.Angle(v1, v2) * sign;
     }

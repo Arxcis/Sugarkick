@@ -28,10 +28,11 @@ public class Actions : MonoBehaviour {
 		"Joy4",
 	};
 
-	Vector2 moveInput  = Vector2.zero;							// Stores temp values for all the input axes
-	Vector2 aimInput   = Vector2.zero;
-	Vector3 mouseInput = Vector3.zero;
-	float   fireInput  = 0.0F;
+	Vector2 moveInput   = Vector2.zero;							// Stores temp values for all the input axes
+	Vector2 aimInput    = Vector2.zero;
+	Vector2 mouseInput  = Vector3.zero;
+	float   fireInput   = 0.0F;
+	GunScript activeGun;
 
 
 	// Use this for initialization
@@ -69,17 +70,24 @@ public class Actions : MonoBehaviour {
 
 			// --------------------- Aim --------------------------
 			if( activeDevices[i] == Device.Keyboard1 ) {
+
 				mouseInput = Input.mousePosition;
-				// Main.Player<GunScript>(i, "Gun").mouseAimUpdate( Input.mousePosition );
 				// Debug.Log(DeviceNames[ (int)activeDevices[i] ] + "_Mouse" + mouseInput);
+				activeGun = Main.Player<PuppetManip>(i).GetActiveGunScript();
+				if (activeGun != null) {
+					activeGun.MouseAimUpdate(mouseInput, i);
+				}
+
 			}
 			else
 			{
 			  aimInput.x = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_AimHorizontal");
 			  aimInput.y = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_AimVertical"  );
 
-			  // Main.Player<GunScript>(i, "Gun").keyAimUpdate( aimInput );
-
+				activeGun = Main.Player<PuppetManip>(i).GetActiveGunScript();
+				if (activeGun != null) {
+					activeGun.KeyAimUpdate(aimInput);
+				}
 				Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Aim" + aimInput);
 			}
 

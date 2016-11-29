@@ -36,31 +36,38 @@ public class GunScript : MonoBehaviour
     float fire     = 0.0F;
     float cooldown = 0.0F;
 
-    Vector2 inputVec  = new Vector2(0,0);       // Direction input Vector
-    Vector2 recoilVec = new Vector2(0,0);       // Recoil vector
+    // Vector2 inputVec  = new Vector2(0,0);       // Direction input Vector
     Vector3 mousePos  = new Vector3(0,0,0);
+    Vector2 recoilVec = new Vector2(0,0);       // Recoil vector
+
     Vector3 facingMouseVector  = new Vector3(0,0,0);
 
     void Start ()
     {
-        cam = GameObject.Find("Camera");
-        camscript = cam.GetComponent<Camera>();
-        main = cam.GetComponent<Main>();
-        gunTrans = GetComponent<Transform>();
+      cam = GameObject.Find("Camera");
+      camscript = cam.GetComponent<Camera>();
+
+      main = cam.GetComponent<Main>();
+      gunTrans = GetComponent<Transform>();
     }
 
     void FixedUpdate ()                             // Fixed update is frame-rate independent
     {
 
-      if( Main.mouseOn ) {
+      // OLD aim-call system below, depricated by Actions.cs
 
-        mouseAimUpdate( Input.mousePosition );           // Update aim with mouse
-      }                             //     or
-      else {                        //
-        inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not
-        inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
-        keyAimUpdate( inputVec );             // Update aim with keys
-      }
+      //if( Main.mouseOn ) {
+
+      //  MouseAimUpdate( Input.mousePosition );           // Update aim with mouse
+      // }                             //     or
+      // else {                        //
+
+
+        //
+        // inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not
+        // inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
+        // keyAimUpdate( inputVec );                        // Update aim with keys
+      // }
 
       if (cooldown > 0) {
           cooldown--;
@@ -120,17 +127,17 @@ public class GunScript : MonoBehaviour
 
 	}
 
-  void mouseAimUpdate( Vector3 mouseVec )
+  public void MouseAimUpdate( Vector3 mouseIn, int i )
   {
-    mousePos = camscript.ScreenToWorldPoint(mouseVec); // Returns Vector
-                                               // Create Vector2 from the difference in position between mouse and player
-    facingMouseVector = new Vector2(mousePos.x - Main.Player<Transform>(0).position.x,
-                                    mousePos.y - Main.Player<Transform>(0).position.y);
+    mousePos = camscript.ScreenToWorldPoint( mouseIn );
+                             // Create Vector2 from the difference in position between mouse and player
+    facingMouseVector = new Vector2(mousePos.x - Main.Player<Transform>(i).position.x,
+                                    mousePos.y - Main.Player<Transform>(i).position.y);
     gunAngle = Main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
   }
 
-  void keyAimUpdate( Vector2 inVec )
+  public void KeyAimUpdate( Vector2 inVec )
   {
     if (inVec.x != 0 || inVec.y != 0){
 

@@ -1892,6 +1892,19 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 640182789}
   m_Script: {fileID: 11500000, guid: d411d603804db4148b265c43bdffd0a1, type: 3}
+--- !u!114 &1494819352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494819349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4977f43ada6ea47b85e96fa9c597a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardOn: 1
+  activeDevices: 
 --- !u!114 &1552135492 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000012796405180, guid: 7b0bd084e17b0ae40862824333599442,
