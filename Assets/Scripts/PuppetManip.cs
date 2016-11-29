@@ -30,7 +30,7 @@ public class PuppetManip : MonoBehaviour
     int frmPlayedSgrKck = 0;
     bool hasSugarkick = false;
 
-    int index;                        // objects position in the global list
+    int id;                        // objects position in the global list
 
     void Start()
     {
@@ -58,15 +58,15 @@ public class PuppetManip : MonoBehaviour
             SoundManager.instance.bamPow(respawnSound);
             currentHp = hP;                                     // refills hp after respawn
             invFrm = 2 * invincibilityFrames;
-            Main.Player<Animator>(0).Play("PlayerIdle");
+            Main.Player<Animator>( id ).Play("PlayerIdle");
             gameObject.transform.position = spawnLocation;
             GameObject.FindGameObjectWithTag("MainCamera").gameObject.transform
                     .position = new Vector3(spawnLocation.x, spawnLocation.y, -10);  // moves the camera to respawn location.
-            Main.Player<MovePlayer>(0).enabled = true;                        // the player can move afer respawning.
-            Main.Player<GunScript>(0, "Rifle").enabled = true;      //re-enables all the guns.
-            Main.Player<GunScript>(0, "Canon").enabled = true;
-            Main.Player<GunScript>(0, "Spraygun").enabled = true;
-            Main.Player<BoxCollider2D>(0).enabled = true;
+            Main.Player<MovePlayer>( id ).enabled = true;                        // the player can move afer respawning.
+            Main.Player<GunScript>( id, "Rifle").enabled = true;      //re-enables all the guns.
+            Main.Player<GunScript>( id, "Canon").enabled = true;
+            Main.Player<GunScript>( id, "Spraygun").enabled = true;
+            Main.Player<BoxCollider2D>( id ).enabled = true;
         }
     }
 
@@ -80,7 +80,7 @@ public class PuppetManip : MonoBehaviour
         {
             invFrm = invincibilityFrames;
             SoundManager.instance.bamPow(hurtSound);                    // plays hurt sound.
-            Main.Player<Animator>(0).Play("PlayerHurt");                         //play hurt animation.
+            Main.Player<Animator>( id ).Play("PlayerHurt");                         //play hurt animation.
         }
 
         if (isEnemy)
@@ -91,7 +91,7 @@ public class PuppetManip : MonoBehaviour
     }
 
 
-    public void kill(string deathBy)
+    public void kill(string deathBy)     // id is the id of the object in global array
     {
         if (isEnemy)
         {
@@ -135,17 +135,17 @@ public class PuppetManip : MonoBehaviour
         else
         {
             life--;
-            Main.Player<Rigidbody2D>(0).velocity *= fallingSpeedMultiplier;
-            Main.Player<MovePlayer>(0).enabled = false;                    //player cannot move while fallling.
-            Main.Player<GunScript>(0, "Rifle").enabled = false;                     //Player cant shoot while falling off.
-            Main.Player<GunScript>(0, "Canon").enabled = false;
-            Main.Player<GunScript>(0, "Spraygun").enabled = false;
-            Main.Player<BoxCollider2D>(0).enabled = false;                    //Player cant collide after falling the first time.
+            Main.Player<Rigidbody2D>( id ).velocity *= fallingSpeedMultiplier;
+            Main.Player<MovePlayer>( id ).enabled = false;                    //player cannot move while fallling.
+            Main.Player<GunScript>( id, "Rifle").enabled = false;                     //Player cant shoot while falling off.
+            Main.Player<GunScript>( id, "Canon").enabled = false;
+            Main.Player<GunScript>( id, "Spraygun").enabled = false;
+            Main.Player<BoxCollider2D>( id ).enabled = false;                    //Player cant collide after falling the first time.
 
             if (deathBy == "fall")
             {
                 SoundManager.instance.bamPow(fallSound);
-                Main.Player<Animator>(0).Play("PlayerFallDown");                 //Animation runs respawn()
+                Main.Player<Animator>( id ).Play("PlayerFallDown");                 //Animation runs respawn()
             }
 
             if (deathBy == "enemy")
@@ -156,7 +156,7 @@ public class PuppetManip : MonoBehaviour
         }
     }
 
-   public void SugarKickOn ()
+   public void SugarKickOn (int id)
   {
             if (frmPlayedSgrKck != framesToPlaySugarAnim)
             {
@@ -164,7 +164,7 @@ public class PuppetManip : MonoBehaviour
                 movementSpeed *= sugarSpeedChange;
                 Time.timeScale *= sugarTimeSlow;
                 Time.fixedDeltaTime *= sugarTimeSlow;
-                Main.Player<Animator>(0).Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
+                Main.Player<Animator>( id ).Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
 
         }
     }
@@ -176,7 +176,7 @@ public class PuppetManip : MonoBehaviour
                 movementSpeed /= sugarSpeedChange;
                 Time.timeScale /= sugarTimeSlow;
                 Time.fixedDeltaTime /= sugarTimeSlow;
-                Main.Player<Animator>(0).Play("PlayerIdle"); //Goes back to normal idle animation.
+                Main.Player<Animator>( id ).Play("PlayerIdle"); //Goes back to normal idle animation.
     }
 
 
@@ -195,12 +195,12 @@ public class PuppetManip : MonoBehaviour
 
     public void setIndex(int i)
     {
-      index = i;
+      id = i;
     }
 
     public int getIndex()
     {
-      return index;
+      return id;
     }
 
     // WE dont neeed this yet, since there is only one active gun per player we can just use
