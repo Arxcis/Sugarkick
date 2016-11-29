@@ -184,6 +184,24 @@ __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klar
 - Player test sheet
 
 
+#### Unity Components (Classes)
+
+- Actions.cs
+- Background.cs
+- CameraScript.cs
+- HoleCamera.cs
+- Main.cs
+- Menu.cs
+- MoveEnemy.cs
+- MoveJumper.cs
+- MovePlayer.cs
+- PauseMenu.cs
+- PuppetManip.cs
+- SoundManager.cs
+- SpawnControl.cs
+- Spawner.cs
+
+
 &nbsp;
 &nbsp;
 

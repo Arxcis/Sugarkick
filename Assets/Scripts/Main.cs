@@ -31,8 +31,8 @@ public class Main : MonoBehaviour {
     static List<GameObject> players = new List<GameObject>();    // An array with pointers to all the active players.
     static GameObject selectedPlayer;                            // Selected player at any given moment
 
-    void Awake () {                                       // Use this for initialization
-
+    void Awake ()
+    {
         if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
         int i=0;
@@ -61,40 +61,46 @@ public class Main : MonoBehaviour {
 
     /* GENERAL PLAYER INTERFACE FUNCTIONS
      * Description: Overriding the Player-function to support returning multiple types:
-     *                0. Players List<GameObject>
-     *                1. Player  GameObject
-     *                2. Player  child GameObjects
-     *                3. Player  Components
-     *                4. Player  child components
+     *                0. Players()                   -> List<GameObject>
+     *                1. Player(index)               -> GameObject
+     *                2. Player(index, childname)    -> GameObject
+     *                3. Player<component>(index)    -> Component
+     *                4. Player<component>(index, childname) -> Component
     */
-    public static List <GameObject> Players() {
+    public static List <GameObject> Players()
+    {
         return players;
     }
-                      // Demo: GameObject player = Player(0);
-    public static GameObject Player(int playerIndex){
+
+    public static GameObject Player(int playerIndex)
+    {
         return players[playerIndex];
     }
-                      // Demo: GameObject playerHead = Player(1, "Head");
-    public static GameObject Player(int playerIndex, string child) {
+
+    public static GameObject Player(int playerIndex, string child)
+    {
+
       return players[playerIndex]
                .transform
                  .Find(child)
                    .gameObject;
     }
-                      // Demo: Transform playerTrans = Player<Transform>(3);
-    public static T Player<T>(int playerIndex) where T : Component {
+
+    public static T Player<T>(int playerIndex) where T : Component
+    {
         return players[playerIndex]
                  .GetComponent<T>();
     }
-                      // Demo: SpriteRenderer playerHeadRend = Player<SpriteRenderer>(2, "Head");
-    public static T Player<T>(int playerIndex, string child) where T : Component {
-      return players[playerIndex]
-               .transform
-                 .Find(child)
-                   .gameObject
-                     .GetComponent<T>();
-    }
 
+    public static T Player<T>(int playerIndex, string child) where T : Component
+    {
+      return players[playerIndex]
+                 .transform
+                   .Find(child)
+                     .gameObject
+                       .GetComponent<T>();
+
+    }
 
 
 
@@ -108,7 +114,8 @@ public class Main : MonoBehaviour {
 
 
                                             // Temporary scoring system
-    public static void NewScore(){
+    public static void NewScore()
+    {
   		enemiesKilled++;
   		dynamicScoreMultiplier = (1.0F + (enemiesKilled / 100.0F));
   		score += (int)(dynamicScoreMultiplier*staticScoreMultiplier);
@@ -133,6 +140,7 @@ public class Main : MonoBehaviour {
                                         // Returns the correct angle between two vectors
     public static float GetAngle( Vector2 v1, Vector2 v2 )
     {
+        v1 = v1.normalized;    v2 = v2.normalized;
         float sign = Mathf.Sign( v1.x * v2.y - v1.y * v2.x );
         return Vector2.Angle(v1, v2) * sign;
     }

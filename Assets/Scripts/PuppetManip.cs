@@ -203,4 +203,17 @@ public class PuppetManip : MonoBehaviour
       return index;
     }
 
+    // WE dont neeed this yet, since there is only one active gun per player we can just use
+    // GameObject.find();
+
+   public GunScript GetActiveGunScript()
+   {
+     foreach(GameObject gun in guns)
+     {
+       if (gun.activeInHierarchy) {
+         return gun.GetComponent<GunScript>();
+       }
+     }
+     return null;
+   }
 }
