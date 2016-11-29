@@ -28,14 +28,37 @@ Ricardo Montana      <br />
 ### Version 0.5 - not released
 
 *Release date:30.11.2016*
-*Cycle length: 3 days*
+*Cycle length: 4 days*
 
-- Improved edge detection
+- Improved edge detection.
+- Many other bugfixes.
+- Obstacles
+- Big sound overhaul:
+    + 3 different weapon sounds
+    + Player hurt sound
+    + Player fall sound
+    + Enemy fall sound
+    + Spawn sound
+    + In-game music
+- Big sprite overhaul:
+    + 4 different normal enemy Sprites
+    + 2 different jumper enemy Sprites
+    + Player has body sprite and head sprite in all directions.
+    + Giant candy obstacle sprite.
+- Damage multiplayer support
+- Player movement and gun shooting multiplayer support
+- New comprehensive multi-input system which supports:
+    + Keyboard
+    + Keyboard + mouse
+    + Xbox One - tested on both Mac and Windows
+    + Xbox 360 - tested on both mac and Windows
+    + Up to 6 different players.
+
 
 ### Version 0.4
 
-*Release date: TBD*
-*Cycle length: 4 days*
+*Release date: 26.11.2016*
+*Cycle length: 5 days*
 
 - Mouse aiming
 - Main character head sprite
@@ -43,7 +66,8 @@ Ricardo Montana      <br />
 - Fancy main menu with sound options
 - Weapon pickups
 - Weapon sounds
-- Local multiplayer support
+- Enemy pathfinding multiplayer support
+- Camera multiplayer support
 - New enemy type: The Jumper
 - Sugarkick mechanic - slows down time speeds up player
 
