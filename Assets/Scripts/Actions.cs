@@ -45,7 +45,7 @@ public class Actions : MonoBehaviour {
 	Vector2 aimInput    = Vector2.zero;
 	Vector2 mouseInput  = Vector3.zero;
 	float   fireInput   = 0.0F;
-	GunScript activeGun;                          // temp value 
+	GunScript activeGun;                          // temp value
 
 
 	// Use this for initialization
@@ -120,10 +120,13 @@ public class Actions : MonoBehaviour {
 		fireInput = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_Fire" );
 
 		activeGun = Main.Player<PuppetManip>(i).GetActiveGunScript();
-		Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Fire" + fireInput);
-		if( fireInput > 0.4)
+
+		if( fireInput > 0.4) {
 			activeGun.Fire(fireInput, i);
+		}
 		i++;
+		// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Fire" + fireInput);
 	}
+
 	// End of class
 }
