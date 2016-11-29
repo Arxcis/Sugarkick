@@ -64,7 +64,7 @@ public class Actions : MonoBehaviour {
 			moveInput.x = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_MoveHorizontal");
 			moveInput.y = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_MoveVertical"  );
 
-			// Main.Player<MovePlayer>(i).Move( moveInput );
+			Main.Player<MovePlayer>(i).Move( moveInput, i);
 
 			Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Move" + moveInput);
 

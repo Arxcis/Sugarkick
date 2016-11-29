@@ -54,21 +54,6 @@ public class GunScript : MonoBehaviour
     void FixedUpdate ()                             // Fixed update is frame-rate independent
     {
 
-      // OLD aim-call system below, depricated by Actions.cs
-
-      //if( Main.mouseOn ) {
-
-      //  MouseAimUpdate( Input.mousePosition );           // Update aim with mouse
-      // }                             //     or
-      // else {                        //
-
-
-        //
-        // inputVec.x = Input.GetAxisRaw("AimAxisX");       // GetAxisRawMakes sure that input is not
-        // inputVec.y = Input.GetAxisRaw("AimAxisY");       // Keyboard buttons are either 1 and 0 smoothed
-        // keyAimUpdate( inputVec );                        // Update aim with keys
-      // }
-
       if (cooldown > 0) {
           cooldown--;
       }
