@@ -121,6 +121,10 @@ __The singleplayer -> multiplayer transition problem__
 __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klarte å implementere!__
 
 
+__Cross platform multiplayer multicontroller is not easy!__
+
+blablblablalbal
+
 
 &nbsp;
 &nbsp;

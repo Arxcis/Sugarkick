@@ -1824,6 +1824,11 @@ Prefab:
       propertyPath: mouseOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012639209392, guid: 035c2195e4c86490383f565b51035c7a,
+        type: 2}
+      propertyPath: keyboardOn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 114000013324234880, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
