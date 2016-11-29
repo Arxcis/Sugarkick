@@ -30,6 +30,8 @@ Ricardo Montana      <br />
 *Release date:30.11.2016*
 *Cycle length: 4 days*
 
+- Player selection in main menu*
+- Gamepad selection*
 - Improved edge detection.
 - Many other bugfixes.
 - Obstacles
@@ -40,6 +42,7 @@ Ricardo Montana      <br />
     + Enemy fall sound
     + Spawn sound
     + In-game music
+    + Pitch deviation for all sounds
 - Big sprite overhaul:
     + 4 different normal enemy Sprites
     + 2 different jumper enemy Sprites
