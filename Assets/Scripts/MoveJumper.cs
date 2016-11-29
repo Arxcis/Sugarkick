@@ -26,6 +26,7 @@ public class MoveJumper : MonoBehaviour {
     float walkDiv = 0;
 
     int framesCounted = 0;
+    int targetIndex;
 
     void Start()
     {
@@ -44,8 +45,8 @@ public class MoveJumper : MonoBehaviour {
         if (framesCounted == jumperRuteCalcRate)         // Updates the enemy's rute every x frames
         {                                               // Calculates length between player and enemy and
                                                         // and moves the player by a factor of this distance.
-            vectorToPlayer = new Vector3(jumperTrans.position.x - Main.Player<Transform>(0).position.x,
-                                         jumperTrans.position.y - Main.Player<Transform>(0).position.y);
+            vectorToPlayer = new Vector3(jumperTrans.position.x - Main.Player<Transform>( targetIndex ).position.x,
+                                         jumperTrans.position.y - Main.Player<Transform>( targetIndex ).position.y);
             framesCounted = 0;
         }
         else framesCounted++;
@@ -86,12 +87,12 @@ public class MoveJumper : MonoBehaviour {
             jumperAnim.SetBool("midAir", midAir);
         }
 
-        if (Main.Player<PuppetManip>(0).invFrm == 0 &&
+        if (Main.Player<PuppetManip>( targetIndex ).invFrm == 0 &&
             vectorToPlayer.magnitude < personalSpaceBro &&
             vectorToPlayer.magnitude > 0.1f)         //if the player is not invincible, is within range, but not 0? hit player!
         {
             print("Player Hit!");
-            Main.Player<PuppetManip>(0).damage(1, "enemy");
+            Main.Player<PuppetManip>( targetIndex ).damage(1, "enemy");
             GetComponent<PuppetManip>().kill("attack");
         }
 
@@ -122,5 +123,12 @@ public class MoveJumper : MonoBehaviour {
         jumperAnim.SetBool("midAir", midAir);
         coldwn = jumpCooldown;                                          //start the time no next jump cooldown.
 
+    }
+
+    void OnColliderEnter2D( GameObject other) {
+      if(( jumperTrans.position - Main.Player<Transform>( targetIndex ).position ).magnitude <= vectorToPlayer.magnitude)
+      {
+        targetIndex = other.GetComponent<PuppetManip>().GetIndex();
+      }
     }
 }

@@ -37,7 +37,7 @@ public class Main : MonoBehaviour {
 
         int i=0;
         foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
-            playerObject.GetComponent<PuppetManip>().setIndex(i);
+            playerObject.GetComponent<PuppetManip>().SetIndex(i);
             players.Add(playerObject);                   // Finds all GameObjects tagged 'player' in given scene
             i++;
         };

@@ -108,7 +108,7 @@ public class InputActions : MonoBehaviour {
 
 			activeGun = Main.Player<PuppetManip>(i).GetActiveGunScript();
 			if (activeGun != null) {
-				activeGun.KeyAimUpdate(aimInput);
+				activeGun.KeyAimUpdate( aimInput );
 			}
 			// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Aim" + aimInput);
 		}
@@ -121,8 +121,10 @@ public class InputActions : MonoBehaviour {
 
 		activeGun = Main.Player<PuppetManip>(i).GetActiveGunScript();
 
-		if( fireInput > 0.4) {
-			activeGun.Fire(fireInput, i);
+		if(activeGun !=  null) {
+			if( fireInput > 0.4) {
+				activeGun.Fire(fireInput, i);
+			}
 		}
 		i++;
 		// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Fire" + fireInput);
