@@ -6,7 +6,7 @@ InputManager:
   serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
-    m_Name: Keyboard1_MoveHorizontal
+    m_Name: KeyboardMouse_MoveHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -22,7 +22,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard2_MoveHorizontal
+    m_Name: Keyboard_MoveHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: a
@@ -38,7 +38,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard1_MoveVertical
+    m_Name: KeyboardMouse_MoveVertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
@@ -54,7 +54,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard2_MoveVertical
+    m_Name: Keyboard_MoveVertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: s
@@ -70,7 +70,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard2_AimHorizontal
+    m_Name: Keyboard_AimHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: h
@@ -86,7 +86,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard2_AimVertical
+    m_Name: Keyboard_AimVertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: j
@@ -102,7 +102,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard1_Fire
+    m_Name: KeyboardMouse_Fire
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -118,7 +118,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Keyboard2_Fire
+    m_Name: Keyboard_Fire
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

@@ -16,25 +16,25 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class Actions : MonoBehaviour {
+public class InputActions : MonoBehaviour {
 
 	// Public											// The next two attributes has to have a 1:1 realtionship
 	public enum Device : int {		// Used to access correct slot in string[] device names
-		Keyboard1,
+		KeyboardMouse,
 		Joy1,
 		Joy2,
 		Joy3,
 		Joy4,
-		Keyboard2
+		Keyboard
 	};
 
 	string[] DeviceNames = {				// Names that works as keys to access the Input.GetAxis(name+axis)
-		"Keyboard1",
+		"KeyboardMouse",
 		"Joy1",
 		"Joy2",
 		"Joy3",
 		"Joy4",
-		"Keyboard2"
+		"Keyboard"
 	};
 
 	public bool keyboardOn = false;													  // On/off keyboard 1 and 2
@@ -60,16 +60,16 @@ public class Actions : MonoBehaviour {
 	{
 		for (int i = 0; i < Main.Players().Count; i++)	  	// Wanted to use a foreach here, but player actually never used
 		{
-			ActionMove(i);
-			ActionAim(i);
-			ActionFire(i);
+			MoveAction(i);
+			AimAction(i);
+			FireAction(i);
 		}
 	}
 
 
 	void MapActiveDevices()
 	{
-		int k = (keyboardOn) ? 0 : 2;													// Maps players to a input device
+		int k = (keyboardOn) ? 0 : 1;													// Maps players to a input device
 		for( int i = 0; i < Main.Players().Count; i++ ) {		  //
 			activeDevices.Add( (Device) k );   									// Cast to enum
 			k++;
@@ -77,7 +77,7 @@ public class Actions : MonoBehaviour {
 	}
 
 
-	void ActionMove( int i )
+	void MoveAction( int i )
 	{
 				// -------------------- Move ------------------------
 				moveInput.x = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_MoveHorizontal");
@@ -88,10 +88,10 @@ public class Actions : MonoBehaviour {
 				// Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Move" + moveInput);
 	}
 
-	void ActionAim( int i )
+	void AimAction( int i )
 	{
 		// --------------------- Aim --------------------------
-		if( activeDevices[i] == Device.Keyboard1 ) {            				// Mouse aiming
+		if( activeDevices[i] == Device.KeyboardMouse ) {            				// Mouse aiming
 
 			mouseInput = Input.mousePosition;
 
@@ -114,7 +114,7 @@ public class Actions : MonoBehaviour {
 		}
 	}
 
-	void ActionFire( int i )
+	void FireAction( int i )
 	{
 		// --------------------- Fire ------------------------------
 		fireInput = Input.GetAxisRaw( DeviceNames[ (int)activeDevices[i] ] + "_Fire" );
