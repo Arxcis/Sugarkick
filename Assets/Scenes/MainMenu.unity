@@ -2508,9 +2508,11 @@ GameObject:
   - 92: {fileID: 1778803914}
   - 81: {fileID: 1778803913}
   - 114: {fileID: 1778803918}
+  - 114: {fileID: 1778803919}
+  - 114: {fileID: 1778803920}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2605,6 +2607,35 @@ MonoBehaviour:
   backgroundSpeed1: 0.21
   backgroundSpeed2: 0.05
   backgroundSpeed3: 0.17
+--- !u!114 &1778803919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778803912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588ee269924e6f046bcba03c01a7e60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inMainMenu: 1
+  playerPrefab: {fileID: 1000011223011370, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+    type: 2}
+  headFront: {fileID: 21300008, guid: 2948ec774c48ea349a1bf753b6bee656, type: 3}
+  headBack: {fileID: 21300036, guid: 2948ec774c48ea349a1bf753b6bee656, type: 3}
+--- !u!114 &1778803920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778803912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4977f43ada6ea47b85e96fa9c597a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardOn: 1
+  activeDevices: 
 --- !u!1 &1787683899
 GameObject:
   m_ObjectHideFlags: 0
