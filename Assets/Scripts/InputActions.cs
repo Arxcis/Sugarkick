@@ -21,24 +21,24 @@ public class InputActions : MonoBehaviour {
 	// Public											// The next two attributes has to have a 1:1 realtionship
 	public enum Device : int {		// Used to access correct slot in string[] device names
 		KeyboardMouse,
-		Joy2,
-		Joy3,
 		Joy1,
+		Joy3,
+		Joy2,
 		Joy4,
 		Keyboard
 	};
 
 	string[] DeviceNames = {				// Names that works as keys to access the Input.GetAxis(name+axis)
 		"KeyboardMouse",
-		"Joy2",
-		"Joy3",
 		"Joy1",
+		"Joy3",
+		"Joy2",
 		"Joy4",
 		"Keyboard"
 	};
 
-	public bool keyboardOn = false;													  // On/off keyboard 1 and 2
-	public List<Device> activeDevices = new List<Device>();   // Maps players to their respective device.
+	public static bool keyboardOn = true;													  // On/off keyboard 1 and 2
+	public static List<Device> activeDevices = new List<Device>();   // Maps players to their respective device.
 
 	// Private
 	Vector2 moveInput   = Vector2.zero;							// Stores temp values for all the input axes
@@ -67,12 +67,15 @@ public class InputActions : MonoBehaviour {
 	}
 
 
-	void MapActiveDevices()
+	public static void MapActiveDevices()
 	{
+        activeDevices.Clear();                                  //clears the list to it can be re-written to.
+
 		int k = (keyboardOn) ? 0 : 1;													// Maps players to a input device
 		for( int i = 0; i < Main.Players().Count; i++ ) {		  //
 			activeDevices.Add( (Device) k );   									// Cast to enum
 			k++;
+            print("Input Actions: " + k);
 		}
 	}
 
