@@ -13,7 +13,6 @@ public class PauseMenu : MonoBehaviour {
 
     public AudioClip ButtonClick;                       //set the soundclip for the button in the inspector.
 
-
     void FixedUpdate()
     {
         if (Input.GetAxis("Pause") > 0.1f)           // checks to see if user presses pause button.
