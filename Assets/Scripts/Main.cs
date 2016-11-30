@@ -9,7 +9,11 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
         // Public
+    public static bool inMainMenu = true;	
     public static bool mouseOn = true;          // mouse on / off
+
+    public static int numberOfPlayers = 1;	// '= 4' is temporary, for testing.
+    public GameObject playerPrefab;
 
     public Sprite headFront;
     public Sprite headBack;
@@ -33,20 +37,36 @@ public class Main : MonoBehaviour {
 
     void Awake ()
     {
-        if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
+	if(inMainMenu == false)					// Don't want to do this in MainMenu
+	{
+            DontDestroyOnLoad (gameObject);				// Makes sure the camera persists through scenes.
+	    SpawnPlayers();						// Removes the current players before adding the correct amount.
 
-        int i=0;
-        foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) {
-            playerObject.GetComponent<PuppetManip>().SetIndex(i);
-            players.Add(playerObject);                   // Finds all GameObjects tagged 'player' in given scene
-            i++;
-        };
+            if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
+	
+            int i=0;
+	    players.Clear ();
+            foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) 
+	    {
+                playerObject.GetComponent<PuppetManip>().SetIndex(i);
+                players.Add(playerObject);                   // Finds all GameObjects tagged 'player' in given scene
+                i++;
+            };
 
-        scoreText = GameObject.Find("Score").GetComponent<Text>();
-        timerText = GameObject.Find("Timer").GetComponent<Text>();
-        timeText = GameObject.Find("Time:").GetComponent<Text>();
+	    if (GameObject.FindGameObjectsWithTag ("MainCamera").Length > 1) // If there already exists a camera in the scene(loaded from previous scene).
+	    {
+	        Destroy (gameObject); 					// Destroys this camera as to have no duplicates.
+	    }
 
-        Time.timeScale = 1f;                           // Sets time scale to 1 incrase sugarkick was active.
+            scoreText = GameObject.Find("Score").GetComponent<Text>();
+            timerText = GameObject.Find("Timer").GetComponent<Text>();
+            timeText = GameObject.Find("Time:").GetComponent<Text>();
+
+            Time.timeScale = 1f;                           // Sets time scale to 1 incrase sugarkick was active.
+	    
+	}
+
+	inMainMenu = false;
     }
 
                                                       // Update is called once per frame
@@ -58,6 +78,36 @@ public class Main : MonoBehaviour {
             timerText.text = timerInt.ToString();
         }
     }
+
+
+
+
+
+    // ************************** INSTANTIATION OF PLAYERS ***********************
+    void SpawnPlayers()					// Removes the current players before adding the correct amount.
+    {
+	foreach (GameObject playerObject in GameObject.FindGameObjectsWithTag("Player")) 
+	{
+	    Destroy (playerObject);
+	}
+	
+	for (int i = 0; i < Main.numberOfPlayers; i++) 
+	{
+	    var player = Instantiate (playerPrefab, new Vector2(0.0F, 0.0F), Quaternion.identity) as GameObject;
+	}
+	
+    //var enemy = Instantiate (enemiesToSpawn[enemyType], trans.position, Quaternion.identity) as GameObject;
+    }
+
+
+
+
+
+
+
+
+
+
 
     /* GENERAL PLAYER INTERFACE FUNCTIONS
      * Description: Overriding the Player-function to support returning multiple types:
