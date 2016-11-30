@@ -596,6 +596,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: selectionOpen
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012011925096, guid: d40b2bd9362fa804081ef2739fea002d,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 1313636278}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d40b2bd9362fa804081ef2739fea002d, type: 2}
   m_IsPrefabParent: 0
@@ -1456,7 +1461,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012129961774, guid: e84572d3faee9104ebe5529585546309, type: 2}
       propertyPath: m_Name
-      value: NumUpDownJoy4
+      value: 5_NumUpDownJoy4
       objectReference: {fileID: 0}
     - target: {fileID: 114000013601575078, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
@@ -1902,7 +1907,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012129961774, guid: e84572d3faee9104ebe5529585546309, type: 2}
       propertyPath: m_Name
-      value: NumUpDownJoy3
+      value: 4_NumUpDownJoy3
       objectReference: {fileID: 0}
     - target: {fileID: 114000013836520766, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
@@ -2816,7 +2821,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012129961774, guid: e84572d3faee9104ebe5529585546309, type: 2}
       propertyPath: m_Name
-      value: NumUpDownJoy2
+      value: 3_NumUpDownJoy2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013601575078, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
@@ -2837,7 +2842,7 @@ Prefab:
         type: 2}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 440791278}
+      objectReference: {fileID: 554219252}
     - target: {fileID: 114000013601575078, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -3193,7 +3198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012129961774, guid: e84572d3faee9104ebe5529585546309, type: 2}
       propertyPath: m_Name
-      value: NumUpDownKeyMouse
+      value: 0_NumUpDownKeyMouse
       objectReference: {fileID: 0}
     - target: {fileID: 114000013836520766, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
@@ -3435,7 +3440,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012129961774, guid: e84572d3faee9104ebe5529585546309, type: 2}
       propertyPath: m_Name
-      value: NumUpDownKeyboard
+      value: 1_NumUpDownKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 114000013601575078, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
@@ -3456,7 +3461,7 @@ Prefab:
         type: 2}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 1020308231}
+      objectReference: {fileID: 2116314277}
     - target: {fileID: 114000013601575078, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
       propertyPath: m_Navigation.m_SelectOnRight
@@ -5128,6 +5133,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: mainOpen
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012011925096, guid: d40b2bd9362fa804081ef2739fea002d,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 633375287}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d40b2bd9362fa804081ef2739fea002d, type: 2}
   m_IsPrefabParent: 0
@@ -5359,12 +5369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb6095f7475349449944ef3c76efce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumUpDownKeyMouse: {fileID: 1563277521}
-  NumUpDownKeyboard: {fileID: 127156181}
-  NumUpDownJoystick1: {fileID: 1578067725}
-  NumUpDownJoystick2: {fileID: 305557492}
-  NumUpDownJoystick3: {fileID: 765797867}
-  NumUpDownJoystick4: {fileID: 1946668642}
   MainCanvas: {fileID: 462579067}
   OptionsCanvas: {fileID: 1389856296}
   SelectionCanvas: {fileID: 2051126688}
@@ -5378,6 +5382,7 @@ MonoBehaviour:
   backgroundSpeed1: 0.21
   backgroundSpeed2: 0.05
   backgroundSpeed3: 0.17
+  potetSekk: 
 --- !u!1 &1787683899
 GameObject:
   m_ObjectHideFlags: 0
@@ -6504,7 +6509,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012129961774, guid: e84572d3faee9104ebe5529585546309, type: 2}
       propertyPath: m_Name
-      value: NumUpDownJoy1
+      value: 2_NumUpDownJoy1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013836520766, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
@@ -6525,7 +6530,7 @@ Prefab:
         type: 2}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 554219252}
+      objectReference: {fileID: 1020308231}
     - target: {fileID: 114000013601575078, guid: e84572d3faee9104ebe5529585546309,
         type: 2}
       propertyPath: m_Navigation.m_SelectOnRight
