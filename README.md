@@ -8,7 +8,7 @@ Jonas Solsvik         <br/>
 Jone Martin Skaara    <br/>
 Johannes Gabriel Aas <br/>
 Eldar Hauge Torkelsen <br />
-Ricardo Montana      <br />
+Ricardo Gonzalez Q.      <br />
 
 
 ## Contents
