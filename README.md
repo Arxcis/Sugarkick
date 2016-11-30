@@ -176,6 +176,15 @@ __Cross platform multiplayer multicontroller is not easy!__
 blablblablalbal
 
 
+__Things we wish we knew about from the very start__
+
+- RequireComponent
+- Active use of Prefabs
+- Git.
+- Lists
+- Static members
+
+
 &nbsp;
 &nbsp;
 

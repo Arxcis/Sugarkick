@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(PolygonCollider2D))]
 public class EdgeScript : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
