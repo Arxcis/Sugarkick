@@ -3,7 +3,7 @@
 
 Implementation of Sugarkick with Unity Engine
 
-__The Team__ <br/>
+__The Team - Oblig Destroyers__ <br/>
 Jonas Solsvik         <br/>
 Jone Martin Skaara    <br/>
 Johannes Gabriel Aas <br/>
@@ -11,7 +11,7 @@ Eldar Hauge Torkelsen <br />
 Ricardo Gonzalez Q.      <br />
 
 
-## Contents
+## 0. Contents
 
 0. [InputManagers](#content0)
 1. [Changelog - Iterations](#content1)
@@ -24,7 +24,7 @@ Ricardo Gonzalez Q.      <br />
 &nbsp;
 
 <a id="content0"></a>
-## InputManagers - OS specific
+## 1. InputManagers - OS specific
 
 To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
 with one of these files.
@@ -35,7 +35,7 @@ with one of these files.
 &nbsp;
 
 <a id="content1"></a>
-## Changelog - Iterations
+## 2. Changelog - Iterations
 
 ### Version 0.5 - not released
 
@@ -141,7 +141,7 @@ with one of these files.
 
 
 <a id="content2"></a>
-## Discussion
+## 3. Discussion
 
 __Progress as a function of time__
 
@@ -191,7 +191,7 @@ __Things we wish we knew about from the very start__
 
 
 <a id="content3"></a>
-## Homegrown assets
+## 4. Homegrown assets
 
 #### Unity Prefabs
 
@@ -269,7 +269,7 @@ __Things we wish we knew about from the very start__
 &nbsp;
 
 <a id="content4"></a>
-## Git reference
+## 5. Git reference
 
 The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
 Here is a reference list of the Git commands used to build this project. <br/>
@@ -341,7 +341,7 @@ __Patching__
 &nbsp;
 
 <a id="content5"></a>
-## Unity reference
+## 6. Unity reference
 
 References to Unity's standard library assets that are used in this project
 

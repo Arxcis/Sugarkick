@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour {
         SceneManager.LoadScene(nameOfLevel);                    //loads the scene with that name.
 
     }
-    
+
     //Opens pause meny
     void openPause()
     {

@@ -15,7 +15,6 @@ public class EdgeScript : MonoBehaviour {
        if (other.gameObject.CompareTag("Player")){
 
             PuppetManip mnIp = other.GetComponent<PuppetManip>();     // Gets the exited object's puppit manip.
-
             mnIp.kill("fall");
         }
     }

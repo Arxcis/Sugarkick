@@ -33,6 +33,7 @@ public class Main : MonoBehaviour {
 
     void Awake ()
     {
+
         if( GameObject.FindGameObjectsWithTag("Player").Length < 1 ) { Debug.Log("NO PLAYERS FOUND IN SCENE!"); }  // Important check
 
         int i=0;
@@ -44,7 +45,7 @@ public class Main : MonoBehaviour {
 
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         timerText = GameObject.Find("Timer").GetComponent<Text>();
-        timeText = GameObject.Find("Time:").GetComponent<Text>();
+        timeText  = GameObject.Find("Time:").GetComponent<Text>();
 
         Time.timeScale = 1f;                           // Sets time scale to 1 incrase sugarkick was active.
     }

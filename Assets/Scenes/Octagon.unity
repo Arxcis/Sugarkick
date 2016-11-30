@@ -1389,6 +1389,16 @@ Prefab:
       propertyPath: effectsTrackbar
       value: 
       objectReference: {fileID: 1552135492}
+    - target: {fileID: 82000010502746034, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.094
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012314653920, guid: f3b6c8a809b479746a6ae19eceaa9198,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.043
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b6c8a809b479746a6ae19eceaa9198, type: 2}
   m_IsPrefabParent: 0
