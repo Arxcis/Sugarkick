@@ -29,6 +29,7 @@ public class PuppetManip : MonoBehaviour
     public int invFrm = 0;
     int frmPlayedSgrKck = 0;
     bool hasSugarkick = false;
+    float mvSpd;
 
     public int id;                        // objects position in the global list
 
@@ -36,10 +37,19 @@ public class PuppetManip : MonoBehaviour
     {
         SoundManager.instance.bamPow(spawnSound);       //PLayes the spawn sound. (both enemy and player).
         currentHp = hP;
+        mvSpd = movementSpeed;
     }
-
+    int potet = 0;
     void FixedUpdate()
     {
+        if (potet > 40)
+        {
+            print("TimeScale: " + Time.timeScale);
+            potet = 0;
+        }
+        else potet++;
+
+
         if (invFrm != 0) invFrm--;                  //decreases the inv frames unless its 0.
         if (hasSugarkick) frmPlayedSgrKck++;        //counts up for sugarkick().
         if (frmPlayedSgrKck == framesToPlaySugarAnim) SugarKickOff(); // turns off sugarkick when reached stop.
@@ -162,8 +172,8 @@ public class PuppetManip : MonoBehaviour
             {
                 hasSugarkick = true;
                 movementSpeed *= sugarSpeedChange;
-                Time.timeScale *= sugarTimeSlow;
-                Time.fixedDeltaTime *= sugarTimeSlow;
+                Time.timeScale = sugarTimeSlow;
+                //Time.fixedDeltaTime = sugarTimeSlow;
                 Main.Player<Animator>( id ).Play("Sugarkick");          //start the sugarkick animaton. This one runns the loop. calls Tick().
 
         }
@@ -173,9 +183,9 @@ public class PuppetManip : MonoBehaviour
 
                 frmPlayedSgrKck = 0;              //restes the counter, ready for next sugarkick.
                 hasSugarkick = false;
-                movementSpeed /= sugarSpeedChange;
-                Time.timeScale /= sugarTimeSlow;
-                Time.fixedDeltaTime /= sugarTimeSlow;
+                movementSpeed = mvSpd;
+                Time.timeScale = 1;
+                //Time.fixedDeltaTime = 1;
                 Main.Player<Animator>( id ).Play("PlayerIdle"); //Goes back to normal idle animation.
     }
 
