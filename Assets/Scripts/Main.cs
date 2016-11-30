@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
         // Public
-    public static bool mouseOn = true;          // mouse on / off
 
     public Sprite headFront;
     public Sprite headBack;
@@ -108,9 +107,11 @@ public class Main : MonoBehaviour {
 
     public static void toggleMouseAiming()         //useed by toggle ui element in pause menu.
     {
-        print("Switched mouse-aiming from: " + mouseOn + " to: " + !mouseOn);
-        if (mouseOn) mouseOn = false;
-        else mouseOn = true;
+        print("Switched mouse-aiming from: " + InputActions.keyboardOn + " to: " + !InputActions.keyboardOn);
+        if (InputActions.keyboardOn) InputActions.keyboardOn = false;
+        else InputActions.keyboardOn = true;
+        InputActions.MapActiveDevices();
+        
     }
 
 
