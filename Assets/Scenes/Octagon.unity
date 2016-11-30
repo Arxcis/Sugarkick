@@ -1254,6 +1254,11 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 1628005642}
+    - target: {fileID: 114000010767180144, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: sugarTimeSlow
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
   m_IsPrefabParent: 0
@@ -1702,6 +1707,11 @@ Prefab:
     - target: {fileID: 1000011223011370, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010767180144, guid: 8ab0aa5f96578477eb59bd7b616f97eb,
+        type: 2}
+      propertyPath: sugarTimeSlow
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ab0aa5f96578477eb59bd7b616f97eb, type: 2}
