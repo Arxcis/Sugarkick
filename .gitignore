@@ -1,11 +1,21 @@
-=============== 
+===============
 Unity generated
 ===============
 Temp/
 Library/
 
+ProjectSettings/InputManager.asset
 ProjectSettings/ProjectVersion.txt
 ProjectSettings/ProjectSettings.asset
+
+=============
+Jekyll stuff
+=============
+
+docs/_site
+docs/.sass-cache
+docs/.jekyll-metadata
+
 
 =====================================
 Visual Studio / MonoDevelop generated
