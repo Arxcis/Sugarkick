@@ -111,7 +111,7 @@ public class InputActions : MonoBehaviour {
 
 			activeGun = Main.Player<PuppetManip>(i).GetActiveGunScript();
 			if (activeGun != null) {
-				activeGun.KeyAimUpdate( aimInput );
+				activeGun.KeyAimUpdate( aimInput, i );
 			}
 			//Debug.Log( DeviceNames[ (int)activeDevices[i] ] + "_Aim" + aimInput);
 		}

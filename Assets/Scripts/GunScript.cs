@@ -108,13 +108,9 @@ public void Fire(float fire, int i)
 			Main.Player<Rigidbody2D>(i).velocity += recoilVec * (knockbackPow / 10);
 		}
 
-      // -------------------- PART 3 - UPDATE HEAD ROTATION -----------------------   // This is a bit malplaced
-      if (gunAngle > -100 && gunAngle < 110)
-          Main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;      // non-static part of main has to be called through an object.
-      else
-          Main.Player<SpriteRenderer>(0, "Head").sprite = main.headFront;
 
-	cooldown = 1/(fireRate/1000);
+
+	   cooldown = 1/(fireRate/1000);
     }
 
 
@@ -130,14 +126,26 @@ public void Fire(float fire, int i)
                                     mousePos.y - Main.Player<Transform>(i).position.y);
     gunAngle = Main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
+
+    updateHead( i );
   }
 
-  public void KeyAimUpdate( Vector2 inVec )
+  public void KeyAimUpdate( Vector2 inVec, int i)
   {
     if (inVec.x != 0 || inVec.y != 0){
 
         gunAngle = Main.GetAngle( Vector2.up, inVec );
         gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
     }
+    updateHead(i);
+  }
+
+  void updateHead( int i )
+  {
+    // -------------------- PART 3 - UPDATE HEAD ROTATION -----------------------   // This is a bit malplaced
+    if (gunAngle > -100 && gunAngle < 110)
+        Main.Player<SpriteRenderer>(i, "Head").sprite = main.headBack;             // non-static part of main has to be called through an object.
+    else
+        Main.Player<SpriteRenderer>(i, "Head").sprite = main.headFront;
   }
 }
