@@ -29,8 +29,8 @@ Ricardo Montana      <br />
 To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
 with one of these files.
 
-<a href="config/InputManager_macSierra.asset" target="_blank"> Input - macSierra</a> <br />
-<a href="config/InputManager_win10.asset" target="_blank">     Input - Windows10 </a>
+<a href="config/InputManager_macSierra.asset" target="´`_`blank"> Input - macSierra</a> <br />
+<a href="config/InputManager_win10.asset" target="`_`blank">     Input - Windows10 </a>
 
 &nbsp;
 
@@ -161,6 +161,11 @@ __The singleplayer -> multiplayer transition problem__
 - Code written for single player is a intervined web of dependencies.
 - Huge job, big risk, might be better to fork a separate repo.
 - Multiplayer from the start, or no multiplayer.
+
+
+__Modularity - Dependencies / References__
+
+As the project grows it becomes more and more important that
 
 
 __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klarte å implementere!__
