@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GunScript : MonoBehaviour
@@ -69,23 +69,9 @@ public class GunScript : MonoBehaviour
 public void Fire(float fire, int i)
   {
 
-    // -------------------- PART 1 - EFFECT the player -----------------------
-    if (fire > 0.4 && cooldown <= 0)
-    {                                                   // Scaling recoilVec with negative 1 to send the
-                                                        // player in opposite direction
-      recoilVec = Main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
-
-      if (setPos) {                                     // Casting vec2 to vec3 before adding to position
-          Main.Player<Transform>(i).position += Main.ToVector3(recoilVec * (knockbackPow / 300.0F));
-      }
-      if(addForce){
-          Main.Player<Rigidbody2D>(i).AddForce(recoilVec * (knockbackPow / 1));
-      }
-      if(setVelocity){
-          Main.Player<Rigidbody2D>(i).velocity += recoilVec * (knockbackPow / 10);
-      }
-
-      // -------------------- PART 2 - EFFECT the bullet - play sound -----------------------
+	if (cooldown <= 0)
+	{
+      // -------------------- PART 1 - EFFECT the bullet - play sound -----------------------
       float soundPitch = Random.Range(-0.1f, 0.1f);         // the pitch deviation needs to be on a seperate line due to how the compiler deals with functions.
       SoundManager.instance.bangBang(GunSound, soundPitch); // plays designated gun sound
 
@@ -107,15 +93,28 @@ public void Fire(float fire, int i)
       pInfo.bulletSize = bulletSize;
 
 
-      cooldown = 1/(fireRate/1000);
+	// -------------------- PART 2 - EFFECT the player -----------------------
+                                                  // Scaling recoilVec with negative 1 to send the
+		// player in opposite direction
+		recoilVec = Main.GetUnitVector2( (gunAngle+90) * Mathf.Deg2Rad ) * -1;
 
-      // -------------------- PART 3 - UPDATE HEAD ROTATION -----------------------   // This is a bit malplaced
-      if (gunAngle > -100 && gunAngle < 110)
-          Main.Player<SpriteRenderer>(0, "Head").sprite = main.headBack;      // non-static part of main has to be called through an object.
-      else
-          Main.Player<SpriteRenderer>(0, "Head").sprite = main.headFront;
+		if (setPos) {                                     // Casting vec2 to vec3 before adding to position
+			Main.Player<Transform>(i).position += Main.ToVector3(recoilVec * (knockbackPow / 300.0F));
+		}
+		if(addForce){
+			Main.Player<Rigidbody2D>(i).AddForce(recoilVec * (knockbackPow / 1));
+		}
+		if(setVelocity){
+			Main.Player<Rigidbody2D>(i).velocity += recoilVec * (knockbackPow / 10);
+		}
+
+
+
+	   cooldown = 1/(fireRate/1000);
     }
-	}
+
+
+}
 
 
 
@@ -127,14 +126,26 @@ public void Fire(float fire, int i)
                                     mousePos.y - Main.Player<Transform>(i).position.y);
     gunAngle = Main.GetAngle( Vector2.up, facingMouseVector );
     gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle);
+
+    updateHead( i );
   }
 
-  public void KeyAimUpdate( Vector2 inVec )
+  public void KeyAimUpdate( Vector2 inVec, int i)
   {
     if (inVec.x != 0 || inVec.y != 0){
 
         gunAngle = Main.GetAngle( Vector2.up, inVec );
         gunTrans.localRotation = Quaternion.Euler(0, 0, gunAngle); // Quaternion.Euler accepts regular angles (Grad)
     }
+    updateHead(i);
+  }
+
+  void updateHead( int i )
+  {
+    // -------------------- PART 3 - UPDATE HEAD ROTATION -----------------------   // This is a bit malplaced
+    if (gunAngle > -100 && gunAngle < 110)
+        Main.Player<SpriteRenderer>(i, "Head").sprite = main.headBack;             // non-static part of main has to be called through an object.
+    else
+        Main.Player<SpriteRenderer>(i, "Head").sprite = main.headFront;
   }
 }
