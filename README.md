@@ -140,11 +140,11 @@ Ricardo Gonzalez Q.   <br />
 - Octagon, Hexagon, Square and Triangle levels created.
 
 
-
-&nbsp;
-&nbsp;
-
 [TOC](#content)
+
+&nbsp;
+&nbsp;
+
 
 <a id="content0"></a>
 ## 2. InputManagers - OS specific
@@ -156,12 +156,12 @@ with one of these files.
 <a href="config/InputManager_win10.asset" target="`_`blank">     Input - Windows10 </a>
 
 
+[TOC](#content)
 &nbsp;
 &nbsp;
 
 
 <a id="content3"></a>
-[TOC](#content)
 ## 3. Homegrown assets
 _Last updated: 02.12.2016_
 We have tried to make all our assets in-house. Here is a list of what me made thus far.
@@ -225,9 +225,9 @@ We have tried to make all our assets in-house. Here is a list of what me made th
 
 These can be found in the GitHub-repo Asssets/Sounds or Sprites or via the Google Drive links provided here
 
-[Sound showcase](https://drive.google.com/drive/folders/0B1TL18woDGl5OVpLaXJ4dmtRWXM?usp=sharing)
+[Sound showcase](https://drive.google.com/drive/folders/0B1TL18woDGl5Sk5yU3p0UDBrUjA?usp=sharing)
 
-[Sprite showcase](https://drive.google.com/drive/folders/0B1TL18woDGl5Sk5yU3p0UDBrUjA?usp=sharing)
+[Sprite showcase](https://drive.google.com/drive/folders/0B1TL18woDGl5OVpLaXJ4dmtRWXM?usp=sharing)
 
 
 #### Unity Components (Classes)
@@ -250,12 +250,12 @@ These can be found in the GitHub-repo Asssets/Sounds or Sprites or via the Googl
 - SpawnEnemies.cs
 - Spawner.cs
 
+[TOC](#content)
 
 &nbsp;
 &nbsp;
 
 <a id="content4"></a>
-[TOC](#content)
 ## 4. Git reference
 
 The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
@@ -321,12 +321,12 @@ __Patching__
 
 
 
+[TOC](#content)
 &nbsp;
 &nbsp;
 
 <a id="content5"></a>
 
-[TOC](#content)
 ## 5. Unity reference
 
 References to most of the Unity's standard library assets that are used in this project
@@ -413,12 +413,12 @@ __Misc__
  [List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
 
 
+ [TOC](#content)
 
 &nbsp;
 &nbsp;
 
 <a id="content6"></a>
-[TOC](#content)
 
 
 ## 6. Discussion
