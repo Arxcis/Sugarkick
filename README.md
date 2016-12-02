@@ -20,7 +20,7 @@ Ricardo Gonzalez Q.   <br />
 3. [Homegrown assets](#content3)
 4. [Git reference](#content4)
 5. [Unity reference](#content5)
-6. [Discussion](#content2)
+6. [Discussion](#content6)
   1. [Progress  VS  Project size](#content6a)
   2. [SCRUM - fast iterations, always finished/never finished](#content6b)
   3. [The singleplayer -> multiplayer transition problem](#content6c)
@@ -417,7 +417,7 @@ __Misc__
 &nbsp;
 &nbsp;
 
-<a id="content2"></a>
+<a id="content6"></a>
 [TOC](#content)
 
 
@@ -438,6 +438,8 @@ __Misc__
 
  <img src="images/project_1.jpg" width="60%"/>
 
+[TOC](#content)
+
 &nbsp;
 <a id="content6b"></a>
 
@@ -454,6 +456,7 @@ __Misc__
 
  We initially planned on having 6 cycles/iterations of 4 days. All these cycles are described in the changelog above. An average of 5 days for each cycle is reasonable amount of time for noticing improvement between each iteration. Keeps the group moving, motivation to see the changelog filling up each day through a given cycle.
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6c"></a>
@@ -471,6 +474,7 @@ __Misc__
 
  When changing the game from singleplayer to multiplayer we were at a tipping point in the project.  Seeing how much of the code depended on the single player, there was a big risk in changing to a multi player paradigm. None of us could foresee all the problems this could cause(and still causes). In a big stakes project, this would have been too late to take the risk.  Aside from being a big risk, it is also a big opportunity for learning. (And also a giant rabbit-hole of engineer hot-fixes in the fashion of “is there a workaround?”). Curisoity beat fear this time!
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6d"></a>
@@ -479,6 +483,7 @@ __Misc__
 
 Why is 90% the errors and bugs related to dependency-issues, and very few are programming-issues? Most of the programming issues are ironed out before run-time. Dependency issues are only discovered at some point during run-time. One developer might play the whole game without finding errors. Thinking everything is fine, he then pushes his branch to master. Suddenly all other developers has a bunch of errors, because they play the game in a different way, in different scenes, with different settings.
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6e"></a>
@@ -525,6 +530,8 @@ The music at the game itself  is more intense and stressful. However, the idea i
 
 The sound effects are carefully made to express in a way the old-fashion sound effects, but in this case with a bit of echoes and and reverse that give the effects a kind of refresh. The idea was anyway to keep the sounds and effects as simple as possible. In fact some of them were remasterized to make them simpler.  
 
+[TOC](#content)
+
 &nbsp;
 <a id="content6f"></a>
 
@@ -565,6 +572,7 @@ ___Story elements___
 
 The story was meant to be told through an opening cartoon or other media
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6g"></a>
@@ -579,6 +587,7 @@ The story was meant to be told through an opening cartoon or other media
 
  Assigning the correct controller to the correct player is the next big issue here. We started implementing a controller/player selection system in the main menu. When the project was handed in the main menu part was working, storing information about which player had selected which controller, in which order. Due to the lack of a proper GameState object which would carry this information onto each scene, this functionality was never utilized.
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6h"></a>
@@ -611,6 +620,7 @@ ___Static class members___
 
 Being able to get and set values, run functions from anywhere in the code proves to be quite useful. We started off having a script instance storing all global information. This instance was attached to the camera in the scene. Meaning we had to find the camera by name and get its global script in every other script, which became pretty tiring after a while.
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6i"></a>
@@ -631,6 +641,7 @@ ___Referencing issue by commit -m”#<number><message>”___
 
 This would make the easier to update the issue list and keep track of what needed to be done. When an issue automatically contain all the relevant commits inside the issue, making it easier to track the solution to the problem.
 
+[TOC](#content)
 
 &nbsp;
 <a id="content6j"></a>
@@ -663,6 +674,7 @@ Assets/Scenes
 
 Scenes were the #1 cause of conflicts. They are huge YAML files, which Unity automagically adds and subtracts large amount of code, even with tiny changes to the scenes. If these were ignored, they could be shared with other tools instead - GDrive and Discord for instance.
 
+[TOC](#content)
 &nbsp;
 <a id="content6k"></a>
 
