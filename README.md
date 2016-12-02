@@ -3,7 +3,7 @@
 
 Implementation of the game Sugarkick with Unity Engine
 
-<img style="width=70%" src="images/bilde2.jpg"/>
+<img style="max-width: 70%;" src="images/bilde2.jpg"/>
 
 __The Team - Oblig Destroyers__ <br/>
 Jonas Solsvik         <br/>
