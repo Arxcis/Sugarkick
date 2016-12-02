@@ -3,36 +3,26 @@
 
 Implementation of the game Sugarkick with Unity Engine
 
-<img style="width=90%; margin: auto;" src="images/bilde2.jpg"/>
+<img style="width=70%" src="images/bilde2.jpg"/>
 
 __The Team - Oblig Destroyers__ <br/>
 Jonas Solsvik         <br/>
 Jone Martin Skaara    <br/>
-Johannes Gabriel Aas <br/>
+Johannes Gabriel Aas  <br/>
 Eldar Hauge Torkelsen <br />
-Ricardo Gonzalez Q.      <br />
+Ricardo Gonzalez Q.   <br />
 
 
-## 0. Contents
+## Contents
 
-0. [InputManagers](#content0)
 1. [Changelog - Iterations](#content1)
-2. [Discussion](#content2)
+2. [InputManagers](#content0)
 3. [Homegrown assets](#content3)
 4. [Git reference](#content4)
 5. [Unity reference](#content5)
+6. [Discussion](#content2)
 
 
-&nbsp;
-
-<a id="content0"></a>
-## 1. InputManagers - OS specific
-
-To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
-with one of these files.
-
-<a href="config/InputManager_macSierra.asset" target="´`_`blank"> Input - macSierra</a> <br />
-<a href="config/InputManager_win10.asset" target="`_`blank">     Input - Windows10 </a>
 
 &nbsp;
 
@@ -142,52 +132,18 @@ with one of these files.
 &nbsp;
 
 
-<a id="content2"></a>
-## 3. Discussion
-
-__Progress as a function of time__
-
-As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
-
-<img src="images/project_1.jpg" width="60%"/>
-
-__SCRUM - fast iterations, always finished/never finished__
-
-The method for managing the project was chosen to be an informal type of the Scrum method.  Using GitHub extensively we were able to at least do the fast iterations part very well. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
-
-GitHub makes us able to work decentralized, and keeps the pace of the project at a certain speed, no matter where each team member is located. Still, it is worth mentioning that frequent meetings are needed to maintin progress speed. New issues has to be made, knowledge has to be transferred, and there is no better way than a good old fashioned meeting.
-
-
-__The singleplayer -> multiplayer transition problem__
-
-- Code written for single player is a intervined web of dependencies.
-- Huge job, big risk, might be better to fork a separate repo.
-- Multiplayer from the start, or no multiplayer.
-
-
-__Modularity - Dependencies / References__
-
-As the project grows it becomes more and more important that
-
-
-__Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klarte å implementere!__
-
-
-__Cross platform multiplayer multicontroller is not easy!__
-
-blablblablalbal
-
-
-__Things we wish we knew about from the very start__
-
-- RequireComponent
-- Active use of Prefabs
-- Git.
-- Lists
-- Static members
-
-
 &nbsp;
+
+<a id="content0"></a>
+## 1. InputManagers - OS specific
+
+To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
+with one of these files.
+
+<a href="config/InputManager_macSierra.asset" target="´`_`blank"> Input - macSierra</a> <br />
+<a href="config/InputManager_win10.asset" target="`_`blank">     Input - Windows10 </a>
+
+
 &nbsp;
 
 
@@ -303,7 +259,6 @@ We were motivated to make all our assets in-house. Here is a list of what me mad
 
 The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
 Here is a reference list of the Git commands used to build this project. <br/>
-_(Disclosure: The links follow the same grouping as you can find here https://git-scm.com/docs)_
 
 
 __Setup and Config__
@@ -365,15 +320,13 @@ __Patching__
 
 
 
-
-
 &nbsp;
 &nbsp;
 
 <a id="content5"></a>
 ## 6. Unity reference
 
-References to Unity's standard library assets that are used in this project
+References to most of the Unity's standard library assets that are used in this project
 
 __Classes__ <br />
  >[Object](https://docs.unity3d.com/ScriptReference/Object.html) <br />
@@ -455,3 +408,52 @@ __Misc__
 
 >[List.add()](https://msdn.microsoft.com/en-us/library/3wcytfd1.aspx) <br />
  [List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
+
+
+
+&nbsp;
+&nbsp;
+
+ <a id="content2"></a>
+ ## 3. Discussion
+
+ __Progress as a function of time__
+
+ As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
+
+ <img src="images/project_1.jpg" width="60%"/>
+
+ __SCRUM - fast iterations, always finished/never finished__
+
+ The method for managing the project was chosen to be an informal type of the Scrum method.  Using GitHub extensively we were able to at least do the fast iterations part very well. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
+
+ GitHub makes us able to work decentralized, and keeps the pace of the project at a certain speed, no matter where each team member is located. Still, it is worth mentioning that frequent meetings are needed to maintin progress speed. New issues has to be made, knowledge has to be transferred, and there is no better way than a good old fashioned meeting.
+
+
+ __The singleplayer -> multiplayer transition problem__
+
+ - Code written for single player is a intervined web of dependencies.
+ - Huge job, big risk, might be better to fork a separate repo.
+ - Multiplayer from the start, or no multiplayer.
+
+
+ __Modularity - Dependencies / References__
+
+ As the project grows it becomes more and more important that
+
+
+ __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klarte å implementere!__
+
+
+ __Cross platform multiplayer multicontroller is not easy!__
+
+ blablblablalbal
+
+
+ __Things we wish we knew about from the very start__
+
+ - RequireComponent
+ - Active use of Prefabs
+ - Git.
+ - Lists
+ - Static members
