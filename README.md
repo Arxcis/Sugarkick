@@ -417,13 +417,16 @@ __Misc__
 &nbsp;
 &nbsp;
 
- <a id="content2"></a>
+<a id="content2"></a>
 [TOC](#content)
 
- ## 6. Discussion
+
+## 6. Discussion
+
 
 <a id="content6a"></a>
- __Progress  VS  Project size__
+
+### Progress  VS  Project size
 
  As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reason for this is that all the game-systems are interconnected, and if you change one part of the game, it will affect more and more parts of the rest of the game, as the game grows.
 
@@ -437,7 +440,8 @@ __Misc__
 
 &nbsp;
 <a id="content6b"></a>
- __SCRUM - fast iterations, always finished/never finished__
+
+### SCRUM - fast iterations, always finished/never finished
 
  The method for managing the project was chosen to be an informal type of the Scrum method.  Using Git and GitHub extensively we were able to always have a working prototype available. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
 
@@ -453,7 +457,8 @@ __Misc__
 
 &nbsp;
 <a id="content6c"></a>
- __The singleplayer -> multiplayer transition problem__
+
+### The singleplayer -> multiplayer transition problem
 
  Multiplayer support was always a big priority for us, maybe the next-most important feature after the recoil-mechanic. Our tactic was to make it work for single player first, and then just scale to more players. Half-way into our project, the single-player paradigm had infected our entire code-base with unscalable code. Everything was hard-coded to talk to a single global entity. “The Player”.
 
@@ -469,14 +474,16 @@ __Misc__
 
 &nbsp;
 <a id="content6d"></a>
- __Modularity - Ensuring that game systems can be moved around without breaking__
+
+### Modularity - Ensuring that game systems can be moved around without breaking
 
 Why is 90% the errors and bugs related to dependency-issues, and very few are programming-issues? Most of the programming issues are ironed out before run-time. Dependency issues are only discovered at some point during run-time. One developer might play the whole game without finding errors. Thinking everything is fine, he then pushes his branch to master. Suddenly all other developers has a bunch of errors, because they play the game in a different way, in different scenes, with different settings.
 
 
 &nbsp;
 <a id="content6e"></a>
- __How much of the GDD was implemented?__
+
+### How much of the GDD was implemented?
 
 For a complete list of all that we implemented, see asset list.
 Here are some honorable mentions:
@@ -520,8 +527,8 @@ The sound effects are carefully made to express in a way the old-fashion sound e
 
 &nbsp;
 <a id="content6f"></a>
-__How much of the GDD was not implemented?__
 
+### How much of the GDD was not implemented?
 
 What most of these features have in common is that they would not make much sense if more basic features of the game was not implemented first.
 
@@ -561,7 +568,8 @@ The story was meant to be told through an opening cartoon or other media
 
 &nbsp;
 <a id="content6g"></a>
- __Cross platform multiplayer multicontroller is not easy!__
+
+### Cross platform multiplayer multicontroller is not easy!
 
  In the Unity’s input manager, each input device has to have separate axes manually assigned. We went for setting up a maximum of 6 input devices, and 5 axes each device that makes 30 axes for in-game player actions. We also had 8 universal input axes for navigation the menus, 38 in total. This was tedious work set up and to make it right.
 
@@ -574,7 +582,8 @@ The story was meant to be told through an opening cartoon or other media
 
 &nbsp;
 <a id="content6h"></a>
- __Some things we wish we knew about in Unity/C-sharp from the start__
+
+### Some things we wish we knew about in Unity/C-sharp from the start
 
 
 ___Unity’s built in events system___
@@ -605,7 +614,7 @@ Being able to get and set values, run functions from anywhere in the code proves
 
 &nbsp;
 <a id="content6i"></a>
-__Things we wish we knew about in Git from the start__
+### Things we wish we knew about in Git from the start
 
 
 ___Git reset --hard___
@@ -625,7 +634,8 @@ This would make the easier to update the issue list and keep track of what neede
 
 &nbsp;
 <a id="content6j"></a>
-__Unity + Git = Works surprisingly well, but….__
+
+### Unity + Git = Works surprisingly well, but…
 
 
 ..make sure the .gitignore is properly set up.
@@ -654,9 +664,10 @@ Assets/Scenes
 Scenes were the #1 cause of conflicts. They are huge YAML files, which Unity automagically adds and subtracts large amount of code, even with tiny changes to the scenes. If these were ignored, they could be shared with other tools instead - GDrive and Discord for instance.
 
 &nbsp;
-
-__Meta documentation__
 <a id="content6k"></a>
+
+### Meta documentation
+
 As we progressed in the development, our code slowly grew and got bigger and debatably better, our documentation in the form of README and comments progressively grew alongside it.
 
 
