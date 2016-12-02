@@ -12,9 +12,8 @@ Johannes Gabriel Aas  <br/>
 Eldar Hauge Torkelsen <br />
 Ricardo Gonzalez Q.   <br />
 
-[Table of Contents](#content)
 <a id="content"></a>
-## Contents
+## Table of Contents
 
 1. [Changelog - Iterations](#content1)
 2. [InputManagers](#content0)
@@ -22,6 +21,17 @@ Ricardo Gonzalez Q.   <br />
 4. [Git reference](#content4)
 5. [Unity reference](#content5)
 6. [Discussion](#content2)
+  1. [Progress  VS  Project size](#content6a)
+  2. [SCRUM - fast iterations, always finished/never finished](#content6b)
+  3. [The singleplayer -> multiplayer transition problem](#content6c)
+  4. [Modularity - Ensuring that game systems can be moved around without breaking](#content6d)
+  5. [How much of the GDD was implemented?](#content6e)
+  6. [How much of the GDD was not implemented?](#content6f)
+  7. [Cross platform multiplayer multicontroller is not easy!](#content6g)
+  8. [Some things we wish we knew about in Unity/C-sharp from the start](#content6h)
+  9. [Things we wish we knew about in Git from the start](#content6i)
+  10. [Unity + Git = Works surprisingly well, but…](#content6j)
+  11. [Meta documentation](#content6k)
 
 
 
@@ -129,10 +139,12 @@ Ricardo Gonzalez Q.   <br />
 - A single enemy that chases the player.
 - Octagon, Hexagon, Square and Triangle levels created.
 
-[TOC](#content)
+
 
 &nbsp;
+&nbsp;
 
+[TOC](#content)
 
 <a id="content0"></a>
 ## 2. InputManagers - OS specific
@@ -143,13 +155,13 @@ with one of these files.
 <a href="config/InputManager_macSierra.asset" target="´`_`blank"> Input - macSierra</a> <br />
 <a href="config/InputManager_win10.asset" target="`_`blank">     Input - Windows10 </a>
 
-[TOC](#content)
 
+&nbsp;
 &nbsp;
 
 
-
 <a id="content3"></a>
+[TOC](#content)
 ## 3. Homegrown assets
 _Last updated: 02.12.2016_
 We have tried to make all our assets in-house. Here is a list of what me made thus far.
@@ -238,11 +250,12 @@ These can be found in the GitHub-repo Asssets/Sounds or Sprites or via the Googl
 - SpawnEnemies.cs
 - Spawner.cs
 
-[TOC](#content)
+
 &nbsp;
 &nbsp;
 
 <a id="content4"></a>
+[TOC](#content)
 ## 4. Git reference
 
 The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
@@ -307,11 +320,13 @@ __Patching__
 
 
 
-[TOC](#content)
+
 &nbsp;
 &nbsp;
 
 <a id="content5"></a>
+
+[TOC](#content)
 ## 5. Unity reference
 
 References to most of the Unity's standard library assets that are used in this project
@@ -397,14 +412,17 @@ __Misc__
 >[List.add()](https://msdn.microsoft.com/en-us/library/3wcytfd1.aspx) <br />
  [List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
 
-[TOC](#content)
+
 
 &nbsp;
 &nbsp;
 
  <a id="content2"></a>
+[TOC](#content)
+
  ## 6. Discussion
 
+<a id="content6a"></a>
  __Progress  VS  Project size__
 
  As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reason for this is that all the game-systems are interconnected, and if you change one part of the game, it will affect more and more parts of the rest of the game, as the game grows.
@@ -418,7 +436,7 @@ __Misc__
  <img src="images/project_1.jpg" width="60%"/>
 
 &nbsp;
-
+<a id="content6b"></a>
  __SCRUM - fast iterations, always finished/never finished__
 
  The method for managing the project was chosen to be an informal type of the Scrum method.  Using Git and GitHub extensively we were able to always have a working prototype available. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
@@ -434,7 +452,7 @@ __Misc__
 
 
 &nbsp;
-
+<a id="content6c"></a>
  __The singleplayer -> multiplayer transition problem__
 
  Multiplayer support was always a big priority for us, maybe the next-most important feature after the recoil-mechanic. Our tactic was to make it work for single player first, and then just scale to more players. Half-way into our project, the single-player paradigm had infected our entire code-base with unscalable code. Everything was hard-coded to talk to a single global entity. “The Player”.
@@ -450,14 +468,14 @@ __Misc__
 
 
 &nbsp;
-
+<a id="content6d"></a>
  __Modularity - Ensuring that game systems can be moved around without breaking__
 
 Why is 90% the errors and bugs related to dependency-issues, and very few are programming-issues? Most of the programming issues are ironed out before run-time. Dependency issues are only discovered at some point during run-time. One developer might play the whole game without finding errors. Thinking everything is fine, he then pushes his branch to master. Suddenly all other developers has a bunch of errors, because they play the game in a different way, in different scenes, with different settings.
 
 
 &nbsp;
-
+<a id="content6e"></a>
  __How much of the GDD was implemented?__
 
 For a complete list of all that we implemented, see asset list.
@@ -501,7 +519,7 @@ The music at the game itself  is more intense and stressful. However, the idea i
 The sound effects are carefully made to express in a way the old-fashion sound effects, but in this case with a bit of echoes and and reverse that give the effects a kind of refresh. The idea was anyway to keep the sounds and effects as simple as possible. In fact some of them were remasterized to make them simpler.  
 
 &nbsp;
-
+<a id="content6f"></a>
 __How much of the GDD was not implemented?__
 
 
@@ -542,7 +560,7 @@ The story was meant to be told through an opening cartoon or other media
 
 
 &nbsp;
-
+<a id="content6g"></a>
  __Cross platform multiplayer multicontroller is not easy!__
 
  In the Unity’s input manager, each input device has to have separate axes manually assigned. We went for setting up a maximum of 6 input devices, and 5 axes each device that makes 30 axes for in-game player actions. We also had 8 universal input axes for navigation the menus, 38 in total. This was tedious work set up and to make it right.
@@ -555,7 +573,7 @@ The story was meant to be told through an opening cartoon or other media
 
 
 &nbsp;
-
+<a id="content6h"></a>
  __Some things we wish we knew about in Unity/C-sharp from the start__
 
 
@@ -586,7 +604,7 @@ Being able to get and set values, run functions from anywhere in the code proves
 
 
 &nbsp;
-
+<a id="content6i"></a>
 __Things we wish we knew about in Git from the start__
 
 
@@ -606,7 +624,7 @@ This would make the easier to update the issue list and keep track of what neede
 
 
 &nbsp;
-
+<a id="content6j"></a>
 __Unity + Git = Works surprisingly well, but….__
 
 
@@ -638,7 +656,7 @@ Scenes were the #1 cause of conflicts. They are huge YAML files, which Unity aut
 &nbsp;
 
 __Meta documentation__
-
+<a id="content6k"></a>
 As we progressed in the development, our code slowly grew and got bigger and debatably better, our documentation in the form of README and comments progressively grew alongside it.
 
 
