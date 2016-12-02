@@ -1,7 +1,9 @@
 
-# Assignment 4 - Experience Design
+# Sugarkick! - Assignment 4 Experience Design IMT1362 @ NTNU Gjøvik
 
-Implementation of Sugarkick with Unity Engine
+Implementation of the game Sugarkick with Unity Engine
+
+<img style="width=90%; margin: auto;" src="images/bilde2.jpg"/>
 
 __The Team - Oblig Destroyers__ <br/>
 Jonas Solsvik         <br/>
@@ -37,13 +39,13 @@ with one of these files.
 <a id="content1"></a>
 ## 2. Changelog - Iterations
 
-### Version 0.5 - not released
+### Version 0.5m
 
 *Release date:30.11.2016*
 *Cycle length: 4 days*
 
 - Player selection in main menu*
-- Gamepad selection*
+- Gamepad selection
 - Improved edge detection.
 - Many other bugfixes.
 - Obstacles
@@ -192,33 +194,59 @@ __Things we wish we knew about from the very start__
 
 <a id="content3"></a>
 ## 4. Homegrown assets
+_Last updated: 02.12.2016_
+We were motivated to make all our assets in-house. Here is a list of what me made thus far.
 
 #### Unity Prefabs
 
-- BulletDestruction
-- BulletPrefab
-- BulletParent
+- Player related
+  + BulletDestruction
+  + BulletParent
+  + BulletSeed
+  + Canon
+  + Player
+  + Rifle
+  + Spraygun
+  + WeaponDrop
+- UI related
+  + btnBack
+  + btnBLANK
+  + HUD
+  + NumUpDown
+  + PauseMenu
+  + SoundManager
+  + tckBarBLANK
+  + tgglBLANK
+  + tgglMouseAiming
+  + txtBLANK
 - Camera
+- caneObstacle
 - Edge
+- Enemy
 - Gun
 - Hole
+- Jumper
 - Particle system
 - Player
-- Spawner 1
 - Spawner 2
-- TestEnemy 1
+- Spawn Point
+- Square Map
 
 #### Unity Animations
 
 - EnemyDeath
 - EnemyFallDown
+- JumpCooldown
+- JumperDeath
+- JumperFallDown
+- JumperLand
+- JumperMidAir
+- JumperTakoff
 - PlayerFallDown
 - PlayerHurt
 - PlayerIdle
-- PlayerSprite
 - PlayerWalk
 - Sugarkick
-- TestEnemy
 - TestEnemyIdle
 - TestEnemyWalk
 - TestPlayer
@@ -226,16 +254,15 @@ __Things we wish we knew about from the very start__
 
 #### Sounds
 
-- Background music     = klar
-
-- Meny music           = klar
-- Weapon 1 sound       = klar
-- Weapon 1 smash sound = klar
-- Weapon 2 sound       = klar
-- Weapon 2 smash sound = klar
-- Press button sound   = klar
-- Introduce sound      = klar ( når spilleren hopper fra menyen og inn i spillet )
-- Walking sound        = klar
+- Background music
+- Meny music           
+- Weapon 1 sound      
+- Weapon 1 smash sound
+- Weapon 2 sound      
+- Weapon 2 smash sound
+- Press button sound   
+- Introduce sound      ( når spilleren hopper fra menyen og inn i spillet )
+- Walking sound        
 
 #### Sprites
 
@@ -249,10 +276,12 @@ __Things we wish we knew about from the very start__
 
 #### Unity Components (Classes)
 
-- Actions.cs
-- Background.cs
+- BackgroundRotation.cs
 - CameraScript.cs
+- GunPickupScript.cs
+- GunScript.cs
 - HoleCamera.cs
+- InputActions.cs
 - Main.cs
 - Menu.cs
 - MoveEnemy.cs
@@ -262,6 +291,7 @@ __Things we wish we knew about from the very start__
 - PuppetManip.cs
 - SoundManager.cs
 - SpawnControl.cs
+- SpawnEnemies.cs
 - Spawner.cs
 
 
@@ -397,6 +427,8 @@ __Classes__ <br />
  [Component.GetComponent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponent.html) <br/>
  [Component.GetComponentInParent&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInParent.html) <br />
  [Component.GetComponentInChildren&lt;ComponentName&gt;() -> Component](https://docs.unity3d.com/ScriptReference/Component.GetComponentInChildren.html) <br />
+ [Collider.OnTriggerEnter2D](https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html) <br />
+ [Collider.OnTriggerExit2D](https://docs.unity3d.com/ScriptReference/Collider.OnTriggerExit.html) <br />
  [Object.Destroy(Object)](https://docs.unity3d.com/ScriptReference/Object.Destroy.html) <br/>
  [Object.DontDestroyOnLoad(Object)](https://docs.unity3d.com/ScriptReference/Object.DontDestroyOnLoad.html) <br/>
  [Object.Instantiate(Object original) -> Object](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) <br />
