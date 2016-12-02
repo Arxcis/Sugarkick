@@ -12,7 +12,8 @@ Johannes Gabriel Aas  <br/>
 Eldar Hauge Torkelsen <br />
 Ricardo Gonzalez Q.   <br />
 
-
+[Table of Contents](#content)
+<a id="content"></a>
 ## Contents
 
 1. [Changelog - Iterations](#content1)
@@ -27,9 +28,9 @@ Ricardo Gonzalez Q.   <br />
 &nbsp;
 
 <a id="content1"></a>
-## 2. Changelog - Iterations
+## 1. Changelog - Iterations
 
-### Version 0.5m
+### Version 0.5
 
 *Release date:30.11.2016*
 *Cycle length: 4 days*
@@ -128,14 +129,13 @@ Ricardo Gonzalez Q.   <br />
 - A single enemy that chases the player.
 - Octagon, Hexagon, Square and Triangle levels created.
 
-&nbsp;
-&nbsp;
-
+[TOC](#content)
 
 &nbsp;
+
 
 <a id="content0"></a>
-## 1. InputManagers - OS specific
+## 2. InputManagers - OS specific
 
 To make input work for gamepad controllers on your platform, replace the 'ProjectSettings/InputManager.asset'-file
 with one of these files.
@@ -143,15 +143,16 @@ with one of these files.
 <a href="config/InputManager_macSierra.asset" target="´`_`blank"> Input - macSierra</a> <br />
 <a href="config/InputManager_win10.asset" target="`_`blank">     Input - Windows10 </a>
 
+[TOC](#content)
 
 &nbsp;
 
 
 
 <a id="content3"></a>
-## 4. Homegrown assets
+## 3. Homegrown assets
 _Last updated: 02.12.2016_
-We were motivated to make all our assets in-house. Here is a list of what me made thus far.
+We have tried to make all our assets in-house. Here is a list of what me made thus far.
 
 #### Unity Prefabs
 
@@ -208,26 +209,13 @@ We were motivated to make all our assets in-house. Here is a list of what me mad
 - TestPlayer
 
 
-#### Sounds
+#### Sounds and sprites
 
-- Background music
-- Meny music           
-- Weapon 1 sound      
-- Weapon 1 smash sound
-- Weapon 2 sound      
-- Weapon 2 smash sound
-- Press button sound   
-- Introduce sound      ( når spilleren hopper fra menyen og inn i spillet )
-- Walking sound        
+These can be found in the GitHub-repo Asssets/Sounds or Sprites or via the Google Drive links provided here
 
-#### Sprites
+[Sound showcase](https://drive.google.com/drive/folders/0B1TL18woDGl5OVpLaXJ4dmtRWXM?usp=sharing)
 
-- 2gon, 3gon, 4gon, 6gon, 8gon
-- Gun
-- Hole
-- Main char front
-- Main char back
-- Player test sheet
+[Sprite showcase](https://drive.google.com/drive/folders/0B1TL18woDGl5Sk5yU3p0UDBrUjA?usp=sharing)
 
 
 #### Unity Components (Classes)
@@ -250,12 +238,12 @@ We were motivated to make all our assets in-house. Here is a list of what me mad
 - SpawnEnemies.cs
 - Spawner.cs
 
-
+[TOC](#content)
 &nbsp;
 &nbsp;
 
 <a id="content4"></a>
-## 5. Git reference
+## 4. Git reference
 
 The group was motivated to use Git extensively from the start. 4/5 members contributed actively with each their branch, making pull requests to the master branch. 3 of the members had never used Git/GitHub before. The learning curve was steep.
 Here is a reference list of the Git commands used to build this project. <br/>
@@ -319,12 +307,12 @@ __Patching__
 
 
 
-
+[TOC](#content)
 &nbsp;
 &nbsp;
 
 <a id="content5"></a>
-## 6. Unity reference
+## 5. Unity reference
 
 References to most of the Unity's standard library assets that are used in this project
 
@@ -409,51 +397,254 @@ __Misc__
 >[List.add()](https://msdn.microsoft.com/en-us/library/3wcytfd1.aspx) <br />
  [List.Clear()](https://msdn.microsoft.com/en-us/library/dwb5h52a.aspx) <br/>
 
-
+[TOC](#content)
 
 &nbsp;
 &nbsp;
 
  <a id="content2"></a>
- ## 3. Discussion
+ ## 6. Discussion
 
- __Progress as a function of time__
+ __Progress  VS  Project size__
 
- As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reson for this is that all the game-systems are interconnected, and if you change one part of the game, it will effect more and more parts of the rest of the game, as the game grows. This concept is illustrated on the whiteboard below:
+ As the project grew bigger we started to notice that more work had to be done just to maintain the project. Also the amount of work that had to be done to add new features became harder and harder. The main reason for this is that all the game-systems are interconnected, and if you change one part of the game, it will affect more and more parts of the rest of the game, as the game grows.
+
+
+ Suggestion to future self: Maybe the project can be managed in such a way that different systems of the game are developed independently. Why would you want to do this? If one system is struggling to progress forward, it would not prevent other systems progressing forward in a major way.
+
+
+ This way of managing a project requires a great insight in how game systems are put together. One pitfall that could happen is if you split a system into two prematurely, meaning that they are so interconnected that you gain nothing from separating them. You can actually end up in a worse situation.
 
  <img src="images/project_1.jpg" width="60%"/>
 
+&nbsp;
+
  __SCRUM - fast iterations, always finished/never finished__
 
- The method for managing the project was chosen to be an informal type of the Scrum method.  Using GitHub extensively we were able to at least do the fast iterations part very well. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
+ The method for managing the project was chosen to be an informal type of the Scrum method.  Using Git and GitHub extensively we were able to always have a working prototype available. GitHubs issue tracking system is also excellent for this way of project management. If implemented well into the project, the issue tracking system makes sure that every team member can find work to do in an easy way.
 
- GitHub makes us able to work decentralized, and keeps the pace of the project at a certain speed, no matter where each team member is located. Still, it is worth mentioning that frequent meetings are needed to maintin progress speed. New issues has to be made, knowledge has to be transferred, and there is no better way than a good old fashioned meeting.
 
+ GitHub has a integrated Scrum-board interface, which works well for tracking issues from birth to death.
+
+
+ GitHub makes us able to work decentralized, and keeps the pace of the project at a certain speed, no matter where each team member is located. Still, it is worth mentioning that frequent meetings are needed to maintain progress speed. Although group sessions are better for discussing issues, coming up with ideas, and agree on the direction and feel of the game. Working alone can be quite productive when you know what you are doing. New issues has to be made, knowledge has to be transferred, and there is no better way than a good old fashioned meeting, to catch up.
+
+
+ We initially planned on having 6 cycles/iterations of 4 days. All these cycles are described in the changelog above. An average of 5 days for each cycle is reasonable amount of time for noticing improvement between each iteration. Keeps the group moving, motivation to see the changelog filling up each day through a given cycle.
+
+
+&nbsp;
 
  __The singleplayer -> multiplayer transition problem__
 
- - Code written for single player is a intervined web of dependencies.
- - Huge job, big risk, might be better to fork a separate repo.
- - Multiplayer from the start, or no multiplayer.
+ Multiplayer support was always a big priority for us, maybe the next-most important feature after the recoil-mechanic. Our tactic was to make it work for single player first, and then just scale to more players. Half-way into our project, the single-player paradigm had infected our entire code-base with unscalable code. Everything was hard-coded to talk to a single global entity. “The Player”.
 
 
- __Modularity - Dependencies / References__
-
- As the project grows it becomes more and more important that
+ This was definitely one of the project’s many “We-should-have-considered-this-from-the-very-beginning”-moments,
 
 
- __Her kan vi diskutere litt om hva vi klarte å implementere og hva vi ikke klarte å implementere!__
+ Key lesson: Whenever you are updating a single object, you should probably think “Maybe I should have the object in a list or array, and update the object in a loop instead.” Even though it does not make sense to have a loop to just update a single object, you are making it much easier to scale the code to support more objects at a later point.
 
+
+ When changing the game from singleplayer to multiplayer we were at a tipping point in the project.  Seeing how much of the code depended on the single player, there was a big risk in changing to a multi player paradigm. None of us could foresee all the problems this could cause(and still causes). In a big stakes project, this would have been too late to take the risk.  Aside from being a big risk, it is also a big opportunity for learning. (And also a giant rabbit-hole of engineer hot-fixes in the fashion of “is there a workaround?”). Curisoity beat fear this time!
+
+
+&nbsp;
+
+ __Modularity - Ensuring that game systems can be moved around without breaking__
+
+Why is 90% the errors and bugs related to dependency-issues, and very few are programming-issues? Most of the programming issues are ironed out before run-time. Dependency issues are only discovered at some point during run-time. One developer might play the whole game without finding errors. Thinking everything is fine, he then pushes his branch to master. Suddenly all other developers has a bunch of errors, because they play the game in a different way, in different scenes, with different settings.
+
+
+&nbsp;
+
+ __How much of the GDD was implemented?__
+
+For a complete list of all that we implemented, see asset list.
+Here are some honorable mentions:
+
+
+
+___Player and gun/bullets___
+
+The player has weapons attached and the ability to both die and kill enemies. The number of players can be chosen outside the game. When the player gets hit, they get the sugarkick buff that slows down time and increase movement speed.
+
+
+___Hole in the map___
+
+
+We originally intended to use tiles as floor, and let the entire map consist of these tiles. We figured that we could use unity’s collision system to trigger the event instead of physically being able to fall down a hole. As the the topology side of things, we would not actually alter the map. Instead, we used a camera, and “target textures” to do display what the hole would look like. Allowing them to be as pretty as the background.
+
+
+___Enemies and waves___
+
+
+The enemies follow players and damage them when they collide. They spawn in waves that are affected by the number of enemies on the map or how many have gotten killed.
+Fall
+When an enemy or player exits the map or collide with a hole, they lose one life and an animation runs. The animation tries to create the illusion that the character is falling, however changing direction or being hit by an object might stop the animation or or make the animation run with the map in the background, breaking the illusion.  
+
+
+___Camera___
+
+
+The camera detects the players and zoom and moves depending on their location. It also acts as a placeholder for important functions that need to persist throughout the level.  
+
+
+___Background Music and Game Effects___
+
+The music at the menu is a circus music tone to give the player a naive and childish sensation, but at the same time this tone is made also with some deep and funeral sound effects that bring the feeling of the nightmare of the main character. The sounds are complex enough to keep the tone simple and unique.
+
+
+The music at the game itself  is more intense and stressful. However, the idea is to keep the circus tone of the menu alive and to bring a more enjoyable sound to the game. We achieve this increasing the pitch of the tone and using cleaner effects in the tone.
+
+
+The sound effects are carefully made to express in a way the old-fashion sound effects, but in this case with a bit of echoes and and reverse that give the effects a kind of refresh. The idea was anyway to keep the sounds and effects as simple as possible. In fact some of them were remasterized to make them simpler.  
+
+&nbsp;
+
+__How much of the GDD was not implemented?__
+
+
+What most of these features have in common is that they would not make much sense if more basic features of the game was not implemented first.
+
+
+___A*___
+
+At the start we implemented a basic AI that goes towards the player. This turned out to be sufficient and fit the rest of the game well. Therefore the more advanced AI got down prioritized. If we had added more obstacles and holes, then this section would have been more important.
+
+
+___Boss___
+
+After adding the basic enemies, we realised that the state of the game would not benefit much from bosses. Generating holes on runtime was the main reason behind wanting to add bosses.
+Gun sprites
+The game currently has three different types of guns and each of those have their own pickup with a colored square. The squares were meant to be changed for sprites that would indicate the type of weapon. And change character's gun sprite. This was not prioritised as it would not change the mechanics of the game, which was our focus.
+
+
+___Health indicator and buff indicator___
+
+
+Some of the HUD element did not get implemented due to time limitations and and prioritizing more important mechanics.
+
+
+___Holes generated on runtime___
+
+This was originally a major part of the design. It would require multiple cameras being generated on runtime or actual sprite destruction.
+
+
+___Line map___
+
+The line map was meant as a nice little gimmick to end the game on. As map destruction proved to be difficult and opening story sequence got scraped, this gimmick would not make sense with the intro and outro sequence missing.
+
+
+___Story elements___
+
+The story was meant to be told through an opening cartoon or other media
+
+
+&nbsp;
 
  __Cross platform multiplayer multicontroller is not easy!__
 
- blablblablalbal
+ In the Unity’s input manager, each input device has to have separate axes manually assigned. We went for setting up a maximum of 6 input devices, and 5 axes each device that makes 30 axes for in-game player actions. We also had 8 universal input axes for navigation the menus, 38 in total. This was tedious work set up and to make it right.
 
 
- __Things we wish we knew about from the very start__
+ The next problem arises when you switch between Windows and Mac. The same axis on the same controller, appears differently in Unity in different OS-es. We solved this by .gitIgnoring the InputManager.asset, and providing two  OS specific InputManager.asset files with correct xes set up. The file had to be manually copied into the right Unity folder on each machine. Adding an “installation” process to the game. Im sure the unity store could had solved this one for us, but we chose to attempt it ourselves for a greater learning opportunity, boy did we learn.
 
- - RequireComponent
- - Active use of Prefabs
- - Git.
- - Lists
- - Static members
+
+ Assigning the correct controller to the correct player is the next big issue here. We started implementing a controller/player selection system in the main menu. When the project was handed in the main menu part was working, storing information about which player had selected which controller, in which order. Due to the lack of a proper GameState object which would carry this information onto each scene, this functionality was never utilized.
+
+
+&nbsp;
+
+ __Some things we wish we knew about in Unity/C-sharp from the start__
+
+
+___Unity’s built in events system___
+
+
+When you don’t have a convenient way of telling when an event has happened, people will try to do a lot of stupid stuff to get things working. Most of the time unity has an event for the situation. Rather than building systems to check the state of the game, unity provides you with a toolbox of events like: OnDestroy, OnLoad, OnCollisionEnter and so on. Imagine having to write workarounds, or systems for all of these.
+
+
+___RequireComponent___
+
+Coding errors are often obvious and break what you are working on, but dependency errors are fickle and break things that you might not be aware of. For example; you add a script the requires another unity component, adding the script and running will give you an error If the script requires the second component, it will be added automatically.
+
+
+___Active use of Prefabs___
+
+We experienced prefabs to be the bread and butter of unity’s modular structure. The first day or two, we didn’t use them as we were working on the object that were to to become the prefabs. When we started using prefabs, we discovered how easy it was to duplicate and move an object between scenes. Although, we did cause ourselves a lot of troublesome errors by forgetting to update the prefab after changing an instance of that prefab. Given that practically all the scenes used those prefabs.
+
+
+___Lists and dictionaries___
+
+A game is a dynamic environment. Objects pop in and out of existence all the time. Since the GrunnProg course only teaches us to use C++ Arrays, which have a static size, we started out using Arrays to store many of the game’s objects. Many of these arrays had to be converted to Lists, to support a dynamic size, which is easier to work with. One might wonder if it makes any sense at all to use Arrays at all, or we should just force the use of Lists everywhere for consistency. Dictionaries also came in handy in places where you would usually need a slim 2D array.
+
+
+___Static class members___
+
+Being able to get and set values, run functions from anywhere in the code proves to be quite useful. We started off having a script instance storing all global information. This instance was attached to the camera in the scene. Meaning we had to find the camera by name and get its global script in every other script, which became pretty tiring after a while.
+
+
+&nbsp;
+
+__Things we wish we knew about in Git from the start__
+
+
+___Git reset --hard___
+
+There were a lot minor changes, such as position of main character on load that we did not need record of. For every such change there is a commit with a message equivalent to “Committing so that i can update to master”. As we learned to use reset --hard, our commit history became much cleaner.
+
+
+___Git log (for git checkout <hash>)___
+
+Not understanding the logic behind “detached head” made it difficult to fix bugs that got past the testing. Being able to instantly download and open the state of the project at an earlier commit is probably the most useful function in git I’ve discovered so far. Other than that whole repository thing of course.
+
+
+___Referencing issue by commit -m”#<number><message>”___
+
+This would make the easier to update the issue list and keep track of what needed to be done. When an issue automatically contain all the relevant commits inside the issue, making it easier to track the solution to the problem.
+
+
+&nbsp;
+
+__Unity + Git = Works surprisingly well, but….__
+
+
+..make sure the .gitignore is properly set up.
+Initially we .gitignored all Unity files except the Assets/ and ProjectSettings/ folder:
+
+>Temp/ <br/>
+Library/<br/>
+And all VisualStudio, Monodevelop and OS generated files.
+
+
+After a while we also added these files, because of them constantly changing between commits. This made our “git-flow” much easier:
+
+
+>ProjectSettings/InputManager.asset<br/>
+ProjectSettings/ProjectVersion.txt<br/>
+ProjectSettings/ProjectSettings.asset
+
+
+In hindsight we would also suggest .gitignoring
+
+
+>Most of ProjectSettings/<br/>
+Assets/Scenes
+
+
+Scenes were the #1 cause of conflicts. They are huge YAML files, which Unity automagically adds and subtracts large amount of code, even with tiny changes to the scenes. If these were ignored, they could be shared with other tools instead - GDrive and Discord for instance.
+
+&nbsp;
+
+__Meta documentation__
+
+As we progressed in the development, our code slowly grew and got bigger and debatably better, our documentation in the form of README and comments progressively grew alongside it.
+
+
+We think that the best way to get good documentation is to make sure that a good system for doing so is established from the beginning. This is to make sure that documentation is written the same way as the code is - Continously and ever evolving.  
+
+
+Looking back, we can see that there is so much potential for exploration and imrpovement in this regard.
+
+[TOC](#content)
