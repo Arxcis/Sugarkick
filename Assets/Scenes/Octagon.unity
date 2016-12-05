@@ -928,31 +928,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013324234880, guid: 035c2195e4c86490383f565b51035c7a,
-        type: 2}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 543241235}
-    - target: {fileID: 114000013324234880, guid: 035c2195e4c86490383f565b51035c7a,
-        type: 2}
-      propertyPath: pauseStartFocus
-      value: 
-      objectReference: {fileID: 543241236}
-    - target: {fileID: 114000012639209392, guid: 035c2195e4c86490383f565b51035c7a,
-        type: 2}
-      propertyPath: keyboardOn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012099212274, guid: 035c2195e4c86490383f565b51035c7a,
-        type: 2}
-      propertyPath: pauseStartFocus
-      value: 
-      objectReference: {fileID: 543241236}
     - target: {fileID: 114000012099212274, guid: 035c2195e4c86490383f565b51035c7a,
         type: 2}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 543241235}
+    - target: {fileID: 114000012099212274, guid: 035c2195e4c86490383f565b51035c7a,
+        type: 2}
+      propertyPath: pauseStartFocus
+      value: 
+      objectReference: {fileID: 543241236}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 035c2195e4c86490383f565b51035c7a, type: 2}
   m_IsPrefabParent: 0

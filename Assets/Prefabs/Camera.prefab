@@ -111,9 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411d603804db4148b265c43bdffd0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1000012822101358, guid: 7b0bd084e17b0ae40862824333599442, type: 2}
-  pauseStartFocus: {fileID: 114000011639303944, guid: 7b0bd084e17b0ae40862824333599442,
-    type: 2}
+  pauseMenu: {fileID: 0}
+  pauseStartFocus: {fileID: 0}
   ButtonClick: {fileID: 8300000, guid: 6e5c07f4692ec454daf3983f6ce960b0, type: 3}
 --- !u!114 &114000012639209392
 MonoBehaviour:
@@ -126,8 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4977f43ada6ea47b85e96fa9c597a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyboardOn: 1
-  activeDevices: 
 --- !u!114 &114000013383080112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumZoom: 15
-  zoomScaler: 0.5
+  zoomScaler: 1
   zoomExponent: 0.8
   cameraDeadzone: 3.5
   moveScaler: 0.1
