@@ -35,6 +35,7 @@ public class InputActions : MonoBehaviour {
 		"Joy2",
 		"Joy4",
 		"Keyboard"
+
 	};
 
 	public static bool keyboardOn = true;													  // On/off keyboard 1 and 2
