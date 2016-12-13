@@ -6,6 +6,8 @@ Implementation of the game Sugarkick with Unity Engine
 <img width="70%" src="images/bilde2.jpg"/>
 <br/><br/>
 ## [Download latest binaries ->](https://github.com/Arxcis/Sugarkick/releases)
+## [Watch "playthrough" of Octagon level](https://drive.google.com/file/d/0B1TL18woDGl5WThHMW1EdS1EWGc/view?usp=sharing)
+
 <br/>
 
 __The Team - Oblig Destroyers__ <br/>
